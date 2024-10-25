@@ -1,5 +1,7 @@
+import { TextFile } from 'projen';
 import { PullRequestTemplate } from 'projen/lib/github';
 import { TypeScriptProject } from 'projen/lib/typescript';
+import { getBugIssueTemplateLines } from './templates/bugIssue';
 import { getPullRequestTemplateLines } from './templates/pullRequest';
 
 export class GitHubManager {
@@ -15,6 +17,12 @@ export class GitHubManager {
   public createPullRequestTemplate(): void {
     new PullRequestTemplate(this.project.github!, {
       lines: getPullRequestTemplateLines(),
+    });
+  }
+
+  public createBugIssueTemplate(): void {
+    new TextFile(this.project, '.github/ISSUE_TEMPLATE/bug.yml', {
+      lines: getBugIssueTemplateLines(),
     });
   }
 }
