@@ -64,7 +64,7 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.github/pull_request_template.md']).toBe(expectedTemplateLines);
     });
 
-    test('Bug Report template matches expected template', (): void => {
+    test('Bug issue template matches expected template', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
@@ -95,6 +95,5 @@ describe('GitHubActionProject', (): void => {
       ].join('\n');
       expect(snapshot['.github/ISSUE_TEMPLATE/bug.yml']).toBe(expectedTemplateLines);
     });
-
   });
 });
