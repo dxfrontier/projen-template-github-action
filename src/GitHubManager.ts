@@ -2,6 +2,7 @@ import { TextFile } from 'projen';
 import { PullRequestTemplate } from 'projen/lib/github';
 import { TypeScriptProject } from 'projen/lib/typescript';
 import { getBugIssueTemplateLines } from './templates/bugIssue';
+import { getFeatureIssueTemplateLines } from './templates/featureIssue';
 import { getPullRequestTemplateLines } from './templates/pullRequest';
 
 export class GitHubManager {
@@ -28,6 +29,15 @@ export class GitHubManager {
     // refer to: https://github.com/projen/projen/pull/3648
     new TextFile(this.project, '.github/ISSUE_TEMPLATE/bug.yml', {
       lines: getBugIssueTemplateLines(),
+    });
+  }
+
+  /**
+   * Creates a feature issue template for the GitHub Action project.
+   */
+  public createFeatureIssueTemplate(): void {
+    new TextFile(this.project, '.github/ISSUE_TEMPLATE/feature.yml', {
+      lines: getFeatureIssueTemplateLines(),
     });
   }
 }
