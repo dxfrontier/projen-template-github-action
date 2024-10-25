@@ -20,5 +20,8 @@ export class GitHubActionProject extends TypeScriptProject {
 
     const ghManager: GitHubManager = new GitHubManager(this);
     ghManager.createPullRequestTemplate();
+    ghManager.createBugIssueTemplate();
+    ghManager.createFeatureIssueTemplate();
+    ghManager.createQuestionIssueTemplate();
   }
 }

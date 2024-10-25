@@ -4,6 +4,9 @@
 *.snap linguist-generated
 /.eslintrc.json linguist-generated
 /.gitattributes linguist-generated
+/.github/ISSUE_TEMPLATE/bug.yml linguist-generated
+/.github/ISSUE_TEMPLATE/feature.yml linguist-generated
+/.github/ISSUE_TEMPLATE/question.yml linguist-generated
 /.github/pull_request_template.md linguist-generated
 /.gitignore linguist-generated
 /.npmignore linguist-generated
