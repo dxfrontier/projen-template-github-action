@@ -20,6 +20,9 @@ export class GitHubManager {
     });
   }
 
+  /**
+   * Creates a bug issue template for the GitHub Action project.
+   */
   public createBugIssueTemplate(): void {
     // As of today (10/25/24) there is no api function for creating issue templage
     // refer to: https://github.com/projen/projen/pull/3648
