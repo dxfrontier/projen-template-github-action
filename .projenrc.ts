@@ -1,4 +1,6 @@
 import { javascript, typescript } from 'projen';
+import { PullRequestTemplate } from 'projen/lib/github';
+import { getPullRequestTemplateLines } from './src/templates/pullRequest';
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
   name: 'projen-template-github-action',
@@ -9,6 +11,7 @@ const project = new typescript.TypeScriptProject({
     mergify: false,
     workflows: false,
   },
+  pullRequestTemplate: false,
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
@@ -19,4 +22,9 @@ const project = new typescript.TypeScriptProject({
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
 });
+
+new PullRequestTemplate(project.github!, {
+  lines: getPullRequestTemplateLines(),
+});
+
 project.synth();
