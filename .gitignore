@@ -42,4 +42,7 @@ junit.xml
 /dist/
 !/.eslintrc.json
 !/.github/pull_request_template.md
+!/.github/ISSUE_TEMPLATE/bug.yml
+!/.github/ISSUE_TEMPLATE/feature.yml
+!/.github/ISSUE_TEMPLATE/question.yml
 !/.projenrc.ts

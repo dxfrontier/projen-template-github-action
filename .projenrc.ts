@@ -1,6 +1,6 @@
 import { javascript, typescript } from 'projen';
-import { PullRequestTemplate } from 'projen/lib/github';
-import { getPullRequestTemplateLines } from './src/templates/pullRequest';
+import { GitHubManager } from './src';
+
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
   name: 'projen-template-github-action',
@@ -23,8 +23,10 @@ const project = new typescript.TypeScriptProject({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 
-new PullRequestTemplate(project.github!, {
-  lines: getPullRequestTemplateLines(),
-});
+const ghManager: GitHubManager = new GitHubManager(project);
+ghManager.createPullRequestTemplate();
+ghManager.createBugIssueTemplate();
+ghManager.createFeatureIssueTemplate();
+ghManager.createQuestionIssueTemplate();
 
 project.synth();
