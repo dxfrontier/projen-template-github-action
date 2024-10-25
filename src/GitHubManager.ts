@@ -4,6 +4,7 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { getBugIssueTemplateLines } from './templates/bugIssue';
 import { getFeatureIssueTemplateLines } from './templates/featureIssue';
 import { getPullRequestTemplateLines } from './templates/pullRequest';
+import { getQuestionIssueTemplateLines } from './templates/questionIssue';
 
 export class GitHubManager {
   private project: TypeScriptProject;
@@ -38,6 +39,15 @@ export class GitHubManager {
   public createFeatureIssueTemplate(): void {
     new TextFile(this.project, '.github/ISSUE_TEMPLATE/feature.yml', {
       lines: getFeatureIssueTemplateLines(),
+    });
+  }
+
+  /**
+   * Creates a question issue template for the GitHub Action project.
+   */
+  public createQuestionIssueTemplate(): void {
+    new TextFile(this.project, '.github/ISSUE_TEMPLATE/question.yml', {
+      lines: getQuestionIssueTemplateLines(),
     });
   }
 }
