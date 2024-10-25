@@ -5,6 +5,11 @@ const project = new typescript.TypeScriptProject({
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
 
+  githubOptions: {
+    mergify: false,
+    workflows: false,
+  },
+
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   peerDeps: [
