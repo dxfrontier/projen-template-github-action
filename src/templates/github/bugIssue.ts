@@ -6,8 +6,8 @@ export function getBugIssueTemplateLines(): string[] {
   return [
     'name: 🐞 Bug',
     'description: File a bug/issue',
-    'title: \'[BUG] < title >\'',
-    'labels: [\'type: bug\']',
+    'title: "[BUG] < title >"',
+    'labels: ["type: bug"]',
     'body:',
     '  - type: textarea',
     '    attributes:',

@@ -75,8 +75,8 @@ describe('GitHubActionProject', (): void => {
       const expectedTemplateLines: string = [
         'name: 🐞 Bug',
         'description: File a bug/issue',
-        'title: \'[BUG] < title >\'',
-        'labels: [\'type: bug\']',
+        'title: "[BUG] < title >"',
+        'labels: ["type: bug"]',
         'body:',
         '  - type: textarea',
         '    attributes:',
