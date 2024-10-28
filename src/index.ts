@@ -1,2 +1,2 @@
 export * from './GitHubActionProject';
-export * from './GitHubManager';
+export * from './builder/GitHubBuilder';

@@ -1,15 +1,15 @@
 import { TextFile } from 'projen';
 import { PullRequestTemplate } from 'projen/lib/github';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { getBugIssueTemplateLines } from './templates/bugIssue';
-import { getFeatureIssueTemplateLines } from './templates/featureIssue';
-import { getPullRequestTemplateLines } from './templates/pullRequest';
-import { getQuestionIssueTemplateLines } from './templates/questionIssue';
+import { getBugIssueTemplateLines } from '../templates/bugIssue';
+import { getFeatureIssueTemplateLines } from '../templates/featureIssue';
+import { getPullRequestTemplateLines } from '../templates/pullRequest';
+import { getQuestionIssueTemplateLines } from '../templates/questionIssue';
 
 /**
- * Manages the creation of GitHub issue and pull request templates for the project.
+ * Sets up GitHub issue and pull request templates.
  */
-export class GitHubManager {
+export class GitHubBuilder {
   private project: TypeScriptProject;
 
   constructor(project: TypeScriptProject) {
@@ -17,7 +17,7 @@ export class GitHubManager {
   }
 
   /**
-   * Creates a pull request template for the project.
+   * Creates a pull request template for the GitHub Action project.
    */
   public createPullRequestTemplate(): void {
     new PullRequestTemplate(this.project.github!, {
@@ -26,7 +26,7 @@ export class GitHubManager {
   }
 
   /**
-   * Creates a bug issue template for the project.
+   * Creates a bug issue template for the GitHub Action project.
    */
   public createBugIssueTemplate(): void {
     // As of today (10/25/24) there is no api function for creating issue template
@@ -37,7 +37,7 @@ export class GitHubManager {
   }
 
   /**
-   * Creates a feature issue template for the project.
+   * Creates a feature issue template for the GitHub Action project.
    */
   public createFeatureIssueTemplate(): void {
     new TextFile(this.project, '.github/ISSUE_TEMPLATE/feature.yml', {
@@ -46,7 +46,7 @@ export class GitHubManager {
   }
 
   /**
-   * Creates a question issue template for the project.
+   * Creates a question issue template for the GitHub Action project.
    */
   public createQuestionIssueTemplate(): void {
     new TextFile(this.project, '.github/ISSUE_TEMPLATE/question.yml', {
