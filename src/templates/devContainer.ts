@@ -1,6 +1,14 @@
 import { DevContainerFeature } from 'projen/lib/vscode';
 
 /**
+ * Provides the docker image to be used in devcontainer.
+ * @returns relevant docker image.
+ */
+export function getDockerImage(): string {
+  return 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye';
+}
+
+/**
  * Provides the features to be installed in devcontainer.
  * @returns relevant DevContainerFeatures.
  */

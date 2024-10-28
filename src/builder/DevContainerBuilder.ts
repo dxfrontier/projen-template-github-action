@@ -1,6 +1,6 @@
 import { vscode } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { getExtensions, getFeatures } from '../templates/devContainer';
+import { getDockerImage, getExtensions, getFeatures } from '../templates/devContainer';
 
 /**
  * Sets up devcontainer configuration.
@@ -18,7 +18,7 @@ export class DevContainerBuilder {
   public createDevContainer(): void {
     new vscode.DevContainer(this.project, {
       dockerImage: {
-        image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',
+        image: getDockerImage(),
       },
       features: getFeatures(),
       vscodeExtensions: getExtensions(),
