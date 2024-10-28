@@ -4,6 +4,10 @@ import { GitHubManager } from './GitHubManager';
 
 export interface GitHubActionProjectOptions extends TypeScriptProjectOptions { }
 
+/**
+ * Represents a Projen TypeScript project configured for GitHub Actions,
+ * providing various project settings and functionalities.
+ */
 export class GitHubActionProject extends TypeScriptProject {
   constructor(options: GitHubActionProjectOptions) {
     super({
