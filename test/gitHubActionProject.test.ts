@@ -259,5 +259,25 @@ describe('GitHubActionProject', (): void => {
       ];
       expect(snapshot['.devcontainer.json'].extensions).toStrictEqual(expectedExtensions);
     });
+
+    test('Container postCreateCommand is set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedTask = {
+        name: 'installDependencies',
+        steps: [
+          { exec: 'npm install' },
+          { exec: 'npm install -g projen' },
+        ],
+      };
+      expect(snapshot['.devcontainer.json'].postCreateCommand).toBe('( npx projen installDependencies )');
+      expect(snapshot['.projen/tasks.json'].tasks).toHaveProperty('installDependencies');
+      expect(snapshot['.projen/tasks.json'].tasks.installDependencies).toMatchObject(expectedTask);
+    });
   });
 });
