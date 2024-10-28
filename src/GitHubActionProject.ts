@@ -1,5 +1,6 @@
 import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
+import { DevContainerBuilder } from './builder/DevContainerBuilder';
 import { GitHubBuilder } from './builder/GitHubBuilder';
 
 export interface GitHubActionProjectOptions extends TypeScriptProjectOptions { }
@@ -24,5 +25,8 @@ export class GitHubActionProject extends TypeScriptProject {
     ghBuilder.createBugIssueTemplate();
     ghBuilder.createFeatureIssueTemplate();
     ghBuilder.createQuestionIssueTemplate();
+
+    const dvBuilder: DevContainerBuilder = new DevContainerBuilder(this);
+    dvBuilder.createDevContainer();
   }
 }
