@@ -1,6 +1,6 @@
 /**
- * Returns the bug issue template lines.
- * @returns An array of strings representing the bug template.
+ * Provides the standard template for creating bug report issues.
+ * @returns lines of the bug issue template.
  */
 export function getBugIssueTemplateLines(): string[] {
   return [

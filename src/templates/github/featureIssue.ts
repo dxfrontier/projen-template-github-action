@@ -1,6 +1,6 @@
 /**
- * Returns the feature issue template lines.
- * @returns An array of strings representing the feature template.
+ * Provides the standard template for creating feature issues.
+ * @returns lines of the feature issue template.
  */
 export function getFeatureIssueTemplateLines(): string[] {
   return [
