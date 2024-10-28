@@ -13,7 +13,7 @@ export class DevContainerBuilder {
   }
 
   /**
-   * Creates a devcontainer setup for project.
+   * Creates a devcontainer setup for the project.
    */
   public createDevContainer(): void {
     new vscode.DevContainer(this.project, {
