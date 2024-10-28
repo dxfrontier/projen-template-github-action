@@ -1,6 +1,6 @@
 import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { GitHubManager } from './GitHubManager';
+import { GitHubBuilder } from './builder/GitHubBuilder';
 
 export interface GitHubActionProjectOptions extends TypeScriptProjectOptions { }
 
@@ -19,10 +19,10 @@ export class GitHubActionProject extends TypeScriptProject {
       pullRequestTemplate: false,
     });
 
-    const ghManager: GitHubManager = new GitHubManager(this);
-    ghManager.createPullRequestTemplate();
-    ghManager.createBugIssueTemplate();
-    ghManager.createFeatureIssueTemplate();
-    ghManager.createQuestionIssueTemplate();
+    const ghBuilder: GitHubBuilder = new GitHubBuilder(this);
+    ghBuilder.createPullRequestTemplate();
+    ghBuilder.createBugIssueTemplate();
+    ghBuilder.createFeatureIssueTemplate();
+    ghBuilder.createQuestionIssueTemplate();
   }
 }
