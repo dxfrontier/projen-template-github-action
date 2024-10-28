@@ -14,11 +14,8 @@ export class GitHubActionProject extends TypeScriptProject {
       ...options,
       packageManager: javascript.NodePackageManager.NPM,
       minNodeVersion: '20',
-      devDeps: [
-        'projen-repo@github:dxfrontier/projen-template-github-action',
-      ],
-      disableTsconfigDev: true,
       commitGenerated: false,
+
       pullRequestTemplate: false,
     });
 
