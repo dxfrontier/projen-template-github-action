@@ -1,5 +1,6 @@
 import { vscode } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
+import { getFeatures } from '../templates/devContainer';
 
 /**
  * Sets up devcontainer configuration.
@@ -16,6 +17,7 @@ export class DevContainerBuilder {
       dockerImage: {
         image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',
       },
+      features: getFeatures(),
     });
   }
 }
