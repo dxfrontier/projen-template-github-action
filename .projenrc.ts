@@ -1,5 +1,5 @@
 import { javascript, typescript } from 'projen';
-import { GitHubManager } from './src';
+import { GitHubBuilder } from './src';
 
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
@@ -23,10 +23,10 @@ const project = new typescript.TypeScriptProject({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 
-const ghManager: GitHubManager = new GitHubManager(project);
-ghManager.createPullRequestTemplate();
-ghManager.createBugIssueTemplate();
-ghManager.createFeatureIssueTemplate();
-ghManager.createQuestionIssueTemplate();
+const ghBuilder: GitHubBuilder = new GitHubBuilder(project);
+ghBuilder.createPullRequestTemplate();
+ghBuilder.createBugIssueTemplate();
+ghBuilder.createFeatureIssueTemplate();
+ghBuilder.createQuestionIssueTemplate();
 
 project.synth();
