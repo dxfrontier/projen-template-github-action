@@ -155,4 +155,17 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.github/ISSUE_TEMPLATE/question.yml']).toBe(expectedTemplateLines);
     });
   });
+
+  describe('DevContainers', (): void => {
+    test('Container image is set property', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      expect(snapshot['.devcontainer.json'].image).toBe('mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye');
+    });
+  });
 });
