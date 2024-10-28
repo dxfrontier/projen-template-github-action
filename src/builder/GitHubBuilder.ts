@@ -1,10 +1,10 @@
 import { TextFile } from 'projen';
 import { PullRequestTemplate } from 'projen/lib/github';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { getBugIssueTemplateLines } from '../templates/bugIssue';
-import { getFeatureIssueTemplateLines } from '../templates/featureIssue';
-import { getPullRequestTemplateLines } from '../templates/pullRequest';
-import { getQuestionIssueTemplateLines } from '../templates/questionIssue';
+import { getBugIssueTemplateLines } from '../templates/github/bugIssue';
+import { getFeatureIssueTemplateLines } from '../templates/github/featureIssue';
+import { getPullRequestTemplateLines } from '../templates/github/pullRequest';
+import { getQuestionIssueTemplateLines } from '../templates/github/questionIssue';
 
 /**
  * Sets up GitHub issue and pull request templates.
