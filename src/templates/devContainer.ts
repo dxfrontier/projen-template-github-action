@@ -1,5 +1,9 @@
 import { DevContainerFeature } from 'projen/lib/vscode';
 
+/**
+ * Returns the relevant devcontainer features.
+ * @returns All relevant DevContainerFeature.
+ */
 export function getFeatures(): DevContainerFeature[] {
   return [
     {
