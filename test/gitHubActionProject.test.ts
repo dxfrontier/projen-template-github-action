@@ -1,5 +1,6 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { GitHubActionProject, GitHubActionProjectOptions } from '../src';
+import { DevContainerFeature } from 'projen/lib/vscode';
 
 describe('GitHubActionProject', (): void => {
   let props: GitHubActionProjectOptions;
@@ -166,6 +167,27 @@ describe('GitHubActionProject', (): void => {
 
       // THEN
       expect(snapshot['.devcontainer.json'].image).toBe('mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye');
+    });
+
+    test('Container features are set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedFeatures: DevContainerFeature[] = [
+        {
+          name: 'ghcr.io/devcontainers-contrib/features/curl-apt-get',
+          version: 'latest',
+        },
+        {
+          name: 'ghcr.io/devcontainers/features/github-cli',
+          version: 'latest',
+        },
+      ];
+      expect(snapshot['.devcontainer.json'].features).toBe(expectedFeatures);
     });
   });
 });
