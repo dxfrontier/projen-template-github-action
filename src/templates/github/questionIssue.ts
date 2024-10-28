@@ -1,6 +1,6 @@
 /**
- * Returns the question issue template lines.
- * @returns An array of strings representing the question template.
+ * Provides the standard template for creating question issues.
+ * @returns lines of the question issue template.
  */
 export function getQuestionIssueTemplateLines(): string[] {
   return [
