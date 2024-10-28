@@ -17,7 +17,7 @@ export class GitHubBuilder {
   }
 
   /**
-   * Creates a pull request template for the GitHub Action project.
+   * Creates a pull request template for the project.
    */
   public createPullRequestTemplate(): void {
     new PullRequestTemplate(this.project.github!, {
@@ -26,7 +26,7 @@ export class GitHubBuilder {
   }
 
   /**
-   * Creates a bug issue template for the GitHub Action project.
+   * Creates a bug issue template for the project.
    */
   public createBugIssueTemplate(): void {
     // As of today (10/25/24) there is no api function for creating issue template
@@ -37,7 +37,7 @@ export class GitHubBuilder {
   }
 
   /**
-   * Creates a feature issue template for the GitHub Action project.
+   * Creates a feature issue template for the project.
    */
   public createFeatureIssueTemplate(): void {
     new TextFile(this.project, '.github/ISSUE_TEMPLATE/feature.yml', {
@@ -46,7 +46,7 @@ export class GitHubBuilder {
   }
 
   /**
-   * Creates a question issue template for the GitHub Action project.
+   * Creates a question issue template for the project.
    */
   public createQuestionIssueTemplate(): void {
     new TextFile(this.project, '.github/ISSUE_TEMPLATE/question.yml', {
