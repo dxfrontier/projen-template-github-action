@@ -157,7 +157,7 @@ describe('GitHubActionProject', (): void => {
   });
 
   describe('DevContainers', (): void => {
-    test('Container image is set property', (): void => {
+    test('Container image is set properly', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
