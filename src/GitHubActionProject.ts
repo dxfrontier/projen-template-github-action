@@ -2,6 +2,7 @@ import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { DevContainerBuilder } from './builder/DevContainerBuilder';
 import { GitHubBuilder } from './builder/GitHubBuilder';
+import { VsCodeBuilder } from './builder/VsCodeBuilder';
 
 export interface GitHubActionProjectOptions extends TypeScriptProjectOptions { }
 
@@ -28,5 +29,8 @@ export class GitHubActionProject extends TypeScriptProject {
 
     const dvBuilder: DevContainerBuilder = new DevContainerBuilder(this);
     dvBuilder.createDevContainer();
+
+    const vsBuilder: VsCodeBuilder = new VsCodeBuilder(this);
+    vsBuilder.createSettings();
   }
 }
