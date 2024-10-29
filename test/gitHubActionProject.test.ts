@@ -155,4 +155,99 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.github/ISSUE_TEMPLATE/question.yml']).toBe(expectedTemplateLines);
     });
   });
+
+  describe('DevContainers', (): void => {
+    test('Container image is set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      expect(snapshot['.devcontainer.json'].image).toBe('mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye');
+    });
+
+    test('Container features are set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedFeatures = {
+        'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
+        'ghcr.io/devcontainers/features/github-cli': 'latest',
+        'ghcr.io/devcontainers-contrib/features/projen': 'latest',
+      };
+      expect(snapshot['.devcontainer.json'].features).toStrictEqual(expectedFeatures);
+    });
+
+    test('Container VS Code extensions are set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedExtensions: string[] = [
+        'Orta.vscode-jest',
+        'firsttris.vscode-jest-runner',
+        'humao.rest-client',
+        'aaron-bond.better-comments',
+        'alefragnani.Bookmarks',
+        'alefragnani.project-manager',
+        'christian-kohler.npm-intellisense',
+        'mskelton.npm-outdated',
+        'PKief.material-icon-theme',
+        'zhuangtongfa.material-theme',
+        'GitHub.github-vscode-theme',
+        'ms-vscode-remote.remote-containers',
+        'mikestead.dotenv',
+        'usernamehw.errorlens',
+        'dbaeumer.vscode-eslint',
+        'oderwat.indent-rainbow',
+        'esbenp.prettier-vscode',
+        'YoavBls.pretty-ts-errors',
+        'streetsidesoftware.code-spell-checker',
+        'wayou.vscode-todo-highlight',
+        'mike-co.import-sorter',
+        'VisualStudioExptTeam.vscodeintellicode',
+        'redhat.vscode-yaml',
+        'DotJoshJohnson.xml',
+        'waderyan.gitblame',
+        'donjayamanne.githistory',
+        'GitHub.vscode-pull-request-github',
+        'yzhang.markdown-all-in-one',
+        'DavidAnson.vscode-markdownlint',
+        'bierner.jsdoc-markdown-highlighting',
+        'VisualStudioExptTeam.vscodeintellicode',
+        'christian-kohler.path-intellisense',
+        'AykutSarac.jsoncrack-vscode',
+        'tamasfe.even-better-toml',
+      ];
+      expect(snapshot['.devcontainer.json'].customizations.vscode.extensions).toStrictEqual(expectedExtensions);
+    });
+
+    test('Container postCreateCommand is set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedTask = {
+        name: 'install-dependencies',
+        steps: [
+          { exec: 'npm install' },
+        ],
+      };
+      expect(snapshot['.devcontainer.json'].postCreateCommand).toBe('npx projen install-dependencies');
+      expect(snapshot['.projen/tasks.json'].tasks).toHaveProperty('install-dependencies');
+      expect(snapshot['.projen/tasks.json'].tasks['install-dependencies']).toMatchObject(expectedTask);
+    });
+  });
 });

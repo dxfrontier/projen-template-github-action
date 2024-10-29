@@ -1,5 +1,6 @@
 {
   "files": [
+    ".devcontainer.json",
     ".eslintrc.json",
     ".gitattributes",
     ".github/ISSUE_TEMPLATE/bug.yml",

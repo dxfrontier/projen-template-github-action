@@ -1,5 +1,6 @@
 import { javascript, typescript } from 'projen';
 import { GitHubBuilder } from './src';
+import { DevContainerBuilder } from './src/builder/DevContainerBuilder';
 
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
@@ -28,5 +29,8 @@ ghBuilder.createPullRequestTemplate();
 ghBuilder.createBugIssueTemplate();
 ghBuilder.createFeatureIssueTemplate();
 ghBuilder.createQuestionIssueTemplate();
+
+const dvBuilder: DevContainerBuilder = new DevContainerBuilder(project);
+dvBuilder.createDevContainer();
 
 project.synth();
