@@ -177,12 +177,9 @@ describe('GitHubActionProject', (): void => {
 
       // THEN
       const expectedFeatures = {
-        'ghcr.io/devcontainers-contrib/features/curl-apt-get': {
-          version: 'latest',
-        },
-        'ghcr.io/devcontainers/features/github-cli': {
-          version: 'latest',
-        },
+        'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
+        'ghcr.io/devcontainers/features/github-cli': 'latest',
+        'ghcr.io/devcontainers-contrib/features/projen': 'latest',
       };
       expect(snapshot['.devcontainer.json'].features).toStrictEqual(expectedFeatures);
     });
@@ -231,7 +228,7 @@ describe('GitHubActionProject', (): void => {
         'AykutSarac.jsoncrack-vscode',
         'tamasfe.even-better-toml',
       ];
-      expect(snapshot['.devcontainer.json'].extensions).toStrictEqual(expectedExtensions);
+      expect(snapshot['.devcontainer.json'].customizations.vscode.extensions).toStrictEqual(expectedExtensions);
     });
 
     test('Container postCreateCommand is set properly', (): void => {
@@ -243,15 +240,14 @@ describe('GitHubActionProject', (): void => {
 
       // THEN
       const expectedTask = {
-        name: 'installDependencies',
+        name: 'install-dependencies',
         steps: [
           { exec: 'npm install' },
-          { exec: 'npm install -g projen' },
         ],
       };
-      expect(snapshot['.devcontainer.json'].postCreateCommand).toBe('( npx projen installDependencies )');
-      expect(snapshot['.projen/tasks.json'].tasks).toHaveProperty('installDependencies');
-      expect(snapshot['.projen/tasks.json'].tasks.installDependencies).toMatchObject(expectedTask);
+      expect(snapshot['.devcontainer.json'].postCreateCommand).toBe('npx projen install-dependencies');
+      expect(snapshot['.projen/tasks.json'].tasks).toHaveProperty('install-dependencies');
+      expect(snapshot['.projen/tasks.json'].tasks['install-dependencies']).toMatchObject(expectedTask);
     });
   });
 });
