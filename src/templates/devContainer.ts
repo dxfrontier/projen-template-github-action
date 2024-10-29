@@ -23,37 +23,34 @@ export const DEVCONTAINER_FEATURES: DevContainerFeature[] = [
  * Fixed VSCode extensions for the devcontainer.
  */
 export const VSCODE_EXTENSIONS: string[] = [
-  '// Terraform',
-  'HashiCorp.terraform',
-  '',
-  '// Jest',
+  // Jest
   'Orta.vscode-jest',
   'firsttris.vscode-jest-runner',
-  '',
+
   // Rest
   'humao.rest-client',
-  '',
-  '// VSCode',
+
+  // VSCode
   'aaron-bond.better-comments',
   'alefragnani.Bookmarks',
   'alefragnani.project-manager',
-  '',
-  '// NPM',
+
+  // NPM
   'christian-kohler.npm-intellisense',
   'mskelton.npm-outdated',
-  '',
-  '// Theme',
+
+  // Theme
   'PKief.material-icon-theme',
   'zhuangtongfa.material-theme',
   'GitHub.github-vscode-theme',
-  '',
-  '// Docker',
+
+  // Docker
   'ms-vscode-remote.remote-containers',
-  '',
-  '// .env',
-  'mikestead.dotenv', //DotENV
-  '',
-  '// TypeScript',
+
+  // .env
+  'mikestead.dotenv',
+
+  // TypeScript
   'usernamehw.errorlens',
   'dbaeumer.vscode-eslint',
   'oderwat.indent-rainbow',
@@ -63,22 +60,22 @@ export const VSCODE_EXTENSIONS: string[] = [
   'wayou.vscode-todo-highlight',
   'mike-co.import-sorter',
   'VisualStudioExptTeam.vscodeintellicode',
-  '',
-  '// XML & YAML',
+
+  // XML & YAML'
   'redhat.vscode-yaml',
   'DotJoshJohnson.xml',
-  '',
-  '// Git',
+
+  // Git
   'waderyan.gitblame',
   'donjayamanne.githistory',
   'GitHub.vscode-pull-request-github',
-  '',
-  '// README',
+
+  // README
   'yzhang.markdown-all-in-one',
   'DavidAnson.vscode-markdownlint',
   'bierner.jsdoc-markdown-highlighting',
-  '',
-  '// Others',
+
+  // Others
   'VisualStudioExptTeam.vscodeintellicode',
   'christian-kohler.path-intellisense',
   'AykutSarac.jsoncrack-vscode',
