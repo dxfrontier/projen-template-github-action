@@ -46,4 +46,5 @@ junit.xml
 !/.github/ISSUE_TEMPLATE/feature.yml
 !/.github/ISSUE_TEMPLATE/question.yml
 !/.devcontainer.json
+!/.vscode/settings.json
 !/.projenrc.ts

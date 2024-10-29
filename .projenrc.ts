@@ -1,6 +1,7 @@
 import { javascript, typescript } from 'projen';
 import { GitHubBuilder } from './src';
 import { DevContainerBuilder } from './src/builder/DevContainerBuilder';
+import { VsCodeBuilder } from './src/builder/VsCodeBuilder';
 
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
@@ -32,5 +33,8 @@ ghBuilder.createQuestionIssueTemplate();
 
 const dvBuilder: DevContainerBuilder = new DevContainerBuilder(project);
 dvBuilder.createDevContainer();
+
+const vsBuilder: VsCodeBuilder = new VsCodeBuilder(project);
+vsBuilder.createSettings();
 
 project.synth();
