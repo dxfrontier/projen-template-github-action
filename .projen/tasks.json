@@ -123,6 +123,14 @@
         }
       ]
     },
+    "install-dependencies": {
+      "name": "install-dependencies",
+      "steps": [
+        {
+          "exec": "npm install"
+        }
+      ]
+    },
     "install:ci": {
       "name": "install:ci",
       "description": "Install project dependencies using frozen lockfile",
