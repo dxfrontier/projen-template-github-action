@@ -1,6 +1,6 @@
 import { Task, JsonFile } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { FILE_PATH, DOCKER_IMAGE, FEATURES, VSCODE_EXTENSIONS } from '../templates/devContainer';
+import constants from '../constants/templates';
 
 /**
  * Sets up devcontainer configuration with predefined settings.
@@ -21,16 +21,16 @@ export class DevContainerBuilder {
     // As of today (10/29/24) the standard vscode.DevContainer implementation does not support
     // 'customizations.vscode.extensions' property (and this is the new required structure instead of 'extensions#)
     // we need to build the .devcontainer.json from scratch
-    new JsonFile(this.project, FILE_PATH, {
+    new JsonFile(this.project, constants.DEV_CONTAINER.FILE_PATH, {
       omitEmpty: true,
       allowComments: true,
       obj: {
-        image: DOCKER_IMAGE,
+        image: constants.DEV_CONTAINER.DOCKER_IMAGE,
         postCreateCommand: `npx projen ${task.name}`,
-        features: FEATURES,
+        features: constants.DEV_CONTAINER.FEATURES,
         customizations: {
           vscode: {
-            extensions: VSCODE_EXTENSIONS,
+            extensions: constants.DEV_CONTAINER.EXTENSIONS,
           },
         },
       },
