@@ -27,8 +27,8 @@ export class DevContainerBuilder {
   }
 
   /**
-   * Creates and returns the tasks needed for setting up the devcontainer environment.
-   * @returns An array of `Task` instances required for devcontainer setup.
+   * Creates the tasks needed for setting up the devcontainer environment.
+   * @returns The task instances required for devcontainer setup.
    */
   private getTasks(): Task[] {
     const installDependencies: Task = this.project.addTask('installDependencies');
