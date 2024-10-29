@@ -1,4 +1,9 @@
-import { DevContainerFeature } from 'projen/lib/vscode';
+import { type DevContainerFeatures } from '../types';
+
+/**
+ * File path of the devcontainer JSON file.
+ */
+export const FILE_PATH = '.devcontainer.json';
 
 /**
  * Docker image for the devcontainer.
@@ -8,16 +13,11 @@ export const DOCKER_IMAGE = 'mcr.microsoft.com/devcontainers/typescript-node:1-2
 /**
  * Fixed features for the devcontainer.
  */
-export const DEVCONTAINER_FEATURES: DevContainerFeature[] = [
-  {
-    name: 'ghcr.io/devcontainers-contrib/features/curl-apt-get',
-    version: 'latest',
-  },
-  {
-    name: 'ghcr.io/devcontainers/features/github-cli',
-    version: 'latest',
-  },
-];
+export const FEATURES: DevContainerFeatures = {
+  'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
+  'ghcr.io/devcontainers/features/github-cli': 'latest',
+  'ghcr.io/devcontainers-contrib/features/projen': 'latest',
+};
 
 /**
  * Fixed VSCode extensions for the devcontainer.

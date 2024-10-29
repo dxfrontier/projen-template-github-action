@@ -1,6 +1,6 @@
-import { Task, vscode } from 'projen';
+import { Task, JsonFile } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { DOCKER_IMAGE, DEVCONTAINER_FEATURES, VSCODE_EXTENSIONS } from '../templates/devContainer';
+import { FILE_PATH, DOCKER_IMAGE, FEATURES, VSCODE_EXTENSIONS } from '../templates/devContainer';
 
 /**
  * Sets up devcontainer configuration with predefined settings.
@@ -13,30 +13,38 @@ export class DevContainerBuilder {
   }
 
   /**
-   * Initializes the devcontainer setup for the project.
+   * Creates the devcontainer setup for the project.
    */
   public createDevContainer(): void {
-    new vscode.DevContainer(this.project, {
-      dockerImage: {
+    const task: Task = this.createInstallDependenciesTask();
+
+    // As of today (10/29/24) the standard vscode.DevContainer implementation does not support
+    // 'customizations.vscode.extensions' property (and this is the new required structure instead of 'extensions#)
+    // we need to build the .devcontainer.json from scratch
+    new JsonFile(this.project, FILE_PATH, {
+      omitEmpty: true,
+      allowComments: true,
+      obj: {
         image: DOCKER_IMAGE,
+        postCreateCommand: `npx projen ${task.name}`,
+        features: FEATURES,
+        customizations: {
+          vscode: {
+            extensions: VSCODE_EXTENSIONS,
+          },
+        },
       },
-      features: DEVCONTAINER_FEATURES,
-      vscodeExtensions: VSCODE_EXTENSIONS,
-      tasks: this.getTasks(),
     });
   }
 
   /**
-   * Creates the tasks needed for setting up the devcontainer environment.
-   * @returns The task instances required for devcontainer setup.
+   * Creates task for installing dependencies after setting up the devcontainer environment.
+   * @returns The task instance required for devcontainer setup.
    */
-  private getTasks(): Task[] {
-    const installDependencies: Task = this.project.addTask('installDependencies');
-    installDependencies.exec('npm install -g projen');
+  private createInstallDependenciesTask(): Task {
+    const installDependencies: Task = this.project.addTask('install-dependencies');
     installDependencies.prependExec('npm install');
 
-    return [
-      installDependencies,
-    ];
+    return installDependencies;
   }
 }
