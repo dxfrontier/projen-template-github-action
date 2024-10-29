@@ -155,6 +155,24 @@ const constants = {
       'tamasfe.even-better-toml',
     ],
   },
+  VS_CODE: {
+    SETTINGS: {
+      'editor.tabSize': 2,
+      'editor.stickyTabStops': true,
+      'typescript.inlayHints.parameterNames.enabled': 'all',
+      'typescript.inlayHints.enumMemberValues.enabled': true,
+      'typescript.inlayHints.variableTypes.enabled': true,
+      'typescript.inlayHints.propertyDeclarationTypes.enabled': true,
+      'javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName': false,
+      'javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName': false,
+      'typescript.inlayHints.functionLikeReturnTypes.enabled': true,
+      'typescript.inlayHints.parameterTypes.enabled': true,
+      'editor.inlayHints.fontSize': 10,
+      'editor.inlayHints.padding': true,
+      'editor.formatOnSave': true,
+      'editor.formatOnPaste': true,
+    },
+  },
 };
 
 export default constants;
