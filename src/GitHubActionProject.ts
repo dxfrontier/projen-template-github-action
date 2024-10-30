@@ -3,6 +3,7 @@ import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescri
 import { DevContainerBuilder } from './builder/DevContainerBuilder';
 import { GitHubBuilder } from './builder/GitHubBuilder';
 import { VsCodeBuilder } from './builder/VsCodeBuilder';
+import { NpmPackageBuilder } from './builder/NpmPackageBuilder';
 
 export interface GitHubActionProjectOptions extends TypeScriptProjectOptions { }
 
@@ -14,12 +15,23 @@ export class GitHubActionProject extends TypeScriptProject {
   constructor(options: GitHubActionProjectOptions) {
     super({
       ...options,
+
+      // Preset standard options
       packageManager: javascript.NodePackageManager.NPM,
       minNodeVersion: '20',
       commitGenerated: false,
 
+      // Project specific options
       pullRequestTemplate: false,
+
+      devDeps: [
+        'projen',
+        'construct',
+      ],
     });
+
+    const npmBuilder: NpmPackageBuilder = new NpmPackageBuilder(this);
+    npmBuilder.removeProjenStandardScripts();
 
     const ghBuilder: GitHubBuilder = new GitHubBuilder(this);
     ghBuilder.createPullRequestTemplate();

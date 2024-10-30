@@ -1,0 +1,18 @@
+export type ProjenStandardScript =
+  | 'bump'
+  | 'clobber'
+  | 'compile'
+  | 'default'
+  | 'eject'
+  | 'eslint'
+  | 'package'
+  | 'post-compile'
+  | 'post-upgrade'
+  | 'pre-compile'
+  | 'release'
+  | 'test'
+  | 'test:watch'
+  | 'unbump'
+  | 'upgrade'
+  | 'watch'
+  | 'projen';
