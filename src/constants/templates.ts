@@ -1,3 +1,5 @@
+import { ProjenStandardScript } from '../types/common';
+
 const constants = {
   GITHUB: {
     BUG_ISSUE_FILE_PATH: '.github/ISSUE_TEMPLATE/bug.yml',
@@ -172,6 +174,27 @@ const constants = {
       'editor.formatOnSave': true,
       'editor.formatOnPaste': true,
     },
+  },
+  NPM_PACKAGE: {
+    PROJEN_STANDARD_SCRIPTS: [
+      'bump',
+      'clobber',
+      'compile',
+      'default',
+      'eject',
+      'eslint',
+      'package',
+      'post-compile',
+      'post-upgrade',
+      'pre-compile',
+      'release',
+      'test',
+      'test:watch',
+      'unbump',
+      'upgrade',
+      'watch',
+      'projen',
+    ] as ProjenStandardScript[],
   },
 };
 
