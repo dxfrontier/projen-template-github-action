@@ -6,7 +6,7 @@ import { NpmPackageBuilder } from './builder/NpmPackageBuilder';
 import { PrettierBuilder } from './builder/PrettierBuilder';
 import { VsCodeBuilder } from './builder/VsCodeBuilder';
 
-export interface GitHubActionProjectOptions extends TypeScriptProjectOptions { }
+export interface GitHubActionProjectOptions extends TypeScriptProjectOptions {}
 
 /**
  * Represents a Projen TypeScript project configured for GitHub Actions,
@@ -24,10 +24,7 @@ export class GitHubActionProject extends TypeScriptProject {
       pullRequestTemplate: false,
       prettier: true,
 
-      devDeps: [
-        'projen',
-        'construct',
-      ],
+      devDeps: ['projen', 'construct'],
     });
 
     const npBuilder: NpmPackageBuilder = new NpmPackageBuilder(this);
