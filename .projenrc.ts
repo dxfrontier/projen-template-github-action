@@ -29,10 +29,10 @@ ghBuilder.createBugIssueTemplate();
 ghBuilder.createFeatureIssueTemplate();
 ghBuilder.createQuestionIssueTemplate();
 
-const dvBuilder: DevContainerBuilder = new DevContainerBuilder(project);
-dvBuilder.createDevContainer();
+const dcBuilder: DevContainerBuilder = new DevContainerBuilder(project);
+dcBuilder.createDevContainer();
 
-const vsBuilder: VsCodeBuilder = new VsCodeBuilder(project);
-vsBuilder.createSettings();
+const vcBuilder: VsCodeBuilder = new VsCodeBuilder(project);
+vcBuilder.createSettings();
 
 project.synth();
