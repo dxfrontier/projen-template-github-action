@@ -1,7 +1,5 @@
 import { javascript, typescript } from 'projen';
-import { GitHubBuilder } from './src';
-import { DevContainerBuilder } from './src/builder/DevContainerBuilder';
-import { VsCodeBuilder } from './src/builder/VsCodeBuilder';
+import { GitHubBuilder, DevContainerBuilder, VsCodeBuilder } from './src';
 
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
