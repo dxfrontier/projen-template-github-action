@@ -27,8 +27,8 @@ export class GitHubActionProject extends TypeScriptProject {
       ],
     });
 
-    const npmBuilder: NpmPackageBuilder = new NpmPackageBuilder(this);
-    npmBuilder.removeProjenStandardScripts();
+    const npBuilder: NpmPackageBuilder = new NpmPackageBuilder(this);
+    npBuilder.removeProjenStandardScripts();
 
     const ghBuilder: GitHubBuilder = new GitHubBuilder(this);
     ghBuilder.createPullRequestTemplate();
@@ -36,10 +36,10 @@ export class GitHubActionProject extends TypeScriptProject {
     ghBuilder.createFeatureIssueTemplate();
     ghBuilder.createQuestionIssueTemplate();
 
-    const dvBuilder: DevContainerBuilder = new DevContainerBuilder(this);
-    dvBuilder.createDevContainer();
+    const dcBuilder: DevContainerBuilder = new DevContainerBuilder(this);
+    dcBuilder.createDevContainer();
 
-    const vsBuilder: VsCodeBuilder = new VsCodeBuilder(this);
-    vsBuilder.createSettings();
+    const vcBuilder: VsCodeBuilder = new VsCodeBuilder(this);
+    vcBuilder.createSettings();
   }
 }
