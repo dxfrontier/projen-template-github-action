@@ -19,7 +19,9 @@ export class GitHubActionProject extends TypeScriptProject {
       packageManager: javascript.NodePackageManager.NPM,
       minNodeVersion: '20',
       commitGenerated: false,
+
       pullRequestTemplate: false,
+      prettier: true,
 
       devDeps: [
         'projen',
