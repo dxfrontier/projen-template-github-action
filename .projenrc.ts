@@ -12,6 +12,7 @@ const project = new typescript.TypeScriptProject({
     workflows: false,
   },
   pullRequestTemplate: false,
+  prettier: true,
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
