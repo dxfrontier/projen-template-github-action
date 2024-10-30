@@ -2,8 +2,8 @@ import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { DevContainerBuilder } from './builder/DevContainerBuilder';
 import { GitHubBuilder } from './builder/GitHubBuilder';
-import { VsCodeBuilder } from './builder/VsCodeBuilder';
 import { NpmPackageBuilder } from './builder/NpmPackageBuilder';
+import { VsCodeBuilder } from './builder/VsCodeBuilder';
 
 export interface GitHubActionProjectOptions extends TypeScriptProjectOptions { }
 
