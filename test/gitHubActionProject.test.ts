@@ -324,4 +324,43 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.vscode/settings.json']).toStrictEqual(expectedSettings);
     });
   });
+
+  describe('Prettier', (): void => {
+    test('Prettier settings are set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedSettings = {
+        overrides: [
+          {
+            files: '*.*',
+            options: {
+              semi: true,
+              trailingComma: 'all',
+              singleQuote: true,
+              printWidth: 120,
+              tabWidth: 2,
+            },
+          },
+        ],
+      };
+      expect(snapshot['.prettierrc.json']).toStrictEqual(expectedSettings);
+    });
+  });
+
+  test('Prettier npm scripts are added properly', (): void => {
+    // GIVEN
+    const project = new GitHubActionProject(props);
+
+    // WHEN
+    snapshot = synthSnapshot(project);
+
+    // THEN
+    expect(snapshot['package.json']!.scripts).toHaveProperty('format:message');
+    expect(snapshot['package.json']!.scripts).toHaveProperty('format:fix');
+  });
 });
