@@ -1,4 +1,5 @@
-import { ProjenStandardScript } from '../types/common';
+import { TrailingComma } from 'projen/lib/javascript/prettier';
+import { type ProjenStandardScript, IScripts } from '../types/common';
 
 const constants = {
   GITHUB: {
@@ -195,6 +196,28 @@ const constants = {
       'watch',
       'projen',
     ] as ProjenStandardScript[],
+  },
+  PRETTIER: {
+    SETTINGS: {
+      files: '*.*',
+      options: {
+        semi: true,
+        trailingComma: TrailingComma.ALL,
+        singleQuote: true,
+        printWidth: 120,
+        tabWidth: 2,
+      },
+    },
+    SCRIPTS: {
+      MESSAGE: {
+        NAME: 'format:message',
+        EXEC: 'echo "Prettier started ...',
+      },
+      FIX: {
+        NAME: 'format:fix',
+        EXEC: 'prettier. --write',
+      },
+    } as IScripts,
   },
 };
 

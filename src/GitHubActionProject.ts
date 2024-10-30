@@ -3,6 +3,7 @@ import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescri
 import { DevContainerBuilder } from './builder/DevContainerBuilder';
 import { GitHubBuilder } from './builder/GitHubBuilder';
 import { NpmPackageBuilder } from './builder/NpmPackageBuilder';
+import { PrettierBuilder } from './builder/PrettierBuilder';
 import { VsCodeBuilder } from './builder/VsCodeBuilder';
 
 export interface GitHubActionProjectOptions extends TypeScriptProjectOptions { }
@@ -43,5 +44,9 @@ export class GitHubActionProject extends TypeScriptProject {
 
     const vcBuilder: VsCodeBuilder = new VsCodeBuilder(this);
     vcBuilder.createSettings();
+
+    const prBuilder: PrettierBuilder = new PrettierBuilder(this);
+    prBuilder.addSettings();
+    prBuilder.addNpmScripts();
   }
 }
