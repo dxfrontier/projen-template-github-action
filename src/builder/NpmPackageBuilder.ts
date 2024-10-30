@@ -1,6 +1,6 @@
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { ProjenStandardScript } from '../types/common';
 import constants from '../constants/templates';
+import { ProjenStandardScript } from '../types/common';
 
 /**
  * Sets up the NPM package configuration with predefined settings.
