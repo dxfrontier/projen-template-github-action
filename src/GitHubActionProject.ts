@@ -16,12 +16,9 @@ export class GitHubActionProject extends TypeScriptProject {
     super({
       ...options,
 
-      // Preset standard options
       packageManager: javascript.NodePackageManager.NPM,
       minNodeVersion: '20',
       commitGenerated: false,
-
-      // Project specific options
       pullRequestTemplate: false,
 
       devDeps: [
