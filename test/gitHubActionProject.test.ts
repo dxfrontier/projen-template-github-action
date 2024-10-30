@@ -1,5 +1,6 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { GitHubActionProject, GitHubActionProjectOptions } from '../src';
+import { type ProjenStandardScript } from '../src/types/common';
 
 describe('GitHubActionProject', (): void => {
   let props: GitHubActionProjectOptions;
@@ -8,23 +9,66 @@ describe('GitHubActionProject', (): void => {
   beforeEach((): void => {
     props = {
       name: 'my-github-action',
-      defaultReleaseBranch: 'main',
+      defaultReleaseBranch: 'main', // this is needed due to https://github.com/projen/projen/pull/524
+      description: 'my-description',
+      repository: 'my-repository',
     };
 
     snapshot = [];
   });
 
-  test('Project name is set properly', (): void => {
-    // GIVEN
-    const project = new GitHubActionProject(props);
+  describe('package.json', (): void => {
+    test('Dynamic options are set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
 
-    // WHEN
-    snapshot = synthSnapshot(project);
+      // WHEN
+      snapshot = synthSnapshot(project);
 
-    // THEN
-    expect(snapshot['package.json']!.name).toBe(
-      'my-github-action',
-    );
+      // THEN
+      expect(snapshot['package.json']!.name).toBe(
+        'my-github-action',
+      );
+      expect(snapshot['package.json']!.description).toBe(
+        'my-description',
+      );
+      expect(snapshot['package.json']!.repository).toStrictEqual({
+        type: 'git',
+        url: 'my-repository',
+      });
+    });
+
+    test('Projen standard npm scripts are removed', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const keys: string[] = Object.keys(snapshot['package.json']!.scripts);
+      const scriptsToRemove: ProjenStandardScript[] = [
+        'bump',
+        'clobber',
+        'compile',
+        'default',
+        'eject',
+        'eslint',
+        'package',
+        'post-compile',
+        'post-upgrade',
+        'pre-compile',
+        'release',
+        'test',
+        'test:watch',
+        'unbump',
+        'upgrade',
+        'watch',
+        'projen',
+      ];
+      const keyFound: boolean = keys.some((key: string): boolean => scriptsToRemove.includes(key as ProjenStandardScript));
+      expect(keyFound).toBe(false);
+    });
   });
 
   describe('GitHub Template', (): void => {
