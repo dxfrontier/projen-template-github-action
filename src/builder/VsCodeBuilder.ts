@@ -12,9 +12,9 @@ export class VsCodeBuilder {
   }
 
   /**
-   * Creates the VSCode settings for the project.
+   * Adds the VSCode settings for the project.
    */
-  public createSettings(): void {
+  public addSettings(): void {
     this.project.vscode?.settings.addSettings(constants.VS_CODE.SETTINGS);
   }
 }

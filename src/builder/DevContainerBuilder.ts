@@ -16,7 +16,7 @@ export class DevContainerBuilder {
    * Creates the devcontainer setup for the project.
    */
   public createDevContainer(): void {
-    const task: Task = this.createInstallDependenciesTask();
+    const task: Task = this.addInstallDependenciesTask();
 
     // As of today (10/29/24) the standard vscode.DevContainer implementation does not support
     // 'customizations.vscode.extensions' property (and this is the new required structure instead of 'extensions#)
@@ -38,10 +38,10 @@ export class DevContainerBuilder {
   }
 
   /**
-   * Creates task for installing dependencies after setting up the devcontainer environment.
+   * Adds task for installing dependencies after setting up the devcontainer environment.
    * @returns The task instance required for devcontainer setup.
    */
-  private createInstallDependenciesTask(): Task {
+  private addInstallDependenciesTask(): Task {
     const installDependencies: Task = this.project.addTask('install-dependencies');
     installDependencies.prependExec('npm install');
 

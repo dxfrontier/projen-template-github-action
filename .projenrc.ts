@@ -31,7 +31,7 @@ const dcBuilder: DevContainerBuilder = new DevContainerBuilder(project);
 dcBuilder.createDevContainer();
 
 const vcBuilder: VsCodeBuilder = new VsCodeBuilder(project);
-vcBuilder.createSettings();
+vcBuilder.addSettings();
 
 const prBuilder: PrettierBuilder = new PrettierBuilder(project);
 prBuilder.addSettings();
