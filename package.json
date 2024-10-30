@@ -8,6 +8,8 @@
     "default": "npx projen default",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
+    "format:fix": "npx projen format:fix",
+    "format:message": "npx projen format:message",
     "install-dependencies": "npx projen install-dependencies",
     "package": "npx projen package",
     "post-compile": "npx projen post-compile",
