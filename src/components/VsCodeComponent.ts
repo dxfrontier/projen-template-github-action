@@ -2,9 +2,7 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { IProjectComponent } from '../types/component';
 
 /**
- * Configures the templates, settings and scripts for the project.
- *
- * Atm only settings are relevant for VSCode.
+ * Configures the VSCode templates, settings and npm scripts for the project.
  */
 export class VsCodeComponent implements IProjectComponent {
   private project: TypeScriptProject;
@@ -18,7 +16,14 @@ export class VsCodeComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the VSCode settings for the project.
+   * Getter retrieving the file path for the VSCode settings configuration.
+   */
+  private get settingsFilePath(): string {
+    return '.vscode/settings.json';
+  }
+
+  /**
+   * Getter retrieving the settings to be installed in VSCode.
    */
   private get settings(): Record<string, unknown> {
     return {
@@ -40,9 +45,24 @@ export class VsCodeComponent implements IProjectComponent {
   }
 
   /**
-   * Setup VsCode and add according settings to the project.
+   * Add settings to the VSCode component.
    */
   public add(): void {
     this.project.vscode?.settings.addSettings(this.settings);
+  }
+
+  /**
+   * Configures the `.gitattributes` file to treat VSCode component related files as generated code, optimizing diffs.
+   */
+  public updateGitAttributes(): void {
+    this.project.gitattributes.addAttributes(`/${this.settingsFilePath}`, 'linguist-generated');
+  }
+
+  /**
+   * Executes setup for the VSCode component.
+   */
+  public setup(): void {
+    this.add();
+    this.updateGitAttributes();
   }
 }
