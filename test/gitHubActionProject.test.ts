@@ -228,7 +228,7 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.devcontainer.json'].features).toStrictEqual(expectedFeatures);
     });
 
-    test('Container VS Code extensions are set properly', (): void => {
+    test('Container VSCode extensions are set properly', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
