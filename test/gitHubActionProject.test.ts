@@ -1,6 +1,6 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { GitHubActionProject, GitHubActionProjectOptions } from '../src';
-import { type ProjenStandardScript } from '../src/types/common';
+import { type ProjenStandardScript } from '../src/types/script';
 
 describe('GitHubActionProject', (): void => {
   let props: GitHubActionProjectOptions;
@@ -228,7 +228,7 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.devcontainer.json'].features).toStrictEqual(expectedFeatures);
     });
 
-    test('Container VS Code extensions are set properly', (): void => {
+    test('Container VSCode extensions are set properly', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
@@ -348,17 +348,17 @@ describe('GitHubActionProject', (): void => {
       };
       expect(snapshot['.prettierrc.json']).toStrictEqual(expectedSettings);
     });
-  });
 
-  test('Prettier npm scripts are added properly', (): void => {
-    // GIVEN
-    const project = new GitHubActionProject(props);
+    test('Prettier npm scripts are added properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
 
-    // WHEN
-    snapshot = synthSnapshot(project);
+      // WHEN
+      snapshot = synthSnapshot(project);
 
-    // THEN
-    expect(snapshot['package.json']!.scripts).toHaveProperty('format:message');
-    expect(snapshot['package.json']!.scripts).toHaveProperty('format:fix');
+      // THEN
+      expect(snapshot['package.json']!.scripts).toHaveProperty('format:message');
+      expect(snapshot['package.json']!.scripts).toHaveProperty('format:fix');
+    });
   });
 });
