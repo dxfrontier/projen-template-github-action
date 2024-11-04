@@ -1,12 +1,11 @@
 import { TypeScriptProject } from 'projen/lib/typescript';
+import { IProjectComponent } from '../types/component';
 import { ProjenStandardScript } from '../types/script';
 
 /**
- * Configures the NPM Package templates, settings and scripts for the project.
- *
- * Atm only scripts are relevant for NPM Package.
+ * Configures the NPM Package templates, settings and npm scripts for the project.
  */
-export class NpmPackageComponent {
+export class NpmPackageComponent implements IProjectComponent {
   private project: TypeScriptProject;
 
   /**
@@ -18,7 +17,14 @@ export class NpmPackageComponent {
   }
 
   /**
-   * Retrieves the scripts to be removed from NPM Package.
+   * Getter retrieving the file path for the NPM Package ignore configuration.
+   */
+  private get ignoreFilePath(): string {
+    return '.npmignore';
+  }
+
+  /**
+   * Getter retrieving the npm scripts to be removed from NPM Package.
    *
    * These scripts are added by Projen on project initialization
    * and are not needed in this project.
@@ -46,11 +52,25 @@ export class NpmPackageComponent {
   }
 
   /**
-   * Remove the NPM Package scripts from the project.
+   * Remove the NPM Package scripts associated with Projen NPM Package initialization.
    */
   public removeScripts(): void {
     for (const script of this.scripts) {
       this.project.removeScript(script);
     }
+  }
+  /**
+   * Configures the `.gitattributes` file to treat NPM Package component related files as generated code, optimizing diffs.
+   */
+  public updateGitAttributes(): void {
+    this.project.gitattributes.addAttributes(`/${this.ignoreFilePath}`, 'linguist-generated');
+  }
+
+  /**
+   * Executes setup for the DevContainer component.
+   */
+  public setup(): void {
+    this.removeScripts();
+    this.updateGitAttributes();
   }
 }

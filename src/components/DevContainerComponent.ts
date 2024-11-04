@@ -4,9 +4,7 @@ import { IProjectComponent } from '../types/component';
 import { Scripts } from '../types/script';
 
 /**
- * Configures the DevContainer templates, settings and scripts for the project.
- *
- * Atm only templates and scripts are relevant for DevContainer.
+ * Configures the DevContainer templates, settings and npm scripts for the project.
  */
 export class DevContainerComponent implements IProjectComponent {
   private project: TypeScriptProject;
@@ -20,21 +18,21 @@ export class DevContainerComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the DevContainer file path for the project.
+   * Getter retrieving the file path for the DevContainer configuration.
    */
   private get filePath(): string {
     return '.devcontainer.json';
   }
 
   /**
-   * Retrieves the DevContainer docker image for the project.
+   * Getter retrieving the Docker image used for the DevContainer.
    */
   private get dockerImage(): string {
     return 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye';
   }
 
   /**
-   * Retrieves the DevContainer features for the project.
+   * Getter retrieving the features to be installed in the DevContainer.
    */
   private get features(): Record<string, string> {
     return {
@@ -45,7 +43,7 @@ export class DevContainerComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the scripts associated with DevContainer commands.
+   * Getter retrieving the npm scripts used within the DevContainer environment.
    */
   private get scripts(): Scripts {
     return {
@@ -54,7 +52,7 @@ export class DevContainerComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the DevContainer VSCode Extensions
+   * Getter retrieving the VSCode extensions to be installed in the DevContainer.
    */
   private get extensions(): string[] {
     return [
@@ -119,9 +117,9 @@ export class DevContainerComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the DevContainer template for the project.
+   * Getter retrieving the template file for DevContainer creation.
    *
-   * For the postCreateCommand the first script name is used.
+   * The first script in `scripts` is used as the postCreateCommand to install dependencies upon creation.
    */
   private get template(): JsonFileOptions {
     return {
@@ -141,18 +139,34 @@ export class DevContainerComponent implements IProjectComponent {
   }
 
   /**
-   * Setup DevContainer and add according template files to the project.
+   * Add template files to the DevContainer component.
    */
   public add(): void {
     new JsonFile(this.project, this.filePath, this.template);
   }
 
   /**
-   * Adds the DevContainer scripts to the project.
+   * Add npm scripts specific to DevContainer setup within the project configuration.
    */
   public addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
       this.project.addTask(name, { exec: command });
     }
+  }
+
+  /**
+   * Configures the `.gitattributes` file to treat DevContainer component related files as generated code, optimizing diffs.
+   */
+  public updateGitAttributes(): void {
+    this.project.gitattributes.addAttributes(`/${this.filePath}`, 'linguist-generated');
+  }
+
+  /**
+   * Executes setup for the DevContainer component.
+   */
+  public setup(): void {
+    this.add();
+    this.addScripts();
+    this.updateGitAttributes();
   }
 }

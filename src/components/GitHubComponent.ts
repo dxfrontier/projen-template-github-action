@@ -4,16 +4,13 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { IProjectComponent } from '../types/component';
 
 /**
- * Configures the templates, settings and scripts for the project.
- *
- * Atm only the templates are relevant for GitHub.
- * The name GitHubComponent is chosen to avoid confusion with Projen components.
+ * Configures the GitHub templates, settings and npm scripts for the project.
  */
 export class GitHubComponent implements IProjectComponent {
   private project: TypeScriptProject;
 
   /**
-   * Initializes the GitHubComponent.
+   * Initializes the GitHub component.
    * @param project The project to configure GitHub for.
    */
   constructor(project: TypeScriptProject) {
@@ -21,28 +18,28 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the GitHub Bug issue file path for the project.
+   * Getter retrieving the file path for GitHub bug issue template.
    */
   private get bugIssueFilePath(): string {
     return '.github/ISSUE_TEMPLATE/bug.yml';
   }
 
   /**
-   * Retrieves the GitHub Feature Issue file path for the project.
+   * Getter retrieving the file path for GitHub feature issue template.
    */
   private get featureIssueFilePath(): string {
     return '.github/ISSUE_TEMPLATE/feature.yml';
   }
 
   /**
-   * Retrieves the GitHub Question Issue file path for the project.
+   * Getter retrieving the file path for GitHub question issue template.
    */
   private get questionIssueFilePath(): string {
     return '.github/ISSUE_TEMPLATE/question.yml';
   }
 
   /**
-   * Retrieves the GitHub Pull Request Template for the project.
+   * Getter retrieving pull request template for the GitHub configuration.
    */
   private get pullRequestTemplate(): string[] {
     return [
@@ -73,7 +70,7 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the GitHub Bug Issue template for the project.
+   * Getter retrieving bug issue template for the GitHub configuration.
    */
   private get bugIssueTemplate(): string[] {
     return [
@@ -100,7 +97,7 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the GitHub Feature Issue template for the project.
+   * Getter retrieving feature issue template for the GitHub configuration.
    */
   private get featureIssueTemplate(): string[] {
     return [
@@ -129,7 +126,7 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the GitHub Question Issue template for the project.
+   * Getter retrieving question issue template for the GitHub configuration.
    */
   private get questionIssueTemplate(): string[] {
     return [
@@ -149,7 +146,7 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Creates a GitHub Pull Request template for the project.
+   * Creates the template file for a GitHub pull request.
    */
   private createPullRequest(): void {
     new PullRequestTemplate(this.project.github!, {
@@ -158,7 +155,7 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Creates a GitHub Bug Issue template for the project.
+   * Creates the template file for a GitHub bug issue.
    */
   private createBugIssue(): void {
     new TextFile(this.project, this.bugIssueFilePath, {
@@ -167,7 +164,7 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Creates a GitHub Feature Issue template for the project.
+   * Creates the template file for a GitHub feature issue.
    */
   private createFeatureIssue(): void {
     new TextFile(this.project, this.featureIssueFilePath, {
@@ -176,7 +173,7 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Creates a GitHub Question Issue template for the project.
+   * Creates the template file for a GitHub question issue.
    */
   private createQuestionIssue(): void {
     new TextFile(this.project, this.questionIssueFilePath, {
@@ -185,12 +182,30 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Setup GitHub and add according template files to the project.
+   * Add template files to the GitHub component.
    */
   public add(): void {
     this.createPullRequest();
     this.createBugIssue();
     this.createFeatureIssue();
     this.createQuestionIssue();
+  }
+
+  /**
+   * Configures the `.gitattributes` file to treat GitHub component related files as generated code, optimizing diffs.
+   */
+  public updateGitAttributes(): void {
+    // Pull request template is added automatically
+    this.project.gitattributes.addAttributes(`/${this.bugIssueFilePath}`, 'linguist-generated');
+    this.project.gitattributes.addAttributes(`/${this.featureIssueFilePath}`, 'linguist-generated');
+    this.project.gitattributes.addAttributes(`/${this.questionIssueFilePath}`, 'linguist-generated');
+  }
+
+  /**
+   * Executes setup for the GitHub component.
+   */
+  public setup(): void {
+    this.add();
+    this.updateGitAttributes();
   }
 }

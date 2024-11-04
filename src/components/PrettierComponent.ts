@@ -4,10 +4,7 @@ import { IProjectComponent } from '../types/component';
 import { Scripts } from '../types/script';
 
 /**
- * Configures the templates, settings and scripts for the project.
- *
- * Atm only settings and scripts are relevant for Prettier.
- * The name PrettierComponent is chosen to avoid confusion with Projen components.
+ * Configures the templates, settings and npm scripts for the project.
  */
 export class PrettierComponent implements IProjectComponent {
   private project: TypeScriptProject;
@@ -21,7 +18,21 @@ export class PrettierComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the Prettier settings for the project.
+   * Getter retrieving the file path for the Prettier ignore configuration.
+   */
+  private get ignoreFilePath(): string {
+    return '.prettierignore';
+  }
+
+  /**
+   * Getter retrieving the file path for the Prettier settings configuration.
+   */
+  private get settingsFilePath(): string {
+    return '.prettierrc.json';
+  }
+
+  /**
+   * Getter retrieving settings for the Prettier configuration.
    */
   private get settings(): PrettierOverride {
     return {
@@ -37,7 +48,7 @@ export class PrettierComponent implements IProjectComponent {
   }
 
   /**
-   * Retrieves the scripts associated with Prettier commands.
+   *  Getter retrieving the npm scripts used by Prettier.
    */
   private get scripts(): Scripts {
     return {
@@ -47,18 +58,35 @@ export class PrettierComponent implements IProjectComponent {
   }
 
   /**
-   * Setup Prettier and add according settings to the project.
+   * Add settings to the DevContainer component.
    */
   public add(): void {
     this.project.prettier?.addOverride(this.settings);
   }
 
   /**
-   * Adds the Prettier scripts to the project.
+   * Add npm scripts specific to Prettier setup within the project configuration.
    */
   public addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
       this.project.addTask(name, { exec: command });
     }
+  }
+
+  /**
+   * Configures the `.gitattributes` file to treat Prettier component related files as generated code, optimizing diffs.
+   */
+  public updateGitAttributes(): void {
+    this.project.gitattributes.addAttributes(`/${this.ignoreFilePath}`, 'linguist-generated');
+    this.project.gitattributes.addAttributes(`/${this.settingsFilePath}`, 'linguist-generated');
+  }
+
+  /**
+   * Executes setup for the Prettier component.
+   */
+  public setup(): void {
+    this.add();
+    this.addScripts();
+    this.updateGitAttributes();
   }
 }

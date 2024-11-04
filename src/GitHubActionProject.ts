@@ -1,11 +1,11 @@
 import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
 import {
-  DevContainerComponent,
   NpmPackageComponent,
-  PrettierComponent,
+  DevContainerComponent,
   VsCodeComponent,
   GitHubComponent,
+  PrettierComponent,
 } from './components';
 import { IProjectComponent } from './types/component';
 
@@ -33,20 +33,16 @@ export class GitHubActionProject extends TypeScriptProject {
       devDeps: ['projen', 'construct'],
     });
 
-    // Initialize NPM Package
-    const npmComponent: NpmPackageComponent = new NpmPackageComponent(this);
-    npmComponent.removeScripts();
-
     // Initialize project configuration
     const components: IProjectComponent[] = [
+      new NpmPackageComponent(this),
       new DevContainerComponent(this),
       new VsCodeComponent(this),
-      new PrettierComponent(this),
       new GitHubComponent(this),
+      new PrettierComponent(this),
     ];
     components.forEach((component: IProjectComponent): void => {
-      component.add?.();
-      component.addScripts?.();
+      component.setup();
     });
   }
 }

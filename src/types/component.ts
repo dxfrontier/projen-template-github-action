@@ -4,4 +4,6 @@
 export interface IProjectComponent {
   add?(): void;
   addScripts?(): void;
+  updateGitAttributes?(): void;
+  setup(): void;
 }
