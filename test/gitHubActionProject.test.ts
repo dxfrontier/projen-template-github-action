@@ -17,8 +17,8 @@ describe('GitHubActionProject', (): void => {
     snapshot = [];
   });
 
-  describe('package.json', (): void => {
-    test('Dynamic options are set properly', (): void => {
+  describe('NPM Package', (): void => {
+    test('Dynamic options in package.json are set properly', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
@@ -34,7 +34,7 @@ describe('GitHubActionProject', (): void => {
       });
     });
 
-    test('Projen standard npm scripts are removed', (): void => {
+    test('Projen standard npm scripts are removed from package.json', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
