@@ -348,17 +348,17 @@ describe('GitHubActionProject', (): void => {
       };
       expect(snapshot['.prettierrc.json']).toStrictEqual(expectedSettings);
     });
-  });
 
-  test('Prettier npm scripts are added properly', (): void => {
-    // GIVEN
-    const project = new GitHubActionProject(props);
+    test('Prettier npm scripts are added properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
 
-    // WHEN
-    snapshot = synthSnapshot(project);
+      // WHEN
+      snapshot = synthSnapshot(project);
 
-    // THEN
-    expect(snapshot['package.json']!.scripts).toHaveProperty('format:message');
-    expect(snapshot['package.json']!.scripts).toHaveProperty('format:fix');
+      // THEN
+      expect(snapshot['package.json']!.scripts).toHaveProperty('format:message');
+      expect(snapshot['package.json']!.scripts).toHaveProperty('format:fix');
+    });
   });
 });
