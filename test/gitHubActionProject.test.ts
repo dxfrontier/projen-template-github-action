@@ -1,6 +1,6 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { GitHubActionProject, GitHubActionProjectOptions } from '../src';
-import { type ProjenStandardScript } from '../src/types/common';
+import { type ProjenStandardScript } from '../src/types/script';
 
 describe('GitHubActionProject', (): void => {
   let props: GitHubActionProjectOptions;

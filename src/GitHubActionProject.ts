@@ -1,16 +1,17 @@
 import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { DevContainerBuilder } from './builder/DevContainerBuilder';
-import { GitHubBuilder } from './builder/GitHubBuilder';
-import { NpmPackageBuilder } from './builder/NpmPackageBuilder';
-import { PrettierBuilder } from './builder/PrettierBuilder';
-import { VsCodeBuilder } from './builder/VsCodeBuilder';
+import { DevContainerComponent, NpmPackageComponent, PrettierComponent, VsCodeComponent } from './components';
+import { GitHubComponent } from './components/GitHubComponent';
+import { IProjectComponent } from './types/component';
 
+// Have to disable the prettier rule here for the { }
+// otherwise we have a conflict between prettier and linter.
+// eslint-disable-next-line prettier/prettier
 export interface GitHubActionProjectOptions extends TypeScriptProjectOptions { }
 
 /**
  * Represents a Projen TypeScript project configured for GitHub Actions,
- * providing various project settings and functionalities.
+ * providing various project templates and settings.
  */
 export class GitHubActionProject extends TypeScriptProject {
   constructor(options: GitHubActionProjectOptions) {
@@ -27,23 +28,20 @@ export class GitHubActionProject extends TypeScriptProject {
       devDeps: ['projen', 'construct'],
     });
 
-    const npBuilder: NpmPackageBuilder = new NpmPackageBuilder(this);
-    npBuilder.removeProjenStandardScripts();
+    // Initialize NPM Package
+    const npmComponent: NpmPackageComponent = new NpmPackageComponent(this);
+    npmComponent.removeScripts();
 
-    const ghBuilder: GitHubBuilder = new GitHubBuilder(this);
-    ghBuilder.createPullRequestTemplate();
-    ghBuilder.createBugIssueTemplate();
-    ghBuilder.createFeatureIssueTemplate();
-    ghBuilder.createQuestionIssueTemplate();
-
-    const dcBuilder: DevContainerBuilder = new DevContainerBuilder(this);
-    dcBuilder.createDevContainer();
-
-    const vcBuilder: VsCodeBuilder = new VsCodeBuilder(this);
-    vcBuilder.addSettings();
-
-    const prBuilder: PrettierBuilder = new PrettierBuilder(this);
-    prBuilder.addSettings();
-    prBuilder.addNpmScripts();
+    // Initialize project configuration
+    const components: IProjectComponent[] = [
+      new DevContainerComponent(this),
+      new VsCodeComponent(this),
+      new PrettierComponent(this),
+      new GitHubComponent(this),
+    ];
+    components.forEach((component: IProjectComponent): void => {
+      component.add?.();
+      component.addScripts?.();
+    });
   }
 }
