@@ -1,5 +1,12 @@
 import { javascript, typescript } from 'projen';
-import { GitHubBuilder, DevContainerBuilder, VsCodeBuilder, PrettierBuilder } from './src';
+import {
+  DevContainerComponent,
+  GitHubComponent,
+  // NpmPackageComponent,
+  PrettierComponent,
+  VsCodeComponent,
+} from './src/components';
+import { IProjectComponent } from './src/types/component';
 
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
@@ -21,20 +28,21 @@ const project = new typescript.TypeScriptProject({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 
-const ghBuilder: GitHubBuilder = new GitHubBuilder(project);
-ghBuilder.createPullRequestTemplate();
-ghBuilder.createBugIssueTemplate();
-ghBuilder.createFeatureIssueTemplate();
-ghBuilder.createQuestionIssueTemplate();
+// Not sure if we need this here.
+// Initialize NPM Package
+// const npmComponent: NpmPackageComponent = new NpmPackageComponent(project);
+// npmComponent.removeScripts();
 
-const dcBuilder: DevContainerBuilder = new DevContainerBuilder(project);
-dcBuilder.createDevContainer();
-
-const vcBuilder: VsCodeBuilder = new VsCodeBuilder(project);
-vcBuilder.addSettings();
-
-const prBuilder: PrettierBuilder = new PrettierBuilder(project);
-prBuilder.addSettings();
-prBuilder.addNpmScripts();
+// Initialize project configuration
+const components: IProjectComponent[] = [
+  new DevContainerComponent(project),
+  new VsCodeComponent(project),
+  new PrettierComponent(project),
+  new GitHubComponent(project),
+];
+components.forEach((component: IProjectComponent): void => {
+  component.add?.();
+  component.addScripts?.();
+});
 
 project.synth();

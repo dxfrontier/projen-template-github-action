@@ -126,7 +126,7 @@
       "name": "format:message",
       "steps": [
         {
-          "exec": "echo \"Prettier started ..."
+          "exec": "echo \"Prettier started ...\""
         }
       ]
     },
