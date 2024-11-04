@@ -28,21 +28,16 @@ const project = new typescript.TypeScriptProject({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 
-// Not sure if we need this here.
-// Initialize NPM Package
-// const npmComponent: NpmPackageComponent = new NpmPackageComponent(project);
-// npmComponent.removeScripts();
-
 // Initialize project configuration
 const components: IProjectComponent[] = [
+  // new NpmPackageComponent(project),
   new DevContainerComponent(project),
   new VsCodeComponent(project),
-  new PrettierComponent(project),
   new GitHubComponent(project),
+  new PrettierComponent(project),
 ];
 components.forEach((component: IProjectComponent): void => {
-  component.add?.();
-  component.addScripts?.();
+  component.setup();
 });
 
 project.synth();
