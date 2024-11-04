@@ -1,7 +1,12 @@
 import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { DevContainerComponent, NpmPackageComponent, PrettierComponent, VsCodeComponent } from './components';
-import { GitHubComponent } from './components/GitHubComponent';
+import {
+  DevContainerComponent,
+  NpmPackageComponent,
+  PrettierComponent,
+  VsCodeComponent,
+  GitHubComponent,
+} from './components';
 import { IProjectComponent } from './types/component';
 
 // Have to disable the prettier rule here for the { }
