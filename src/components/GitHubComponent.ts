@@ -1,7 +1,8 @@
 import { TextFile } from 'projen';
-import { PullRequestTemplate } from 'projen/lib/github';
+import { GithubWorkflow, PullRequestTemplate } from 'projen/lib/github';
 import { TypeScriptProject } from 'projen/lib/typescript';
 import { IProjectComponent } from '../types/component';
+import { Job, JobPermission } from 'projen/lib/github/workflows-model';
 
 /**
  * Configures the GitHub templates, settings and npm scripts for the project.
@@ -182,6 +183,83 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
+   * Creates the template file for a GitHub release workflow.
+   */
+  private createReleaseWorkflow(): void {
+    const workflow: GithubWorkflow | undefined = this.project.github?.addWorkflow('Release');
+    workflow?.on({
+      pullRequest: {
+        branches: ['main'],
+        types: ['closed'],
+      },
+    });
+
+    const job: Job = {
+      runsOn: ['ubuntu-latest'],
+      permissions: {
+        contents: JobPermission.WRITE,
+        pullRequests: JobPermission.WRITE,
+      },
+      steps: [
+        {
+          name: 'Create release',
+          uses: 'dxfrontier/gh-action-release@main',
+          with: {
+            GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
+            BRANCH: 'main',
+          },
+        },
+      ],
+    };
+
+    workflow?.addJob('release', job);
+  }
+
+  /**
+   * Creates the template file for a GitHub stale workflow.
+   */
+  private createStaleWorkflow(): void {
+    const workflow: GithubWorkflow | undefined = this.project.github?.addWorkflow('Stale');
+    workflow?.on({
+      schedule: [
+        {
+          cron: '36 18 * * *',
+        },
+      ],
+    });
+
+    const job: Job = {
+      runsOn: ['ubuntu-latest'],
+      permissions: {
+        issues: JobPermission.WRITE,
+        pullRequests: JobPermission.WRITE,
+      },
+      steps: [
+        {
+          uses: 'actions/stale@v5',
+          with: {
+            'repo-token': '${{ secrets.GITHUB_TOKEN }}',
+            'days-before-issue-stale': 30,
+            'stale-issue-message':
+              'This issue has not been updated in a while. If it is still relevant, please comment on it to keep it open. The issue will be closed soon if it remains inactive.',
+            'close-issue-message': 'This issue has been closed automatically due to inactivity.',
+            'stale-pr-message':
+              'This PR has not been updated in a while. If it is still relevant, please comment on it to keep it open. The PR will be closed soon if it remains inactive.',
+            'close-pr-message': 'This PR has been closed automatically due to inactivity.',
+            'stale-issue-label': 'status: stale',
+            'stale-pr-label': 'status: stale',
+            'exempt-issue-labels': 'type: feature request',
+            'exempt-pr-labels': 'type: feature request',
+            'exempt-all-milestones': true,
+          },
+        },
+      ],
+    };
+
+    workflow?.addJob('stale', job);
+  }
+
+  /**
    * Add template files to the GitHub component.
    */
   public add(): void {
@@ -189,6 +267,9 @@ export class GitHubComponent implements IProjectComponent {
     this.createBugIssue();
     this.createFeatureIssue();
     this.createQuestionIssue();
+
+    this.createReleaseWorkflow();
+    this.createStaleWorkflow();
   }
 
   /**
@@ -199,6 +280,7 @@ export class GitHubComponent implements IProjectComponent {
     this.project.gitattributes.addAttributes(`/${this.bugIssueFilePath}`, 'linguist-generated');
     this.project.gitattributes.addAttributes(`/${this.featureIssueFilePath}`, 'linguist-generated');
     this.project.gitattributes.addAttributes(`/${this.questionIssueFilePath}`, 'linguist-generated');
+    // Workflows templates are added automatically
   }
 
   /**
