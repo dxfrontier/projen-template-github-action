@@ -459,6 +459,7 @@ describe('GitHubActionProject', (): void => {
         expect(snapshot['.github/workflows/stale.yml']).toBe(expectedTemplateLines);
       });
     });
+
     test('GitHub related files are added to .gitattributes and defined as linguist-generate', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
