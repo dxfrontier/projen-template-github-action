@@ -1,8 +1,8 @@
 import { TextFile } from 'projen';
 import { GithubWorkflow, PullRequestTemplate } from 'projen/lib/github';
+import { Job, JobPermission, Triggers } from 'projen/lib/github/workflows-model';
 import { TypeScriptProject } from 'projen/lib/typescript';
 import { IProjectComponent } from '../types/component';
-import { Job, JobPermission } from 'projen/lib/github/workflows-model';
 
 /**
  * Configures the GitHub templates, settings and npm scripts for the project.
@@ -147,6 +147,79 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
+   * Getter retrieving release workflow template options for the GitHub configuration.
+   */
+  private get releaseWorkflowOptions(): { on: Triggers; job: Job } {
+    return {
+      on: {
+        pullRequest: {
+          branches: ['main'],
+          types: ['closed'],
+        },
+      },
+      job: {
+        runsOn: ['ubuntu-latest'],
+        permissions: {
+          contents: JobPermission.WRITE,
+          pullRequests: JobPermission.WRITE,
+        },
+        steps: [
+          {
+            name: 'Create release',
+            uses: 'dxfrontier/gh-action-release@main',
+            with: {
+              GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
+              BRANCH: 'main',
+            },
+          },
+        ],
+      },
+    };
+  }
+
+  /**
+   * Getter retrieving stale workflow template options for the GitHub configuration.
+   */
+  private get staleWorkflowOptions(): { on: Triggers; job: Job } {
+    return {
+      on: {
+        schedule: [
+          {
+            cron: '36 18 * * *',
+          },
+        ],
+      },
+      job: {
+        runsOn: ['ubuntu-latest'],
+        permissions: {
+          issues: JobPermission.WRITE,
+          pullRequests: JobPermission.WRITE,
+        },
+        steps: [
+          {
+            uses: 'actions/stale@v5',
+            with: {
+              'repo-token': '${{ secrets.GITHUB_TOKEN }}',
+              'days-before-issue-stale': 30,
+              'stale-issue-message':
+                'This issue has not been updated in a while. If it is still relevant, please comment on it to keep it open. The issue will be closed soon if it remains inactive.',
+              'close-issue-message': 'This issue has been closed automatically due to inactivity.',
+              'stale-pr-message':
+                'This PR has not been updated in a while. If it is still relevant, please comment on it to keep it open. The PR will be closed soon if it remains inactive.',
+              'close-pr-message': 'This PR has been closed automatically due to inactivity.',
+              'stale-issue-label': 'status: stale',
+              'stale-pr-label': 'status: stale',
+              'exempt-issue-labels': 'type: feature request',
+              'exempt-pr-labels': 'type: feature request',
+              'exempt-all-milestones': true,
+            },
+          },
+        ],
+      },
+    };
+  }
+
+  /**
    * Creates the template file for a GitHub pull request.
    */
   private createPullRequest(): void {
@@ -187,32 +260,8 @@ export class GitHubComponent implements IProjectComponent {
    */
   private createReleaseWorkflow(): void {
     const workflow: GithubWorkflow | undefined = this.project.github?.addWorkflow('Release');
-    workflow?.on({
-      pullRequest: {
-        branches: ['main'],
-        types: ['closed'],
-      },
-    });
-
-    const job: Job = {
-      runsOn: ['ubuntu-latest'],
-      permissions: {
-        contents: JobPermission.WRITE,
-        pullRequests: JobPermission.WRITE,
-      },
-      steps: [
-        {
-          name: 'Create release',
-          uses: 'dxfrontier/gh-action-release@main',
-          with: {
-            GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
-            BRANCH: 'main',
-          },
-        },
-      ],
-    };
-
-    workflow?.addJob('release', job);
+    workflow?.on(this.releaseWorkflowOptions.on);
+    workflow?.addJob('release', this.releaseWorkflowOptions.job);
   }
 
   /**
@@ -220,43 +269,8 @@ export class GitHubComponent implements IProjectComponent {
    */
   private createStaleWorkflow(): void {
     const workflow: GithubWorkflow | undefined = this.project.github?.addWorkflow('Stale');
-    workflow?.on({
-      schedule: [
-        {
-          cron: '36 18 * * *',
-        },
-      ],
-    });
-
-    const job: Job = {
-      runsOn: ['ubuntu-latest'],
-      permissions: {
-        issues: JobPermission.WRITE,
-        pullRequests: JobPermission.WRITE,
-      },
-      steps: [
-        {
-          uses: 'actions/stale@v5',
-          with: {
-            'repo-token': '${{ secrets.GITHUB_TOKEN }}',
-            'days-before-issue-stale': 30,
-            'stale-issue-message':
-              'This issue has not been updated in a while. If it is still relevant, please comment on it to keep it open. The issue will be closed soon if it remains inactive.',
-            'close-issue-message': 'This issue has been closed automatically due to inactivity.',
-            'stale-pr-message':
-              'This PR has not been updated in a while. If it is still relevant, please comment on it to keep it open. The PR will be closed soon if it remains inactive.',
-            'close-pr-message': 'This PR has been closed automatically due to inactivity.',
-            'stale-issue-label': 'status: stale',
-            'stale-pr-label': 'status: stale',
-            'exempt-issue-labels': 'type: feature request',
-            'exempt-pr-labels': 'type: feature request',
-            'exempt-all-milestones': true,
-          },
-        },
-      ],
-    };
-
-    workflow?.addJob('stale', job);
+    workflow?.on(this.staleWorkflowOptions.on);
+    workflow?.addJob('stale', this.staleWorkflowOptions.job);
   }
 
   /**
