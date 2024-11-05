@@ -29,6 +29,13 @@ export class GitHubActionProject extends TypeScriptProject {
 
       pullRequestTemplate: false,
       prettier: true,
+      githubOptions: {
+        mergify: false,
+        pullRequestLint: false, // workflow pull-request-lint.yml
+      },
+      buildWorkflow: false, // workflow build.yml
+      release: false, // workflow release.yml
+      depsUpgrade: false, // workflow upgrade-main.yml
 
       devDeps: ['projen', 'construct'],
     });
