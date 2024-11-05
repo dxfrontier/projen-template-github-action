@@ -24,6 +24,13 @@ export class NpmPackageComponent implements IProjectComponent {
   }
 
   /**
+   * Getter retrieving the npm files to be packaged for the NPM Package.
+   */
+  private get npmFiles(): string[] {
+    return ['lib', 'README.md', 'LICENSE'];
+  }
+
+  /**
    * Getter retrieving the npm scripts to be removed from NPM Package.
    *
    * These scripts are added by Projen on project initialization
@@ -52,6 +59,15 @@ export class NpmPackageComponent implements IProjectComponent {
   }
 
   /**
+   * Add settings to the NPM Package component.
+   */
+  public add(): void {
+    this.project.addFields({
+      files: this.npmFiles,
+    });
+  }
+
+  /**
    * Remove the NPM Package scripts associated with Projen NPM Package initialization.
    */
   public removeScripts(): void {
@@ -70,6 +86,7 @@ export class NpmPackageComponent implements IProjectComponent {
    * Executes setup for the DevContainer component.
    */
   public setup(): void {
+    this.add();
     this.removeScripts();
     this.updateGitAttributes();
   }

@@ -68,6 +68,18 @@ describe('GitHubActionProject', (): void => {
       expect(keyFound).toBe(false);
     });
 
+    test('Files property in package.json is set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedFiles: string[] = ['lib', 'README.md', 'LICENSE'];
+      expect(snapshot['package.json']!.files).toStrictEqual(expectedFiles);
+    });
+
     test('NPM Package related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
