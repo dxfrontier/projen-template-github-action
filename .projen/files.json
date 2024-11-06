@@ -8,6 +8,8 @@
     ".github/ISSUE_TEMPLATE/question.yml",
     ".github/pull_request_template.md",
     ".gitignore",
+    ".husky/commit-msg",
+    ".husky/pre-commit",
     ".npmignore",
     ".prettierignore",
     ".prettierrc.json",

@@ -6,6 +6,7 @@ import {
   VsCodeComponent,
   GitHubComponent,
   PrettierComponent,
+  HuskyComponent,
 } from './components';
 import { IProjectComponent } from './types/component';
 
@@ -47,6 +48,7 @@ export class GitHubActionProject extends TypeScriptProject {
       new VsCodeComponent(this),
       new GitHubComponent(this),
       new PrettierComponent(this),
+      new HuskyComponent(this),
     ];
     components.forEach((component: IProjectComponent): void => {
       component.setup();

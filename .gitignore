@@ -49,4 +49,6 @@ junit.xml
 !/.github/ISSUE_TEMPLATE/bug.yml
 !/.github/ISSUE_TEMPLATE/feature.yml
 !/.github/ISSUE_TEMPLATE/question.yml
+!/.husky/commit-msg
+!/.husky/pre-commit
 !/.projenrc.ts
