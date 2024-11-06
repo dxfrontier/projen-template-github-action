@@ -514,7 +514,7 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['package.json']!.scripts).toHaveProperty('format:fix');
     });
 
-    test('Prettier related files are added to .gitattributes and defined as linguist-generate', (): void => {
+    test('Prettier related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
