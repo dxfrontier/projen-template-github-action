@@ -10,6 +10,8 @@
 /.github/ISSUE_TEMPLATE/question.yml linguist-generated
 /.github/pull_request_template.md linguist-generated
 /.gitignore linguist-generated
+/.husky/commit-msg linguist-generated
+/.husky/pre-commit linguist-generated
 /.npmignore linguist-generated
 /.prettierignore linguist-generated
 /.prettierrc.json linguist-generated
