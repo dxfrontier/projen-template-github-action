@@ -77,7 +77,7 @@ export class GitHubComponent implements IProjectComponent {
     return [
       'name: 🐞 Bug',
       'description: File a bug/issue',
-      'title: "[BUG] < title >"',
+      'title: "[BUG] <title>"',
       'labels: ["type: bug"]',
       'body:',
       '  - type: textarea',
