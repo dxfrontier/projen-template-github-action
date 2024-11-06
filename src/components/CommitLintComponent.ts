@@ -1,6 +1,6 @@
+import { TextFile } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
 import { IProjectComponent } from '../types/component';
-import { TextFile } from 'projen';
 import { Scripts } from '../types/script';
 
 /**

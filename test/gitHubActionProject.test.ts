@@ -1,7 +1,7 @@
-import { Tasks } from 'projen';
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { GitHubActionProject, GitHubActionProjectOptions } from '../src';
-import { Scripts, type ProjenStandardScript } from '../src/types/script';
+import { testNpmScriptsAddedProperly } from './util';
+import { TaskSteps, type ProjenStandardScript } from '../src/types/script';
 
 describe('GitHubActionProject', (): void => {
   let props: GitHubActionProjectOptions;
@@ -178,13 +178,13 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      const expectedTask = {
-        name: 'install-dependencies',
-        steps: [{ exec: 'npm install' }],
+      const expectedTasks: TaskSteps = {
+        'install-dependencies': ['npm install'],
       };
-      expect(snapshot['.devcontainer.json'].postCreateCommand).toBe('npx projen install-dependencies');
-      expect(snapshot['.projen/tasks.json'].tasks).toHaveProperty('install-dependencies');
-      expect(snapshot['.projen/tasks.json'].tasks['install-dependencies']).toMatchObject(expectedTask);
+      expect(snapshot['.devcontainer.json'].postCreateCommand).toBe(
+        snapshot['package.json']!.scripts['install-dependencies'],
+      );
+      testNpmScriptsAddedProperly(snapshot, expectedTasks);
     });
 
     test('DevContainer related files are added to .gitattributes and defined as linguist-generated', (): void => {
@@ -515,24 +515,11 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      const keys: string[] = Object.keys(snapshot['package.json']!.scripts);
-      const expectedScripts: string[] = ['format:fix', 'format:message'];
-      const expectedCommands: Scripts = {
-        'format:message': 'echo "Prettier started ..."',
-        'format:fix': 'prettier . --write',
+      const expectedTasks: TaskSteps = {
+        'format:message': ['echo "Prettier started ..."'],
+        'format:fix': ['prettier . --write'],
       };
-      const keyFound: boolean = keys.some((key: string): boolean => expectedScripts.includes(key));
-      const tasks: Tasks = snapshot['.projen/tasks.json'].tasks;
-
-      expect(keyFound).toBe(true);
-      for (const [name, command] of Object.entries(tasks)) {
-        if (expectedScripts.includes(name)) {
-          const commandFound: boolean = command.steps.some(
-            (step: { exec: string }): boolean => step.exec === expectedCommands[name],
-          );
-          expect(commandFound).toBe(true);
-        }
-      }
+      testNpmScriptsAddedProperly(snapshot, expectedTasks);
     });
 
     test('Prettier related files are added to .gitattributes and defined as linguist-generated', (): void => {
@@ -589,23 +576,10 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      const keys: string[] = Object.keys(snapshot['package.json']!.scripts);
-      const expectedScripts: string[] = ['prepare'];
-      const expectedCommands: Scripts = {
-        prepare: 'husky || true',
+      const expectedTasks: TaskSteps = {
+        prepare: ['husky || true'],
       };
-      const keyFound: boolean = keys.some((key: string): boolean => expectedScripts.includes(key));
-      const tasks: Tasks = snapshot['.projen/tasks.json'].tasks;
-
-      expect(keyFound).toBe(true);
-      for (const [name, command] of Object.entries(tasks)) {
-        if (expectedScripts.includes(name)) {
-          const commandFound: boolean = command.steps.some(
-            (step: { exec: string }): boolean => step.exec === expectedCommands[name],
-          );
-          expect(commandFound).toBe(true);
-        }
-      }
+      testNpmScriptsAddedProperly(snapshot, expectedTasks);
     });
 
     test('Husky related files are added to .gitattributes and defined as linguist-generated', (): void => {
@@ -672,23 +646,10 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      const keys: string[] = Object.keys(snapshot['package.json']!.scripts);
-      const expectedScripts: string[] = ['commit'];
-      const expectedCommands: Scripts = {
-        commit: 'commit',
+      const expectedTasks: TaskSteps = {
+        commit: ['commit'],
       };
-      const keyFound: boolean = keys.some((key: string): boolean => expectedScripts.includes(key));
-      const tasks: Tasks = snapshot['.projen/tasks.json'].tasks;
-
-      expect(keyFound).toBe(true);
-      for (const [name, command] of Object.entries(tasks)) {
-        if (expectedScripts.includes(name)) {
-          const commandFound: boolean = command.steps.some(
-            (step: { exec: string }): boolean => step.exec === expectedCommands[name],
-          );
-          expect(commandFound).toBe(true);
-        }
-      }
+      testNpmScriptsAddedProperly(snapshot, expectedTasks);
     });
 
     test('CommitLint related files are added to .gitattributes and defined as linguist-generated', (): void => {
