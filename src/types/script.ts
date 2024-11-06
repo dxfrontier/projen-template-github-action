@@ -22,16 +22,16 @@ export type ProjenStandardScript =
   | 'projen';
 
 /**
- * Structure for an npm script.
- */
-export type Script = {
-  name: string;
-  exec: string;
-};
-
-/**
  * Collection of npm scripts, indexed by their names
  */
 export type Scripts = {
   [key: string]: string;
+};
+
+/**
+ * Structure of a projen task containing multiple steps.
+ * This is derived from them Scripts type but contains an array keeping the task steps.
+ */
+export type TaskSteps = {
+  [key: string]: string[];
 };
