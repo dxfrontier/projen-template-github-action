@@ -1,5 +1,6 @@
 {
   "files": [
+    ".commitlintrc.ts",
     ".devcontainer.json",
     ".eslintrc.json",
     ".gitattributes",

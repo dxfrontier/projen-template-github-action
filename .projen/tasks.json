@@ -74,6 +74,14 @@
       ],
       "condition": "git diff --exit-code > /dev/null"
     },
+    "commit": {
+      "name": "commit",
+      "steps": [
+        {
+          "exec": "commit"
+        }
+      ]
+    },
     "compile": {
       "name": "compile",
       "description": "Only compile",
