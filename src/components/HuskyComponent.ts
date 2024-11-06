@@ -59,6 +59,13 @@ export class HuskyComponent implements IProjectComponent {
   }
 
   /**
+   * Getter retrieving the relevant npm packages to be installed as devDependencies for the Husky component.
+   */
+  private get devDependencies(): string[] {
+    return ['husky'];
+  }
+
+  /**
    * Creates the template file for the Husky commit-msg hook.
    */
   private createCommitMsgHook(): void {
@@ -94,6 +101,13 @@ export class HuskyComponent implements IProjectComponent {
   }
 
   /**
+   * Add npm devDependencies specific to Husky setup within the project configuration.
+   */
+  public addDevDependencies(): void {
+    this.project.addDevDeps(...this.devDependencies);
+  }
+
+  /**
    * Configures the `.gitattributes` file to treat Husky component related files as generated code, optimizing diffs.
    */
   public updateGitAttributes(): void {
@@ -107,6 +121,7 @@ export class HuskyComponent implements IProjectComponent {
   public setup(): void {
     this.add();
     this.addScripts();
+    this.addDevDependencies();
     this.updateGitAttributes();
   }
 }

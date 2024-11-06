@@ -71,6 +71,19 @@ export class CommitLintComponent implements IProjectComponent {
   }
 
   /**
+   * Getter retrieving the relevant npm packages to be installed as devDependencies for the CommitLint component.
+   */
+  private get devDependencies(): string[] {
+    return [
+      '@commitlint/cli',
+      '@commitlint/config-conventional',
+      '@commitlint/prompt-cli',
+      '@commitlint/types',
+      'lint-staged',
+    ];
+  }
+
+  /**
    * Created the template file for the CommitLint configuration.
    */
   private createConfiguration(): void {
@@ -96,6 +109,13 @@ export class CommitLintComponent implements IProjectComponent {
   }
 
   /**
+   * Add npm devDependencies specific to CommitLint setup within the project configuration.
+   */
+  public addDevDependencies(): void {
+    this.project.addDevDeps(...this.devDependencies);
+  }
+
+  /**
    * Configures the `.gitattributes` file to treat CommitLint component related files as generated code, optimizing diffs.
    */
   public updateGitAttributes(): void {
@@ -108,6 +128,7 @@ export class CommitLintComponent implements IProjectComponent {
   public setup(): void {
     this.add();
     this.addScripts();
+    this.addDevDependencies();
     this.updateGitAttributes();
   }
 }

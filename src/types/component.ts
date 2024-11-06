@@ -5,5 +5,6 @@ export interface IProjectComponent {
   add?(): void;
   addScripts?(): void;
   updateGitAttributes?(): void;
+  addDevDependencies?(): void;
   setup(): void;
 }
