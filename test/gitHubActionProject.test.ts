@@ -89,7 +89,7 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      expect(snapshot['.gitattributes'].includes('/.npmignore linguist-generated')).toBe(true);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.npmignore linguist-generated( $|\s|$)/m);
     });
   });
 
@@ -187,7 +187,7 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.projen/tasks.json'].tasks['install-dependencies']).toMatchObject(expectedTask);
     });
 
-    test('DevContainer related files are added to .gitattributes and defined as linguist-generate', (): void => {
+    test('DevContainer related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
@@ -195,7 +195,7 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      expect(snapshot['.gitattributes'].includes('/.devcontainer.json linguist-generated')).toBe(true);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.devcontainer\.json linguist-generated( $|\s|$)/m);
     });
   });
 
@@ -228,7 +228,7 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.vscode/settings.json']).toStrictEqual(expectedSettings);
     });
 
-    test('VSCode related files are added to .gitattributes and defined as linguist-generate', (): void => {
+    test('VSCode related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
@@ -236,7 +236,7 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      expect(snapshot['.gitattributes'].includes('/.vscode/settings.json linguist-generated')).toBe(true);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.vscode\/settings\.json linguist-generated( $|\s|$)/m);
     });
   });
 
@@ -461,7 +461,7 @@ describe('GitHubActionProject', (): void => {
       });
     });
 
-    test('GitHub related files are added to .gitattributes and defined as linguist-generate', (): void => {
+    test('GitHub related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
@@ -469,10 +469,14 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      expect(snapshot['.gitattributes'].includes('/.github/pull_request_template.md linguist-generated')).toBe(true);
-      expect(snapshot['.gitattributes'].includes('/.github/ISSUE_TEMPLATE/bug.yml linguist-generated')).toBe(true);
-      expect(snapshot['.gitattributes'].includes('/.github/ISSUE_TEMPLATE/feature.yml linguist-generated')).toBe(true);
-      expect(snapshot['.gitattributes'].includes('/.github/ISSUE_TEMPLATE/question.yml linguist-generated')).toBe(true);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.github\/pull_request_template\.md linguist-generated( $|\s|$)/m);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.github\/ISSUE_TEMPLATE\/bug\.yml linguist-generated( $|\s|$)/m);
+      expect(snapshot['.gitattributes']).toMatch(
+        /\/\.github\/ISSUE_TEMPLATE\/feature\.yml linguist-generated( $|\s|$)/m,
+      );
+      expect(snapshot['.gitattributes']).toMatch(
+        /\/\.github\/ISSUE_TEMPLATE\/question\.yml linguist-generated( $|\s|$)/m,
+      );
     });
   });
 
@@ -538,8 +542,8 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      expect(snapshot['.gitattributes'].includes('/.prettierignore linguist-generated')).toBe(true);
-      expect(snapshot['.gitattributes'].includes('/.prettierrc.json linguist-generated')).toBe(true);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.prettierignore linguist-generated( $|\s|$)/m);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.prettierrc\.json linguist-generated( $|\s|$)/m);
     });
   });
 
@@ -603,7 +607,7 @@ describe('GitHubActionProject', (): void => {
       }
     });
 
-    test('Husky related files are added to .gitattributes and defined as linguis-generated', (): void => {
+    test('Husky related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
@@ -611,8 +615,8 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      expect(snapshot['.gitattributes'].includes('/.husky/commit-msg linguist-generated')).toBe(true);
-      expect(snapshot['.gitattributes'].includes('/.husky/pre-commit linguist-generated')).toBe(true);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.husky\/commit-msg linguist-generated( $|\s|$)/m);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.husky\/pre-commit linguist-generated( $|\s|$)/m);
     });
   });
 });
