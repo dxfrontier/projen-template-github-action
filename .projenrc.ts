@@ -1,5 +1,6 @@
 import { javascript, typescript } from 'projen';
 import {
+  CommitLintComponent,
   DevContainerComponent,
   GitHubComponent,
   HuskyComponent,
@@ -37,6 +38,7 @@ const components: IProjectComponent[] = [
   new GitHubComponent(project),
   new PrettierComponent(project),
   new HuskyComponent(project),
+  new CommitLintComponent(project),
 ];
 components.forEach((component: IProjectComponent): void => {
   component.setup();

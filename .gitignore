@@ -51,4 +51,5 @@ junit.xml
 !/.github/ISSUE_TEMPLATE/question.yml
 !/.husky/commit-msg
 !/.husky/pre-commit
+!/.commitlintrc.ts
 !/.projenrc.ts
