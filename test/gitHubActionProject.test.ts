@@ -187,7 +187,7 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.projen/tasks.json'].tasks['install-dependencies']).toMatchObject(expectedTask);
     });
 
-    test('DevContainer related files are added to .gitattributes and defined as linguist-generate', (): void => {
+    test('DevContainer related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
@@ -228,7 +228,7 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.vscode/settings.json']).toStrictEqual(expectedSettings);
     });
 
-    test('VSCode related files are added to .gitattributes and defined as linguist-generate', (): void => {
+    test('VSCode related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
@@ -461,7 +461,7 @@ describe('GitHubActionProject', (): void => {
       });
     });
 
-    test('GitHub related files are added to .gitattributes and defined as linguist-generate', (): void => {
+    test('GitHub related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
