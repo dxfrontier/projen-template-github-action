@@ -510,8 +510,24 @@ describe('GitHubActionProject', (): void => {
       snapshot = synthSnapshot(project);
 
       // THEN
-      expect(snapshot['package.json']!.scripts).toHaveProperty('format:message');
-      expect(snapshot['package.json']!.scripts).toHaveProperty('format:fix');
+      const keys: string[] = Object.keys(snapshot['package.json']!.scripts);
+      const expectedScripts: string[] = ['format:fix', 'format:message'];
+      const expectedCommands: Scripts = {
+        'format:message': 'echo "Prettier started ..."',
+        'format:fix': 'prettier . --write',
+      };
+      const keyFound: boolean = keys.some((key: string): boolean => expectedScripts.includes(key));
+      const tasks: Tasks = snapshot['.projen/tasks.json'].tasks;
+
+      expect(keyFound).toBe(true);
+      for (const [name, command] of Object.entries(tasks)) {
+        if (expectedScripts.includes(name)) {
+          const commandFound: boolean = command.steps.some(
+            (step: { exec: string }): boolean => step.exec === expectedCommands[name],
+          );
+          expect(commandFound).toBe(true);
+        }
+      }
     });
 
     test('Prettier related files are added to .gitattributes and defined as linguist-generated', (): void => {
@@ -560,7 +576,7 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.husky/pre-commit']).toStrictEqual(expectedTemplateLines);
     });
 
-    test('NPM scripts are set properly', (): void => {
+    test('Husky npm scripts are added properly', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
