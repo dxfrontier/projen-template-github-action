@@ -52,6 +52,7 @@ export class GitHubComponent implements IProjectComponent {
       '',
       '- [ ] PR is assigned to the according feature/bug',
       '- [ ] Feature/bug is descriptive',
+      '- [ ] Feature/bug is assigned to according labels',
       '- [ ] Feature/bug is assigned to a developer',
       '',
       '### Structure',
