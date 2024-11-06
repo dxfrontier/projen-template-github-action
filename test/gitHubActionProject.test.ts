@@ -603,7 +603,7 @@ describe('GitHubActionProject', (): void => {
       }
     });
 
-    test('Husky related files are added to .gitattributes and defined as linguis-generated', (): void => {
+    test('Husky related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
 
