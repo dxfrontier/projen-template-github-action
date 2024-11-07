@@ -90,6 +90,9 @@ describe('GitHubActionProject', (): void => {
 
       // THEN
       expect(snapshot['.gitattributes']).toMatch(/\/\.npmignore linguist-generated( $|\s|$)/m);
+      expect(snapshot['.gitattributes']).toMatch(/\/\.eslintrc\.json linguist-generated( $|\s|$)/m);
+      expect(snapshot['.gitattributes']).toMatch(/\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m);
+      expect(snapshot['.gitattributes']).toMatch(/\/tsconfig\.json linguist-generated( $|\s|$)/m);
     });
   });
 
