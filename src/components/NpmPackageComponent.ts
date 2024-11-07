@@ -58,7 +58,7 @@ export class NpmPackageComponent implements IProjectComponent {
   }
 
   /**
-   * Add settings to the NPM Package component.
+   * Adds settings to the NPM Package component.
    */
   public add(): void {
     this.project.addFields({
@@ -67,7 +67,7 @@ export class NpmPackageComponent implements IProjectComponent {
   }
 
   /**
-   * Remove the NPM Package scripts associated with Projen NPM Package initialization.
+   * Removes the NPM Package scripts associated with Projen NPM Package initialization.
    */
   public removeScripts(): void {
     for (const script of this.scripts) {

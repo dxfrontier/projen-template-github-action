@@ -275,7 +275,7 @@ export class GitHubComponent implements IProjectComponent {
   }
 
   /**
-   * Add template files to the GitHub component.
+   * Adds template files to the GitHub component.
    */
   public add(): void {
     this.createPullRequest();
