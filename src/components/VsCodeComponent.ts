@@ -1,5 +1,5 @@
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { IProjectComponent } from '../types';
+import { IProjectComponent } from '../types/component';
 
 /**
  * Configures the VSCode templates, settings and npm scripts for the project.
