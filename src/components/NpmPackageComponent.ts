@@ -1,6 +1,5 @@
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { IProjectComponent } from '../types/component';
-import { ProjenStandardScript } from '../types/script';
+import { IProjectComponent, ProjenStandardScript } from '../types';
 
 /**
  * Configures the NPM Package templates, settings and npm scripts for the project.

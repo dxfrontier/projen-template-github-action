@@ -9,7 +9,7 @@ import {
   HuskyComponent,
   CommitLintComponent,
 } from './components';
-import { IProjectComponent } from './types/component';
+import { IProjectComponent } from './types';
 
 // Have to disable the prettier rule here for the { }
 // otherwise we have a conflict between prettier and linter.
