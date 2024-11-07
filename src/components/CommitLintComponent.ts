@@ -1,6 +1,6 @@
 import { TextFile } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { IProjectComponent, Scripts } from '../types';
+import { IProjectComponent, LintStagedConfig, Scripts } from '../types';
 
 /**
  * Configures the CommitLint templates, settings and npm scripts for the project.
@@ -83,6 +83,15 @@ export class CommitLintComponent implements IProjectComponent {
   }
 
   /**
+   * Getter retrieving the settings to be added to package.json for the CommitLint component.
+   */
+  private get npmSettings(): LintStagedConfig {
+    return {
+      '**/*.{yml,yaml}': ['npm run format:message', 'npm run format:fix'],
+    };
+  }
+
+  /**
    * Created the template file for the CommitLint configuration.
    */
   private createConfiguration(): void {
@@ -92,10 +101,20 @@ export class CommitLintComponent implements IProjectComponent {
   }
 
   /**
-   * Add template files to the CommitLint component.
+   * Creates npm package settings specific to CommitLint setup within the project configuration.
+   */
+  private createSettings(): void {
+    this.project.addFields({
+      'lint-staged': this.npmSettings,
+    });
+  }
+
+  /**
+   * Add template files and settings to the CommitLint component.
    */
   public add(): void {
     this.createConfiguration();
+    this.createSettings();
   }
 
   /**

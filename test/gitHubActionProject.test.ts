@@ -1,7 +1,7 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { GitHubActionProject, GitHubActionProjectOptions } from '../src';
 import { testNpmScriptsAddedProperly } from './util';
-import { TaskSteps, ProjenStandardScript } from '../src/types';
+import { TaskSteps, ProjenStandardScript, LintStagedConfig } from '../src/types';
 
 describe('GitHubActionProject', (): void => {
   let props: GitHubActionProjectOptions;
@@ -664,6 +664,20 @@ describe('GitHubActionProject', (): void => {
         commit: ['commit'],
       };
       testNpmScriptsAddedProperly(snapshot, expectedTasks);
+    });
+
+    test('CommitLint configuration in package.json is set properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedConfiguration: LintStagedConfig = {
+        '**/*.{yml,yaml}': ['npm run format:message', 'npm run format:fix'],
+      };
+      expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
     });
 
     test('CommitLint npm devDependencies are added properly', (): void => {
