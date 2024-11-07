@@ -1,4 +1,4 @@
-import { javascript, typescript } from 'projen';
+import { cdk, javascript } from 'projen';
 import {
   CommitLintComponent,
   DevContainerComponent,
@@ -10,11 +10,16 @@ import {
 } from './src/components';
 import { IProjectComponent } from './src/types/component';
 
-const project = new typescript.TypeScriptProject({
+const project = new cdk.JsiiProject({
+  author: 'Mathias von Kaiz',
+  authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
+  repositoryUrl: 'https://github.com/dxfrontier/projen-template-github-action.git',
+  copyrightOwner: 'ABS GmbH',
   defaultReleaseBranch: 'main',
   name: 'projen-template-github-action',
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
+  commitGenerated: false,
 
   githubOptions: {
     mergify: false,
@@ -23,12 +28,19 @@ const project = new typescript.TypeScriptProject({
   pullRequestTemplate: false,
   prettier: true,
 
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  peerDeps: ['projen', 'construct'],
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  peerDeps: ['projen'],
+  bundledDeps: ['construct'],
 });
+
+// Overwrite JsiiProject outdated package versions
+project.addDevDeps(
+  '@types/jest@^29',
+  '@types/node@^22',
+  'jest@^29',
+  'ts-jest@^29',
+  'jsii@^5.5.9',
+  'jsii-rosetta@^5.5.5',
+);
 
 // Initialize project configuration
 const components: IProjectComponent[] = [
