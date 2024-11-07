@@ -1,7 +1,6 @@
 import { TextFile } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { IProjectComponent } from '../types/component';
-import { Scripts } from '../types/script';
+import { IProjectComponent, Scripts } from '../types';
 
 /**
  * Configures the Husky templates, settings and npm scripts for the project.
