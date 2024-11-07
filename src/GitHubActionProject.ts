@@ -8,6 +8,7 @@ import {
   PrettierComponent,
   HuskyComponent,
   CommitLintComponent,
+  SampleComponent,
 } from './components';
 import { IProjectComponent } from './types';
 
@@ -39,6 +40,7 @@ export class GitHubActionProject extends TypeScriptProject {
       buildWorkflow: false, // workflow build.yml
       release: false, // workflow release.yml
       depsUpgrade: false, // workflow upgrade-main.yml
+      sampleCode: false,
 
       devDeps: ['projen', 'construct'],
     });
@@ -52,6 +54,7 @@ export class GitHubActionProject extends TypeScriptProject {
       new PrettierComponent(this),
       new HuskyComponent(this),
       new CommitLintComponent(this),
+      new SampleComponent(this),
     ];
     components.forEach((component: IProjectComponent): void => {
       component.setup();

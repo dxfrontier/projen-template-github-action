@@ -5,3 +5,4 @@ export * from './GitHubComponent';
 export * from './PrettierComponent';
 export * from './HuskyComponent';
 export * from './CommitLintComponent';
+export * from './SampleComponent';

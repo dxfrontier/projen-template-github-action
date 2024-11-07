@@ -812,4 +812,73 @@ describe('GitHubActionProject', (): void => {
       expect(snapshot['.gitattributes']).toMatch(/\/\.commitlintrc\.ts linguist-generated( $|\s|$)/m);
     });
   });
+
+  describe('Samples', (): void => {
+    test('Projen standard sample files are removed from file system', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      expect(snapshot['src/index.ts']).toBeUndefined();
+      expect(snapshot['test/hello.test.ts']).toBeUndefined();
+    });
+
+    test('Sample action file matches expected template', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedTemplateLines: string = [
+        // eslint-disable-next-line prettier/prettier
+        'name: \'My Custom Composite Action\'',
+        // eslint-disable-next-line prettier/prettier
+        'description: \'A sample GitHub composite action created with Projen.\'',
+        // eslint-disable-next-line prettier/prettier
+        'author: \'Your Name or Org\'',
+        'branding:',
+        // eslint-disable-next-line prettier/prettier
+        '  icon: \'zap\'',
+        // eslint-disable-next-line prettier/prettier
+        '  color: \'blue\'',
+        '',
+        'inputs:',
+        '  example-input:',
+        // eslint-disable-next-line prettier/prettier
+        '    description: \'An example input parameter for the action.\'',
+        '    required: false',
+        // eslint-disable-next-line prettier/prettier
+        '    default: \'default value\'',
+        '',
+        'outputs:',
+        '  example-output:',
+        // eslint-disable-next-line prettier/prettier
+        '    description: \'An example output from the action.\'',
+        '',
+        'runs:',
+        // eslint-disable-next-line prettier/prettier
+        '  using: \'composite\'',
+        '  steps:',
+        // eslint-disable-next-line prettier/prettier
+        '    - name: \'Step 1\'',
+        // eslint-disable-next-line prettier/prettier
+        '      run: echo \'Running Step 1 with input: ${{ inputs.example-input }}\'',
+        '',
+        // eslint-disable-next-line prettier/prettier
+        '    - name: \'Step 2\'',
+        // eslint-disable-next-line prettier/prettier
+        '      run: echo \'Running Step 2\'',
+        '',
+        'env:',
+        // eslint-disable-next-line prettier/prettier
+        '  EXAMPLE_ENV_VAR: \'example-value\'',
+      ].join('\n');
+      expect(snapshot['action.yml']).toStrictEqual(expectedTemplateLines);
+    });
+  });
 });
