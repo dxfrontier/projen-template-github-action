@@ -23,6 +23,13 @@ export class NpmPackageComponent implements IProjectComponent {
   }
 
   /**
+   * Getter retrieving the file paths for the missing .gitattributes file entries.
+   */
+  private get gitAttributesFilePaths(): string[] {
+    return ['.eslintrc.json', 'tsconfig.dev.json', 'tsconfig.json'];
+  }
+
+  /**
    * Getter retrieving the npm files to be packaged for the NPM Package.
    */
   private get npmFiles(): string[] {
@@ -79,6 +86,11 @@ export class NpmPackageComponent implements IProjectComponent {
    */
   public updateGitAttributes(): void {
     this.project.gitattributes.addAttributes(`/${this.ignoreFilePath}`, 'linguist-generated');
+    // as the following files are not added automatically (compared to calling `projen` directly, there it works)
+    // we add these files manually
+    for (const value of this.gitAttributesFilePaths) {
+      this.project.gitattributes.addAttributes(`/${value}`, 'linguist-generated');
+    }
   }
 
   /**
