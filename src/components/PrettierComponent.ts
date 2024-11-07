@@ -1,7 +1,6 @@
 import { PrettierOverride, PrettierSettings, TrailingComma } from 'projen/lib/javascript/prettier';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { IProjectComponent } from '../types/component';
-import { Scripts } from '../types/script';
+import { IProjectComponent, Scripts } from '../types';
 
 /**
  * Configures the templates, settings and npm scripts for the project.

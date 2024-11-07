@@ -2,7 +2,7 @@ import { TextFile } from 'projen';
 import { GithubWorkflow, PullRequestTemplate } from 'projen/lib/github';
 import { Job, JobPermission, Triggers } from 'projen/lib/github/workflows-model';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { IProjectComponent } from '../types/component';
+import { IProjectComponent } from '../types';
 
 /**
  * Configures the GitHub templates, settings and npm scripts for the project.
