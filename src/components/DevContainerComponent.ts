@@ -1,6 +1,7 @@
 import { JsonFile, JsonFileOptions } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { IProjectComponent, Scripts } from '../types';
+import { IProjectComponent } from '../types/component';
+import { Scripts } from '../types/script';
 
 /**
  * Configures the DevContainer templates, settings and npm scripts for the project.
