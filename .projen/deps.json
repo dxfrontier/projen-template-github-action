@@ -1,6 +1,22 @@
 {
   "dependencies": [
     {
+      "name": "@commitlint/cli",
+      "type": "build"
+    },
+    {
+      "name": "@commitlint/config-conventional",
+      "type": "build"
+    },
+    {
+      "name": "@commitlint/prompt-cli",
+      "type": "build"
+    },
+    {
+      "name": "@commitlint/types",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -50,12 +66,20 @@
       "type": "build"
     },
     {
+      "name": "husky",
+      "type": "build"
+    },
+    {
       "name": "jest",
       "type": "build"
     },
     {
       "name": "jest-junit",
       "version": "^15",
+      "type": "build"
+    },
+    {
+      "name": "lint-staged",
       "type": "build"
     },
     {

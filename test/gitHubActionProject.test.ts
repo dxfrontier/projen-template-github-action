@@ -582,6 +582,20 @@ describe('GitHubActionProject', (): void => {
       testNpmScriptsAddedProperly(snapshot, expectedTasks);
     });
 
+    test('Husky npm devDependencies are added properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedDevDependencies: string[] = ['husky'];
+      expectedDevDependencies.forEach((dep: string): void => {
+        expect(snapshot['package.json']!.devDependencies).toHaveProperty(dep);
+      });
+    });
+
     test('Husky related files are added to .gitattributes and defined as linguist-generated', (): void => {
       // GIVEN
       const project = new GitHubActionProject(props);
@@ -650,6 +664,26 @@ describe('GitHubActionProject', (): void => {
         commit: ['commit'],
       };
       testNpmScriptsAddedProperly(snapshot, expectedTasks);
+    });
+
+    test('CommitLint npm devDependencies are added properly', (): void => {
+      // GIVEN
+      const project = new GitHubActionProject(props);
+
+      // WHEN
+      snapshot = synthSnapshot(project);
+
+      // THEN
+      const expectedDevDependencies: string[] = [
+        '@commitlint/cli',
+        '@commitlint/config-conventional',
+        '@commitlint/prompt-cli',
+        '@commitlint/types',
+        'lint-staged',
+      ];
+      expectedDevDependencies.forEach((dep: string): void => {
+        expect(snapshot['package.json']!.devDependencies).toHaveProperty(dep);
+      });
     });
 
     test('CommitLint related files are added to .gitattributes and defined as linguist-generated', (): void => {
