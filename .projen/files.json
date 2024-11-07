@@ -18,6 +18,7 @@
     ".projen/files.json",
     ".projen/tasks.json",
     ".vscode/settings.json",
+    "cliff.toml",
     "LICENSE",
     "tsconfig.dev.json",
     "tsconfig.json"
