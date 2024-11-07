@@ -92,7 +92,7 @@ export class CommitLintComponent implements IProjectComponent {
   }
 
   /**
-   * Created the template file for the CommitLint configuration.
+   * Creates the template file for the CommitLint configuration.
    */
   private createConfiguration(): void {
     new TextFile(this.project, this.filePath, {
@@ -110,7 +110,7 @@ export class CommitLintComponent implements IProjectComponent {
   }
 
   /**
-   * Add template files and settings to the CommitLint component.
+   * Adds template files and settings to the CommitLint component.
    */
   public add(): void {
     this.createConfiguration();
@@ -118,7 +118,7 @@ export class CommitLintComponent implements IProjectComponent {
   }
 
   /**
-   * Add npm scripts specific to CommitLint setup within the project configuration.
+   * Adds npm scripts specific to CommitLint setup within the project configuration.
    */
   public addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
@@ -127,7 +127,7 @@ export class CommitLintComponent implements IProjectComponent {
   }
 
   /**
-   * Add npm devDependencies specific to CommitLint setup within the project configuration.
+   * Adds npm devDependencies specific to CommitLint setup within the project configuration.
    */
   public addDevDependencies(): void {
     this.project.addDevDeps(...this.devDependencies);

@@ -83,7 +83,7 @@ export class HuskyComponent implements IProjectComponent {
   }
 
   /**
-   * Add template files to the Husky component.
+   * Adds template files to the Husky component.
    */
   public add(): void {
     this.createCommitMsgHook();
@@ -91,7 +91,7 @@ export class HuskyComponent implements IProjectComponent {
   }
 
   /**
-   * Add npm scripts specific to Husky setup within the project configuration.
+   * Adds npm scripts specific to Husky setup within the project configuration.
    */
   public addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
@@ -100,7 +100,7 @@ export class HuskyComponent implements IProjectComponent {
   }
 
   /**
-   * Add npm devDependencies specific to Husky setup within the project configuration.
+   * Adds npm devDependencies specific to Husky setup within the project configuration.
    */
   public addDevDependencies(): void {
     this.project.addDevDeps(...this.devDependencies);

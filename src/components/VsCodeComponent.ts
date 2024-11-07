@@ -45,7 +45,7 @@ export class VsCodeComponent implements IProjectComponent {
   }
 
   /**
-   * Add settings to the VSCode component.
+   * Adds settings to the VSCode component.
    */
   public add(): void {
     this.project.vscode?.settings.addSettings(this.settings);

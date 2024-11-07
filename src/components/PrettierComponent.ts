@@ -57,14 +57,14 @@ export class PrettierComponent implements IProjectComponent {
   }
 
   /**
-   * Add settings to the DevContainer component.
+   * Adds settings to the DevContainer component.
    */
   public add(): void {
     this.project.prettier?.addOverride(this.settings);
   }
 
   /**
-   * Add npm scripts specific to Prettier setup within the project configuration.
+   * Adds npm scripts specific to Prettier setup within the project configuration.
    */
   public addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {

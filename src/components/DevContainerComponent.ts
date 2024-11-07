@@ -138,14 +138,14 @@ export class DevContainerComponent implements IProjectComponent {
   }
 
   /**
-   * Add template files to the DevContainer component.
+   * Adds template files to the DevContainer component.
    */
   public add(): void {
     new JsonFile(this.project, this.filePath, this.template);
   }
 
   /**
-   * Add npm scripts specific to DevContainer setup within the project configuration.
+   * Adds npm scripts specific to DevContainer setup within the project configuration.
    */
   public addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
