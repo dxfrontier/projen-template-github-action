@@ -18,10 +18,12 @@
     },
     {
       "name": "@types/jest",
+      "version": "^29",
       "type": "build"
     },
     {
       "name": "@types/node",
+      "version": "^22",
       "type": "build"
     },
     {
@@ -70,12 +72,36 @@
       "type": "build"
     },
     {
-      "name": "jest",
+      "name": "jest-junit",
+      "version": "^15",
       "type": "build"
     },
     {
-      "name": "jest-junit",
-      "version": "^15",
+      "name": "jest",
+      "version": "^29",
+      "type": "build"
+    },
+    {
+      "name": "jsii-diff",
+      "type": "build"
+    },
+    {
+      "name": "jsii-docgen",
+      "version": "^10.5.0",
+      "type": "build"
+    },
+    {
+      "name": "jsii-pacmak",
+      "type": "build"
+    },
+    {
+      "name": "jsii-rosetta",
+      "version": "^5.5.5",
+      "type": "build"
+    },
+    {
+      "name": "jsii",
+      "version": "^5.5.9",
       "type": "build"
     },
     {
@@ -92,6 +118,7 @@
     },
     {
       "name": "ts-jest",
+      "version": "^29",
       "type": "build"
     },
     {
@@ -104,7 +131,17 @@
     },
     {
       "name": "construct",
-      "type": "peer"
+      "type": "bundled"
+    },
+    {
+      "name": "@types/babel__traverse",
+      "version": "7.18.2",
+      "type": "override"
+    },
+    {
+      "name": "@types/prettier",
+      "version": "2.6.0",
+      "type": "override"
     },
     {
       "name": "projen",

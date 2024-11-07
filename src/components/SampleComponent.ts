@@ -1,6 +1,6 @@
+import { SampleFile } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
 import { IProjectComponent } from '../types';
-import { SampleFile } from 'projen';
 
 /**
  * Handles GitHub action sample file creation for the project.
