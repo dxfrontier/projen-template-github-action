@@ -3,7 +3,7 @@ import { IProjectComponent } from '../types';
 /**
  * Handles GitHub action sample file creation for the project.
  */
-export declare class SampleComponent implements IProjectComponent {
+export declare class SampleCodeComponent implements IProjectComponent {
     private project;
     /**
      * Initializes the Sample component.
