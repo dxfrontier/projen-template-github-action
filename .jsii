@@ -776,20 +776,20 @@
       "name": "PrettierComponent",
       "symbolId": "src/components/PrettierComponent:PrettierComponent"
     },
-    "projen-template-github-action.SampleComponent": {
+    "projen-template-github-action.SampleCodeComponent": {
       "assembly": "projen-template-github-action",
       "docs": {
         "stability": "stable",
         "summary": "Handles GitHub action sample file creation for the project."
       },
-      "fqn": "projen-template-github-action.SampleComponent",
+      "fqn": "projen-template-github-action.SampleCodeComponent",
       "initializer": {
         "docs": {
           "stability": "stable",
           "summary": "Initializes the Sample component."
         },
         "locationInModule": {
-          "filename": "src/components/SampleComponent.ts",
+          "filename": "src/components/SampleCodeComponent.ts",
           "line": 15
         },
         "parameters": [
@@ -809,7 +809,7 @@
       ],
       "kind": "class",
       "locationInModule": {
-        "filename": "src/components/SampleComponent.ts",
+        "filename": "src/components/SampleCodeComponent.ts",
         "line": 8
       },
       "methods": [
@@ -819,7 +819,7 @@
             "summary": "Adds sample action template files to the project."
           },
           "locationInModule": {
-            "filename": "src/components/SampleComponent.ts",
+            "filename": "src/components/SampleCodeComponent.ts",
             "line": 88
           },
           "name": "add",
@@ -831,15 +831,15 @@
             "summary": "Executes setup for sample file creation."
           },
           "locationInModule": {
-            "filename": "src/components/SampleComponent.ts",
+            "filename": "src/components/SampleCodeComponent.ts",
             "line": 95
           },
           "name": "setup",
           "overrides": "projen-template-github-action.IProjectComponent"
         }
       ],
-      "name": "SampleComponent",
-      "symbolId": "src/components/SampleComponent:SampleComponent"
+      "name": "SampleCodeComponent",
+      "symbolId": "src/components/SampleCodeComponent:SampleCodeComponent"
     },
     "projen-template-github-action.VsCodeComponent": {
       "assembly": "projen-template-github-action",
@@ -920,5 +920,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "hd8pFiqb0DZjIJltzveiWYF1+1QN9FGHe0HLOTLRJaM="
+  "fingerprint": "nnLntC64bkIjDkKOx2OA7XFwy74DYDi2YZIEoj6mm1k="
 }
