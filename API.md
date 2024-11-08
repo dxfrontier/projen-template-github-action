@@ -4203,27 +4203,27 @@ Configures the `.gitattributes` file to treat Prettier component related files a
 
 
 
-### SampleComponent <a name="SampleComponent" id="projen-template-github-action.SampleComponent"></a>
+### SampleCodeComponent <a name="SampleCodeComponent" id="projen-template-github-action.SampleCodeComponent"></a>
 
 - *Implements:* <a href="#projen-template-github-action.IProjectComponent">IProjectComponent</a>
 
 Handles GitHub action sample file creation for the project.
 
-#### Initializers <a name="Initializers" id="projen-template-github-action.SampleComponent.Initializer"></a>
+#### Initializers <a name="Initializers" id="projen-template-github-action.SampleCodeComponent.Initializer"></a>
 
 ```typescript
-import { SampleComponent } from 'projen-template-github-action'
+import { SampleCodeComponent } from 'projen-template-github-action'
 
-new SampleComponent(project: TypeScriptProject)
+new SampleCodeComponent(project: TypeScriptProject)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-template-github-action.SampleComponent.Initializer.parameter.project">project</a></code> | <code>projen.typescript.TypeScriptProject</code> | The project to create sample GitHub action file for. |
+| <code><a href="#projen-template-github-action.SampleCodeComponent.Initializer.parameter.project">project</a></code> | <code>projen.typescript.TypeScriptProject</code> | The project to create sample GitHub action file for. |
 
 ---
 
-##### `project`<sup>Required</sup> <a name="project" id="projen-template-github-action.SampleComponent.Initializer.parameter.project"></a>
+##### `project`<sup>Required</sup> <a name="project" id="projen-template-github-action.SampleCodeComponent.Initializer.parameter.project"></a>
 
 - *Type:* projen.typescript.TypeScriptProject
 
@@ -4235,12 +4235,12 @@ The project to create sample GitHub action file for.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#projen-template-github-action.SampleComponent.add">add</a></code> | Adds sample action template files to the project. |
-| <code><a href="#projen-template-github-action.SampleComponent.setup">setup</a></code> | Executes setup for sample file creation. |
+| <code><a href="#projen-template-github-action.SampleCodeComponent.add">add</a></code> | Adds sample action template files to the project. |
+| <code><a href="#projen-template-github-action.SampleCodeComponent.setup">setup</a></code> | Executes setup for sample file creation. |
 
 ---
 
-##### `add` <a name="add" id="projen-template-github-action.SampleComponent.add"></a>
+##### `add` <a name="add" id="projen-template-github-action.SampleCodeComponent.add"></a>
 
 ```typescript
 public add(): void
@@ -4248,7 +4248,7 @@ public add(): void
 
 Adds sample action template files to the project.
 
-##### `setup` <a name="setup" id="projen-template-github-action.SampleComponent.setup"></a>
+##### `setup` <a name="setup" id="projen-template-github-action.SampleCodeComponent.setup"></a>
 
 ```typescript
 public setup(): void
@@ -4328,7 +4328,7 @@ Configures the `.gitattributes` file to treat VSCode component related files as 
 
 ### IProjectComponent <a name="IProjectComponent" id="projen-template-github-action.IProjectComponent"></a>
 
-- *Implemented By:* <a href="#projen-template-github-action.CommitLintComponent">CommitLintComponent</a>, <a href="#projen-template-github-action.DevContainerComponent">DevContainerComponent</a>, <a href="#projen-template-github-action.GitHubComponent">GitHubComponent</a>, <a href="#projen-template-github-action.HuskyComponent">HuskyComponent</a>, <a href="#projen-template-github-action.NpmPackageComponent">NpmPackageComponent</a>, <a href="#projen-template-github-action.PrettierComponent">PrettierComponent</a>, <a href="#projen-template-github-action.SampleComponent">SampleComponent</a>, <a href="#projen-template-github-action.VsCodeComponent">VsCodeComponent</a>, <a href="#projen-template-github-action.IProjectComponent">IProjectComponent</a>
+- *Implemented By:* <a href="#projen-template-github-action.CommitLintComponent">CommitLintComponent</a>, <a href="#projen-template-github-action.DevContainerComponent">DevContainerComponent</a>, <a href="#projen-template-github-action.GitHubComponent">GitHubComponent</a>, <a href="#projen-template-github-action.HuskyComponent">HuskyComponent</a>, <a href="#projen-template-github-action.NpmPackageComponent">NpmPackageComponent</a>, <a href="#projen-template-github-action.PrettierComponent">PrettierComponent</a>, <a href="#projen-template-github-action.SampleCodeComponent">SampleCodeComponent</a>, <a href="#projen-template-github-action.VsCodeComponent">VsCodeComponent</a>, <a href="#projen-template-github-action.IProjectComponent">IProjectComponent</a>
 
 Defines methods for a component to be created in the project.
 

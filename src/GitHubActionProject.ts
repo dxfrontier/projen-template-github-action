@@ -8,7 +8,7 @@ import {
   PrettierComponent,
   HuskyComponent,
   CommitLintComponent,
-  SampleComponent,
+  SampleCodeComponent,
 } from './components';
 import { IProjectComponent } from './types';
 
@@ -30,7 +30,6 @@ export class GitHubActionProject extends TypeScriptProject {
       minNodeVersion: '20',
       projenrcTs: true,
 
-      pullRequestTemplate: false,
       prettier: true,
       githubOptions: {
         mergify: false,
@@ -38,6 +37,7 @@ export class GitHubActionProject extends TypeScriptProject {
       },
       buildWorkflow: false, // workflow build.yml
       release: false, // workflow release.yml
+      pullRequestTemplate: false, // pull_request_template.yml
       depsUpgrade: false, // workflow upgrade-main.yml
       sampleCode: false,
 
@@ -53,7 +53,7 @@ export class GitHubActionProject extends TypeScriptProject {
       new PrettierComponent(this),
       new HuskyComponent(this),
       new CommitLintComponent(this),
-      new SampleComponent(this),
+      new SampleCodeComponent(this),
     ];
     components.forEach((component: IProjectComponent): void => {
       component.setup();
