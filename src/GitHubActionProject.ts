@@ -8,7 +8,7 @@ import {
   PrettierComponent,
   HuskyComponent,
   CommitLintComponent,
-  SampleComponent,
+  SampleCodeComponent,
 } from './components';
 import { IProjectComponent } from './types';
 
@@ -53,7 +53,7 @@ export class GitHubActionProject extends TypeScriptProject {
       new PrettierComponent(this),
       new HuskyComponent(this),
       new CommitLintComponent(this),
-      new SampleComponent(this),
+      new SampleCodeComponent(this),
     ];
     components.forEach((component: IProjectComponent): void => {
       component.setup();

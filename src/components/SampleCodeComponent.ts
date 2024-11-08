@@ -5,7 +5,7 @@ import { IProjectComponent } from '../types';
 /**
  * Handles GitHub action sample file creation for the project.
  */
-export class SampleComponent implements IProjectComponent {
+export class SampleCodeComponent implements IProjectComponent {
   private project: TypeScriptProject;
 
   /**
