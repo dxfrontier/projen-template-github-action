@@ -4,6 +4,7 @@
 *.snap linguist-generated
 /.commitlintrc.ts linguist-generated
 /.devcontainer.json linguist-generated
+/.eslintrc.json linguist-generated
 /.gitattributes linguist-generated
 /.github/ISSUE_TEMPLATE/bug.yml linguist-generated
 /.github/ISSUE_TEMPLATE/feature.yml linguist-generated
@@ -12,6 +13,7 @@
 /.gitignore linguist-generated
 /.husky/commit-msg linguist-generated
 /.husky/pre-commit linguist-generated
+/.npmignore linguist-generated
 /.prettierignore linguist-generated
 /.prettierrc.json linguist-generated
 /.projen/** linguist-generated
@@ -24,3 +26,4 @@
 /LICENSE linguist-generated
 /package-lock.json linguist-generated
 /package.json linguist-generated
+/tsconfig.dev.json linguist-generated
