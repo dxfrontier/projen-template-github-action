@@ -19,6 +19,7 @@ const project = new cdk.JsiiProject({
   name: 'projen-template-github-action',
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
+  jsiiVersion: '~5.5.0',
   commitGenerated: false,
 
   githubOptions: {
@@ -31,16 +32,6 @@ const project = new cdk.JsiiProject({
   peerDeps: ['projen'],
   bundledDeps: ['construct'],
 });
-
-// Overwrite JsiiProject outdated package versions
-project.addDevDeps(
-  '@types/jest@^29',
-  '@types/node@^22',
-  'jest@^29',
-  'ts-jest@^29',
-  'jsii@^5.5.9',
-  'jsii-rosetta@^5.5.5',
-);
 
 // Initialize project configuration
 const components: IProjectComponent[] = [
