@@ -310,13 +310,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@commitlint/cli,@commitlint/config-conventional,@commitlint/prompt-cli,@commitlint/types,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,husky,jsii-diff,jsii-pacmak,lint-staged,prettier,projen,ts-node,typescript,construct"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@commitlint/cli,@commitlint/config-conventional,@commitlint/prompt-cli,@commitlint/types,@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,husky,jest,jsii-diff,jsii-pacmak,lint-staged,prettier,projen,ts-jest,ts-node,typescript,construct"
         },
         {
           "exec": "npm install"
         },
         {
-          "exec": "npm update @commitlint/cli @commitlint/config-conventional @commitlint/prompt-cli @commitlint/types @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint husky jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii lint-staged prettier projen ts-jest ts-node typescript construct"
+          "exec": "npm update @commitlint/cli @commitlint/config-conventional @commitlint/prompt-cli @commitlint/types @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint husky jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii lint-staged prettier projen ts-jest ts-node typescript construct"
         },
         {
           "exec": "npx projen"
