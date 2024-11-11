@@ -1,3 +1,2 @@
-export * from './GitHubActionProject';
-export * from './components';
+export * from './github-action';
 export * from './types';

@@ -1,10 +1,11 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
-import { GitHubActionProject, GitHubActionProjectOptions } from '../src';
 import { testNpmScriptsAddedProperly } from './util';
-import { TaskSteps, ProjenStandardScript, LintStagedConfig } from '../src/types';
+import { ProjectOptions } from '../src/base/project';
+import { GitHubActionProject } from '../src/github-action/project';
+import { TaskSteps, LintStagedConfig, ProjenStandardScript } from '../src/types';
 
 describe('GitHubActionProject', (): void => {
-  let props: GitHubActionProjectOptions;
+  let props: ProjectOptions;
   let snapshot: SynthOutput;
 
   beforeEach((): void => {
