@@ -1,3 +1,2 @@
-export * from './component';
-export * from './general';
-export * from './script';
+export * from './types';
+export * from './project';

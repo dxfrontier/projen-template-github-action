@@ -1,4 +1,11 @@
 /**
+ * Configuration for linting staged files, allowing string or array of strings.
+ */
+export type LintStagedConfig = {
+  [key: string]: string | string[];
+};
+
+/**
  * Standard npm scripts that Projen automatically adds
  * to package.json during project initialization.
  */
