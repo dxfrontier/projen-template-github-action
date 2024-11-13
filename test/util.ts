@@ -1,5 +1,5 @@
 import { SynthOutput } from 'projen/lib/util/synth';
-import { TaskSteps } from '../src/types/script';
+import { TaskSteps } from '../src/types';
 
 /**
  * Validates that npm scripts are added correctly by comparing the snapshot of tasks.json with expected tasks and steps.
