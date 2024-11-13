@@ -34,8 +34,4 @@ export class CommitLintJsii extends CommitLintBase {
    * @override
    */
   protected addGitAttributes(): void {}
-
-  postSynthesize(): void {
-    console.log('commitlint');
-  }
 }
