@@ -2,7 +2,7 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { GitHubBase } from '../base';
 
 /**
- * GitHub component implementing all relevant configurtion for the project.
+ * GitHub component implementing all relevant configuration for the project.
  */
 export class GitHub extends GitHubBase {
   /**

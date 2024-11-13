@@ -2,7 +2,7 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { PrettierBase } from '../base/prettier';
 
 /**
- * Prettier component implementing all relevant configurtion for the Jsii project.
+ * Prettier component implementing all relevant configuration for the Jsii project.
  */
 export class PrettierJsii extends PrettierBase {
   /**

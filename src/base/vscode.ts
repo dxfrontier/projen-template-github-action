@@ -2,7 +2,7 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { Component } from './component';
 
 /**
- * Base class for VSCode component implementing all relevant configurarion.
+ * Base class for VSCode component implementing all relevant configuration.
  */
 export abstract class VSCodeBase extends Component {
   /**
