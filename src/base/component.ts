@@ -16,6 +16,14 @@ export abstract class Component {
   }
 
   /**
+   * Adds component to the projects component registry.
+   * @protected
+   */
+  protected addComponent(): void {
+    this.project.registerComponent(this);
+  }
+
+  /**
    * Adds template files to the component's project directory.
    * @protected
    */
@@ -51,6 +59,20 @@ export abstract class Component {
   protected addGitAttributes(): void { }
 
   /**
+   * Hook to be called before synthesis.
+   * @public
+   */
+  // eslint-disable-next-line prettier/prettier
+  public preSynthesize(): void { };
+
+  /**
+   * Hook to be called after synthesis.
+   * @public
+   */
+  // eslint-disable-next-line prettier/prettier
+  public postSynthesize(): void { }
+
+  /**
    * Initialize component configuration for the project.
    * @public
    *
@@ -63,6 +85,7 @@ export abstract class Component {
    *   invoking `super()` to ensure the component is fully initialized.
    */
   public initialize(): void {
+    this.addComponent();
     this.addTemplates();
     this.addSettings();
     this.addScripts();

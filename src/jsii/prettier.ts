@@ -22,4 +22,8 @@ export class PrettierJsii extends PrettierBase {
    */
   // eslint-disable-next-line prettier/prettier
   protected addGitAttributes(): void { }
+
+  public postSynthesize(): void {
+    console.log('Jiss Prettier');
+  }
 }

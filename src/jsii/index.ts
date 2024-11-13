@@ -5,3 +5,4 @@ export * from './husky';
 export * from './npm';
 export * from './prettier';
 export * from './vscode';
+export * from './utils';

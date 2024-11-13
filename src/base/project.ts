@@ -1,5 +1,6 @@
 import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
+import { Component } from './component';
 
 // Have to disable the prettier rule here for the { }
 // otherwise we have a conflict between prettier and linter.
@@ -11,6 +12,8 @@ export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions {
  * @abstract
  */
 export abstract class TypeScriptProjectBase extends TypeScriptProject {
+  public componentRegistry: Component[] = [];
+
   /**
    * Initializes the project.
    * @param options Additional project options.
@@ -36,5 +39,33 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
 
       devDeps: ['projen', 'construct'],
     });
+  }
+
+  /**
+   * Register a component to be managed by this project.
+   * @param component The component to register (must extend BaseComponent).
+   * @public
+   */
+  public registerComponent(component: Component): void {
+    this.componentRegistry?.push(component);
+  }
+
+  /**
+   * @public
+   */
+  public preSynthesize(): void {
+    for (const component of this.componentRegistry) {
+      component.preSynthesize();
+    }
+  }
+
+  /**
+   * @public
+   */
+  public postSynthesize(): void {
+    super.postSynthesize();
+    for (const component of this.componentRegistry) {
+      component.postSynthesize();
+    }
   }
 }

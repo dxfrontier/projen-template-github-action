@@ -14,4 +14,8 @@ export class Prettier extends PrettierBase {
     super(project);
     this.initialize();
   }
+
+  public postSynthesize(): void {
+    console.log('Prettier Post Synthesize');
+  }
 }
