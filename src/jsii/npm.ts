@@ -1,5 +1,4 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { NpmPackageBase } from '../base';
+import { NpmPackageBase, TypeScriptProjectBase } from '../base';
 
 /**
  * NPM Package component implementing all relevant configuration for the Jsii project.
@@ -11,7 +10,7 @@ export class NpmPackageJsii extends NpmPackageBase {
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure NPM Package for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }

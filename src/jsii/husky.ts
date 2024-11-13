@@ -1,5 +1,4 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { HuskyBase } from '../base/husky';
+import { HuskyBase, TypeScriptProjectBase } from '../base';
 
 /**
  * Husky component implementing all relevant configuration for the Jsii project.
@@ -11,7 +10,7 @@ export class HuskyJsii extends HuskyBase {
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure Husky for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }
@@ -21,5 +20,6 @@ export class HuskyJsii extends HuskyBase {
    * @protected
    * @override
    */
-  protected addGitAttributes(): void {}
+  // eslint-disable-next-line prettier/prettier
+  protected addGitAttributes(): void { }
 }

@@ -1,4 +1,5 @@
 import { cdk, javascript } from 'projen';
+import { TypeScriptProjectBase } from './src/base';
 import {
   CommitLintJsii,
   DevContainerJsii,
@@ -41,12 +42,12 @@ export const project = new cdk.JsiiProject({
   },
 });
 
-new NpmPackageJsii(project);
-new DevContainerJsii(project);
-new VSCodeJsii(project);
-new GitHubJsii(project);
-new PrettierJsii(project);
-new HuskyJsii(project);
-new CommitLintJsii(project);
+new NpmPackageJsii(project as unknown as TypeScriptProjectBase);
+new DevContainerJsii(project as unknown as TypeScriptProjectBase);
+new VSCodeJsii(project as unknown as TypeScriptProjectBase);
+new GitHubJsii(project as unknown as TypeScriptProjectBase);
+new PrettierJsii(project as unknown as TypeScriptProjectBase);
+new HuskyJsii(project as unknown as TypeScriptProjectBase);
+new CommitLintJsii(project as unknown as TypeScriptProjectBase);
 
 project.synth();

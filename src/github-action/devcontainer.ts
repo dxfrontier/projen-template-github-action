@@ -1,5 +1,4 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { DevContainerBase } from '../base';
+import { DevContainerBase, TypeScriptProjectBase } from '../base';
 
 /**
  * DevContainer component implementing all relevant configuration for the project.
@@ -11,7 +10,7 @@ export class DevContainer extends DevContainerBase {
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure CommitLint for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }

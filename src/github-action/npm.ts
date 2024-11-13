@@ -1,5 +1,4 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { NpmPackageBase } from '../base';
+import { NpmPackageBase, TypeScriptProjectBase } from '../base';
 
 /**
  * NPM Package component implementing all relevant configuration for the project.
@@ -13,7 +12,7 @@ export class NpmPackage extends NpmPackageBase {
    * as these scripts are not needed for this kind of project.
    * @param project The project to configure NPM Package for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
     this.removeScripts();

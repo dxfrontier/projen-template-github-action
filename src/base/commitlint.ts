@@ -1,17 +1,18 @@
 import { TextFile } from 'projen';
-import { TypeScriptProject } from 'projen/lib/typescript';
 import { Component } from './component';
 import { LintStagedConfig, Scripts } from '../types';
+import { TypeScriptProjectBase } from './project';
 
 /**
  * Base class for CommitLint component implementing all relevant configuration.
+ * @abstract
  */
 export abstract class CommitLintBase extends Component {
   /**
    * Initializes the base CommitLint component.
    * @param project The project to configure CommitLint for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
   }
 

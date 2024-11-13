@@ -1,17 +1,18 @@
 import { TextFile } from 'projen';
-import { TypeScriptProject } from 'projen/lib/typescript';
 import { Component } from './component';
 import { Scripts } from '../types';
+import { TypeScriptProjectBase } from './project';
 
 /**
  * Base class for Husky component implementing all relevant configuration.
+ * @abstract
  */
 export abstract class HuskyBase extends Component {
   /**
    * Initializes the Husky component.
    * @param project The project to configure Husky for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
   }
 

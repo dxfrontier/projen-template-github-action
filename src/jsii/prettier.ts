@@ -1,5 +1,4 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { PrettierBase } from '../base/prettier';
+import { PrettierBase, TypeScriptProjectBase } from '../base';
 
 /**
  * Prettier component implementing all relevant configuration for the Jsii project.
@@ -11,7 +10,7 @@ export class PrettierJsii extends PrettierBase {
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure Prettier for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }
@@ -21,5 +20,6 @@ export class PrettierJsii extends PrettierBase {
    * @protected
    * @override
    */
-  protected addGitAttributes(): void {}
+  // eslint-disable-next-line prettier/prettier
+  protected addGitAttributes(): void { }
 }

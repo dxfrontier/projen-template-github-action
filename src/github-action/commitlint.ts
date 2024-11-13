@@ -1,5 +1,4 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { CommitLintBase } from '../base/commitlint';
+import { CommitLintBase, TypeScriptProjectBase } from '../base';
 import { LintStagedConfig } from '../types';
 
 /**
@@ -12,7 +11,7 @@ export class CommitLint extends CommitLintBase {
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure CommitLint for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }

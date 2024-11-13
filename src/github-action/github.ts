@@ -1,5 +1,4 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { GitHubBase } from '../base';
+import { GitHubBase, TypeScriptProjectBase } from '../base';
 
 /**
  * GitHub component implementing all relevant configuration for the project.
@@ -11,7 +10,7 @@ export class GitHub extends GitHubBase {
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure GitHub for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }

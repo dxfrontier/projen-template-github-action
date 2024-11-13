@@ -1,19 +1,20 @@
 import { TextFile } from 'projen';
 import { GithubWorkflow, PullRequestTemplate } from 'projen/lib/github';
 import { JobPermission } from 'projen/lib/github/workflows-model';
-import { TypeScriptProject } from 'projen/lib/typescript';
 import { Component } from './component';
 import { WorkflowOptions } from '../types';
+import { TypeScriptProjectBase } from './project';
 
 /**
  * Base class for GitHub component implementing all relevant configuration.
+ * @abstract
  */
 export abstract class GitHubBase extends Component {
   /**
    * Initializes the base GitHub component.
    * @param project The project to configure GitHub component for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
   }
 

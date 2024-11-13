@@ -1,6 +1,5 @@
 import { SampleFile } from 'projen';
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { Component } from '../base/component';
+import { Component, TypeScriptProjectBase } from '../base';
 
 /**
  * SampleCode component implementing all relevant configuration for the project.
@@ -12,7 +11,7 @@ export class SampleCode extends Component {
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure SampleCode for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }

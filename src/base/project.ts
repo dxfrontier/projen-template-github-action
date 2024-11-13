@@ -4,10 +4,11 @@ import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescri
 // Have to disable the prettier rule here for the { }
 // otherwise we have a conflict between prettier and linter.
 // eslint-disable-next-line prettier/prettier
-export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions {}
+export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions { }
 
 /**
  * Base class for managing project configuration.
+ * @abstract
  */
 export abstract class TypeScriptProjectBase extends TypeScriptProject {
   /**

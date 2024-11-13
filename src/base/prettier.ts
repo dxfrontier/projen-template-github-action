@@ -1,17 +1,18 @@
 import { PrettierOverride, PrettierSettings, TrailingComma } from 'projen/lib/javascript';
-import { TypeScriptProject } from 'projen/lib/typescript';
 import { Component } from './component';
 import { Scripts } from '../types';
+import { TypeScriptProjectBase } from './project';
 
 /**
  * Base class for Prettier component implementing all relevant configuration.
+ * @abstract
  */
 export abstract class PrettierBase extends Component {
   /**
    * Initializes the base Prettier component.
    * @param project The project to configure Prettier for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
   }
 
