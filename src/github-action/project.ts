@@ -21,5 +21,7 @@ export class GitHubActionProject extends TypeScriptProjectBase {
     new Husky(this);
     new CommitLint(this);
     new SampleCode(this);
+
+    // this.postSynthesize(() => console.log('hello'));
   }
 }

@@ -6,7 +6,7 @@ import { Component } from './component';
 import { WorkflowOptions } from '../types';
 
 /**
- * Base class for GitHub component implementeing all relevant configuration.
+ * Base class for GitHub component implementing all relevant configuration.
  */
 export abstract class GitHubBase extends Component {
   /**

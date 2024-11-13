@@ -2,7 +2,7 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { NpmPackageBase } from '../base';
 
 /**
- * NPM Package component implementing all relevant configurtion for the Jsii project.
+ * NPM Package component implementing all relevant configuration for the Jsii project.
  */
 export class NpmPackageJsii extends NpmPackageBase {
   /**
