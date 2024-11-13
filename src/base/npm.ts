@@ -1,14 +1,14 @@
-import { Component } from './component';
+import { Builder } from './builder';
 import { ProjenStandardScript } from '../types';
 import { TypeScriptProjectBase } from './project';
 
 /**
- * Base class for NPM Package component implementing all relevant configuration.
+ * Base class for NPM Package builder implementing all relevant configuration.
  * @abstract
  */
-export abstract class NpmPackageBase extends Component {
+export abstract class NpmPackageBase extends Builder {
   /**
-   * Initializes the base NPM Package component.
+   * Initializes the base NPM Package builder.
    * @param project The project to configure NPM for.
    */
   constructor(project: TypeScriptProjectBase) {
@@ -26,7 +26,7 @@ export abstract class NpmPackageBase extends Component {
   /**
    * File paths for the .gitattributes file entries.
    * These entries are not added automatically by projen
-   * and we have not extra component for these. So we handle them here.
+   * and we have not extra builder for these. So we handle them here.
    * @protected
    */
   protected get gitAttributesFilePaths(): string[] {
@@ -71,7 +71,7 @@ export abstract class NpmPackageBase extends Component {
   }
 
   /**
-   * Configures settings specific to the component within the project.
+   * Configures settings specific to the builder within the project.
    * @protected
    */
   protected addSettings(): void {

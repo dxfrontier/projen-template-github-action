@@ -1,12 +1,12 @@
 import { SampleFile } from 'projen';
-import { Component, TypeScriptProjectBase } from '../base';
+import { Builder, TypeScriptProjectBase } from '../base';
 
 /**
- * SampleCode component implementing all relevant configuration for the project.
+ * SampleCode builder implementing all relevant configuration for the project.
  */
-export class SampleCode extends Component {
+export class SampleCode extends Builder {
   /**
-   * Initializes the base SampleCode component.
+   * Initializes the base SampleCode builder.
    * It calls the `initialize()` method immediately after invoking `super(project)`
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure SampleCode for.

@@ -1,15 +1,15 @@
 import { TextFile } from 'projen';
-import { Component } from './component';
+import { Builder } from './builder';
 import { Scripts } from '../types';
 import { TypeScriptProjectBase } from './project';
 
 /**
- * Base class for Husky component implementing all relevant configuration.
+ * Base class for Husky builder implementing all relevant configuration.
  * @abstract
  */
-export abstract class HuskyBase extends Component {
+export abstract class HuskyBase extends Builder {
   /**
-   * Initializes the Husky component.
+   * Initializes the Husky builder.
    * @param project The project to configure Husky for.
    */
   constructor(project: TypeScriptProjectBase) {
@@ -53,7 +53,7 @@ export abstract class HuskyBase extends Component {
   }
 
   /**
-   * NPM scripts for the CommitLint component.
+   * NPM scripts for the CommitLint builder.
    * @protected
    */
   protected get scripts(): Scripts {
@@ -63,7 +63,7 @@ export abstract class HuskyBase extends Component {
   }
 
   /**
-   * NPM packages to be installed as devDependencies for the CommitLint component.
+   * NPM packages to be installed as devDependencies for the CommitLint builder.
    * @protected
    */
   protected get devDependencies(): string[] {

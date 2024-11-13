@@ -1,4 +1,4 @@
-export * from './component';
+export * from './builder';
 export * from './commitlint';
 export * from './devcontainer';
 export * from './github';

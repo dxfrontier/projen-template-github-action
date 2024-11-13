@@ -1,11 +1,11 @@
 import { NpmPackageBase, TypeScriptProjectBase } from '../base';
 
 /**
- * NPM Package component implementing all relevant configuration for the Jsii project.
+ * NPM Package builder implementing all relevant configuration for the Jsii project.
  */
 export class NpmPackageJsii extends NpmPackageBase {
   /**
-   * Initializes the NPM Package component.
+   * Initializes the NPM Package builder.
    * It calls the `initialize()` method immediately after invoking `super(project)`
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure NPM Package for.

@@ -2,7 +2,7 @@ import { cdk, javascript } from 'projen';
 import { JsiiProject } from 'projen/lib/cdk/index';
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { testNpmScriptsAddedProperly } from './util';
-import { Component } from '../src/base';
+import { Builder } from '../src/base';
 import { TypeScriptProjectBase } from '../src/base/project.ts';
 import { LintStagedConfig, TaskSteps } from '../src/types';
 
@@ -87,9 +87,9 @@ describe('JsiiProject', (): void => {
     });
 
     test('Registry mimic is set properly', (): void => {
-      expect((project as unknown as TypeScriptProjectBase).componentRegistry).toBeDefined();
-      expect(Array.isArray((project as unknown as TypeScriptProjectBase).componentRegistry)).toBe(true);
-      expect(typeof (project as unknown as TypeScriptProjectBase).registerComponent).toBe('function');
+      expect((project as unknown as TypeScriptProjectBase).builderRegistry).toBeDefined();
+      expect(Array.isArray((project as unknown as TypeScriptProjectBase).builderRegistry)).toBe(true);
+      expect(typeof (project as unknown as TypeScriptProjectBase).registerBuilder).toBe('function');
       expect(typeof (project as unknown as TypeScriptProjectBase).postSynthesize).toBe('function');
     });
 
@@ -117,11 +117,11 @@ describe('JsiiProject', (): void => {
     });
 
     describe('NPM Package', (): void => {
-      test('Component is registered in project registry', (): void => {
-        const hasComponent: boolean = (project as unknown as TypeScriptProjectBase).componentRegistry.some(
-          (component: Component): boolean => component.constructor.name === 'NpmPackageJsii',
+      test('Builder is registered in project registry', (): void => {
+        const hasBuilder: boolean = (project as unknown as TypeScriptProjectBase).builderRegistry.some(
+          (builder: Builder): boolean => builder.constructor.name === 'NpmPackageJsii',
         );
-        expect(hasComponent).toBe(true);
+        expect(hasBuilder).toBe(true);
       });
 
       test('Files property in package.json is set properly', (): void => {
@@ -138,11 +138,11 @@ describe('JsiiProject', (): void => {
     });
 
     describe('DevContainers', (): void => {
-      test('Component is registered in project registry', (): void => {
-        const hasComponent: boolean = (project as unknown as TypeScriptProjectBase).componentRegistry.some(
-          (component: Component): boolean => component.constructor.name === 'DevContainerJsii',
+      test('Builder is registered in project registry', (): void => {
+        const hasBuilder: boolean = (project as unknown as TypeScriptProjectBase).builderRegistry.some(
+          (builder: Builder): boolean => builder.constructor.name === 'DevContainerJsii',
         );
-        expect(hasComponent).toBe(true);
+        expect(hasBuilder).toBe(true);
       });
 
       test('Container image is set properly', (): void => {
@@ -216,11 +216,11 @@ describe('JsiiProject', (): void => {
     });
 
     describe('Visual Studio Code', (): void => {
-      test('Component is registered in project registry', (): void => {
-        const hasComponent: boolean = (project as unknown as TypeScriptProjectBase).componentRegistry.some(
-          (component: Component): boolean => component.constructor.name === 'VSCodeJsii',
+      test('Builder is registered in project registry', (): void => {
+        const hasBuilder: boolean = (project as unknown as TypeScriptProjectBase).builderRegistry.some(
+          (builder: Builder): boolean => builder.constructor.name === 'VSCodeJsii',
         );
-        expect(hasComponent).toBe(true);
+        expect(hasBuilder).toBe(true);
       });
 
       test('VSCode settings are set properly', (): void => {
@@ -250,11 +250,11 @@ describe('JsiiProject', (): void => {
     });
 
     describe('GitHub', (): void => {
-      test('Component is registered in project registry', (): void => {
-        const hasComponent: boolean = (project as unknown as TypeScriptProjectBase).componentRegistry.some(
-          (component: Component): boolean => component.constructor.name === 'GitHubJsii',
+      test('Builder is registered in project registry', (): void => {
+        const hasBuilder: boolean = (project as unknown as TypeScriptProjectBase).builderRegistry.some(
+          (builder: Builder): boolean => builder.constructor.name === 'GitHubJsii',
         );
-        expect(hasComponent).toBe(true);
+        expect(hasBuilder).toBe(true);
       });
 
       describe('GitHub Templates', (): void => {
@@ -535,11 +535,11 @@ describe('JsiiProject', (): void => {
     });
 
     describe('Prettier', (): void => {
-      test('Component is registered in project registry', (): void => {
-        const hasComponent: boolean = (project as unknown as TypeScriptProjectBase).componentRegistry.some(
-          (component: Component): boolean => component.constructor.name === 'PrettierJsii',
+      test('Builder is registered in project registry', (): void => {
+        const hasBuilder: boolean = (project as unknown as TypeScriptProjectBase).builderRegistry.some(
+          (builder: Builder): boolean => builder.constructor.name === 'PrettierJsii',
         );
-        expect(hasComponent).toBe(true);
+        expect(hasBuilder).toBe(true);
       });
 
       test('Prettier settings are set properly', (): void => {
@@ -575,11 +575,11 @@ describe('JsiiProject', (): void => {
     });
 
     describe('Husky', (): void => {
-      test('Component is registered in project registry', (): void => {
-        const hasComponent: boolean = (project as unknown as TypeScriptProjectBase).componentRegistry.some(
-          (component: Component): boolean => component.constructor.name === 'HuskyJsii',
+      test('Builder is registered in project registry', (): void => {
+        const hasBuilder: boolean = (project as unknown as TypeScriptProjectBase).builderRegistry.some(
+          (builder: Builder): boolean => builder.constructor.name === 'HuskyJsii',
         );
-        expect(hasComponent).toBe(true);
+        expect(hasBuilder).toBe(true);
       });
 
       test('Commit-msg hook template matches expected template', (): void => {
@@ -621,11 +621,11 @@ describe('JsiiProject', (): void => {
     });
 
     describe('CommitLint', (): void => {
-      test('Component is registered in project registry', (): void => {
-        const hasComponent: boolean = (project as unknown as TypeScriptProjectBase).componentRegistry.some(
-          (component: Component): boolean => component.constructor.name === 'CommitLintJsii',
+      test('Builder is registered in project registry', (): void => {
+        const hasBuilder: boolean = (project as unknown as TypeScriptProjectBase).builderRegistry.some(
+          (builder: Builder): boolean => builder.constructor.name === 'CommitLintJsii',
         );
-        expect(hasComponent).toBe(true);
+        expect(hasBuilder).toBe(true);
       });
 
       test('Commitlintrc typescript template matches expected template', (): void => {

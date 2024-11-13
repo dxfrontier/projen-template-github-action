@@ -1,6 +1,6 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { testNpmScriptsAddedProperly } from './util';
-import { Component } from '../src/base';
+import { Builder } from '../src/base';
 import { TypeScriptProjectBaseOptions } from '../src/base/project';
 import { GitHubActionProject } from '../src/github-action/project';
 import { TaskSteps, LintStagedConfig, ProjenStandardScript } from '../src/types';
@@ -28,11 +28,11 @@ describe('GitHubActionProject', (): void => {
   });
 
   describe('NPM Package', (): void => {
-    test('Component is registered in project registry', (): void => {
-      const hasComponent: boolean = project.componentRegistry.some(
-        (component: Component): boolean => component.constructor.name === 'NpmPackage',
+    test('Builder is registered in project registry', (): void => {
+      const hasBuilder: boolean = project.builderRegistry.some(
+        (builder: Builder): boolean => builder.constructor.name === 'NpmPackage',
       );
-      expect(hasComponent).toBe(true);
+      expect(hasBuilder).toBe(true);
     });
 
     test('Dynamic options in package.json are set properly', (): void => {
@@ -85,11 +85,11 @@ describe('GitHubActionProject', (): void => {
   });
 
   describe('DevContainer', (): void => {
-    test('Component is registered in project registry', (): void => {
-      const hasComponent: boolean = project.componentRegistry.some(
-        (component: Component): boolean => component.constructor.name === 'DevContainer',
+    test('Builder is registered in project registry', (): void => {
+      const hasBuilder: boolean = project.builderRegistry.some(
+        (builder: Builder): boolean => builder.constructor.name === 'DevContainer',
       );
-      expect(hasComponent).toBe(true);
+      expect(hasBuilder).toBe(true);
     });
 
     test('Container image is set properly', (): void => {
@@ -163,11 +163,11 @@ describe('GitHubActionProject', (): void => {
   });
 
   describe('Visual Studio Code', (): void => {
-    test('Component is registered in project registry', (): void => {
-      const hasComponent: boolean = project.componentRegistry.some(
-        (component: Component): boolean => component.constructor.name === 'VSCode',
+    test('Builder is registered in project registry', (): void => {
+      const hasBuilder: boolean = project.builderRegistry.some(
+        (builder: Builder): boolean => builder.constructor.name === 'VSCode',
       );
-      expect(hasComponent).toBe(true);
+      expect(hasBuilder).toBe(true);
     });
 
     test('VSCode settings are set properly', (): void => {
@@ -197,11 +197,11 @@ describe('GitHubActionProject', (): void => {
   });
 
   describe('GitHub', (): void => {
-    test('Component is registered in project registry', (): void => {
-      const hasComponent: boolean = project.componentRegistry.some(
-        (component: Component): boolean => component.constructor.name === 'GitHub',
+    test('Builder is registered in project registry', (): void => {
+      const hasBuilder: boolean = project.builderRegistry.some(
+        (builder: Builder): boolean => builder.constructor.name === 'GitHub',
       );
-      expect(hasComponent).toBe(true);
+      expect(hasBuilder).toBe(true);
     });
 
     describe('GitHub Templates', (): void => {
@@ -480,11 +480,11 @@ describe('GitHubActionProject', (): void => {
   });
 
   describe('Prettier', (): void => {
-    test('Component is registered in project registry', (): void => {
-      const hasComponent: boolean = project.componentRegistry.some(
-        (component: Component): boolean => component.constructor.name === 'Prettier',
+    test('Builder is registered in project registry', (): void => {
+      const hasBuilder: boolean = project.builderRegistry.some(
+        (builder: Builder): boolean => builder.constructor.name === 'Prettier',
       );
-      expect(hasComponent).toBe(true);
+      expect(hasBuilder).toBe(true);
     });
 
     test('Prettier settings are set properly', (): void => {
@@ -520,11 +520,11 @@ describe('GitHubActionProject', (): void => {
   });
 
   describe('Husky', (): void => {
-    test('Component is registered in project registry', (): void => {
-      const hasComponent: boolean = project.componentRegistry.some(
-        (component: Component): boolean => component.constructor.name === 'Husky',
+    test('Builder is registered in project registry', (): void => {
+      const hasBuilder: boolean = project.builderRegistry.some(
+        (builder: Builder): boolean => builder.constructor.name === 'Husky',
       );
-      expect(hasComponent).toBe(true);
+      expect(hasBuilder).toBe(true);
     });
 
     test('Commit-msg hook template matches expected template', (): void => {
@@ -566,11 +566,11 @@ describe('GitHubActionProject', (): void => {
   });
 
   describe('CommitLint', (): void => {
-    test('Component is registered in project registry', (): void => {
-      const hasComponent: boolean = project.componentRegistry.some(
-        (component: Component): boolean => component.constructor.name === 'CommitLint',
+    test('Builder is registered in project registry', (): void => {
+      const hasBuilder: boolean = project.builderRegistry.some(
+        (builder: Builder): boolean => builder.constructor.name === 'CommitLint',
       );
-      expect(hasComponent).toBe(true);
+      expect(hasBuilder).toBe(true);
     });
 
     test('Commitlintrc typescript template matches expected template', (): void => {
@@ -641,11 +641,11 @@ describe('GitHubActionProject', (): void => {
   });
 
   describe('SampleCode', (): void => {
-    test('Component is registered in project registry', (): void => {
-      const hasComponent: boolean = project.componentRegistry.some(
-        (component: Component): boolean => component.constructor.name === 'SampleCode',
+    test('Builder is registered in project registry', (): void => {
+      const hasBuilder: boolean = project.builderRegistry.some(
+        (builder: Builder): boolean => builder.constructor.name === 'SampleCode',
       );
-      expect(hasComponent).toBe(true);
+      expect(hasBuilder).toBe(true);
     });
 
     test('Projen standard sample files are removed from file system', (): void => {
