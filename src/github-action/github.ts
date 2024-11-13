@@ -1,5 +1,5 @@
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { GitHubBase } from '../base/github';
+import { GitHubBase } from '../base';
 
 /**
  * GitHub component implementing all relevant configurtion for the project.

@@ -4,7 +4,7 @@ import { Component } from './component';
 /**
  * Base class for VSCode component implementing all relevant configurarion.
  */
-export abstract class VSCodeBase extends Component<TypeScriptProject> {
+export abstract class VSCodeBase extends Component {
   /**
    * Initializes the base VSCode component.
    * @param project The project to configure VSCode component for.

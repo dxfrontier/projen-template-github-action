@@ -1,17 +1,16 @@
-import { Project } from 'projen';
-import { IsProjectType } from '../types';
+import { TypeScriptProject } from 'projen/lib/typescript';
 
 /**
  * Base class for managing project component configurations.
  */
-export abstract class Component<T extends Project> {
-  protected project: IsProjectType<T>;
+export abstract class Component {
+  protected project: TypeScriptProject;
 
   /**
    * Initializes the component for a specified project.
    * @param project The project to configure the component for.
    */
-  constructor(project: IsProjectType<T>) {
+  constructor(project: TypeScriptProject) {
     this.project = project;
   }
 

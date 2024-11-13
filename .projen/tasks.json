@@ -24,24 +24,6 @@
         }
       ]
     },
-    "bump": {
-      "name": "bump",
-      "description": "Bumps version based on latest git tag and generates a changelog entry",
-      "env": {
-        "OUTFILE": "package.json",
-        "CHANGELOG": "dist/changelog.md",
-        "BUMPFILE": "dist/version.txt",
-        "RELEASETAG": "dist/releasetag.txt",
-        "RELEASE_TAG_PREFIX": "",
-        "BUMP_PACKAGE": "commit-and-tag-version@^12"
-      },
-      "steps": [
-        {
-          "builtin": "release/bump-version"
-        }
-      ],
-      "condition": "git log --oneline -1 | grep -qv \"chore(release):\""
-    },
     "clobber": {
       "name": "clobber",
       "description": "hard resets to HEAD of origin and cleans the local repo",
@@ -223,10 +205,6 @@
         }
       ]
     },
-    "post-upgrade": {
-      "name": "post-upgrade",
-      "description": "Runs after upgrading dependencies"
-    },
     "pre-compile": {
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
@@ -236,30 +214,6 @@
       "steps": [
         {
           "exec": "husky || true"
-        }
-      ]
-    },
-    "release": {
-      "name": "release",
-      "description": "Prepare a release from \"main\" branch",
-      "env": {
-        "RELEASE": "true"
-      },
-      "steps": [
-        {
-          "exec": "rm -fr dist"
-        },
-        {
-          "spawn": "bump"
-        },
-        {
-          "spawn": "build"
-        },
-        {
-          "spawn": "unbump"
-        },
-        {
-          "exec": "git diff --ignore-space-at-eol --exit-code"
         }
       ]
     },
@@ -282,47 +236,6 @@
       "steps": [
         {
           "exec": "jest --watch"
-        }
-      ]
-    },
-    "unbump": {
-      "name": "unbump",
-      "description": "Restores version to 0.0.0",
-      "env": {
-        "OUTFILE": "package.json",
-        "CHANGELOG": "dist/changelog.md",
-        "BUMPFILE": "dist/version.txt",
-        "RELEASETAG": "dist/releasetag.txt",
-        "RELEASE_TAG_PREFIX": "",
-        "BUMP_PACKAGE": "commit-and-tag-version@^12"
-      },
-      "steps": [
-        {
-          "builtin": "release/reset-version"
-        }
-      ]
-    },
-    "upgrade": {
-      "name": "upgrade",
-      "description": "upgrade dependencies",
-      "env": {
-        "CI": "0"
-      },
-      "steps": [
-        {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@commitlint/cli,@commitlint/config-conventional,@commitlint/prompt-cli,@commitlint/types,@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,husky,jest,jsii-diff,jsii-pacmak,lint-staged,prettier,projen,ts-jest,ts-node,typescript,construct"
-        },
-        {
-          "exec": "npm install"
-        },
-        {
-          "exec": "npm update @commitlint/cli @commitlint/config-conventional @commitlint/prompt-cli @commitlint/types @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint husky jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii lint-staged prettier projen ts-jest ts-node typescript construct"
-        },
-        {
-          "exec": "npx projen"
-        },
-        {
-          "spawn": "post-upgrade"
         }
       ]
     },

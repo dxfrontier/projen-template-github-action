@@ -6,7 +6,7 @@ import { Scripts } from '../types';
 /**
  * Base class for DevContainer component implementing all relevant configuration.
  */
-export abstract class DevContainerBase extends Component<TypeScriptProject> {
+export abstract class DevContainerBase extends Component {
   /**
    * Initializes the base DevContainer component.
    * @param project The project to configure DevContainer for.

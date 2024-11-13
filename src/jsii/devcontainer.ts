@@ -2,9 +2,9 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { DevContainerBase } from '../base';
 
 /**
- * DevContainer component implementing all relevant configuration for the project.
+ * DevContainer component implementing all relevant configuration for the Jsii project.
  */
-export class DevContainer extends DevContainerBase {
+export class DevContainerJsii extends DevContainerBase {
   /**
    * Initializes the DevContainer component.
    * It calls the `initialize()` method immediately after invoking `super(project)`

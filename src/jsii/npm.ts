@@ -1,15 +1,15 @@
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { VSCodeBase } from '../base';
+import { NpmPackageBase } from '../base';
 
 /**
- * VSCode component implementing all relevant configuration for the project.
+ * NPM Package component implementing all relevant configurtion for the Jsii project.
  */
-export class VSCode extends VSCodeBase {
+export class NpmPackageJsii extends NpmPackageBase {
   /**
-   * Initializes the VSCode component.
+   * Initializes the NPM Package component.
    * It calls the `initialize()` method immediately after invoking `super(project)`
    * to ensure that all necessary configuration steps are applied.
-   * @param project The project to configure VSCode Package for.
+   * @param project The project to configure NPM Package for.
    */
   constructor(project: TypeScriptProject) {
     super(project);

@@ -42,3 +42,8 @@ export type Scripts = {
 export type TaskSteps = {
   [key: string]: string[];
 };
+
+/**
+ * Options for github workflows
+ */
+export type WorkflowOptions = Record<string, any>;

@@ -1,14 +1,15 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { testNpmScriptsAddedProperly } from './util';
-import { ProjectOptions } from '../src/base/project';
+import { TypeScriptProjectBaseOptions } from '../src/base/project';
 import { GitHubActionProject } from '../src/github-action/project';
 import { TaskSteps, LintStagedConfig, ProjenStandardScript } from '../src/types';
 
 describe('GitHubActionProject', (): void => {
-  let props: ProjectOptions;
+  let props: TypeScriptProjectBaseOptions;
   let snapshot: SynthOutput;
+  let project: GitHubActionProject;
 
-  beforeEach((): void => {
+  beforeAll((): void => {
     props = {
       name: 'my-github-action',
       defaultReleaseBranch: 'main', // this is needed due to https://github.com/projen/projen/pull/524
@@ -16,18 +17,17 @@ describe('GitHubActionProject', (): void => {
       repository: 'my-repository',
     };
 
-    snapshot = [];
+    project = new GitHubActionProject(props);
+    snapshot = synthSnapshot(project);
+  });
+
+  afterAll(() => {
+    jest.resetAllMocks();
+    jest.resetModules();
   });
 
   describe('NPM Package', (): void => {
     test('Dynamic options in package.json are set properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['package.json']!.name).toBe('my-github-action');
       expect(snapshot['package.json']!.description).toBe('my-description');
       expect(snapshot['package.json']!.repository).toStrictEqual({
@@ -37,13 +37,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Projen standard npm scripts are removed from package.json', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const keys: string[] = Object.keys(snapshot['package.json']!.scripts);
       const scriptsToRemove: ProjenStandardScript[] = [
         'bump',
@@ -71,25 +64,11 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Files property in package.json is set properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedFiles: string[] = ['lib', 'README.md', 'LICENSE'];
       expect(snapshot['package.json']!.files).toStrictEqual(expectedFiles);
     });
 
     test('NPM Package related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['.gitattributes']).toMatch(/\/\.npmignore linguist-generated( $|\s|$)/m);
       expect(snapshot['.gitattributes']).toMatch(/\/\.eslintrc\.json linguist-generated( $|\s|$)/m);
       expect(snapshot['.gitattributes']).toMatch(/\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m);
@@ -97,28 +76,14 @@ describe('GitHubActionProject', (): void => {
     });
   });
 
-  describe('DevContainers', (): void => {
+  describe('DevContainer', (): void => {
     test('Container image is set properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['.devcontainer.json'].image).toBe(
         'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',
       );
     });
 
     test('Container features are set properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedFeatures = {
         'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
         'ghcr.io/devcontainers/features/github-cli': 'latest',
@@ -128,13 +93,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Container VSCode extensions are set properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedExtensions: string[] = [
         'Orta.vscode-jest',
         'firsttris.vscode-jest-runner',
@@ -175,13 +133,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Container postCreateCommand is set properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedTasks: TaskSteps = {
         'install-dependencies': ['npm install'],
       };
@@ -192,26 +143,12 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('DevContainer related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['.gitattributes']).toMatch(/\/\.devcontainer\.json linguist-generated( $|\s|$)/m);
     });
   });
 
   describe('Visual Studio Code', (): void => {
     test('VSCode settings are set properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedSettings = {
         '//': '~~ Generated by projen. To modify, edit .projenrc.ts and run "npx projen".',
         'editor.tabSize': 2,
@@ -233,13 +170,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('VSCode related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['.gitattributes']).toMatch(/\/\.vscode\/settings\.json linguist-generated( $|\s|$)/m);
     });
   });
@@ -247,13 +177,6 @@ describe('GitHubActionProject', (): void => {
   describe('GitHub', (): void => {
     describe('GitHub Templates', (): void => {
       test('PR template matches expected template', (): void => {
-        // GIVEN
-        const project = new GitHubActionProject(props);
-
-        // WHEN
-        snapshot = synthSnapshot(project);
-
-        // THEN
         const expectedTemplateLines: string = [
           '## Reviewers Checklist',
           '',
@@ -284,13 +207,6 @@ describe('GitHubActionProject', (): void => {
       });
 
       test('Bug issue template matches expected template', (): void => {
-        // GIVEN
-        const project = new GitHubActionProject(props);
-
-        // WHEN
-        snapshot = synthSnapshot(project);
-
-        // THEN
         const expectedTemplateLines: string = [
           'name: 🐞 Bug',
           'description: File a bug/issue',
@@ -316,13 +232,6 @@ describe('GitHubActionProject', (): void => {
       });
 
       test('Feature issue template matches expected template', (): void => {
-        // GIVEN
-        const project = new GitHubActionProject(props);
-
-        // WHEN
-        snapshot = synthSnapshot(project);
-
-        // THEN
         const expectedTemplateLines: string = [
           'name: 💡 Feature',
           'description: Story related feature',
@@ -350,13 +259,6 @@ describe('GitHubActionProject', (): void => {
       });
 
       test('Question issue template matches expected template', (): void => {
-        // GIVEN
-        const project = new GitHubActionProject(props);
-
-        // WHEN
-        snapshot = synthSnapshot(project);
-
-        // THEN
         const expectedTemplateLines: string = [
           'name: ❓ Question',
           'description: Ask a question',
@@ -377,13 +279,6 @@ describe('GitHubActionProject', (): void => {
 
     describe('GitHub Workflows', (): void => {
       test('Projen standard workflows are removed', (): void => {
-        // GIVEN
-        const project = new GitHubActionProject(props);
-
-        // WHEN
-        snapshot = synthSnapshot(project);
-
-        // THEN
         const keys: string[] = Object.keys(snapshot).filter((key: string): boolean =>
           key.includes('.github/workflows'),
         );
@@ -391,13 +286,6 @@ describe('GitHubActionProject', (): void => {
       });
 
       test('Release workflow template matches expected template', (): void => {
-        // GIVEN
-        const project = new GitHubActionProject(props);
-
-        // WHEN
-        snapshot = synthSnapshot(project);
-
-        // THEN
         const expectedTemplateLines: string = [
           '# ~~ Generated by projen. To modify, edit .projenrc.ts and run "npx projen".',
           '',
@@ -426,13 +314,6 @@ describe('GitHubActionProject', (): void => {
       });
 
       test('Stale workflow template matches expected template', (): void => {
-        // GIVEN
-        const project = new GitHubActionProject(props);
-
-        // WHEN
-        snapshot = synthSnapshot(project);
-
-        // THEN
         const expectedTemplateLines: string = [
           '# ~~ Generated by projen. To modify, edit .projenrc.ts and run "npx projen".',
           '',
@@ -466,13 +347,6 @@ describe('GitHubActionProject', (): void => {
       });
 
       test('Cliff toml template matches expected template', (): void => {
-        // GIVEN
-        const project = new GitHubActionProject(props);
-
-        // WHEN
-        snapshot = synthSnapshot(project);
-
-        // THEN
         const expectedTemplateLines: string = [
           '# ~~ Generated by projen. To modify, edit .projenrc.ts and run "npx projen".',
           '',
@@ -564,13 +438,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('GitHub related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['.gitattributes']).toMatch(/\/\.github\/pull_request_template\.md linguist-generated( $|\s|$)/m);
       expect(snapshot['.gitattributes']).toMatch(/\/\.github\/ISSUE_TEMPLATE\/bug\.yml linguist-generated( $|\s|$)/m);
       expect(snapshot['.gitattributes']).toMatch(
@@ -585,13 +452,6 @@ describe('GitHubActionProject', (): void => {
 
   describe('Prettier', (): void => {
     test('Prettier settings are set properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedSettings = {
         overrides: [
           {
@@ -610,13 +470,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Prettier npm scripts are added properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedTasks: TaskSteps = {
         'format:message': ['echo "Prettier started ..."'],
         'format:fix': ['prettier . --write'],
@@ -625,13 +478,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Prettier related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['.gitattributes']).toMatch(/\/\.prettierignore linguist-generated( $|\s|$)/m);
       expect(snapshot['.gitattributes']).toMatch(/\/\.prettierrc\.json linguist-generated( $|\s|$)/m);
     });
@@ -639,13 +485,6 @@ describe('GitHubActionProject', (): void => {
 
   describe('Husky', (): void => {
     test('Commit-msg hook template matches expected template', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedTemplateLines: string = [
         '# Generated by projen.To modify, edit.projenrc.ts and run "npx projen".',
         '',
@@ -655,13 +494,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Pre-commit hook template matches expected template', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedTemplateLines: string = [
         '# Generated by projen.To modify, edit.projenrc.ts and run "npx projen".',
         '',
@@ -671,13 +503,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Husky npm scripts are added properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedTasks: TaskSteps = {
         prepare: ['husky || true'],
       };
@@ -685,13 +510,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Husky npm devDependencies are added properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedDevDependencies: string[] = ['husky'];
       expectedDevDependencies.forEach((dep: string): void => {
         expect(snapshot['package.json']!.devDependencies).toHaveProperty(dep);
@@ -699,13 +517,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Husky related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['.gitattributes']).toMatch(/\/\.husky\/commit-msg linguist-generated( $|\s|$)/m);
       expect(snapshot['.gitattributes']).toMatch(/\/\.husky\/pre-commit linguist-generated( $|\s|$)/m);
     });
@@ -713,13 +524,6 @@ describe('GitHubActionProject', (): void => {
 
   describe('CommitLint', (): void => {
     test('Commitlintrc typescript template matches expected template', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedTemplateLines: string = [
         '// Generated by projen.To modify, edit.projenrc.ts and run "npx projen".',
         '',
@@ -755,13 +559,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('CommitLint npm scrips are added properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedTasks: TaskSteps = {
         commit: ['commit'],
       };
@@ -769,13 +566,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('CommitLint configuration in package.json is set properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedConfiguration: LintStagedConfig = {
         '**/*.{yml,yaml}': ['npm run format:message', 'npm run format:fix'],
       };
@@ -783,13 +573,6 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('CommitLint npm devDependencies are added properly', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedDevDependencies: string[] = [
         '@commitlint/cli',
         '@commitlint/config-conventional',
@@ -803,38 +586,17 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('CommitLint related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['.gitattributes']).toMatch(/\/\.commitlintrc\.ts linguist-generated( $|\s|$)/m);
     });
   });
 
-  describe('Samples', (): void => {
+  describe('SampleCode', (): void => {
     test('Projen standard sample files are removed from file system', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       expect(snapshot['src/index.ts']).toBeUndefined();
       expect(snapshot['test/hello.test.ts']).toBeUndefined();
     });
 
     test('Sample action file matches expected template', (): void => {
-      // GIVEN
-      const project = new GitHubActionProject(props);
-
-      // WHEN
-      snapshot = synthSnapshot(project);
-
-      // THEN
       const expectedTemplateLines: string = [
         // eslint-disable-next-line prettier/prettier
         'name: \'My Custom Composite Action\'',

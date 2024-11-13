@@ -1,13 +1,14 @@
 import { TextFile } from 'projen';
 import { GithubWorkflow, PullRequestTemplate } from 'projen/lib/github';
-import { Job, JobPermission, Triggers } from 'projen/lib/github/workflows-model';
+import { JobPermission } from 'projen/lib/github/workflows-model';
 import { TypeScriptProject } from 'projen/lib/typescript';
 import { Component } from './component';
+import { WorkflowOptions } from '../types';
 
 /**
  * Base class for GitHub component implementeing all relevant configuration.
  */
-export abstract class GitHubBase extends Component<TypeScriptProject> {
+export abstract class GitHubBase extends Component {
   /**
    * Initializes the base GitHub component.
    * @param project The project to configure GitHub component for.
@@ -259,7 +260,7 @@ export abstract class GitHubBase extends Component<TypeScriptProject> {
    * Workflow release template for the GitHub configuration.
    * @protected
    */
-  protected get releaseWorkflowOptions(): { on: Triggers; job: Job } {
+  protected get releaseWorkflowOptions(): WorkflowOptions {
     return {
       on: {
         pullRequest: {
@@ -291,7 +292,7 @@ export abstract class GitHubBase extends Component<TypeScriptProject> {
    * Workflow stale template options for the GitHub configuration.
    * @protected
    */
-  protected get staleWorkflowOptions(): { on: Triggers; job: Job } {
+  protected get staleWorkflowOptions(): WorkflowOptions {
     return {
       on: {
         schedule: [

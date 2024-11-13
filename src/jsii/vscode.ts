@@ -2,9 +2,9 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { VSCodeBase } from '../base';
 
 /**
- * VSCode component implementing all relevant configuration for the project.
+ * VSCode component implementing all relevant configuration for the Jsii project.
  */
-export class VSCode extends VSCodeBase {
+export class VSCodeJsii extends VSCodeBase {
   /**
    * Initializes the VSCode component.
    * It calls the `initialize()` method immediately after invoking `super(project)`

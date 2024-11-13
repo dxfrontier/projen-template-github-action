@@ -6,7 +6,7 @@ import { Scripts } from '../types';
 /**
  * Base class for Husky component implementing all relevant configuration.
  */
-export abstract class HuskyBase extends Component<TypeScriptProject> {
+export abstract class HuskyBase extends Component {
   /**
    * Initializes the Husky component.
    * @param project The project to configure Husky for.

@@ -1,5 +1,5 @@
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { NpmPackageBase } from '../base/npm';
+import { NpmPackageBase } from '../base';
 
 /**
  * NPM Package component implementing all relevant configurtion for the project.

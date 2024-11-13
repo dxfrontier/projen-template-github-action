@@ -1,49 +1,52 @@
 import { cdk, javascript } from 'projen';
 import {
-  CommitLintComponent,
-  DevContainerComponent,
-  GitHubComponent,
-  HuskyComponent,
-  // NpmPackageComponent,
-  PrettierComponent,
-  VsCodeComponent,
-} from './src/components';
-import { IProjectComponent } from './src/types/component';
+  CommitLintJsii,
+  DevContainerJsii,
+  GitHubJsii,
+  HuskyJsii,
+  NpmPackageJsii,
+  PrettierJsii,
+  VSCodeJsii,
+} from './src/jsii';
 
-const project = new cdk.JsiiProject({
+// export project for testing
+export const project = new cdk.JsiiProject({
   author: 'Mathias von Kaiz',
   authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
-  repositoryUrl: 'https://github.com/dxfrontier/projen-template-github-action.git',
+  repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
   copyrightOwner: 'ABS GmbH',
   defaultReleaseBranch: 'main',
-  name: 'projen-template-github-action',
+  name: 'projen-template-projects',
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
   jsiiVersion: '~5.5.0',
 
+  prettier: true,
   githubOptions: {
     mergify: false,
-    workflows: false,
+    pullRequestLint: false, // workflow pull-request-lint.yml
   },
-  pullRequestTemplate: false,
-  prettier: true,
+  buildWorkflow: false, // workflow build.yml
+  release: false, // workflow release.yml
+  pullRequestTemplate: false, // pull_request_template.yml
+  depsUpgrade: false, // workflow upgrade-main.yml
 
   peerDeps: ['projen'],
   bundledDeps: ['construct'],
+
+  tsconfig: {
+    compilerOptions: {
+      allowImportingTsExtensions: true,
+    },
+  },
 });
 
-// Initialize project configuration
-const components: IProjectComponent[] = [
-  // new NpmPackageComponent(project),
-  new DevContainerComponent(project),
-  new VsCodeComponent(project),
-  new GitHubComponent(project),
-  new PrettierComponent(project),
-  new HuskyComponent(project),
-  new CommitLintComponent(project),
-];
-components.forEach((component: IProjectComponent): void => {
-  component.setup();
-});
+new NpmPackageJsii(project);
+new DevContainerJsii(project);
+new VSCodeJsii(project);
+new GitHubJsii(project);
+new PrettierJsii(project);
+new HuskyJsii(project);
+new CommitLintJsii(project);
 
 project.synth();

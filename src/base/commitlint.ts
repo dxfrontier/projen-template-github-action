@@ -6,7 +6,7 @@ import { LintStagedConfig, Scripts } from '../types';
 /**
  * Base class for CommitLint component implementing all relevant configuration.
  */
-export abstract class CommitLintBase extends Component<TypeScriptProject> {
+export abstract class CommitLintBase extends Component {
   /**
    * Initializes the base CommitLint component.
    * @param project The project to configure CommitLint for.

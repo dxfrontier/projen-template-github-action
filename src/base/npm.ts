@@ -5,7 +5,7 @@ import { ProjenStandardScript } from '../types';
 /**
  * Base class for NPM Package component implementing all relevant configuration.
  */
-export abstract class NpmPackageBase extends Component<TypeScriptProject> {
+export abstract class NpmPackageBase extends Component {
   /**
    * Initializes the base NPM Package component.
    * @param project The project to configure NPM for.

@@ -32,8 +32,6 @@ jspm_packages/
 /test-reports/
 junit.xml
 /coverage/
-/dist/changelog.md
-/dist/version.txt
 !/.prettierignore
 !/.prettierrc.json
 !/test/
@@ -51,6 +49,8 @@ tsconfig.json
 !/.github/ISSUE_TEMPLATE/bug.yml
 !/.github/ISSUE_TEMPLATE/feature.yml
 !/.github/ISSUE_TEMPLATE/question.yml
+!/.github/workflows/release.yml
+!/.github/workflows/stale.yml
 !/cliff.toml
 !/.husky/commit-msg
 !/.husky/pre-commit

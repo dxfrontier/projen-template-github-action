@@ -6,7 +6,7 @@ import { Scripts } from '../types';
 /**
  * Base class for Prettier component implementing all relevant configuration.
  */
-export abstract class PrettierBase extends Component<TypeScriptProject> {
+export abstract class PrettierBase extends Component {
   /**
    * Initializes the base Prettier component.
    * @param project The project to configure Prettier for.

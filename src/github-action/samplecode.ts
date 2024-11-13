@@ -5,7 +5,7 @@ import { Component } from '../base/component';
 /**
  * SampleCode component implementing all relevant configuration for the project.
  */
-export class SampleCode extends Component<TypeScriptProject> {
+export class SampleCode extends Component {
   /**
    * Initializes the base SampleCode component.
    * It calls the `initialize()` method immediately after invoking `super(project)`
