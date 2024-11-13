@@ -2,7 +2,7 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { HuskyBase } from '../base/husky';
 
 /**
- * Husky component implementing all relevant configurtion for the Jsii project.
+ * Husky component implementing all relevant configuration for the Jsii project.
  */
 export class HuskyJsii extends HuskyBase {
   /**

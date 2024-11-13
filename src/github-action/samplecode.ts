@@ -32,47 +32,47 @@ export class SampleCode extends Component {
   protected get sampleAction(): string[] {
     return [
       // eslint-disable-next-line prettier/prettier
-      'name: \'My Custom Composite Action\'',
+      "name: 'My Custom Composite Action'",
       // eslint-disable-next-line prettier/prettier
-      'description: \'A sample GitHub composite action created with Projen.\'',
+      "description: 'A sample GitHub composite action created with Projen.'",
       // eslint-disable-next-line prettier/prettier
-      'author: \'Your Name or Org\'',
+      "author: 'Your Name or Org'",
       'branding:',
       // eslint-disable-next-line prettier/prettier
-      '  icon: \'zap\'',
+      "  icon: 'zap'",
       // eslint-disable-next-line prettier/prettier
-      '  color: \'blue\'',
+      "  color: 'blue'",
       '',
       'inputs:',
       '  example-input:',
       // eslint-disable-next-line prettier/prettier
-      '    description: \'An example input parameter for the action.\'',
+      "    description: 'An example input parameter for the action.'",
       '    required: false',
       // eslint-disable-next-line prettier/prettier
-      '    default: \'default value\'',
+      "    default: 'default value'",
       '',
       'outputs:',
       '  example-output:',
       // eslint-disable-next-line prettier/prettier
-      '    description: \'An example output from the action.\'',
+      "    description: 'An example output from the action.'",
       '',
       'runs:',
       // eslint-disable-next-line prettier/prettier
-      '  using: \'composite\'',
+      "  using: 'composite'",
       '  steps:',
       // eslint-disable-next-line prettier/prettier
-      '    - name: \'Step 1\'',
+      "    - name: 'Step 1'",
       // eslint-disable-next-line prettier/prettier
-      '      run: echo \'Running Step 1 with input: ${{ inputs.example-input }}\'',
+      "      run: echo 'Running Step 1 with input: ${{ inputs.example-input }}'",
       '',
       // eslint-disable-next-line prettier/prettier
-      '    - name: \'Step 2\'',
+      "    - name: 'Step 2'",
       // eslint-disable-next-line prettier/prettier
-      '      run: echo \'Running Step 2\'',
+      "      run: echo 'Running Step 2'",
       '',
       'env:',
       // eslint-disable-next-line prettier/prettier
-      '  EXAMPLE_ENV_VAR: \'example-value\'',
+      "  EXAMPLE_ENV_VAR: 'example-value'",
     ];
   }
 

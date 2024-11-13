@@ -2,7 +2,7 @@ import { TypeScriptProject } from 'projen/lib/typescript';
 import { NpmPackageBase } from '../base';
 
 /**
- * NPM Package component implementing all relevant configurtion for the project.
+ * NPM Package component implementing all relevant configuration for the project.
  */
 export class NpmPackage extends NpmPackageBase {
   /**
