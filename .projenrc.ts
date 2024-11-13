@@ -5,6 +5,7 @@ import {
   DevContainerJsii,
   GitHubJsii,
   HuskyJsii,
+  mimicRegistryHooks,
   NpmPackageJsii,
   PrettierJsii,
   VSCodeJsii,
@@ -41,6 +42,8 @@ export const project = new cdk.JsiiProject({
     },
   },
 });
+
+mimicRegistryHooks(project);
 
 new NpmPackageJsii(project as unknown as TypeScriptProjectBase);
 new DevContainerJsii(project as unknown as TypeScriptProjectBase);
