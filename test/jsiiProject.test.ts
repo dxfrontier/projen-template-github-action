@@ -84,7 +84,7 @@ describe('JsiiProject', (): void => {
       });
     });
 
-    test('Mock of synth function was successful to avoid installation process', () => {
+    test('Mock of synth function was successful to avoid installation process', (): void => {
       expect(project.synth).toHaveBeenCalledTimes(1);
     });
   });
