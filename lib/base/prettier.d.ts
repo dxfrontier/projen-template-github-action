@@ -44,7 +44,6 @@ export declare abstract class PrettierBase extends Builder {
     protected get scripts(): Scripts;
     protected addSettings(): void;
     protected addScripts(): void;
-    protected addGitAttributes(): void;
     /**
      * Executes post-synthesis tasks, focusing on updating the `.prettierignore` file with paths from `.gitattributes`.
      *

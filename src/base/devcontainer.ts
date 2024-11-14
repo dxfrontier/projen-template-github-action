@@ -99,8 +99,4 @@ export abstract class DevContainerBase extends Builder {
       this.project.addTask(name, { exec: command });
     }
   }
-
-  protected addGitAttributes(): void {
-    this.project.gitattributes.addAttributes(`/${this.filePath}`, 'linguist-generated');
-  }
 }

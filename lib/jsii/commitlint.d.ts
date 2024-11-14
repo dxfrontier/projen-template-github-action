@@ -18,10 +18,4 @@ export declare class CommitLintJsii extends CommitLintBase {
      * @override
      */
     protected get npmSettings(): LintStagedConfig;
-    /**
-     * Entries in `.gitattributes` are already done by `.projenrc.ts`
-     * @protected
-     * @override
-     */
-    protected addGitAttributes(): void;
 }

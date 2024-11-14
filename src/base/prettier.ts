@@ -112,11 +112,6 @@ export abstract class PrettierBase extends Builder {
     }
   }
 
-  protected addGitAttributes(): void {
-    this.project.gitattributes.addAttributes(`/${this.ignoreFilePath}`, 'linguist-generated');
-    this.project.gitattributes.addAttributes(`/${this.settingsFilePath}`, 'linguist-generated');
-  }
-
   /**
    * Executes post-synthesis tasks, focusing on updating the `.prettierignore` file with paths from `.gitattributes`.
    *

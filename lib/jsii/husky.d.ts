@@ -10,10 +10,4 @@ export declare class HuskyJsii extends HuskyBase {
      * @param project The project to configure Husky for.
      */
     constructor(project: TypeScriptProjectBase);
-    /**
-     * Entries in `.gitattributes` are already done by `.projenrc.ts`
-     * @protected
-     * @override
-     */
-    protected addGitAttributes(): void;
 }

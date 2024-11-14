@@ -15,10 +15,4 @@ export declare class PrettierJsii extends PrettierBase {
      * @protected
      */
     protected get ignoreFilePaths(): string[];
-    /**
-     * Entries in `.gitattributes` are already done by `.projenrc.ts`
-     * @protected
-     * @override
-     */
-    protected addGitAttributes(): void;
 }

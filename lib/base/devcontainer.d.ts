@@ -51,5 +51,4 @@ export declare abstract class DevContainerBase extends Builder {
     protected get scripts(): Scripts;
     protected addTemplates(): void;
     protected addScripts(): void;
-    protected addGitAttributes(): void;
 }

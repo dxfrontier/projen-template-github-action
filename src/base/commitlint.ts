@@ -120,8 +120,4 @@ export abstract class CommitLintBase extends Builder {
   protected addDevDependencies(): void {
     this.project.addDevDeps(...this.devDependencies);
   }
-
-  protected addGitAttributes(): void {
-    this.project.gitattributes.addAttributes(`/${this.filePath}`, 'linguist-generated');
-  }
 }

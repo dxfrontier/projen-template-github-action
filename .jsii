@@ -182,11 +182,11 @@
               "protected": "true"
             },
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project. Overwrite this in case that manual entries need to be done."
           },
           "locationInModule": {
             "filename": "src/base/builder.ts",
-            "line": 59
+            "line": 60
           },
           "name": "addGitAttributes",
           "protected": true
@@ -246,7 +246,7 @@
           },
           "locationInModule": {
             "filename": "src/base/builder.ts",
-            "line": 88
+            "line": 89
           },
           "name": "initialize"
         },
@@ -260,7 +260,7 @@
           },
           "locationInModule": {
             "filename": "src/base/builder.ts",
-            "line": 73
+            "line": 74
           },
           "name": "postSynthesize"
         },
@@ -274,7 +274,7 @@
           },
           "locationInModule": {
             "filename": "src/base/builder.ts",
-            "line": 66
+            "line": 67
           },
           "name": "preSynthesize"
         }
@@ -428,19 +428,6 @@
             "line": 120
           },
           "name": "addDevDependencies",
-          "overrides": "projen-template-projects.Builder",
-          "protected": true
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/commitlint.ts",
-            "line": 124
-          },
-          "name": "addGitAttributes",
           "overrides": "projen-template-projects.Builder",
           "protected": true
         },
@@ -658,25 +645,6 @@
         "filename": "src/jsii/commitlint.ts",
         "line": 7
       },
-      "methods": [
-        {
-          "docs": {
-            "custom": {
-              "override": "true",
-              "protected": "true"
-            },
-            "stability": "stable",
-            "summary": "Entries in `.gitattributes` are already done by `.projenrc.ts`."
-          },
-          "locationInModule": {
-            "filename": "src/jsii/commitlint.ts",
-            "line": 37
-          },
-          "name": "addGitAttributes",
-          "overrides": "projen-template-projects.CommitLintBase",
-          "protected": true
-        }
-      ],
       "name": "CommitLintJsii",
       "properties": [
         {
@@ -829,19 +797,6 @@
         "line": 10
       },
       "methods": [
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/devcontainer.ts",
-            "line": 103
-          },
-          "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Builder",
-          "protected": true
-        },
         {
           "docs": {
             "stability": "stable",
@@ -1191,19 +1146,6 @@
         "line": 12
       },
       "methods": [
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/github.ts",
-            "line": 427
-          },
-          "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Builder",
-          "protected": true
-        },
         {
           "docs": {
             "stability": "stable",
@@ -1611,19 +1553,6 @@
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/husky.ts",
-            "line": 114
-          },
-          "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Builder",
-          "protected": true
-        },
-        {
-          "docs": {
-            "stability": "stable",
             "summary": "Adds npm scripts specific to the builder within the project."
           },
           "locationInModule": {
@@ -1828,25 +1757,6 @@
         "filename": "src/jsii/husky.ts",
         "line": 6
       },
-      "methods": [
-        {
-          "docs": {
-            "custom": {
-              "override": "true",
-              "protected": "true"
-            },
-            "stability": "stable",
-            "summary": "Entries in `.gitattributes` are already done by `.projenrc.ts`."
-          },
-          "locationInModule": {
-            "filename": "src/jsii/husky.ts",
-            "line": 24
-          },
-          "name": "addGitAttributes",
-          "overrides": "projen-template-projects.HuskyBase",
-          "protected": true
-        }
-      ],
       "name": "HuskyJsii",
       "symbolId": "src/jsii/husky:HuskyJsii"
     },
@@ -1930,7 +1840,7 @@
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project. Overwrite this in case that manual entries need to be done."
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
@@ -2205,19 +2115,6 @@
       "methods": [
         {
           "docs": {
-            "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/prettier.ts",
-            "line": 115
-          },
-          "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Builder",
-          "protected": true
-        },
-        {
-          "docs": {
             "custom": {
               "private": "true"
             },
@@ -2226,7 +2123,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 142
+            "line": 137
           },
           "name": "addPrettierIgnoreEntries",
           "protected": true
@@ -2265,7 +2162,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 134
+            "line": 129
           },
           "name": "preSynthesize",
           "overrides": "projen-template-projects.Builder"
@@ -2421,25 +2318,6 @@
         "filename": "src/jsii/prettier.ts",
         "line": 6
       },
-      "methods": [
-        {
-          "docs": {
-            "custom": {
-              "override": "true",
-              "protected": "true"
-            },
-            "stability": "stable",
-            "summary": "Entries in `.gitattributes` are already done by `.projenrc.ts`."
-          },
-          "locationInModule": {
-            "filename": "src/jsii/prettier.ts",
-            "line": 32
-          },
-          "name": "addGitAttributes",
-          "overrides": "projen-template-projects.PrettierBase",
-          "protected": true
-        }
-      ],
       "name": "PrettierJsii",
       "properties": [
         {
@@ -2816,19 +2694,6 @@
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/vscode.ts",
-            "line": 54
-          },
-          "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Builder",
-          "protected": true
-        },
-        {
-          "docs": {
-            "stability": "stable",
             "summary": "Configures settings specific to the builder within the project."
           },
           "locationInModule": {
@@ -2930,5 +2795,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "5DDE7Pm1RS9/q1e3UVtQM6CrOqYX/nPKGC5U+bk1ztI="
+  "fingerprint": "ACv7r/042YVS9c4SkEessgzmP6wxaUf/5S9ysLQ08hY="
 }

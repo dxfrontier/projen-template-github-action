@@ -50,8 +50,4 @@ export abstract class VsCodeBase extends Builder {
   protected addSettings(): void {
     this.project.vscode?.settings.addSettings(this.settings);
   }
-
-  protected addGitAttributes(): void {
-    this.project.gitattributes.addAttributes(`/${this.settingsFilePath}`, 'linguist-generated');
-  }
 }
