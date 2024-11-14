@@ -768,7 +768,7 @@
             },
             "returns": "Extensions used in container.",
             "stability": "stable",
-            "summary": "VSCode extensions to be installed in the DevContainer."
+            "summary": "VsCode extensions to be installed in the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
@@ -898,7 +898,7 @@
             },
             "returns": "Extensions used in container.",
             "stability": "stable",
-            "summary": "VSCode extensions to be installed in the DevContainer."
+            "summary": "VsCode extensions to be installed in the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
@@ -1055,7 +1055,7 @@
             },
             "returns": "Extensions used in container.",
             "stability": "stable",
-            "summary": "VSCode extensions to be installed in the DevContainer."
+            "summary": "VsCode extensions to be installed in the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
@@ -2736,19 +2736,19 @@
       "name": "TypeScriptProjectBaseOptions",
       "symbolId": "src/base/project:TypeScriptProjectBaseOptions"
     },
-    "projen-template-projects.VSCode": {
+    "projen-template-projects.VsCode": {
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.VSCodeBase",
+      "base": "projen-template-projects.VsCodeBase",
       "docs": {
         "stability": "stable",
-        "summary": "VSCode builder implementing all relevant configuration for the project."
+        "summary": "VsCode builder implementing all relevant configuration for the project."
       },
-      "fqn": "projen-template-projects.VSCode",
+      "fqn": "projen-template-projects.VsCode",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the VSCode builder."
+          "summary": "Initializes the VsCode builder."
         },
         "locationInModule": {
           "filename": "src/github-action/vscode.ts",
@@ -2757,7 +2757,7 @@
         "parameters": [
           {
             "docs": {
-              "summary": "The project to configure VSCode Package for."
+              "summary": "The project to configure VsCode Package for."
             },
             "name": "project",
             "type": {
@@ -2771,10 +2771,10 @@
         "filename": "src/github-action/vscode.ts",
         "line": 6
       },
-      "name": "VSCode",
-      "symbolId": "src/github-action/vscode:VSCode"
+      "name": "VsCode",
+      "symbolId": "src/github-action/vscode:VsCode"
     },
-    "projen-template-projects.VSCodeBase": {
+    "projen-template-projects.VsCodeBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
       "base": "projen-template-projects.Builder",
@@ -2783,13 +2783,13 @@
           "abstract": "true"
         },
         "stability": "stable",
-        "summary": "Base class for VSCode builder implementing all relevant configuration."
+        "summary": "Base class for VsCode builder implementing all relevant configuration."
       },
-      "fqn": "projen-template-projects.VSCodeBase",
+      "fqn": "projen-template-projects.VsCodeBase",
       "initializer": {
         "docs": {
           "stability": "stable",
-          "summary": "Initializes the base VSCode builder."
+          "summary": "Initializes the base VsCode builder."
         },
         "locationInModule": {
           "filename": "src/base/vscode.ts",
@@ -2798,7 +2798,7 @@
         "parameters": [
           {
             "docs": {
-              "summary": "The project to configure VSCode builder for."
+              "summary": "The project to configure VsCode builder for."
             },
             "name": "project",
             "type": {
@@ -2840,7 +2840,7 @@
           "protected": true
         }
       ],
-      "name": "VSCodeBase",
+      "name": "VsCodeBase",
       "properties": [
         {
           "docs": {
@@ -2849,7 +2849,7 @@
             },
             "returns": "Entries for the settings file.",
             "stability": "stable",
-            "summary": "Settings to be installed in VSCode."
+            "summary": "Settings to be installed in VsCode."
           },
           "immutable": true,
           "locationInModule": {
@@ -2874,7 +2874,7 @@
             },
             "returns": "File path to settings file.",
             "stability": "stable",
-            "summary": "File path to the VSCode settings configuration."
+            "summary": "File path to the VsCode settings configuration."
           },
           "immutable": true,
           "locationInModule": {
@@ -2888,21 +2888,21 @@
           }
         }
       ],
-      "symbolId": "src/base/vscode:VSCodeBase"
+      "symbolId": "src/base/vscode:VsCodeBase"
     },
-    "projen-template-projects.VSCodeJsii": {
+    "projen-template-projects.VsCodeJsii": {
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.VSCodeBase",
+      "base": "projen-template-projects.VsCodeBase",
       "docs": {
         "stability": "stable",
-        "summary": "VSCode builder implementing all relevant configuration for the Jsii project."
+        "summary": "VsCode builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.VSCodeJsii",
+      "fqn": "projen-template-projects.VsCodeJsii",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the VSCode builder."
+          "summary": "Initializes the VsCode builder."
         },
         "locationInModule": {
           "filename": "src/jsii/vscode.ts",
@@ -2911,7 +2911,7 @@
         "parameters": [
           {
             "docs": {
-              "summary": "The project to configure VSCode Package for."
+              "summary": "The project to configure VsCode Package for."
             },
             "name": "project",
             "type": {
@@ -2925,10 +2925,10 @@
         "filename": "src/jsii/vscode.ts",
         "line": 6
       },
-      "name": "VSCodeJsii",
-      "symbolId": "src/jsii/vscode:VSCodeJsii"
+      "name": "VsCodeJsii",
+      "symbolId": "src/jsii/vscode:VsCodeJsii"
     }
   },
   "version": "0.0.0",
-  "fingerprint": "bEfWCs99lW81xqL30EdFJvRh4IxrX1mEkROifdejkoc="
+  "fingerprint": "5DDE7Pm1RS9/q1e3UVtQM6CrOqYX/nPKGC5U+bk1ztI="
 }
