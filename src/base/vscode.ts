@@ -16,6 +16,7 @@ export abstract class VSCodeBase extends Builder {
 
   /**
    * File path to the VSCode settings configuration.
+   * @return File path to settings file.
    * @protected
    */
   protected get settingsFilePath(): string {
@@ -24,6 +25,7 @@ export abstract class VSCodeBase extends Builder {
 
   /**
    * Settings to be installed in VSCode.
+   * @return Entries for the settings file.
    * @protected
    */
   protected get settings(): Record<string, unknown> {

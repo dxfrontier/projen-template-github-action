@@ -18,6 +18,7 @@ export abstract class CommitLintBase extends Builder {
 
   /**
    * File path to the CommitLint configuration.
+   * @return File path to config file.
    * @protected
    */
   protected get filePath(): string {
@@ -26,6 +27,7 @@ export abstract class CommitLintBase extends Builder {
 
   /**
    * Template file for the CommitLint configuration.
+   * @return Template for the config file.
    * @protected
    */
   protected get template(): string[] {
@@ -64,6 +66,7 @@ export abstract class CommitLintBase extends Builder {
 
   /**
    * NPM scripts for the CommitLint builder.
+   * @return Npm script entries.
    * @protected
    */
   protected get scripts(): Scripts {
@@ -74,6 +77,7 @@ export abstract class CommitLintBase extends Builder {
 
   /**
    * NPM packages to be installed as devDependencies for the CommitLint builder.
+   * @return Npm dev dependencies.
    * @protected
    */
   protected get devDependencies(): string[] {
@@ -88,6 +92,7 @@ export abstract class CommitLintBase extends Builder {
 
   /**
    * Settings to be added to package.json for the CommitLint builder.
+   * @return Configuration entries for package.json.
    * @protected
    */
   protected get npmSettings(): LintStagedConfig {

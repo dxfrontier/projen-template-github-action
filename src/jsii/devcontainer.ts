@@ -17,6 +17,7 @@ export class DevContainerJsii extends DevContainerBase {
 
   /**
    * VSCode extensions to be installed in the DevContainer.
+   * @return Extensions used in container.
    * @protected
    * @override
    */

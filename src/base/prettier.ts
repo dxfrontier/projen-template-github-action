@@ -18,6 +18,7 @@ export abstract class PrettierBase extends Builder {
 
   /**
    * File path to the Prettier ignore configuration.
+   * @return File path to ignore file.
    * @protected
    */
   protected get ignoreFilePath(): string {
@@ -26,6 +27,7 @@ export abstract class PrettierBase extends Builder {
 
   /**
    * File path to the Prettier settings configuration.
+   * @return File path to setting file.
    * @protected
    */
   protected get settingsFilePath(): string {
@@ -34,6 +36,7 @@ export abstract class PrettierBase extends Builder {
 
   /**
    * File paths to the Prettier ignore entries.
+   * @return File paths for ignore file entries.
    * @protected
    */
   protected get ignoreFilePaths(): string[] {
@@ -71,6 +74,7 @@ export abstract class PrettierBase extends Builder {
 
   /**
    * Settings for the Prettier configuration.
+   * @return Entries for the settings file.
    * @protected
    */
   protected get settings(): PrettierOverride {
@@ -88,6 +92,7 @@ export abstract class PrettierBase extends Builder {
 
   /**
    * NPM scripts used by Prettier.
+   * @return Npm script entries.
    * @protected
    */
   protected get scripts(): Scripts {
