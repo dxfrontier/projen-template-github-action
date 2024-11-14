@@ -8,7 +8,7 @@ import {
   mimicRegistryHooks,
   NpmPackageJsii,
   PrettierJsii,
-  VSCodeJsii,
+  VsCodeJsii,
 } from './src/jsii';
 
 // export project for testing
@@ -47,7 +47,7 @@ mimicRegistryHooks(project);
 
 new NpmPackageJsii(project as unknown as TypeScriptProjectBase);
 new DevContainerJsii(project as unknown as TypeScriptProjectBase);
-new VSCodeJsii(project as unknown as TypeScriptProjectBase);
+new VsCodeJsii(project as unknown as TypeScriptProjectBase);
 new GitHubJsii(project as unknown as TypeScriptProjectBase);
 new PrettierJsii(project as unknown as TypeScriptProjectBase);
 new HuskyJsii(project as unknown as TypeScriptProjectBase);

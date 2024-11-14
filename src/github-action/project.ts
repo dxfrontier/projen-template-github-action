@@ -1,4 +1,4 @@
-import { DevContainer, GitHub, Husky, NpmPackage, SampleCode, VSCode, Prettier } from './';
+import { DevContainer, GitHub, Husky, NpmPackage, SampleCode, VsCode, Prettier } from './';
 import { CommitLint } from './commitlint';
 import { TypeScriptProjectBase, TypeScriptProjectBaseOptions } from '../base/project';
 
@@ -15,7 +15,7 @@ export class GitHubActionProject extends TypeScriptProjectBase {
 
     new NpmPackage(this);
     new DevContainer(this);
-    new VSCode(this);
+    new VsCode(this);
     new GitHub(this);
     new Prettier(this);
     new Husky(this);

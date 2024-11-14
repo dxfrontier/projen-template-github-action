@@ -1,14 +1,14 @@
-import { VSCodeBase, TypeScriptProjectBase } from '../base';
+import { VsCodeBase, TypeScriptProjectBase } from '../base';
 
 /**
- * VSCode builder implementing all relevant configuration for the project.
+ * VsCode builder implementing all relevant configuration for the project.
  */
-export class VSCode extends VSCodeBase {
+export class VsCode extends VsCodeBase {
   /**
-   * Initializes the VSCode builder.
+   * Initializes the VsCode builder.
    * It calls the `initialize()` method immediately after invoking `super(project)`
    * to ensure that all necessary configuration steps are applied.
-   * @param project The project to configure VSCode Package for.
+   * @param project The project to configure VsCode Package for.
    */
   constructor(project: TypeScriptProjectBase) {
     super(project);

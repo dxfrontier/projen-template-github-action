@@ -6644,29 +6644,29 @@ Hook to be called before synthesis.
 
 
 
-### VSCode <a name="VSCode" id="projen-template-projects.VSCode"></a>
+### VsCode <a name="VsCode" id="projen-template-projects.VsCode"></a>
 
-VSCode builder implementing all relevant configuration for the project.
+VsCode builder implementing all relevant configuration for the project.
 
-#### Initializers <a name="Initializers" id="projen-template-projects.VSCode.Initializer"></a>
+#### Initializers <a name="Initializers" id="projen-template-projects.VsCode.Initializer"></a>
 
 ```typescript
-import { VSCode } from 'projen-template-projects'
+import { VsCode } from 'projen-template-projects'
 
-new VSCode(project: TypeScriptProjectBase)
+new VsCode(project: TypeScriptProjectBase)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-template-projects.VSCode.Initializer.parameter.project">project</a></code> | <code><a href="#projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure VSCode Package for. |
+| <code><a href="#projen-template-projects.VsCode.Initializer.parameter.project">project</a></code> | <code><a href="#projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure VsCode Package for. |
 
 ---
 
-##### `project`<sup>Required</sup> <a name="project" id="projen-template-projects.VSCode.Initializer.parameter.project"></a>
+##### `project`<sup>Required</sup> <a name="project" id="projen-template-projects.VsCode.Initializer.parameter.project"></a>
 
 - *Type:* <a href="#projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
 
-The project to configure VSCode Package for.
+The project to configure VsCode Package for.
 
 ---
 
@@ -6674,13 +6674,13 @@ The project to configure VSCode Package for.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#projen-template-projects.VSCode.initialize">initialize</a></code> | Initialize builder configuration for the project. |
-| <code><a href="#projen-template-projects.VSCode.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
-| <code><a href="#projen-template-projects.VSCode.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+| <code><a href="#projen-template-projects.VsCode.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#projen-template-projects.VsCode.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#projen-template-projects.VsCode.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
 
 ---
 
-##### `initialize` <a name="initialize" id="projen-template-projects.VSCode.initialize"></a>
+##### `initialize` <a name="initialize" id="projen-template-projects.VsCode.initialize"></a>
 
 ```typescript
 public initialize(): void
@@ -6688,7 +6688,7 @@ public initialize(): void
 
 Initialize builder configuration for the project.
 
-##### `postSynthesize` <a name="postSynthesize" id="projen-template-projects.VSCode.postSynthesize"></a>
+##### `postSynthesize` <a name="postSynthesize" id="projen-template-projects.VsCode.postSynthesize"></a>
 
 ```typescript
 public postSynthesize(): void
@@ -6696,7 +6696,7 @@ public postSynthesize(): void
 
 Hook to be called after synthesis.
 
-##### `preSynthesize` <a name="preSynthesize" id="projen-template-projects.VSCode.preSynthesize"></a>
+##### `preSynthesize` <a name="preSynthesize" id="projen-template-projects.VsCode.preSynthesize"></a>
 
 ```typescript
 public preSynthesize(): void
@@ -6707,29 +6707,29 @@ Hook to be called before synthesis.
 
 
 
-### VSCodeBase <a name="VSCodeBase" id="projen-template-projects.VSCodeBase"></a>
+### VsCodeBase <a name="VsCodeBase" id="projen-template-projects.VsCodeBase"></a>
 
-Base class for VSCode builder implementing all relevant configuration.
+Base class for VsCode builder implementing all relevant configuration.
 
-#### Initializers <a name="Initializers" id="projen-template-projects.VSCodeBase.Initializer"></a>
+#### Initializers <a name="Initializers" id="projen-template-projects.VsCodeBase.Initializer"></a>
 
 ```typescript
-import { VSCodeBase } from 'projen-template-projects'
+import { VsCodeBase } from 'projen-template-projects'
 
-new VSCodeBase(project: TypeScriptProjectBase)
+new VsCodeBase(project: TypeScriptProjectBase)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-template-projects.VSCodeBase.Initializer.parameter.project">project</a></code> | <code><a href="#projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure VSCode builder for. |
+| <code><a href="#projen-template-projects.VsCodeBase.Initializer.parameter.project">project</a></code> | <code><a href="#projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure VsCode builder for. |
 
 ---
 
-##### `project`<sup>Required</sup> <a name="project" id="projen-template-projects.VSCodeBase.Initializer.parameter.project"></a>
+##### `project`<sup>Required</sup> <a name="project" id="projen-template-projects.VsCodeBase.Initializer.parameter.project"></a>
 
 - *Type:* <a href="#projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
 
-The project to configure VSCode builder for.
+The project to configure VsCode builder for.
 
 ---
 
@@ -6737,13 +6737,13 @@ The project to configure VSCode builder for.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#projen-template-projects.VSCodeBase.initialize">initialize</a></code> | Initialize builder configuration for the project. |
-| <code><a href="#projen-template-projects.VSCodeBase.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
-| <code><a href="#projen-template-projects.VSCodeBase.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+| <code><a href="#projen-template-projects.VsCodeBase.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#projen-template-projects.VsCodeBase.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#projen-template-projects.VsCodeBase.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
 
 ---
 
-##### `initialize` <a name="initialize" id="projen-template-projects.VSCodeBase.initialize"></a>
+##### `initialize` <a name="initialize" id="projen-template-projects.VsCodeBase.initialize"></a>
 
 ```typescript
 public initialize(): void
@@ -6751,7 +6751,7 @@ public initialize(): void
 
 Initialize builder configuration for the project.
 
-##### `postSynthesize` <a name="postSynthesize" id="projen-template-projects.VSCodeBase.postSynthesize"></a>
+##### `postSynthesize` <a name="postSynthesize" id="projen-template-projects.VsCodeBase.postSynthesize"></a>
 
 ```typescript
 public postSynthesize(): void
@@ -6759,7 +6759,7 @@ public postSynthesize(): void
 
 Hook to be called after synthesis.
 
-##### `preSynthesize` <a name="preSynthesize" id="projen-template-projects.VSCodeBase.preSynthesize"></a>
+##### `preSynthesize` <a name="preSynthesize" id="projen-template-projects.VsCodeBase.preSynthesize"></a>
 
 ```typescript
 public preSynthesize(): void
@@ -6770,29 +6770,29 @@ Hook to be called before synthesis.
 
 
 
-### VSCodeJsii <a name="VSCodeJsii" id="projen-template-projects.VSCodeJsii"></a>
+### VsCodeJsii <a name="VsCodeJsii" id="projen-template-projects.VsCodeJsii"></a>
 
-VSCode builder implementing all relevant configuration for the Jsii project.
+VsCode builder implementing all relevant configuration for the Jsii project.
 
-#### Initializers <a name="Initializers" id="projen-template-projects.VSCodeJsii.Initializer"></a>
+#### Initializers <a name="Initializers" id="projen-template-projects.VsCodeJsii.Initializer"></a>
 
 ```typescript
-import { VSCodeJsii } from 'projen-template-projects'
+import { VsCodeJsii } from 'projen-template-projects'
 
-new VSCodeJsii(project: TypeScriptProjectBase)
+new VsCodeJsii(project: TypeScriptProjectBase)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-template-projects.VSCodeJsii.Initializer.parameter.project">project</a></code> | <code><a href="#projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure VSCode Package for. |
+| <code><a href="#projen-template-projects.VsCodeJsii.Initializer.parameter.project">project</a></code> | <code><a href="#projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure VsCode Package for. |
 
 ---
 
-##### `project`<sup>Required</sup> <a name="project" id="projen-template-projects.VSCodeJsii.Initializer.parameter.project"></a>
+##### `project`<sup>Required</sup> <a name="project" id="projen-template-projects.VsCodeJsii.Initializer.parameter.project"></a>
 
 - *Type:* <a href="#projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
 
-The project to configure VSCode Package for.
+The project to configure VsCode Package for.
 
 ---
 
@@ -6800,13 +6800,13 @@ The project to configure VSCode Package for.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#projen-template-projects.VSCodeJsii.initialize">initialize</a></code> | Initialize builder configuration for the project. |
-| <code><a href="#projen-template-projects.VSCodeJsii.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
-| <code><a href="#projen-template-projects.VSCodeJsii.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+| <code><a href="#projen-template-projects.VsCodeJsii.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#projen-template-projects.VsCodeJsii.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#projen-template-projects.VsCodeJsii.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
 
 ---
 
-##### `initialize` <a name="initialize" id="projen-template-projects.VSCodeJsii.initialize"></a>
+##### `initialize` <a name="initialize" id="projen-template-projects.VsCodeJsii.initialize"></a>
 
 ```typescript
 public initialize(): void
@@ -6814,7 +6814,7 @@ public initialize(): void
 
 Initialize builder configuration for the project.
 
-##### `postSynthesize` <a name="postSynthesize" id="projen-template-projects.VSCodeJsii.postSynthesize"></a>
+##### `postSynthesize` <a name="postSynthesize" id="projen-template-projects.VsCodeJsii.postSynthesize"></a>
 
 ```typescript
 public postSynthesize(): void
@@ -6822,7 +6822,7 @@ public postSynthesize(): void
 
 Hook to be called after synthesis.
 
-##### `preSynthesize` <a name="preSynthesize" id="projen-template-projects.VSCodeJsii.preSynthesize"></a>
+##### `preSynthesize` <a name="preSynthesize" id="projen-template-projects.VsCodeJsii.preSynthesize"></a>
 
 ```typescript
 public preSynthesize(): void
