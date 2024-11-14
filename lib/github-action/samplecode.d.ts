@@ -12,11 +12,13 @@ export declare class SampleCode extends Builder {
     constructor(project: TypeScriptProjectBase);
     /**
      * File path to the sample GitHub action.
+     * @return File path to sample code file.
      * @protected
      */
     protected get filePath(): string;
     /**
      * GitHub action template for the SampleCode configuration.
+     * @return Content for sample code file.
      * @protected
      */
     protected get sampleAction(): string[];

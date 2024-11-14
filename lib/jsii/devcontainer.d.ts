@@ -12,6 +12,7 @@ export declare class DevContainerJsii extends DevContainerBase {
     constructor(project: TypeScriptProjectBase);
     /**
      * VSCode extensions to be installed in the DevContainer.
+     * @return Extensions used in container.
      * @protected
      * @override
      */

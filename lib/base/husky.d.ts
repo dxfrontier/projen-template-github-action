@@ -13,31 +13,37 @@ export declare abstract class HuskyBase extends Builder {
     constructor(project: TypeScriptProjectBase);
     /**
      * File path to the Husky commit-msg hook.
+     * @return File path to commit-msg hook file.
      * @protected
      */
     protected get commitMsgFilePath(): string;
     /**
      * File path to the Husky pre-commit hook.
+     * @return File path to pre-commit hook file.
      * @protected
      */
     protected get preCommitFilePath(): string;
     /**
      * Commit-msg hook template for the Husky configuration.
+     * @return Template for the commit-msg hook file.
      * @protected
      */
     protected get commitMsgTemplate(): string[];
     /**
      * Pre-commit hook template for the Husky configuration.
+     * @return Template for the pre-commit hook file.
      * @protected
      */
     protected get preCommitTemplate(): string[];
     /**
      * NPM scripts for the CommitLint builder.
+     * @return Npm script entries.
      * @protected
      */
     protected get scripts(): Scripts;
     /**
      * NPM packages to be installed as devDependencies for the CommitLint builder.
+     * @return Npm dev dependencies.
      * @protected
      */
     protected get devDependencies(): string[];
