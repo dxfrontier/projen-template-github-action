@@ -60,5 +60,4 @@ export declare abstract class HuskyBase extends Builder {
     protected addTemplates(): void;
     protected addScripts(): void;
     protected addDevDependencies(): void;
-    protected addGitAttributes(): void;
 }

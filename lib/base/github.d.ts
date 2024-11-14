@@ -115,5 +115,4 @@ export declare abstract class GitHubBase extends Builder {
      */
     private createCliffTomlConfiguration;
     protected addTemplates(): void;
-    protected addGitAttributes(): void;
 }

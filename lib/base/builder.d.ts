@@ -37,6 +37,7 @@ export declare abstract class Builder {
     protected addDevDependencies(): void;
     /**
      * Adds custom entries to the `.gitattributes` file for the builder in the project.
+     * Overwrite this in case that manual entries need to be done.
      * @protected
      */
     protected addGitAttributes(): void;

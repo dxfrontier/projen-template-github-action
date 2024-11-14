@@ -23,5 +23,4 @@ export declare abstract class VsCodeBase extends Builder {
      */
     protected get settings(): Record<string, unknown>;
     protected addSettings(): void;
-    protected addGitAttributes(): void;
 }

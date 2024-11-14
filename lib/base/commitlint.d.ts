@@ -45,5 +45,4 @@ export declare abstract class CommitLintBase extends Builder {
     protected addSettings(): void;
     protected addScripts(): void;
     protected addDevDependencies(): void;
-    protected addGitAttributes(): void;
 }
