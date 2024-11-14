@@ -108,23 +108,213 @@
     }
   },
   "types": {
+    "projen-template-projects.Builder": {
+      "abstract": true,
+      "assembly": "projen-template-projects",
+      "docs": {
+        "custom": {
+          "abstract": "true"
+        },
+        "stability": "stable",
+        "summary": "Base class for managing project builder configurations."
+      },
+      "fqn": "projen-template-projects.Builder",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the builder for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/builder.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the builder for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/builder.ts",
+        "line": 7
+      },
+      "methods": [
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Adds builder to the projects builder registry."
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 22
+          },
+          "name": "addBuilder",
+          "protected": true
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Installs development dependencies for the builder in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 52
+          },
+          "name": "addDevDependencies",
+          "protected": true
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 59
+          },
+          "name": "addGitAttributes",
+          "protected": true
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Adds npm scripts specific to the builder within the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 45
+          },
+          "name": "addScripts",
+          "protected": true
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Configures settings specific to the builder within the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 38
+          },
+          "name": "addSettings",
+          "protected": true
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Adds template files to the builder's project directory."
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 31
+          },
+          "name": "addTemplates",
+          "protected": true
+        },
+        {
+          "docs": {
+            "custom": {
+              "public": "This method is intended to be called in the constructor of each child class\nto set up the basic configuration for the builder. It sequentially calls\na set of setup methods which performs specific configuration tasks for the project.\nWe cannot use the preSynthesize hook as at this point it is too late setting all up.\n\n### Usage\n- This method should be called in each child's constructor immediately after\n  invoking `super()` to ensure the builder is fully initialized."
+            },
+            "stability": "stable",
+            "summary": "Initialize builder configuration for the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 88
+          },
+          "name": "initialize"
+        },
+        {
+          "docs": {
+            "custom": {
+              "public": "true"
+            },
+            "stability": "stable",
+            "summary": "Hook to be called after synthesis."
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 73
+          },
+          "name": "postSynthesize"
+        },
+        {
+          "docs": {
+            "custom": {
+              "public": "true"
+            },
+            "stability": "stable",
+            "summary": "Hook to be called before synthesis."
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 66
+          },
+          "name": "preSynthesize"
+        }
+      ],
+      "name": "Builder",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/builder.ts",
+            "line": 8
+          },
+          "name": "project",
+          "protected": true,
+          "type": {
+            "fqn": "projen-template-projects.TypeScriptProjectBase"
+          }
+        }
+      ],
+      "symbolId": "src/base/builder:Builder"
+    },
     "projen-template-projects.CommitLint": {
       "assembly": "projen-template-projects",
       "base": "projen-template-projects.CommitLintBase",
       "docs": {
         "stability": "stable",
-        "summary": "CommitLint component implementing all relevant configuration for the project."
+        "summary": "CommitLint builder implementing all relevant configuration for the project."
       },
       "fqn": "projen-template-projects.CommitLint",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the CommitLint component."
+          "summary": "Initializes the CommitLint builder."
         },
         "locationInModule": {
           "filename": "src/github-action/commitlint.ts",
-          "line": 15
+          "line": 14
         },
         "parameters": [
           {
@@ -133,7 +323,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -141,7 +331,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/commitlint.ts",
-        "line": 8
+        "line": 7
       },
       "name": "CommitLint",
       "properties": [
@@ -152,12 +342,12 @@
               "protected": "true"
             },
             "stability": "stable",
-            "summary": "Settings to be added to package.json for the CommitLint component."
+            "summary": "Settings to be added to package.json for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/commitlint.ts",
-            "line": 25
+            "line": 24
           },
           "name": "npmSettings",
           "overrides": "projen-template-projects.CommitLintBase",
@@ -191,20 +381,23 @@
     "projen-template-projects.CommitLintBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Component",
+      "base": "projen-template-projects.Builder",
       "docs": {
+        "custom": {
+          "abstract": "true"
+        },
         "stability": "stable",
-        "summary": "Base class for CommitLint component implementing all relevant configuration."
+        "summary": "Base class for CommitLint builder implementing all relevant configuration."
       },
       "fqn": "projen-template-projects.CommitLintBase",
       "initializer": {
         "docs": {
           "stability": "stable",
-          "summary": "Initializes the base CommitLint component."
+          "summary": "Initializes the base CommitLint builder."
         },
         "locationInModule": {
           "filename": "src/base/commitlint.ts",
-          "line": 14
+          "line": 15
         },
         "parameters": [
           {
@@ -213,7 +406,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -221,72 +414,72 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/commitlint.ts",
-        "line": 9
+        "line": 10
       },
       "methods": [
         {
           "docs": {
             "stability": "stable",
-            "summary": "Installs development dependencies for the component in the project."
+            "summary": "Installs development dependencies for the builder in the project."
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 114
+            "line": 115
           },
           "name": "addDevDependencies",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the component in the project."
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 118
+            "line": 119
           },
           "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds npm scripts specific to the component within the project."
+            "summary": "Adds npm scripts specific to the builder within the project."
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 108
+            "line": 109
           },
           "name": "addScripts",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Configures settings specific to the component within the project."
+            "summary": "Configures settings specific to the builder within the project."
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 102
+            "line": 103
           },
           "name": "addSettings",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds template files to the component's project directory."
+            "summary": "Adds template files to the builder's project directory."
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 96
+            "line": 97
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -298,12 +491,12 @@
               "protected": "true"
             },
             "stability": "stable",
-            "summary": "NPM packages to be installed as devDependencies for the CommitLint component."
+            "summary": "NPM packages to be installed as devDependencies for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 78
+            "line": 79
           },
           "name": "devDependencies",
           "protected": true,
@@ -327,7 +520,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 22
+            "line": 23
           },
           "name": "filePath",
           "protected": true,
@@ -341,12 +534,12 @@
               "protected": "true"
             },
             "stability": "stable",
-            "summary": "Settings to be added to package.json for the CommitLint component."
+            "summary": "Settings to be added to package.json for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 92
+            "line": 93
           },
           "name": "npmSettings",
           "protected": true,
@@ -379,12 +572,12 @@
               "protected": "true"
             },
             "stability": "stable",
-            "summary": "NPM scripts for the CommitLint component."
+            "summary": "NPM scripts for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 68
+            "line": 69
           },
           "name": "scripts",
           "protected": true,
@@ -408,7 +601,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 30
+            "line": 31
           },
           "name": "template",
           "protected": true,
@@ -424,166 +617,22 @@
       ],
       "symbolId": "src/base/commitlint:CommitLintBase"
     },
-    "projen-template-projects.Component": {
-      "abstract": true,
+    "projen-template-projects.CommitLintJsii": {
       "assembly": "projen-template-projects",
+      "base": "projen-template-projects.CommitLintBase",
       "docs": {
         "stability": "stable",
-        "summary": "Base class for managing project component configurations."
+        "summary": "CommitLint builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.Component",
-      "initializer": {
-        "docs": {
-          "stability": "stable",
-          "summary": "Initializes the component for a specified project."
-        },
-        "locationInModule": {
-          "filename": "src/base/component.ts",
-          "line": 13
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "The project to configure the component for."
-            },
-            "name": "project",
-            "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/base/component.ts",
-        "line": 6
-      },
-      "methods": [
-        {
-          "docs": {
-            "custom": {
-              "protected": "true"
-            },
-            "stability": "stable",
-            "summary": "Installs development dependencies for the component in the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/component.ts",
-            "line": 39
-          },
-          "name": "addDevDependencies",
-          "protected": true
-        },
-        {
-          "docs": {
-            "custom": {
-              "protected": "true"
-            },
-            "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the component in the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/component.ts",
-            "line": 45
-          },
-          "name": "addGitAttributes",
-          "protected": true
-        },
-        {
-          "docs": {
-            "custom": {
-              "protected": "true"
-            },
-            "stability": "stable",
-            "summary": "Adds npm scripts specific to the component within the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/component.ts",
-            "line": 33
-          },
-          "name": "addScripts",
-          "protected": true
-        },
-        {
-          "docs": {
-            "custom": {
-              "protected": "true"
-            },
-            "stability": "stable",
-            "summary": "Configures settings specific to the component within the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/component.ts",
-            "line": 27
-          },
-          "name": "addSettings",
-          "protected": true
-        },
-        {
-          "docs": {
-            "custom": {
-              "protected": "true"
-            },
-            "stability": "stable",
-            "summary": "Adds template files to the component's project directory."
-          },
-          "locationInModule": {
-            "filename": "src/base/component.ts",
-            "line": 21
-          },
-          "name": "addTemplates",
-          "protected": true
-        },
-        {
-          "docs": {
-            "custom": {
-              "public": "This method is intended to be called in the constructor of each child class\nto set up the basic configuration for the component. It sequentially calls\na set of setup methods which performs specific configuration tasks for the project.\n\n### Usage\n- This method should be called in each child's constructor immediately after\n  invoking `super()` to ensure the component is fully initialized."
-            },
-            "stability": "stable",
-            "summary": "Initialize component configuration for the project."
-          },
-          "locationInModule": {
-            "filename": "src/base/component.ts",
-            "line": 59
-          },
-          "name": "initialize"
-        }
-      ],
-      "name": "Component",
-      "properties": [
-        {
-          "docs": {
-            "stability": "stable"
-          },
-          "locationInModule": {
-            "filename": "src/base/component.ts",
-            "line": 7
-          },
-          "name": "project",
-          "protected": true,
-          "type": {
-            "fqn": "projen.typescript.TypeScriptProject"
-          }
-        }
-      ],
-      "symbolId": "src/base/component:Component"
-    },
-    "projen-template-projects.DevContainer": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.DevContainerBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "DevContainer component implementing all relevant configuration for the project."
-      },
-      "fqn": "projen-template-projects.DevContainer",
+      "fqn": "projen-template-projects.CommitLintJsii",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the DevContainer component."
+          "summary": "Initializes the CommitLint builder."
         },
         "locationInModule": {
-          "filename": "src/github-action/devcontainer.ts",
+          "filename": "src/jsii/commitlint.ts",
           "line": 14
         },
         "parameters": [
@@ -593,7 +642,106 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/commitlint.ts",
+        "line": 7
+      },
+      "methods": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true",
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Entries in `.gitattributes` are already done by `.projenrc.ts`."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/commitlint.ts",
+            "line": 36
+          },
+          "name": "addGitAttributes",
+          "overrides": "projen-template-projects.CommitLintBase",
+          "protected": true
+        }
+      ],
+      "name": "CommitLintJsii",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true",
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Settings to be added to package.json for the CommitLint builder."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/commitlint.ts",
+            "line": 24
+          },
+          "name": "npmSettings",
+          "overrides": "projen-template-projects.CommitLintBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "union": {
+                  "types": [
+                    {
+                      "primitive": "string"
+                    },
+                    {
+                      "collection": {
+                        "elementtype": {
+                          "primitive": "string"
+                        },
+                        "kind": "array"
+                      }
+                    }
+                  ]
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/jsii/commitlint:CommitLintJsii"
+    },
+    "projen-template-projects.DevContainer": {
+      "assembly": "projen-template-projects",
+      "base": "projen-template-projects.DevContainerBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "DevContainer builder implementing all relevant configuration for the project."
+      },
+      "fqn": "projen-template-projects.DevContainer",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the DevContainer builder."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/devcontainer.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure CommitLint for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -601,14 +749,15 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/devcontainer.ts",
-        "line": 7
+        "line": 6
       },
       "name": "DevContainer",
       "properties": [
         {
           "docs": {
             "custom": {
-              "override": "true"
+              "override": "true",
+              "protected": "true"
             },
             "stability": "stable",
             "summary": "VSCode extensions to be installed in the DevContainer."
@@ -636,20 +785,23 @@
     "projen-template-projects.DevContainerBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Component",
+      "base": "projen-template-projects.Builder",
       "docs": {
+        "custom": {
+          "abstract": "true"
+        },
         "stability": "stable",
-        "summary": "Base class for DevContainer component implementing all relevant configuration."
+        "summary": "Base class for DevContainer builder implementing all relevant configuration."
       },
       "fqn": "projen-template-projects.DevContainerBase",
       "initializer": {
         "docs": {
           "stability": "stable",
-          "summary": "Initializes the base DevContainer component."
+          "summary": "Initializes the base DevContainer builder."
         },
         "locationInModule": {
           "filename": "src/base/devcontainer.ts",
-          "line": 14
+          "line": 15
         },
         "parameters": [
           {
@@ -658,7 +810,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -666,46 +818,46 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/devcontainer.ts",
-        "line": 9
+        "line": 10
       },
       "methods": [
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the component in the project."
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
           },
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 96
+            "line": 97
           },
           "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds npm scripts specific to the component within the project."
+            "summary": "Adds npm scripts specific to the builder within the project."
           },
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 90
+            "line": 91
           },
           "name": "addScripts",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds template files to the component's project directory."
+            "summary": "Adds template files to the builder's project directory."
           },
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 86
+            "line": 87
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -722,7 +874,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 30
+            "line": 31
           },
           "name": "dockerImage",
           "protected": true,
@@ -741,7 +893,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 50
+            "line": 51
           },
           "name": "extensions",
           "protected": true,
@@ -765,7 +917,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 38
+            "line": 39
           },
           "name": "features",
           "protected": true,
@@ -789,7 +941,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 22
+            "line": 23
           },
           "name": "filePath",
           "protected": true,
@@ -808,7 +960,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 80
+            "line": 81
           },
           "name": "scripts",
           "protected": true,
@@ -833,7 +985,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 59
+            "line": 60
           },
           "name": "template",
           "protected": true,
@@ -844,23 +996,89 @@
       ],
       "symbolId": "src/base/devcontainer:DevContainerBase"
     },
+    "projen-template-projects.DevContainerJsii": {
+      "assembly": "projen-template-projects",
+      "base": "projen-template-projects.DevContainerBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "DevContainer builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "projen-template-projects.DevContainerJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the DevContainer builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/devcontainer.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure CommitLint for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/devcontainer.ts",
+        "line": 6
+      },
+      "name": "DevContainerJsii",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true",
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "VSCode extensions to be installed in the DevContainer."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/devcontainer.ts",
+            "line": 23
+          },
+          "name": "extensions",
+          "overrides": "projen-template-projects.DevContainerBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/jsii/devcontainer:DevContainerJsii"
+    },
     "projen-template-projects.GitHub": {
       "assembly": "projen-template-projects",
       "base": "projen-template-projects.GitHubBase",
       "docs": {
         "stability": "stable",
-        "summary": "GitHub component implementing all relevant configurtion for the project."
+        "summary": "GitHub builder implementing all relevant configuration for the project."
       },
       "fqn": "projen-template-projects.GitHub",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the GitHub component."
+          "summary": "Initializes the GitHub builder."
         },
         "locationInModule": {
           "filename": "src/github-action/github.ts",
-          "line": 14
+          "line": 13
         },
         "parameters": [
           {
@@ -869,7 +1087,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -877,14 +1095,14 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/github.ts",
-        "line": 7
+        "line": 6
       },
       "name": "GitHub",
       "symbolId": "src/github-action/github:GitHub"
     },
     "projen-template-projects.GitHubActionProject": {
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Project",
+      "base": "projen-template-projects.TypeScriptProjectBase",
       "docs": {
         "stability": "stable",
         "summary": "Defines a GitHub Action project."
@@ -897,7 +1115,7 @@
         },
         "locationInModule": {
           "filename": "src/github-action/project.ts",
-          "line": 19
+          "line": 13
         },
         "parameters": [
           {
@@ -906,7 +1124,7 @@
             },
             "name": "options",
             "type": {
-              "fqn": "projen-template-projects.ProjectOptions"
+              "fqn": "projen-template-projects.TypeScriptProjectBaseOptions"
             }
           }
         ]
@@ -914,7 +1132,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/project.ts",
-        "line": 14
+        "line": 8
       },
       "name": "GitHubActionProject",
       "symbolId": "src/github-action/project:GitHubActionProject"
@@ -922,29 +1140,32 @@
     "projen-template-projects.GitHubBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Component",
+      "base": "projen-template-projects.Builder",
       "docs": {
+        "custom": {
+          "abstract": "true"
+        },
         "stability": "stable",
-        "summary": "Base class for GitHub component implementeing all relevant configuration."
+        "summary": "Base class for GitHub builder implementing all relevant configuration."
       },
       "fqn": "projen-template-projects.GitHubBase",
       "initializer": {
         "docs": {
           "stability": "stable",
-          "summary": "Initializes the base GitHub component."
+          "summary": "Initializes the base GitHub builder."
         },
         "locationInModule": {
           "filename": "src/base/github.ts",
-          "line": 16
+          "line": 17
         },
         "parameters": [
           {
             "docs": {
-              "summary": "The project to configure GitHub component for."
+              "summary": "The project to configure GitHub builder for."
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -952,33 +1173,33 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/github.ts",
-        "line": 11
+        "line": 12
       },
       "methods": [
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the component in the project."
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
           },
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 419
+            "line": 416
           },
           "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds template files to the component's project directory."
+            "summary": "Adds template files to the builder's project directory."
           },
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 408
+            "line": 405
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -995,7 +1216,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 24
+            "line": 25
           },
           "name": "bugIssueFilePath",
           "protected": true,
@@ -1014,7 +1235,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 90
+            "line": 91
           },
           "name": "bugIssueTemplate",
           "protected": true,
@@ -1039,7 +1260,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 170
+            "line": 171
           },
           "name": "cliffTomlConfiguration",
           "protected": true,
@@ -1064,7 +1285,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 49
+            "line": 50
           },
           "name": "cliffTomlFilePath",
           "protected": true,
@@ -1083,7 +1304,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 32
+            "line": 33
           },
           "name": "featureIssueFilePath",
           "protected": true,
@@ -1102,7 +1323,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 118
+            "line": 119
           },
           "name": "featureIssueTemplate",
           "protected": true,
@@ -1126,7 +1347,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 57
+            "line": 58
           },
           "name": "pullRequestTemplate",
           "protected": true,
@@ -1150,7 +1371,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 40
+            "line": 41
           },
           "name": "questionIssueFilePath",
           "protected": true,
@@ -1169,7 +1390,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 148
+            "line": 149
           },
           "name": "questionIssueTemplate",
           "protected": true,
@@ -1193,7 +1414,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 263
+            "line": 264
           },
           "name": "releaseWorkflowOptions",
           "protected": true,
@@ -1217,7 +1438,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 295
+            "line": 296
           },
           "name": "staleWorkflowOptions",
           "protected": true,
@@ -1233,23 +1454,61 @@
       ],
       "symbolId": "src/base/github:GitHubBase"
     },
+    "projen-template-projects.GitHubJsii": {
+      "assembly": "projen-template-projects",
+      "base": "projen-template-projects.GitHubBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "GitHub builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "projen-template-projects.GitHubJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the GitHub builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/github.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure GitHub for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/github.ts",
+        "line": 6
+      },
+      "name": "GitHubJsii",
+      "symbolId": "src/jsii/github:GitHubJsii"
+    },
     "projen-template-projects.Husky": {
       "assembly": "projen-template-projects",
       "base": "projen-template-projects.HuskyBase",
       "docs": {
         "stability": "stable",
-        "summary": "Husky component implementing all relevant configurtion for the project."
+        "summary": "Husky builder implementing all relevant configuration for the project."
       },
       "fqn": "projen-template-projects.Husky",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the Husky component."
+          "summary": "Initializes the Husky builder."
         },
         "locationInModule": {
           "filename": "src/github-action/husky.ts",
-          "line": 14
+          "line": 13
         },
         "parameters": [
           {
@@ -1258,7 +1517,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1266,7 +1525,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/husky.ts",
-        "line": 7
+        "line": 6
       },
       "name": "Husky",
       "symbolId": "src/github-action/husky:Husky"
@@ -1274,20 +1533,23 @@
     "projen-template-projects.HuskyBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Component",
+      "base": "projen-template-projects.Builder",
       "docs": {
+        "custom": {
+          "abstract": "true"
+        },
         "stability": "stable",
-        "summary": "Base class for Husky component implementing all relevant configuration."
+        "summary": "Base class for Husky builder implementing all relevant configuration."
       },
       "fqn": "projen-template-projects.HuskyBase",
       "initializer": {
         "docs": {
           "stability": "stable",
-          "summary": "Initializes the Husky component."
+          "summary": "Initializes the Husky builder."
         },
         "locationInModule": {
           "filename": "src/base/husky.ts",
-          "line": 14
+          "line": 15
         },
         "parameters": [
           {
@@ -1296,7 +1558,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1304,59 +1566,59 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/husky.ts",
-        "line": 9
+        "line": 10
       },
       "methods": [
         {
           "docs": {
             "stability": "stable",
-            "summary": "Installs development dependencies for the component in the project."
+            "summary": "Installs development dependencies for the builder in the project."
           },
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 107
+            "line": 104
           },
           "name": "addDevDependencies",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the component in the project."
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
           },
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 111
+            "line": 108
           },
           "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds npm scripts specific to the component within the project."
+            "summary": "Adds npm scripts specific to the builder within the project."
           },
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 101
+            "line": 98
           },
           "name": "addScripts",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds template files to the component's project directory."
+            "summary": "Adds template files to the builder's project directory."
           },
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 96
+            "line": 93
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -1373,7 +1635,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 22
+            "line": 23
           },
           "name": "commitMsgFilePath",
           "protected": true,
@@ -1392,7 +1654,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 38
+            "line": 39
           },
           "name": "commitMsgTemplate",
           "protected": true,
@@ -1411,12 +1673,12 @@
               "protected": "true"
             },
             "stability": "stable",
-            "summary": "NPM packages to be installed as devDependencies for the CommitLint component."
+            "summary": "NPM packages to be installed as devDependencies for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 72
+            "line": 69
           },
           "name": "devDependencies",
           "protected": true,
@@ -1440,7 +1702,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 30
+            "line": 31
           },
           "name": "preCommitFilePath",
           "protected": true,
@@ -1459,7 +1721,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 50
+            "line": 51
           },
           "name": "preCommitTemplate",
           "protected": true,
@@ -1478,12 +1740,12 @@
               "protected": "true"
             },
             "stability": "stable",
-            "summary": "NPM scripts for the CommitLint component."
+            "summary": "NPM scripts for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 62
+            "line": 59
           },
           "name": "scripts",
           "protected": true,
@@ -1499,23 +1761,80 @@
       ],
       "symbolId": "src/base/husky:HuskyBase"
     },
+    "projen-template-projects.HuskyJsii": {
+      "assembly": "projen-template-projects",
+      "base": "projen-template-projects.HuskyBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Husky builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "projen-template-projects.HuskyJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the Husky builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/husky.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure Husky for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/husky.ts",
+        "line": 6
+      },
+      "methods": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true",
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Entries in `.gitattributes` are already done by `.projenrc.ts`."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/husky.ts",
+            "line": 24
+          },
+          "name": "addGitAttributes",
+          "overrides": "projen-template-projects.HuskyBase",
+          "protected": true
+        }
+      ],
+      "name": "HuskyJsii",
+      "symbolId": "src/jsii/husky:HuskyJsii"
+    },
     "projen-template-projects.NpmPackage": {
       "assembly": "projen-template-projects",
       "base": "projen-template-projects.NpmPackageBase",
       "docs": {
         "stability": "stable",
-        "summary": "NPM Package component implementing all relevant configurtion for the project."
+        "summary": "NPM Package builder implementing all relevant configuration for the project."
       },
       "fqn": "projen-template-projects.NpmPackage",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.\nAdditionally it calls `removeScripts()` to ensure, that no projen standard scripts are defined\nas these scripts are not needed for this kind of project.",
           "stability": "stable",
-          "summary": "Initializes the NPM Package component."
+          "summary": "Initializes the NPM Package builder."
         },
         "locationInModule": {
           "filename": "src/github-action/npm.ts",
-          "line": 16
+          "line": 15
         },
         "parameters": [
           {
@@ -1524,7 +1843,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1532,7 +1851,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/npm.ts",
-        "line": 7
+        "line": 6
       },
       "name": "NpmPackage",
       "symbolId": "src/github-action/npm:NpmPackage"
@@ -1540,20 +1859,23 @@
     "projen-template-projects.NpmPackageBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Component",
+      "base": "projen-template-projects.Builder",
       "docs": {
+        "custom": {
+          "abstract": "true"
+        },
         "stability": "stable",
-        "summary": "Base class for NPM Package component implementing all relevant configuration."
+        "summary": "Base class for NPM Package builder implementing all relevant configuration."
       },
       "fqn": "projen-template-projects.NpmPackageBase",
       "initializer": {
         "docs": {
           "stability": "stable",
-          "summary": "Initializes the base NPM Package component."
+          "summary": "Initializes the base NPM Package builder."
         },
         "locationInModule": {
           "filename": "src/base/npm.ts",
-          "line": 13
+          "line": 14
         },
         "parameters": [
           {
@@ -1562,7 +1884,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1570,20 +1892,20 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/npm.ts",
-        "line": 8
+        "line": 9
       },
       "methods": [
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the component in the project."
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 93
+            "line": 94
           },
           "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -1592,14 +1914,14 @@
               "protected": "true"
             },
             "stability": "stable",
-            "summary": "Configures settings specific to the component within the project."
+            "summary": "Configures settings specific to the builder within the project."
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 76
+            "line": 77
           },
           "name": "addSettings",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -1613,7 +1935,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 87
+            "line": 88
           },
           "name": "removeScripts",
           "protected": true
@@ -1627,12 +1949,12 @@
               "protected": "true"
             },
             "stability": "stable",
-            "summary": "File paths for the .gitattributes file entries. These entries are not added automatically by projen and we have not extra component for these. So we handle them here."
+            "summary": "File paths for the .gitattributes file entries. These entries are not added automatically by projen and we have not extra builder for these. So we handle them here."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 31
+            "line": 32
           },
           "name": "gitAttributesFilePaths",
           "protected": true,
@@ -1656,7 +1978,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 21
+            "line": 22
           },
           "name": "ignoreFilePath",
           "protected": true,
@@ -1675,7 +1997,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 39
+            "line": 40
           },
           "name": "npmFilePaths",
           "protected": true,
@@ -1700,7 +2022,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 50
+            "line": 51
           },
           "name": "projenScripts",
           "protected": true,
@@ -1716,23 +2038,61 @@
       ],
       "symbolId": "src/base/npm:NpmPackageBase"
     },
+    "projen-template-projects.NpmPackageJsii": {
+      "assembly": "projen-template-projects",
+      "base": "projen-template-projects.NpmPackageBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "NPM Package builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "projen-template-projects.NpmPackageJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the NPM Package builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/npm.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure NPM Package for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/npm.ts",
+        "line": 6
+      },
+      "name": "NpmPackageJsii",
+      "symbolId": "src/jsii/npm:NpmPackageJsii"
+    },
     "projen-template-projects.Prettier": {
       "assembly": "projen-template-projects",
       "base": "projen-template-projects.PrettierBase",
       "docs": {
         "stability": "stable",
-        "summary": "Prettier component implementing all relevant configurtion for the project."
+        "summary": "Prettier builder implementing all relevant configuration for the project."
       },
       "fqn": "projen-template-projects.Prettier",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the Prettier component."
+          "summary": "Initializes the Prettier builder."
         },
         "locationInModule": {
           "filename": "src/github-action/prettier.ts",
-          "line": 14
+          "line": 13
         },
         "parameters": [
           {
@@ -1741,7 +2101,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1749,28 +2109,45 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/prettier.ts",
-        "line": 7
+        "line": 6
       },
+      "methods": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Hook to be called after synthesis."
+          },
+          "locationInModule": {
+            "filename": "src/github-action/prettier.ts",
+            "line": 18
+          },
+          "name": "postSynthesize",
+          "overrides": "projen-template-projects.Builder"
+        }
+      ],
       "name": "Prettier",
       "symbolId": "src/github-action/prettier:Prettier"
     },
     "projen-template-projects.PrettierBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Component",
+      "base": "projen-template-projects.Builder",
       "docs": {
+        "custom": {
+          "abstract": "true"
+        },
         "stability": "stable",
-        "summary": "Base class for Prettier component implementing all relevant configuration."
+        "summary": "Base class for Prettier builder implementing all relevant configuration."
       },
       "fqn": "projen-template-projects.PrettierBase",
       "initializer": {
         "docs": {
           "stability": "stable",
-          "summary": "Initializes the base Prettier component."
+          "summary": "Initializes the base Prettier builder."
         },
         "locationInModule": {
           "filename": "src/base/prettier.ts",
-          "line": 18
+          "line": 15
         },
         "parameters": [
           {
@@ -1779,7 +2156,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1787,47 +2164,75 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/prettier.ts",
-        "line": 13
+        "line": 10
       },
       "methods": [
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the component in the project."
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 76
+            "line": 110
           },
           "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
+          "protected": true
+        },
+        {
+          "docs": {
+            "custom": {
+              "private": "true"
+            },
+            "stability": "stable",
+            "summary": "Adds entries to the `.prettierignore` file."
+          },
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 137
+          },
+          "name": "addPrettierIgnoreEntries",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds npm scripts specific to the component within the project."
+            "summary": "Adds npm scripts specific to the builder within the project."
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 70
+            "line": 104
           },
           "name": "addScripts",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Configures settings specific to the component within the project."
+            "summary": "Configures settings specific to the builder within the project."
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 66
+            "line": 100
           },
           "name": "addSettings",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
+        },
+        {
+          "docs": {
+            "remarks": "Tried scenarios:\n  - Accessing attributes directly from `.gitattributes` file (but `.gitattributes` is private and inaccessible).\n    This would be the most efficient and elegant solution as it allows us to add the entries using API.\n  - Retrieving all files from the project (misses some files like `tsconfig.json`).\n  - Letting each component add its paths individually (leaves out many standard files).\n  - Manually adding paths (prone to errors).\n  - Modifying `.prettierignore` after post-synthesis (but `.prettierignore` is readonly) and leads to test issues\n    as these changes are not reflected in `syntesize()`.\n\nWe will update it manually and cover it by tests cases checking if changes on the files are reflected here.",
+            "stability": "stable",
+            "summary": "Executes post-synthesis tasks, focusing on updating the `.prettierignore` file with paths from `.gitattributes`."
+          },
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 129
+          },
+          "name": "preSynthesize",
+          "overrides": "projen-template-projects.Builder"
         }
       ],
       "name": "PrettierBase",
@@ -1843,7 +2248,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 26
+            "line": 23
           },
           "name": "ignoreFilePath",
           "protected": true,
@@ -1857,12 +2262,36 @@
               "protected": "true"
             },
             "stability": "stable",
+            "summary": "File paths to the Prettier ignore entries."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 39
+          },
+          "name": "ignoreFilePaths",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "stability": "stable",
             "summary": "NPM scripts used by Prettier."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 59
+            "line": 93
           },
           "name": "scripts",
           "protected": true,
@@ -1886,7 +2315,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 42
+            "line": 76
           },
           "name": "settings",
           "protected": true,
@@ -1905,7 +2334,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 34
+            "line": 31
           },
           "name": "settingsFilePath",
           "protected": true,
@@ -1916,79 +2345,107 @@
       ],
       "symbolId": "src/base/prettier:PrettierBase"
     },
-    "projen-template-projects.Project": {
-      "abstract": true,
+    "projen-template-projects.PrettierJsii": {
       "assembly": "projen-template-projects",
-      "base": "projen.typescript.TypeScriptProject",
+      "base": "projen-template-projects.PrettierBase",
       "docs": {
         "stability": "stable",
-        "summary": "Base class for managing project configuration."
+        "summary": "Prettier builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.Project",
+      "fqn": "projen-template-projects.PrettierJsii",
       "initializer": {
         "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the project."
+          "summary": "Initializes the Prettier builder."
         },
         "locationInModule": {
-          "filename": "src/base/project.ts",
-          "line": 20
+          "filename": "src/jsii/prettier.ts",
+          "line": 13
         },
         "parameters": [
           {
             "docs": {
-              "summary": "Additional project options."
+              "summary": "The project to configure Prettier for."
             },
-            "name": "options",
+            "name": "project",
             "type": {
-              "fqn": "projen-template-projects.ProjectOptions"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
       },
       "kind": "class",
       "locationInModule": {
-        "filename": "src/base/project.ts",
-        "line": 15
+        "filename": "src/jsii/prettier.ts",
+        "line": 6
       },
-      "name": "Project",
-      "symbolId": "src/base/project:Project"
-    },
-    "projen-template-projects.ProjectOptions": {
-      "assembly": "projen-template-projects",
-      "datatype": true,
-      "docs": {
-        "stability": "stable"
-      },
-      "fqn": "projen-template-projects.ProjectOptions",
-      "interfaces": [
-        "projen.typescript.TypeScriptProjectOptions"
+      "methods": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true",
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "Entries in `.gitattributes` are already done by `.projenrc.ts`."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/prettier.ts",
+            "line": 32
+          },
+          "name": "addGitAttributes",
+          "overrides": "projen-template-projects.PrettierBase",
+          "protected": true
+        }
       ],
-      "kind": "interface",
-      "locationInModule": {
-        "filename": "src/base/project.ts",
-        "line": 10
-      },
-      "name": "ProjectOptions",
-      "symbolId": "src/base/project:ProjectOptions"
+      "name": "PrettierJsii",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "stability": "stable",
+            "summary": "File paths to the Prettier ignore entries."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/prettier.ts",
+            "line": 22
+          },
+          "name": "ignoreFilePaths",
+          "overrides": "projen-template-projects.PrettierBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/jsii/prettier:PrettierJsii"
     },
     "projen-template-projects.SampleCode": {
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Component",
+      "base": "projen-template-projects.Builder",
       "docs": {
         "stability": "stable",
-        "summary": "SampleCode component implementing all relevant configuration for the project."
+        "summary": "SampleCode builder implementing all relevant configuration for the project."
       },
       "fqn": "projen-template-projects.SampleCode",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the base SampleCode component."
+          "summary": "Initializes the base SampleCode builder."
         },
         "locationInModule": {
           "filename": "src/github-action/samplecode.ts",
-          "line": 15
+          "line": 14
         },
         "parameters": [
           {
@@ -1997,7 +2454,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2005,20 +2462,20 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/samplecode.ts",
-        "line": 8
+        "line": 7
       },
       "methods": [
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds template files to the component's project directory."
+            "summary": "Adds template files to the builder's project directory."
           },
           "locationInModule": {
             "filename": "src/github-action/samplecode.ts",
-            "line": 79
+            "line": 78
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -2035,7 +2492,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/samplecode.ts",
-            "line": 24
+            "line": 23
           },
           "name": "filePath",
           "protected": true,
@@ -2054,7 +2511,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/samplecode.ts",
-            "line": 32
+            "line": 31
           },
           "name": "sampleAction",
           "protected": true,
@@ -2070,23 +2527,189 @@
       ],
       "symbolId": "src/github-action/samplecode:SampleCode"
     },
+    "projen-template-projects.TypeScriptProjectBase": {
+      "abstract": true,
+      "assembly": "projen-template-projects",
+      "base": "projen.typescript.TypeScriptProject",
+      "docs": {
+        "custom": {
+          "abstract": "true"
+        },
+        "stability": "stable",
+        "summary": "Base class for managing project configuration."
+      },
+      "fqn": "projen-template-projects.TypeScriptProjectBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the project."
+        },
+        "locationInModule": {
+          "filename": "src/base/project.ts",
+          "line": 21
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "Additional project options."
+            },
+            "name": "options",
+            "type": {
+              "fqn": "projen-template-projects.TypeScriptProjectBaseOptions"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/project.ts",
+        "line": 14
+      },
+      "methods": [
+        {
+          "docs": {
+            "returns": "The builder if found, otherwise undefined.",
+            "stability": "stable",
+            "summary": "Finds a builder in the registry by its constructor name."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 58
+          },
+          "name": "findBuilderByName",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The name of the builder to search for."
+              },
+              "name": "name",
+              "type": {
+                "primitive": "string"
+              }
+            }
+          ],
+          "returns": {
+            "optional": true,
+            "type": {
+              "fqn": "projen-template-projects.Builder"
+            }
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "public": "true"
+            },
+            "remarks": "Order is *not* guaranteed.",
+            "stability": "stable",
+            "summary": "Called after all components are synthesized."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 75
+          },
+          "name": "postSynthesize",
+          "overrides": "projen.Project"
+        },
+        {
+          "docs": {
+            "custom": {
+              "public": "true"
+            },
+            "stability": "stable",
+            "summary": "Called before all components are synthesized."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 65
+          },
+          "name": "preSynthesize",
+          "overrides": "projen.Project"
+        },
+        {
+          "docs": {
+            "custom": {
+              "public": "true"
+            },
+            "stability": "stable",
+            "summary": "Register a builder to be managed by this project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 49
+          },
+          "name": "registerBuilder",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The builder to register (must extend BaseBuilder)."
+              },
+              "name": "builder",
+              "type": {
+                "fqn": "projen-template-projects.Builder"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "TypeScriptProjectBase",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 15
+          },
+          "name": "builderRegistry",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "projen-template-projects.Builder"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/project:TypeScriptProjectBase"
+    },
+    "projen-template-projects.TypeScriptProjectBaseOptions": {
+      "assembly": "projen-template-projects",
+      "datatype": true,
+      "docs": {
+        "stability": "stable"
+      },
+      "fqn": "projen-template-projects.TypeScriptProjectBaseOptions",
+      "interfaces": [
+        "projen.typescript.TypeScriptProjectOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/base/project.ts",
+        "line": 8
+      },
+      "name": "TypeScriptProjectBaseOptions",
+      "symbolId": "src/base/project:TypeScriptProjectBaseOptions"
+    },
     "projen-template-projects.VSCode": {
       "assembly": "projen-template-projects",
       "base": "projen-template-projects.VSCodeBase",
       "docs": {
         "stability": "stable",
-        "summary": "VSCode component implementing all relevant configuration for the project."
+        "summary": "VSCode builder implementing all relevant configuration for the project."
       },
       "fqn": "projen-template-projects.VSCode",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
           "stability": "stable",
-          "summary": "Initializes the VSCode component."
+          "summary": "Initializes the VSCode builder."
         },
         "locationInModule": {
           "filename": "src/github-action/vscode.ts",
-          "line": 14
+          "line": 13
         },
         "parameters": [
           {
@@ -2095,7 +2718,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2103,7 +2726,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/vscode.ts",
-        "line": 7
+        "line": 6
       },
       "name": "VSCode",
       "symbolId": "src/github-action/vscode:VSCode"
@@ -2111,29 +2734,32 @@
     "projen-template-projects.VSCodeBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Component",
+      "base": "projen-template-projects.Builder",
       "docs": {
+        "custom": {
+          "abstract": "true"
+        },
         "stability": "stable",
-        "summary": "Base class for VSCode component implementing all relevant configurarion."
+        "summary": "Base class for VSCode builder implementing all relevant configuration."
       },
       "fqn": "projen-template-projects.VSCodeBase",
       "initializer": {
         "docs": {
           "stability": "stable",
-          "summary": "Initializes the base VSCode component."
+          "summary": "Initializes the base VSCode builder."
         },
         "locationInModule": {
           "filename": "src/base/vscode.ts",
-          "line": 12
+          "line": 13
         },
         "parameters": [
           {
             "docs": {
-              "summary": "The project to configure VSCode component for."
+              "summary": "The project to configure VSCode builder for."
             },
             "name": "project",
             "type": {
-              "fqn": "projen.typescript.TypeScriptProject"
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2141,33 +2767,33 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/vscode.ts",
-        "line": 7
+        "line": 8
       },
       "methods": [
         {
           "docs": {
             "stability": "stable",
-            "summary": "Adds custom entries to the `.gitattributes` file for the component in the project."
+            "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project."
           },
           "locationInModule": {
             "filename": "src/base/vscode.ts",
             "line": 52
           },
           "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         },
         {
           "docs": {
             "stability": "stable",
-            "summary": "Configures settings specific to the component within the project."
+            "summary": "Configures settings specific to the builder within the project."
           },
           "locationInModule": {
             "filename": "src/base/vscode.ts",
             "line": 48
           },
           "name": "addSettings",
-          "overrides": "projen-template-projects.Component",
+          "overrides": "projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -2184,7 +2810,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/vscode.ts",
-            "line": 28
+            "line": 29
           },
           "name": "settings",
           "protected": true,
@@ -2208,7 +2834,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/vscode.ts",
-            "line": 20
+            "line": 21
           },
           "name": "settingsFilePath",
           "protected": true,
@@ -2218,8 +2844,46 @@
         }
       ],
       "symbolId": "src/base/vscode:VSCodeBase"
+    },
+    "projen-template-projects.VSCodeJsii": {
+      "assembly": "projen-template-projects",
+      "base": "projen-template-projects.VSCodeBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "VSCode builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "projen-template-projects.VSCodeJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the VSCode builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/vscode.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure VSCode Package for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/vscode.ts",
+        "line": 6
+      },
+      "name": "VSCodeJsii",
+      "symbolId": "src/jsii/vscode:VSCodeJsii"
     }
   },
   "version": "0.0.0",
-  "fingerprint": "Q0hQ5TszZtENZEtv7gBuVQ5L5VxihxG/CAvYYFSZXaw="
+  "fingerprint": "th/HWr6/HDJg0WMHLdxCmESTaTr4Ts2o5G0uENipXpY="
 }
