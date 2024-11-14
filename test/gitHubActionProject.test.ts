@@ -513,6 +513,20 @@ describe('GitHubActionProject', (): void => {
       testNpmScriptsAddedProperly(snapshot, expectedTasks);
     });
 
+    test('Ignore patterns matches expected content', (): void => {
+      const gitattributesEntries: any = snapshot['.gitattributes']
+        .split('\n')
+        .filter((line: any): any => line.includes('linguist-generated'))
+        .map((line: any): any => line.split(' ')[0]); // Extract the file paths ignoring "linguist-generated"
+
+      const prettierignoreEntries: any = snapshot['.prettierignore']
+        .split('\n')
+        .map((line: any): any => line.trim()) // Remove extra spaces
+        .filter((line: any): boolean => line !== '' && !line.startsWith('#')); // Ignore empty lines and comments
+
+      expect(gitattributesEntries.sort()).toEqual(prettierignoreEntries.sort());
+    });
+
     test('Prettier related files are added to .gitattributes and defined as linguist-generated', (): void => {
       expect(snapshot['.gitattributes']).toMatch(/\/\.prettierignore linguist-generated( $|\s|$)/m);
       expect(snapshot['.gitattributes']).toMatch(/\/\.prettierrc\.json linguist-generated( $|\s|$)/m);
