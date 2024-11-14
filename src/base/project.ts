@@ -5,7 +5,7 @@ import { Builder } from './builder';
 // Have to disable the prettier rule here for the { }
 // otherwise we have a conflict between prettier and linter.
 // eslint-disable-next-line prettier/prettier
-export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions { }
+export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions {}
 
 /**
  * Base class for managing project configuration.
@@ -63,6 +63,7 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
    * @public
    */
   public preSynthesize(): void {
+    super.preSynthesize();
     for (const builder of this.builderRegistry) {
       builder.preSynthesize();
     }
