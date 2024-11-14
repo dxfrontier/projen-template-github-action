@@ -53,6 +53,7 @@ export abstract class Builder {
 
   /**
    * Adds custom entries to the `.gitattributes` file for the builder in the project.
+   * Overwrite this in case that manual entries need to be done.
    * @protected
    */
   // eslint-disable-next-line prettier/prettier

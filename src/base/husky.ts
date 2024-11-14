@@ -110,9 +110,4 @@ export abstract class HuskyBase extends Builder {
   protected addDevDependencies(): void {
     this.project.addDevDeps(...this.devDependencies);
   }
-
-  protected addGitAttributes(): void {
-    this.project.gitattributes.addAttributes(`/${this.commitMsgFilePath}`, 'linguist-generated');
-    this.project.gitattributes.addAttributes(`/${this.preCommitFilePath}`, 'linguist-generated');
-  }
 }

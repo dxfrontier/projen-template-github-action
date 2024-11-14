@@ -423,13 +423,4 @@ export abstract class GitHubBase extends Builder {
     this.createStaleWorkflow();
     this.createCliffTomlConfiguration();
   }
-
-  protected addGitAttributes(): void {
-    // Pull request template is added automatically
-    this.project.gitattributes.addAttributes(`/${this.bugIssueFilePath}`, 'linguist-generated');
-    this.project.gitattributes.addAttributes(`/${this.featureIssueFilePath}`, 'linguist-generated');
-    this.project.gitattributes.addAttributes(`/${this.questionIssueFilePath}`, 'linguist-generated');
-    this.project.gitattributes.addAttributes(`/${this.cliffTomlFilePath}`, 'linguist-generated');
-    // Workflows templates are added automatically
-  }
 }

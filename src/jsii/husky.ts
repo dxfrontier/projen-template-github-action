@@ -14,12 +14,4 @@ export class HuskyJsii extends HuskyBase {
     super(project);
     this.initialize();
   }
-
-  /**
-   * Entries in `.gitattributes` are already done by `.projenrc.ts`
-   * @protected
-   * @override
-   */
-  // eslint-disable-next-line prettier/prettier
-  protected addGitAttributes(): void {}
 }

@@ -32,7 +32,7 @@ export abstract class NpmPackageBase extends Builder {
    * @protected
    */
   protected get gitAttributesFilePaths(): string[] {
-    return ['.eslintrc.json', 'tsconfig.dev.json', 'tsconfig.json'];
+    return ['tsconfig.json'];
   }
 
   /**

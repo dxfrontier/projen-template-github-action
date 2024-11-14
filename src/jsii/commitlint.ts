@@ -27,12 +27,4 @@ export class CommitLintJsii extends CommitLintBase {
       '**/*.ts': ['npm run eslint', 'npm run format:fix'],
     };
   }
-
-  /**
-   * Entries in `.gitattributes` are already done by `.projenrc.ts`
-   * @protected
-   * @override
-   */
-  // eslint-disable-next-line prettier/prettier
-  protected addGitAttributes(): void {}
 }
