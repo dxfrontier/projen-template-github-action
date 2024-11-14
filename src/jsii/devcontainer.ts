@@ -1,17 +1,16 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { DevContainerBase } from '../base';
+import { DevContainerBase, TypeScriptProjectBase } from '../base';
 
 /**
- * DevContainer component implementing all relevant configuration for the Jsii project.
+ * DevContainer builder implementing all relevant configuration for the Jsii project.
  */
 export class DevContainerJsii extends DevContainerBase {
   /**
-   * Initializes the DevContainer component.
+   * Initializes the DevContainer builder.
    * It calls the `initialize()` method immediately after invoking `super(project)`
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure CommitLint for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }

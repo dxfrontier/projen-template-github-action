@@ -1,17 +1,16 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { GitHubBase } from '../base';
+import { GitHubBase, TypeScriptProjectBase } from '../base';
 
 /**
- * GitHub component implementing all relevant configuration for the Jsii project.
+ * GitHub builder implementing all relevant configuration for the Jsii project.
  */
 export class GitHubJsii extends GitHubBase {
   /**
-   * Initializes the GitHub component.
+   * Initializes the GitHub builder.
    * It calls the `initialize()` method immediately after invoking `super(project)`
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure GitHub for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }

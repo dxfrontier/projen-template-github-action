@@ -1,24 +1,23 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { CommitLintBase } from '../base/commitlint';
+import { CommitLintBase, TypeScriptProjectBase } from '../base';
 import { LintStagedConfig } from '../types';
 
 /**
- * CommitLint component implementing all relevant configuration for the project.
+ * CommitLint builder implementing all relevant configuration for the project.
  */
 export class CommitLint extends CommitLintBase {
   /**
-   * Initializes the CommitLint component.
+   * Initializes the CommitLint builder.
    * It calls the `initialize()` method immediately after invoking `super(project)`
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure CommitLint for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }
 
   /**
-   * Settings to be added to package.json for the CommitLint component.
+   * Settings to be added to package.json for the CommitLint builder.
    * @protected
    * @override
    */

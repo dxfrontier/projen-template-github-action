@@ -1,25 +1,33 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { PrettierBase } from '../base/prettier';
+import { PrettierBase, TypeScriptProjectBase } from '../base';
 
 /**
- * Prettier component implementing all relevant configuration for the Jsii project.
+ * Prettier builder implementing all relevant configuration for the Jsii project.
  */
 export class PrettierJsii extends PrettierBase {
   /**
-   * Initializes the Prettier component.
+   * Initializes the Prettier builder.
    * It calls the `initialize()` method immediately after invoking `super(project)`
    * to ensure that all necessary configuration steps are applied.
    * @param project The project to configure Prettier for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
     this.initialize();
   }
 
   /**
+   * File paths to the Prettier ignore entries.
+   * @protected
+   */
+  protected get ignoreFilePaths(): string[] {
+    const baseEntries: string[] = super.ignoreFilePaths;
+    return [...baseEntries, '/API.md'];
+  }
+  /**
    * Entries in `.gitattributes` are already done by `.projenrc.ts`
    * @protected
    * @override
    */
+  // eslint-disable-next-line prettier/prettier
   protected addGitAttributes(): void {}
 }

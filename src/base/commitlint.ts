@@ -1,17 +1,18 @@
 import { TextFile } from 'projen';
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { Component } from './component';
+import { Builder } from './builder';
 import { LintStagedConfig, Scripts } from '../types';
+import { TypeScriptProjectBase } from './project';
 
 /**
- * Base class for CommitLint component implementing all relevant configuration.
+ * Base class for CommitLint builder implementing all relevant configuration.
+ * @abstract
  */
-export abstract class CommitLintBase extends Component {
+export abstract class CommitLintBase extends Builder {
   /**
-   * Initializes the base CommitLint component.
+   * Initializes the base CommitLint builder.
    * @param project The project to configure CommitLint for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
   }
 
@@ -62,7 +63,7 @@ export abstract class CommitLintBase extends Component {
   }
 
   /**
-   * NPM scripts for the CommitLint component.
+   * NPM scripts for the CommitLint builder.
    * @protected
    */
   protected get scripts(): Scripts {
@@ -72,7 +73,7 @@ export abstract class CommitLintBase extends Component {
   }
 
   /**
-   * NPM packages to be installed as devDependencies for the CommitLint component.
+   * NPM packages to be installed as devDependencies for the CommitLint builder.
    * @protected
    */
   protected get devDependencies(): string[] {
@@ -86,7 +87,7 @@ export abstract class CommitLintBase extends Component {
   }
 
   /**
-   * Settings to be added to package.json for the CommitLint component.
+   * Settings to be added to package.json for the CommitLint builder.
    * @protected
    */
   protected get npmSettings(): LintStagedConfig {

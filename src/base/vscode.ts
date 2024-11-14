@@ -1,15 +1,16 @@
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { Component } from './component';
+import { Builder } from './builder';
+import { TypeScriptProjectBase } from './project';
 
 /**
- * Base class for VSCode component implementing all relevant configuration.
+ * Base class for VSCode builder implementing all relevant configuration.
+ * @abstract
  */
-export abstract class VSCodeBase extends Component {
+export abstract class VSCodeBase extends Builder {
   /**
-   * Initializes the base VSCode component.
-   * @param project The project to configure VSCode component for.
+   * Initializes the base VSCode builder.
+   * @param project The project to configure VSCode builder for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
   }
 

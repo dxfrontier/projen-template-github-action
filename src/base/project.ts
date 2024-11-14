@@ -1,5 +1,6 @@
 import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
+import { Builder } from './builder';
 
 // Have to disable the prettier rule here for the { }
 // otherwise we have a conflict between prettier and linter.
@@ -8,8 +9,11 @@ export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions {
 
 /**
  * Base class for managing project configuration.
+ * @abstract
  */
 export abstract class TypeScriptProjectBase extends TypeScriptProject {
+  public builderRegistry: Builder[] = [];
+
   /**
    * Initializes the project.
    * @param options Additional project options.
@@ -35,5 +39,43 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
 
       devDeps: ['projen', 'construct'],
     });
+  }
+
+  /**
+   * Register a builder to be managed by this project.
+   * @param builder The builder to register (must extend BaseBuilder).
+   * @public
+   */
+  public registerBuilder(builder: Builder): void {
+    this.builderRegistry?.push(builder);
+  }
+
+  /**
+   * Finds a builder in the registry by its constructor name.
+   * @param name The name of the builder to search for.
+   * @returns The builder if found, otherwise undefined.
+   */
+  public findBuilderByName(name: string): Builder | undefined {
+    return this.builderRegistry.find((builder: Builder): boolean => builder.constructor.name === name);
+  }
+
+  /**
+   * @public
+   */
+  public preSynthesize(): void {
+    super.preSynthesize();
+    for (const builder of this.builderRegistry) {
+      builder.preSynthesize();
+    }
+  }
+
+  /**
+   * @public
+   */
+  public postSynthesize(): void {
+    super.postSynthesize();
+    for (const builder of this.builderRegistry) {
+      builder.postSynthesize();
+    }
   }
 }

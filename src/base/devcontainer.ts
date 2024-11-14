@@ -1,17 +1,18 @@
 import { JsonFile, JsonFileOptions } from 'projen';
-import { TypeScriptProject } from 'projen/lib/typescript';
-import { Component } from './component';
+import { Builder } from './builder';
 import { Scripts } from '../types';
+import { TypeScriptProjectBase } from './project';
 
 /**
- * Base class for DevContainer component implementing all relevant configuration.
+ * Base class for DevContainer builder implementing all relevant configuration.
+ * @abstract
  */
-export abstract class DevContainerBase extends Component {
+export abstract class DevContainerBase extends Builder {
   /**
-   * Initializes the base DevContainer component.
+   * Initializes the base DevContainer builder.
    * @param project The project to configure DevContainer for.
    */
-  constructor(project: TypeScriptProject) {
+  constructor(project: TypeScriptProjectBase) {
     super(project);
   }
 
