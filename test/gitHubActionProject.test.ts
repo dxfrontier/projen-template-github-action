@@ -22,7 +22,7 @@ describe('GitHubActionProject', (): void => {
     snapshot = synthSnapshot(project);
   });
 
-  afterAll(() => {
+  afterAll((): void => {
     jest.resetAllMocks();
     jest.resetModules();
   });
