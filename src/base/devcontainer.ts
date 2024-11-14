@@ -48,7 +48,7 @@ export abstract class DevContainerBase extends Builder {
   }
 
   /**
-   * VSCode extensions to be installed in the DevContainer.
+   * VsCode extensions to be installed in the DevContainer.
    * @return Extensions used in container.
    * @protected
    */
