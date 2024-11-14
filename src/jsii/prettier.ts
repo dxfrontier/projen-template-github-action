@@ -16,10 +16,18 @@ export class PrettierJsii extends PrettierBase {
   }
 
   /**
+   * File paths to the Prettier ignore entries.
+   * @protected
+   */
+  protected get ignoreFilePaths(): string[] {
+    const baseEntries: string[] = super.ignoreFilePaths;
+    return [...baseEntries, '/API.md'];
+  }
+  /**
    * Entries in `.gitattributes` are already done by `.projenrc.ts`
    * @protected
    * @override
    */
   // eslint-disable-next-line prettier/prettier
-  protected addGitAttributes(): void { }
+  protected addGitAttributes(): void {}
 }

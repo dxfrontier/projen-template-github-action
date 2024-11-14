@@ -21,5 +21,5 @@ export class HuskyJsii extends HuskyBase {
    * @override
    */
   // eslint-disable-next-line prettier/prettier
-  protected addGitAttributes(): void { }
+  protected addGitAttributes(): void {}
 }

@@ -33,5 +33,5 @@ export class CommitLintJsii extends CommitLintBase {
    * @override
    */
   // eslint-disable-next-line prettier/prettier
-  protected addGitAttributes(): void { }
+  protected addGitAttributes(): void {}
 }
