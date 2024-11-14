@@ -341,13 +341,14 @@
               "override": "true",
               "protected": "true"
             },
+            "returns": "Template for the config file.",
             "stability": "stable",
             "summary": "Settings to be added to package.json for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/commitlint.ts",
-            "line": 24
+            "line": 25
           },
           "name": "npmSettings",
           "overrides": "projen-template-projects.CommitLintBase",
@@ -424,7 +425,7 @@
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 115
+            "line": 120
           },
           "name": "addDevDependencies",
           "overrides": "projen-template-projects.Builder",
@@ -437,7 +438,7 @@
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 119
+            "line": 124
           },
           "name": "addGitAttributes",
           "overrides": "projen-template-projects.Builder",
@@ -450,7 +451,7 @@
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 109
+            "line": 114
           },
           "name": "addScripts",
           "overrides": "projen-template-projects.Builder",
@@ -463,7 +464,7 @@
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 103
+            "line": 108
           },
           "name": "addSettings",
           "overrides": "projen-template-projects.Builder",
@@ -476,7 +477,7 @@
           },
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 97
+            "line": 102
           },
           "name": "addTemplates",
           "overrides": "projen-template-projects.Builder",
@@ -490,13 +491,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Npm dev dependencies.",
             "stability": "stable",
             "summary": "NPM packages to be installed as devDependencies for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 79
+            "line": 83
           },
           "name": "devDependencies",
           "protected": true,
@@ -514,13 +516,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to config file.",
             "stability": "stable",
             "summary": "File path to the CommitLint configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 23
+            "line": 24
           },
           "name": "filePath",
           "protected": true,
@@ -533,13 +536,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Configuration entries for package.json.",
             "stability": "stable",
             "summary": "Settings to be added to package.json for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 93
+            "line": 98
           },
           "name": "npmSettings",
           "protected": true,
@@ -571,13 +575,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Npm script entries.",
             "stability": "stable",
             "summary": "NPM scripts for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 69
+            "line": 72
           },
           "name": "scripts",
           "protected": true,
@@ -595,13 +600,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Template for the config file.",
             "stability": "stable",
             "summary": "Template file for the CommitLint configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/commitlint.ts",
-            "line": 31
+            "line": 33
           },
           "name": "template",
           "protected": true,
@@ -664,7 +670,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/commitlint.ts",
-            "line": 36
+            "line": 37
           },
           "name": "addGitAttributes",
           "overrides": "projen-template-projects.CommitLintBase",
@@ -679,13 +685,14 @@
               "override": "true",
               "protected": "true"
             },
+            "returns": "Configuration entries for package.json.",
             "stability": "stable",
             "summary": "Settings to be added to package.json for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/commitlint.ts",
-            "line": 24
+            "line": 25
           },
           "name": "npmSettings",
           "overrides": "projen-template-projects.CommitLintBase",
@@ -759,13 +766,14 @@
               "override": "true",
               "protected": "true"
             },
+            "returns": "Extensions used in container.",
             "stability": "stable",
             "summary": "VSCode extensions to be installed in the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/devcontainer.ts",
-            "line": 23
+            "line": 24
           },
           "name": "extensions",
           "overrides": "projen-template-projects.DevContainerBase",
@@ -828,7 +836,7 @@
           },
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 97
+            "line": 103
           },
           "name": "addGitAttributes",
           "overrides": "projen-template-projects.Builder",
@@ -841,7 +849,7 @@
           },
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 91
+            "line": 97
           },
           "name": "addScripts",
           "overrides": "projen-template-projects.Builder",
@@ -854,7 +862,7 @@
           },
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 87
+            "line": 93
           },
           "name": "addTemplates",
           "overrides": "projen-template-projects.Builder",
@@ -868,13 +876,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Docker image to be used for container.",
             "stability": "stable",
             "summary": "Docker image used for the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 31
+            "line": 33
           },
           "name": "dockerImage",
           "protected": true,
@@ -887,13 +896,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Extensions used in container.",
             "stability": "stable",
             "summary": "VSCode extensions to be installed in the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 51
+            "line": 55
           },
           "name": "extensions",
           "protected": true,
@@ -911,13 +921,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Additional features used in container.",
             "stability": "stable",
             "summary": "Features to be installed in the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 39
+            "line": 42
           },
           "name": "features",
           "protected": true,
@@ -935,13 +946,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to config file.",
             "stability": "stable",
             "summary": "File path to the CommitLint configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 23
+            "line": 24
           },
           "name": "filePath",
           "protected": true,
@@ -954,13 +966,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Npm script entries.",
             "stability": "stable",
             "summary": "NPM scripts used within the DevContainer environment."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 81
+            "line": 87
           },
           "name": "scripts",
           "protected": true,
@@ -979,13 +992,14 @@
               "protected": "true"
             },
             "remarks": "The first script in `scripts` is used as the postCreateCommand to install dependencies upon creation.",
+            "returns": "Template for the config file.",
             "stability": "stable",
             "summary": "Template file for DevContainer creation."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 60
+            "line": 65
           },
           "name": "template",
           "protected": true,
@@ -1039,13 +1053,14 @@
               "override": "true",
               "protected": "true"
             },
+            "returns": "Extensions used in container.",
             "stability": "stable",
             "summary": "VSCode extensions to be installed in the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/devcontainer.ts",
-            "line": 23
+            "line": 24
           },
           "name": "extensions",
           "overrides": "projen-template-projects.DevContainerBase",
@@ -1183,7 +1198,7 @@
           },
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 416
+            "line": 427
           },
           "name": "addGitAttributes",
           "overrides": "projen-template-projects.Builder",
@@ -1196,7 +1211,7 @@
           },
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 405
+            "line": 416
           },
           "name": "addTemplates",
           "overrides": "projen-template-projects.Builder",
@@ -1210,13 +1225,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to bug issue file.",
             "stability": "stable",
             "summary": "File path to GitHub bug issue template."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 25
+            "line": 26
           },
           "name": "bugIssueFilePath",
           "protected": true,
@@ -1229,13 +1245,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Template for the bug issue template file.",
             "stability": "stable",
             "summary": "Issue template for the GitHub Bug configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 91
+            "line": 97
           },
           "name": "bugIssueTemplate",
           "protected": true,
@@ -1254,13 +1271,14 @@
               "protected": "true"
             },
             "remarks": "This file is used by release workflow to create the Changelog.",
+            "returns": "Template for the cliff toml file.",
             "stability": "stable",
             "summary": "Cliff toml configuration for the GitHub configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 171
+            "line": 180
           },
           "name": "cliffTomlConfiguration",
           "protected": true,
@@ -1279,13 +1297,14 @@
               "protected": "true"
             },
             "remarks": "This file is used by release workflow to create the Changelog.",
+            "returns": "File path to cliff toml file.",
             "stability": "stable",
             "summary": "File path to the Cliff toml configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 50
+            "line": 54
           },
           "name": "cliffTomlFilePath",
           "protected": true,
@@ -1298,13 +1317,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to feature issue file.",
             "stability": "stable",
             "summary": "File path to GitHub feature issue template."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 33
+            "line": 35
           },
           "name": "featureIssueFilePath",
           "protected": true,
@@ -1317,13 +1337,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Template for the feature issue template file.",
             "stability": "stable",
             "summary": "Issue template for the GitHub feature configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 119
+            "line": 126
           },
           "name": "featureIssueTemplate",
           "protected": true,
@@ -1341,13 +1362,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to pull request template file.",
             "stability": "stable",
             "summary": "Pull Request template for the GitHub configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 58
+            "line": 63
           },
           "name": "pullRequestTemplate",
           "protected": true,
@@ -1365,13 +1387,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to question issue file.",
             "stability": "stable",
             "summary": "File path to GitHub question issue template."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 41
+            "line": 44
           },
           "name": "questionIssueFilePath",
           "protected": true,
@@ -1384,13 +1407,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Template for the question issue template file.",
             "stability": "stable",
             "summary": "Template for the GitHub Question Issue configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 149
+            "line": 157
           },
           "name": "questionIssueTemplate",
           "protected": true,
@@ -1408,13 +1432,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Options for release workflow",
             "stability": "stable",
             "summary": "Workflow release template for the GitHub configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 264
+            "line": 274
           },
           "name": "releaseWorkflowOptions",
           "protected": true,
@@ -1432,13 +1457,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Options for stale workflow",
             "stability": "stable",
             "summary": "Workflow stale template options for the GitHub configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 296
+            "line": 307
           },
           "name": "staleWorkflowOptions",
           "protected": true,
@@ -1576,7 +1602,7 @@
           },
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 104
+            "line": 110
           },
           "name": "addDevDependencies",
           "overrides": "projen-template-projects.Builder",
@@ -1589,7 +1615,7 @@
           },
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 108
+            "line": 114
           },
           "name": "addGitAttributes",
           "overrides": "projen-template-projects.Builder",
@@ -1602,7 +1628,7 @@
           },
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 98
+            "line": 104
           },
           "name": "addScripts",
           "overrides": "projen-template-projects.Builder",
@@ -1615,7 +1641,7 @@
           },
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 93
+            "line": 99
           },
           "name": "addTemplates",
           "overrides": "projen-template-projects.Builder",
@@ -1629,13 +1655,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to commit-msg hook file.",
             "stability": "stable",
             "summary": "File path to the Husky commit-msg hook."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 23
+            "line": 24
           },
           "name": "commitMsgFilePath",
           "protected": true,
@@ -1648,13 +1675,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Template for the commit-msg hook file.",
             "stability": "stable",
             "summary": "Commit-msg hook template for the Husky configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 39
+            "line": 42
           },
           "name": "commitMsgTemplate",
           "protected": true,
@@ -1672,13 +1700,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Npm dev dependencies.",
             "stability": "stable",
             "summary": "NPM packages to be installed as devDependencies for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 69
+            "line": 75
           },
           "name": "devDependencies",
           "protected": true,
@@ -1696,13 +1725,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to pre-commit hook file.",
             "stability": "stable",
             "summary": "File path to the Husky pre-commit hook."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 31
+            "line": 33
           },
           "name": "preCommitFilePath",
           "protected": true,
@@ -1715,13 +1745,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Template for the pre-commit hook file.",
             "stability": "stable",
             "summary": "Pre-commit hook template for the Husky configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 51
+            "line": 55
           },
           "name": "preCommitTemplate",
           "protected": true,
@@ -1739,13 +1770,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Npm script entries.",
             "stability": "stable",
             "summary": "NPM scripts for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/husky.ts",
-            "line": 59
+            "line": 64
           },
           "name": "scripts",
           "protected": true,
@@ -1902,7 +1934,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 94
+            "line": 98
           },
           "name": "addGitAttributes",
           "overrides": "projen-template-projects.Builder",
@@ -1918,7 +1950,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 77
+            "line": 81
           },
           "name": "addSettings",
           "overrides": "projen-template-projects.Builder",
@@ -1935,7 +1967,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 88
+            "line": 92
           },
           "name": "removeScripts",
           "protected": true
@@ -1948,13 +1980,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File paths for .gitattributes entries.",
             "stability": "stable",
             "summary": "File paths for the .gitattributes file entries. These entries are not added automatically by projen and we have not extra builder for these. So we handle them here."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 32
+            "line": 34
           },
           "name": "gitAttributesFilePaths",
           "protected": true,
@@ -1972,13 +2005,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to ignore file.",
             "stability": "stable",
             "summary": "File path to the NPM Package ignore configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 22
+            "line": 23
           },
           "name": "ignoreFilePath",
           "protected": true,
@@ -1991,13 +2025,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File paths for package.json file entry.",
             "stability": "stable",
             "summary": "NPM file paths to be packaged for the NPM Package."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 40
+            "line": 43
           },
           "name": "npmFilePaths",
           "protected": true,
@@ -2016,13 +2051,14 @@
               "protected": "true"
             },
             "remarks": "These scripts are added by Projen on project initialization\nand are not needed for our projects.\nOverwrite this method if you want to keep the projen standard scripts.",
+            "returns": "Projen standard script entries.",
             "stability": "stable",
             "summary": "Getter retrieving the npm scripts to be removed from NPM Package."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 51
+            "line": 55
           },
           "name": "projenScripts",
           "protected": true,
@@ -2174,7 +2210,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 110
+            "line": 115
           },
           "name": "addGitAttributes",
           "overrides": "projen-template-projects.Builder",
@@ -2190,7 +2226,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 137
+            "line": 142
           },
           "name": "addPrettierIgnoreEntries",
           "protected": true
@@ -2202,7 +2238,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 104
+            "line": 109
           },
           "name": "addScripts",
           "overrides": "projen-template-projects.Builder",
@@ -2215,7 +2251,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 100
+            "line": 105
           },
           "name": "addSettings",
           "overrides": "projen-template-projects.Builder",
@@ -2229,7 +2265,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 129
+            "line": 134
           },
           "name": "preSynthesize",
           "overrides": "projen-template-projects.Builder"
@@ -2242,13 +2278,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to ignore file.",
             "stability": "stable",
             "summary": "File path to the Prettier ignore configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 23
+            "line": 24
           },
           "name": "ignoreFilePath",
           "protected": true,
@@ -2261,13 +2298,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File paths for ignore file entries.",
             "stability": "stable",
             "summary": "File paths to the Prettier ignore entries."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 39
+            "line": 42
           },
           "name": "ignoreFilePaths",
           "protected": true,
@@ -2285,13 +2323,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Npm script entries.",
             "stability": "stable",
             "summary": "NPM scripts used by Prettier."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 93
+            "line": 98
           },
           "name": "scripts",
           "protected": true,
@@ -2309,13 +2348,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Entries for the settings file.",
             "stability": "stable",
             "summary": "Settings for the Prettier configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 76
+            "line": 80
           },
           "name": "settings",
           "protected": true,
@@ -2328,13 +2368,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to setting file.",
             "stability": "stable",
             "summary": "File path to the Prettier settings configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 31
+            "line": 33
           },
           "name": "settingsFilePath",
           "protected": true,
@@ -2472,7 +2513,7 @@
           },
           "locationInModule": {
             "filename": "src/github-action/samplecode.ts",
-            "line": 78
+            "line": 80
           },
           "name": "addTemplates",
           "overrides": "projen-template-projects.Builder",
@@ -2486,13 +2527,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to sample code file.",
             "stability": "stable",
             "summary": "File path to the sample GitHub action."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/samplecode.ts",
-            "line": 23
+            "line": 24
           },
           "name": "filePath",
           "protected": true,
@@ -2505,13 +2547,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Content for sample code file.",
             "stability": "stable",
             "summary": "GitHub action template for the SampleCode configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/samplecode.ts",
-            "line": 31
+            "line": 33
           },
           "name": "sampleAction",
           "protected": true,
@@ -2777,7 +2820,7 @@
           },
           "locationInModule": {
             "filename": "src/base/vscode.ts",
-            "line": 52
+            "line": 54
           },
           "name": "addGitAttributes",
           "overrides": "projen-template-projects.Builder",
@@ -2790,7 +2833,7 @@
           },
           "locationInModule": {
             "filename": "src/base/vscode.ts",
-            "line": 48
+            "line": 50
           },
           "name": "addSettings",
           "overrides": "projen-template-projects.Builder",
@@ -2804,13 +2847,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "Entries for the settings file.",
             "stability": "stable",
             "summary": "Settings to be installed in VSCode."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/vscode.ts",
-            "line": 29
+            "line": 31
           },
           "name": "settings",
           "protected": true,
@@ -2828,13 +2872,14 @@
             "custom": {
               "protected": "true"
             },
+            "returns": "File path to settings file.",
             "stability": "stable",
             "summary": "File path to the VSCode settings configuration."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/vscode.ts",
-            "line": 21
+            "line": 22
           },
           "name": "settingsFilePath",
           "protected": true,
@@ -2885,5 +2930,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "th/HWr6/HDJg0WMHLdxCmESTaTr4Ts2o5G0uENipXpY="
+  "fingerprint": "bEfWCs99lW81xqL30EdFJvRh4IxrX1mEkROifdejkoc="
 }

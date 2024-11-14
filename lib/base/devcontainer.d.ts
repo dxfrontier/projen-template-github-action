@@ -14,32 +14,38 @@ export declare abstract class DevContainerBase extends Builder {
     constructor(project: TypeScriptProjectBase);
     /**
      * File path to the CommitLint configuration.
+     * @return File path to config file.
      * @protected
      */
     protected get filePath(): string;
     /**
      * Docker image used for the DevContainer.
+     * @return Docker image to be used for container.
      * @protected
      */
     protected get dockerImage(): string;
     /**
      * Features to be installed in the DevContainer.
+     * @return Additional features used in container.
      * @protected
      */
     protected get features(): Record<string, string>;
     /**
      * VSCode extensions to be installed in the DevContainer.
+     * @return Extensions used in container.
      * @protected
      */
     protected get extensions(): string[];
     /**
      * Template file for DevContainer creation.
      * The first script in `scripts` is used as the postCreateCommand to install dependencies upon creation.
+     * @return Template for the config file.
      * @protected
      */
     protected get template(): JsonFileOptions;
     /**
      * NPM scripts used within the DevContainer environment.
+     * @return Npm script entries.
      * @protected
      */
     protected get scripts(): Scripts;

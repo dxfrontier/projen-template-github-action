@@ -18,6 +18,7 @@ export abstract class HuskyBase extends Builder {
 
   /**
    * File path to the Husky commit-msg hook.
+   * @return File path to commit-msg hook file.
    * @protected
    */
   protected get commitMsgFilePath(): string {
@@ -26,6 +27,7 @@ export abstract class HuskyBase extends Builder {
 
   /**
    * File path to the Husky pre-commit hook.
+   * @return File path to pre-commit hook file.
    * @protected
    */
   protected get preCommitFilePath(): string {
@@ -34,6 +36,7 @@ export abstract class HuskyBase extends Builder {
 
   /**
    * Commit-msg hook template for the Husky configuration.
+   * @return Template for the commit-msg hook file.
    * @protected
    */
   protected get commitMsgTemplate(): string[] {
@@ -46,6 +49,7 @@ export abstract class HuskyBase extends Builder {
 
   /**
    * Pre-commit hook template for the Husky configuration.
+   * @return Template for the pre-commit hook file.
    * @protected
    */
   protected get preCommitTemplate(): string[] {
@@ -54,6 +58,7 @@ export abstract class HuskyBase extends Builder {
 
   /**
    * NPM scripts for the CommitLint builder.
+   * @return Npm script entries.
    * @protected
    */
   protected get scripts(): Scripts {
@@ -64,6 +69,7 @@ export abstract class HuskyBase extends Builder {
 
   /**
    * NPM packages to be installed as devDependencies for the CommitLint builder.
+   * @return Npm dev dependencies.
    * @protected
    */
   protected get devDependencies(): string[] {

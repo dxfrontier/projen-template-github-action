@@ -18,6 +18,7 @@ export class SampleCode extends Builder {
 
   /**
    * File path to the sample GitHub action.
+   * @return File path to sample code file.
    * @protected
    */
   protected get filePath(): string {
@@ -26,6 +27,7 @@ export class SampleCode extends Builder {
 
   /**
    * GitHub action template for the SampleCode configuration.
+   * @return Content for sample code file.
    * @protected
    */
   protected get sampleAction(): string[] {

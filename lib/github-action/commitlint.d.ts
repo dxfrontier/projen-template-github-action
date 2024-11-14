@@ -13,6 +13,7 @@ export declare class CommitLint extends CommitLintBase {
     constructor(project: TypeScriptProjectBase);
     /**
      * Settings to be added to package.json for the CommitLint builder.
+     * @return Template for the config file.
      * @protected
      * @override
      */

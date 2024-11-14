@@ -18,6 +18,7 @@ export abstract class DevContainerBase extends Builder {
 
   /**
    * File path to the CommitLint configuration.
+   * @return File path to config file.
    * @protected
    */
   protected get filePath(): string {
@@ -26,6 +27,7 @@ export abstract class DevContainerBase extends Builder {
 
   /**
    * Docker image used for the DevContainer.
+   * @return Docker image to be used for container.
    * @protected
    */
   protected get dockerImage(): string {
@@ -34,6 +36,7 @@ export abstract class DevContainerBase extends Builder {
 
   /**
    * Features to be installed in the DevContainer.
+   * @return Additional features used in container.
    * @protected
    */
   protected get features(): Record<string, string> {
@@ -46,6 +49,7 @@ export abstract class DevContainerBase extends Builder {
 
   /**
    * VSCode extensions to be installed in the DevContainer.
+   * @return Extensions used in container.
    * @protected
    */
   protected get extensions(): string[] {
@@ -55,6 +59,7 @@ export abstract class DevContainerBase extends Builder {
   /**
    * Template file for DevContainer creation.
    * The first script in `scripts` is used as the postCreateCommand to install dependencies upon creation.
+   * @return Template for the config file.
    * @protected
    */
   protected get template(): JsonFileOptions {
@@ -76,6 +81,7 @@ export abstract class DevContainerBase extends Builder {
 
   /**
    * NPM scripts used within the DevContainer environment.
+   * @return Npm script entries.
    * @protected
    */
   protected get scripts(): Scripts {

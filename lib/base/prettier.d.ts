@@ -14,26 +14,31 @@ export declare abstract class PrettierBase extends Builder {
     constructor(project: TypeScriptProjectBase);
     /**
      * File path to the Prettier ignore configuration.
+     * @return File path to ignore file.
      * @protected
      */
     protected get ignoreFilePath(): string;
     /**
      * File path to the Prettier settings configuration.
+     * @return File path to setting file.
      * @protected
      */
     protected get settingsFilePath(): string;
     /**
      * File paths to the Prettier ignore entries.
+     * @return File paths for ignore file entries.
      * @protected
      */
     protected get ignoreFilePaths(): string[];
     /**
      * Settings for the Prettier configuration.
+     * @return Entries for the settings file.
      * @protected
      */
     protected get settings(): PrettierOverride;
     /**
      * NPM scripts used by Prettier.
+     * @return Npm script entries.
      * @protected
      */
     protected get scripts(): Scripts;
