@@ -1,19 +1,19 @@
-name: 💡 Feature
-description: Request for a new feature
-title: "[FEATURE] <title>"
-labels: ["type: feature"]
+name: 💡 Housekeeping
+description: Maintenance or refactoring task
+title: "[HOUSEKEEPING] <title>"
+labels: ["type: housekeeping"]
 body:
   - type: textarea
     attributes:
       label: Description
-      description: A description of the feature.
+      description: A description of the housekeeping task.
     validations:
       required: true
 
   - type: textarea
     attributes:
       label: Task List
-      description: Describe the steps to fulfill the feature.
+      description: Describe the steps to fulfill the housekeeping task.
       value: |
         - [ ] My First Task
     validations:
