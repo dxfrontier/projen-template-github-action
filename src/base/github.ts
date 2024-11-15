@@ -126,7 +126,7 @@ export abstract class GitHubBase extends Builder {
   protected get featureIssueTemplate(): string[] {
     return [
       'name: 💡 Feature',
-      'description: Story related feature',
+      'description: Request for a new feature',
       'title: "[FEATURE] <title>"',
       'labels: ["type: feature"]',
       'body:',
