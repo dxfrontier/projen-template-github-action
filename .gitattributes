@@ -8,6 +8,7 @@
 /.gitattributes linguist-generated
 /.github/ISSUE_TEMPLATE/bug.yml linguist-generated
 /.github/ISSUE_TEMPLATE/feature.yml linguist-generated
+/.github/ISSUE_TEMPLATE/housekeeping.yml linguist-generated
 /.github/ISSUE_TEMPLATE/question.yml linguist-generated
 /.github/pull_request_template.md linguist-generated
 /.github/workflows/release.yml linguist-generated

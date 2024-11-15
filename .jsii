@@ -1153,7 +1153,7 @@
           },
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 416
+            "line": 466
           },
           "name": "addTemplates",
           "overrides": "projen-template-projects.Builder",
@@ -1194,7 +1194,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 97
+            "line": 106
           },
           "name": "bugIssueTemplate",
           "protected": true,
@@ -1220,7 +1220,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 180
+            "line": 220
           },
           "name": "cliffTomlConfiguration",
           "protected": true,
@@ -1246,7 +1246,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 54
+            "line": 63
           },
           "name": "cliffTomlFilePath",
           "protected": true,
@@ -1286,9 +1286,54 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 126
+            "line": 135
           },
           "name": "featureIssueTemplate",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "returns": "File path to housekeeping issue file.",
+            "stability": "stable",
+            "summary": "File path to GitHub housekeeping issue template."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 44
+          },
+          "name": "housekeepingIssueFilePath",
+          "protected": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "returns": "Template for the housekeeping issue template file.",
+            "stability": "stable",
+            "summary": "Issue template for the GitHub housekeeping configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 166
+          },
+          "name": "housekeepingIssueTemplate",
           "protected": true,
           "type": {
             "collection": {
@@ -1311,7 +1356,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 63
+            "line": 72
           },
           "name": "pullRequestTemplate",
           "protected": true,
@@ -1336,7 +1381,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 44
+            "line": 53
           },
           "name": "questionIssueFilePath",
           "protected": true,
@@ -1356,7 +1401,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 157
+            "line": 197
           },
           "name": "questionIssueTemplate",
           "protected": true,
@@ -1381,7 +1426,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 274
+            "line": 314
           },
           "name": "releaseWorkflowOptions",
           "protected": true,
@@ -1406,7 +1451,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/github.ts",
-            "line": 307
+            "line": 347
           },
           "name": "staleWorkflowOptions",
           "protected": true,
@@ -2123,7 +2168,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 137
+            "line": 138
           },
           "name": "addPrettierIgnoreEntries",
           "protected": true
@@ -2135,7 +2180,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 109
+            "line": 110
           },
           "name": "addScripts",
           "overrides": "projen-template-projects.Builder",
@@ -2148,7 +2193,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 105
+            "line": 106
           },
           "name": "addSettings",
           "overrides": "projen-template-projects.Builder",
@@ -2162,7 +2207,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 129
+            "line": 130
           },
           "name": "preSynthesize",
           "overrides": "projen-template-projects.Builder"
@@ -2227,7 +2272,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 98
+            "line": 99
           },
           "name": "scripts",
           "protected": true,
@@ -2252,7 +2297,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 80
+            "line": 81
           },
           "name": "settings",
           "protected": true,
@@ -2795,5 +2840,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "ACv7r/042YVS9c4SkEessgzmP6wxaUf/5S9ysLQ08hY="
+  "fingerprint": "hPp/8C387UV+vOzuNgUSXktzWpcJSKrAoSDqfuXzc5E="
 }

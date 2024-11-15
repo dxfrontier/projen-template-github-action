@@ -24,6 +24,12 @@ export declare abstract class GitHubBase extends Builder {
      */
     protected get featureIssueFilePath(): string;
     /**
+     *File path to GitHub housekeeping issue template.
+     @return File path to housekeeping issue file.
+     @protected
+     */
+    protected get housekeepingIssueFilePath(): string;
+    /**
      * File path to GitHub question issue template.
      * @return File path to question issue file.
      * @protected
@@ -54,6 +60,12 @@ export declare abstract class GitHubBase extends Builder {
      * @protected
      */
     protected get featureIssueTemplate(): string[];
+    /**
+     * Issue template for the GitHub housekeeping configuration.
+     * @return Template for the housekeeping issue template file.
+     * @protected
+     */
+    protected get housekeepingIssueTemplate(): string[];
     /**
      * Template for the GitHub Question Issue configuration.
      * @return Template for the question issue template file.
@@ -94,6 +106,11 @@ export declare abstract class GitHubBase extends Builder {
      * @private
      */
     private createFeatureIssue;
+    /**
+     * Creates the template file for a GitHub housekeeping issue.
+     * @private
+     */
+    private createHousekeepingIssue;
     /**
      * Creates the template file for a GitHub question issue.
      * @private
