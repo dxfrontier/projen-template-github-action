@@ -41,7 +41,7 @@ export abstract class NpmPackageBase extends Builder {
    * @protected
    */
   protected get npmFilePaths(): string[] {
-    return ['lib', 'README.md', 'LICENSE'];
+    return ['lib', 'README.md', 'LICENSE', '.jsii'];
   }
 
   /**
