@@ -72,7 +72,7 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Files property in package.json is set properly', (): void => {
-      const expectedFiles: string[] = ['lib', 'README.md', 'LICENSE'];
+      const expectedFiles: string[] = ['lib', 'README.md', 'LICENSE', '.jsii'];
       expect(snapshot['package.json']!.files).toStrictEqual(expectedFiles);
     });
 
