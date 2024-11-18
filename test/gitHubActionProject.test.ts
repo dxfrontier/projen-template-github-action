@@ -1,4 +1,5 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
+import { GithubAction, TypeScriptProjectBaseOptions, type LintStagedConfig, type ProjenStandardScript } from '../src';
 import * as commitlint from './base/commitlint';
 import * as common from './base/common';
 import * as devcontainer from './base/devcontainer';
@@ -8,14 +9,11 @@ import * as npm from './base/npm';
 import * as prettier from './base/prettier';
 import * as samplecode from './base/samplecode';
 import * as vscode from './base/vscode';
-import { TypeScriptProjectBaseOptions } from '../src/base/project';
-import { GitHubActionProject } from '../src/github-action/project';
-import { LintStagedConfig, ProjenStandardScript } from '../src/types';
 
 describe('GitHubActionProject', (): void => {
   let props: TypeScriptProjectBaseOptions;
   let snapshot: SynthOutput;
-  let project: GitHubActionProject;
+  let project: GithubAction.Project;
 
   beforeAll((): void => {
     props = {
@@ -25,7 +23,7 @@ describe('GitHubActionProject', (): void => {
       repository: 'my-repository',
     };
 
-    project = new GitHubActionProject(props);
+    project = new GithubAction.Project(props);
     snapshot = synthSnapshot(project);
   });
 
