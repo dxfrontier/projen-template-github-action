@@ -3,6 +3,7 @@ import { CustomerProject, type ProjenStandardScript, TypeScriptProjectBaseOption
 import * as common from './base/common';
 import * as devcontainer from './base/devcontainer';
 import * as npm from './base/npm';
+import * as vscode from './base/vscode';
 
 describe('CustomerProject', (): void => {
   let props: TypeScriptProjectBaseOptions;
@@ -120,6 +121,31 @@ describe('CustomerProject', (): void => {
 
     test('DevContainer related files are added to .gitattributes and defined as linguist-generated', (): void => {
       devcontainer.testGitAttributes(snapshot);
+    });
+  });
+
+  describe('Visual Studio Code', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('VsCode', project.builderRegistry);
+    });
+    test('VsCode settings are set properly', (): void => {
+      vscode.testSettings(snapshot);
+    });
+
+    test('VsCode launch is set properly', (): void => {
+      vscode.testLaunch(snapshot);
+    });
+
+    test('VsCode tasks are set properly', (): void => {
+      vscode.testTasks(snapshot);
+    });
+
+    test('VsCode related files are added to .gitattributes and defined as linguist-generated', (): void => {
+      const additionalPatterns: RegExp[] = [
+        /\/\.vscode\/launch\.json linguist-generated( $|\s|$)/m,
+        /\/\.vscode\/tasks\.json linguist-generated( $|\s|$)/m,
+      ];
+      vscode.testGitAttributes(snapshot, additionalPatterns);
     });
   });
 });
