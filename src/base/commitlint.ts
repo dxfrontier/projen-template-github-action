@@ -113,7 +113,7 @@ export abstract class CommitLintBase extends Builder {
 
   protected addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
-      this.project.addTask(name, { exec: command });
+      this.project.addTask(name, { exec: command as string });
     }
   }
 

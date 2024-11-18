@@ -1,4 +1,4 @@
-import { JsonFile, JsonFileOptions } from 'projen';
+import { JsonFile, JsonFileOptions, TaskStep } from 'projen';
 import { Builder } from './builder';
 import { Scripts } from '../types';
 import { TypeScriptProjectBase } from './project';
@@ -96,7 +96,15 @@ export abstract class DevContainerBase extends Builder {
 
   protected addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
-      this.project.addTask(name, { exec: command });
+      if (Array.isArray(command)) {
+        let steps: TaskStep[] = [];
+        for (const cmd of command) {
+          steps.push({ exec: cmd });
+        }
+        this.project.addTask(name, { steps });
+      } else {
+        this.project.addTask(name, { exec: command as string });
+      }
     }
   }
 }

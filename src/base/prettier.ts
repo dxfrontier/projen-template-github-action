@@ -109,7 +109,7 @@ export abstract class PrettierBase extends Builder {
 
   protected addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
-      this.project.addTask(name, { exec: command, receiveArgs: true });
+      this.project.addTask(name, { exec: command as string, receiveArgs: true });
     }
   }
 
