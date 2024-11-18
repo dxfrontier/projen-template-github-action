@@ -1,5 +1,5 @@
 import { TypeScriptProjectBase, TypeScriptProjectBaseOptions } from '../base';
-import { NpmPackage } from '../customer-project';
+import { DevContainer, NpmPackage } from '../customer-project';
 
 /**
  * Defines a Customer Project project.
@@ -13,5 +13,6 @@ export class Project extends TypeScriptProjectBase {
     super(options);
 
     new NpmPackage(this);
+    new DevContainer(this);
   }
 }

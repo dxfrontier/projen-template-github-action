@@ -1,5 +1,5 @@
 // export * from './commitlint';
-// export * from './devcontainer';
+export * from './devcontainer';
 // export * from './github';
 // export * from './husky';
 export * from './npm';
