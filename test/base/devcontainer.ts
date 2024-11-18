@@ -26,9 +26,10 @@ export function testFeatures(snapshot: SynthOutput): void {
 /**
  * Validates that container VsCode extensions are set properly.
  * @param snapshot Synthesized project output.
+ * @param additionalExtensions List of additional extensions to test for.
  */
-export function testExtensions(snapshot: SynthOutput): void {
-  const expectedExtensions: string[] = [
+export function testExtensions(snapshot: SynthOutput, additionalExtensions: string[] = []): void {
+  const standardExtensions: string[] = [
     'Orta.vscode-jest',
     'firsttris.vscode-jest-runner',
     'humao.rest-client',
@@ -64,16 +65,22 @@ export function testExtensions(snapshot: SynthOutput): void {
     'AykutSarac.jsoncrack-vscode',
     'tamasfe.even-better-toml',
   ];
-  expect(snapshot['.devcontainer.json'].customizations.vscode.extensions).toStrictEqual(expectedExtensions);
+
+  const expectedExtensions: string[] = [...standardExtensions, ...additionalExtensions];
+  expect(snapshot['.devcontainer.json'].customizations.vscode.extensions.sort()).toStrictEqual(
+    expectedExtensions.sort(),
+  );
 }
 
 /**
  * Validates that container postCreateCommand is set properly.
  * @param snapshot Synthesized project output.
+ * @param expectedSteps List of steps that are expected instead of the standard steps.
  */
-export function testCommand(snapshot: SynthOutput): void {
+export function testCommand(snapshot: SynthOutput, expectedSteps: string[] = []): void {
+  const standardSteps: string[] = ['npm install'];
   const expectedTasks: TaskSteps = {
-    'install-dependencies': ['npm install'],
+    'install-dependencies': expectedSteps.length ? expectedSteps : standardSteps,
   };
   expect(snapshot['.devcontainer.json'].postCreateCommand).toBe(
     snapshot['package.json']!.scripts['install-dependencies'],
