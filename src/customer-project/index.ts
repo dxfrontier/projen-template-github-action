@@ -6,4 +6,4 @@ export * from './npm';
 // export * from './prettier';
 export * from './project';
 // export * from './samplecode';
-// export * from './vscode';
+export * from './vscode';
