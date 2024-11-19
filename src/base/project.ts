@@ -40,7 +40,7 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
       devDeps: [
         'projen',
         'construct',
-        'projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
+        'dxfrontier/projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
       ],
     });
   }

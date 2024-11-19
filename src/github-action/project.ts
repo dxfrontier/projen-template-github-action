@@ -11,7 +11,12 @@ export class GitHubActionProject extends TypeScriptProjectBase {
    * @param options Additional project options.
    */
   constructor(options: TypeScriptProjectBaseOptions) {
-    super(options);
+    super({
+      ...options,
+      disableTsconfig: true,
+      eslint: false,
+      buildWorkflow: true,
+    });
 
     new NpmPackage(this);
     new DevContainer(this);
