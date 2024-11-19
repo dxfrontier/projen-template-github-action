@@ -240,6 +240,12 @@ describe('CustomerProject', (): void => {
       });
     });
 
+    describe('GitHub Workflows', (): void => {
+      test('To be defined', (): void => {
+        expect(true).toBe(false);
+      });
+    });
+
     test('GitHub related files are added to .gitattributes and defined as linguist-generated', (): void => {
       const additionalPatterns: RegExp[] = [/\/\.github\/ISSUE_TEMPLATE\/story\.yml linguist-generated( $|\s|$)/m];
       github.testGitAttributes(snapshot, additionalPatterns);
