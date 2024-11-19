@@ -85,10 +85,16 @@ export class VsCode extends VsCodeBase {
     };
   }
 
+  /**
+   @override
+   */
   protected addTemplates(): void {
     new JsonFile(this.project, this.tasksFilePath, this.tasksTemplate);
   }
 
+  /**
+   @override
+   */
   protected addSettings(): void {
     super.addSettings();
     this.project.vscode?.launchConfiguration.addConfiguration(this.launch);
