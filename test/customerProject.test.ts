@@ -3,6 +3,7 @@ import { CustomerProject, type ProjenStandardScript, TypeScriptProjectBaseOption
 import * as common from './base/common';
 import * as devcontainer from './base/devcontainer';
 import * as github from './base/github';
+import * as husky from './base/husky';
 import * as npm from './base/npm';
 import * as vscode from './base/vscode';
 
@@ -255,6 +256,37 @@ describe('CustomerProject', (): void => {
   describe('Prettier', (): void => {
     test('To be defined', (): void => {
       expect(true).toBe(false);
+    });
+  });
+
+  describe('Husky', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('Husky', project.builderRegistry);
+    });
+
+    test('Commit-msg hook matches expected template', (): void => {
+      husky.testCommitMsgHook(snapshot);
+    });
+
+    test('Pre-commit hook matches expected template', (): void => {
+      husky.testPreCommitHook(snapshot);
+    });
+
+    test('Pre-push hook matches expected template', (): void => {
+      husky.testPrePushHook(snapshot);
+    });
+
+    test('Husky npm scripts are added properly', (): void => {
+      husky.testScripts(snapshot);
+    });
+
+    test('Husky npm devDependencies are added properly', (): void => {
+      husky.testDevDependencies(snapshot);
+    });
+
+    test('Husky related files are added to .gitattributes and defined as linguist-generated', (): void => {
+      const additionalPatterns: RegExp[] = [/\/\.husky\/pre-push linguist-generated( $|\s|$)/m];
+      husky.testGitAttributes(snapshot, additionalPatterns);
     });
   });
 });
