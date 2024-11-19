@@ -289,7 +289,7 @@ describe('JsiiProject', (): void => {
 
       test('CommitLint configuration in package.json is set properly', (): void => {
         const expectedConfiguration: LintStagedConfig = {
-          '**/*.ts': ['npm run eslint', 'npm run format:fix'],
+          '**/*.ts': ['npm run eslint', 'npm run prettier:fix'],
         };
         expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
       });
