@@ -24,7 +24,7 @@ export class CommitLint extends CommitLintBase {
    */
   protected get npmSettings(): LintStagedConfig {
     return {
-      '**/*.{yml,yaml}': ['npm run format:message', 'npm run format:fix'],
+      '**/*.{yml,yaml}': ['npm run prettier:message', 'npm run prettier:fix'],
     };
   }
 }

@@ -24,7 +24,7 @@ export class CommitLintJsii extends CommitLintBase {
    */
   protected get npmSettings(): LintStagedConfig {
     return {
-      '**/*.ts': ['npm run eslint', 'npm run format:fix'],
+      '**/*.ts': ['npm run eslint', 'npm run prettier:fix'],
     };
   }
 }

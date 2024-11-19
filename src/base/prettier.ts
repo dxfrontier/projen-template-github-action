@@ -98,8 +98,8 @@ export abstract class PrettierBase extends Builder {
    */
   protected get scripts(): Scripts {
     return {
-      'format:fix': 'prettier . --write',
-      'format:message': 'echo "Prettier started ..."',
+      'prettier:fix': 'prettier . --write',
+      'prettier:message': 'echo "Prettier started ..."',
     };
   }
 
