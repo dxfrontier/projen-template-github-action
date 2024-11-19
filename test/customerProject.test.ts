@@ -251,4 +251,10 @@ describe('CustomerProject', (): void => {
       github.testGitAttributes(snapshot, additionalPatterns);
     });
   });
+
+  describe('Prettier', (): void => {
+    test('To be defined', (): void => {
+      expect(true).toBe(false);
+    });
+  });
 });
