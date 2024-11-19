@@ -13,7 +13,7 @@ export type ProjenStandardScript = 'bump' | 'clobber' | 'compile' | 'default' | 
  * Collection of npm scripts, indexed by their names
  */
 export type Scripts = {
-    [key: string]: string;
+    [key: string]: string | string[];
 };
 /**
  * Structure of a projen task containing multiple steps.

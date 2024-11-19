@@ -2,7 +2,7 @@ import { TypeScriptProjectBase, TypeScriptProjectBaseOptions } from '../base/pro
 /**
  * Defines a GitHub Action project.
  */
-export declare class GitHubActionProject extends TypeScriptProjectBase {
+export declare class Project extends TypeScriptProjectBase {
     /**
      * Initializes the GitHub Action project.
      * @param options Additional project options.

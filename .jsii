@@ -298,87 +298,6 @@
       ],
       "symbolId": "src/base/builder:Builder"
     },
-    "projen-template-projects.CommitLint": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.CommitLintBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "CommitLint builder implementing all relevant configuration for the project."
-      },
-      "fqn": "projen-template-projects.CommitLint",
-      "initializer": {
-        "docs": {
-          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
-          "stability": "stable",
-          "summary": "Initializes the CommitLint builder."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/commitlint.ts",
-          "line": 14
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "The project to configure CommitLint for."
-            },
-            "name": "project",
-            "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/commitlint.ts",
-        "line": 7
-      },
-      "name": "CommitLint",
-      "properties": [
-        {
-          "docs": {
-            "custom": {
-              "override": "true",
-              "protected": "true"
-            },
-            "returns": "Template for the config file.",
-            "stability": "stable",
-            "summary": "Settings to be added to package.json for the CommitLint builder."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/github-action/commitlint.ts",
-            "line": 25
-          },
-          "name": "npmSettings",
-          "overrides": "projen-template-projects.CommitLintBase",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "union": {
-                  "types": [
-                    {
-                      "primitive": "string"
-                    },
-                    {
-                      "collection": {
-                        "elementtype": {
-                          "primitive": "string"
-                        },
-                        "kind": "array"
-                      }
-                    }
-                  ]
-                }
-              },
-              "kind": "map"
-            }
-          }
-        }
-      ],
-      "symbolId": "src/github-action/commitlint:CommitLint"
-    },
     "projen-template-projects.CommitLintBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
@@ -576,7 +495,21 @@
           "type": {
             "collection": {
               "elementtype": {
-                "primitive": "string"
+                "union": {
+                  "types": [
+                    {
+                      "primitive": "string"
+                    },
+                    {
+                      "collection": {
+                        "elementtype": {
+                          "primitive": "string"
+                        },
+                        "kind": "array"
+                      }
+                    }
+                  ]
+                }
               },
               "kind": "map"
             }
@@ -690,73 +623,6 @@
         }
       ],
       "symbolId": "src/jsii/commitlint:CommitLintJsii"
-    },
-    "projen-template-projects.DevContainer": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.DevContainerBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "DevContainer builder implementing all relevant configuration for the project."
-      },
-      "fqn": "projen-template-projects.DevContainer",
-      "initializer": {
-        "docs": {
-          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
-          "stability": "stable",
-          "summary": "Initializes the DevContainer builder."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/devcontainer.ts",
-          "line": 13
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "The project to configure CommitLint for."
-            },
-            "name": "project",
-            "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/devcontainer.ts",
-        "line": 6
-      },
-      "name": "DevContainer",
-      "properties": [
-        {
-          "docs": {
-            "custom": {
-              "override": "true",
-              "protected": "true"
-            },
-            "returns": "Extensions used in container.",
-            "stability": "stable",
-            "summary": "VsCode extensions to be installed in the DevContainer."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/github-action/devcontainer.ts",
-            "line": 24
-          },
-          "name": "extensions",
-          "overrides": "projen-template-projects.DevContainerBase",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "primitive": "string"
-              },
-              "kind": "array"
-            }
-          }
-        }
-      ],
-      "symbolId": "src/github-action/devcontainer:DevContainer"
     },
     "projen-template-projects.DevContainerBase": {
       "abstract": true,
@@ -935,7 +801,21 @@
           "type": {
             "collection": {
               "elementtype": {
-                "primitive": "string"
+                "union": {
+                  "types": [
+                    {
+                      "primitive": "string"
+                    },
+                    {
+                      "collection": {
+                        "elementtype": {
+                          "primitive": "string"
+                        },
+                        "kind": "array"
+                      }
+                    }
+                  ]
+                }
               },
               "kind": "map"
             }
@@ -1031,81 +911,6 @@
         }
       ],
       "symbolId": "src/jsii/devcontainer:DevContainerJsii"
-    },
-    "projen-template-projects.GitHub": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.GitHubBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "GitHub builder implementing all relevant configuration for the project."
-      },
-      "fqn": "projen-template-projects.GitHub",
-      "initializer": {
-        "docs": {
-          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
-          "stability": "stable",
-          "summary": "Initializes the GitHub builder."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/github.ts",
-          "line": 13
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "The project to configure GitHub for."
-            },
-            "name": "project",
-            "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/github.ts",
-        "line": 6
-      },
-      "name": "GitHub",
-      "symbolId": "src/github-action/github:GitHub"
-    },
-    "projen-template-projects.GitHubActionProject": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.TypeScriptProjectBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "Defines a GitHub Action project."
-      },
-      "fqn": "projen-template-projects.GitHubActionProject",
-      "initializer": {
-        "docs": {
-          "stability": "stable",
-          "summary": "Initializes the GitHub Action project."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/project.ts",
-          "line": 13
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "Additional project options."
-            },
-            "name": "options",
-            "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBaseOptions"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/project.ts",
-        "line": 8
-      },
-      "name": "GitHubActionProject",
-      "symbolId": "src/github-action/project:GitHubActionProject"
     },
     "projen-template-projects.GitHubBase": {
       "abstract": true,
@@ -1505,44 +1310,6 @@
       "name": "GitHubJsii",
       "symbolId": "src/jsii/github:GitHubJsii"
     },
-    "projen-template-projects.Husky": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.HuskyBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "Husky builder implementing all relevant configuration for the project."
-      },
-      "fqn": "projen-template-projects.Husky",
-      "initializer": {
-        "docs": {
-          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
-          "stability": "stable",
-          "summary": "Initializes the Husky builder."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/husky.ts",
-          "line": 13
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "The project to configure Husky for."
-            },
-            "name": "project",
-            "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/husky.ts",
-        "line": 6
-      },
-      "name": "Husky",
-      "symbolId": "src/github-action/husky:Husky"
-    },
     "projen-template-projects.HuskyBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
@@ -1758,7 +1525,21 @@
           "type": {
             "collection": {
               "elementtype": {
-                "primitive": "string"
+                "union": {
+                  "types": [
+                    {
+                      "primitive": "string"
+                    },
+                    {
+                      "collection": {
+                        "elementtype": {
+                          "primitive": "string"
+                        },
+                        "kind": "array"
+                      }
+                    }
+                  ]
+                }
               },
               "kind": "map"
             }
@@ -1804,44 +1585,6 @@
       },
       "name": "HuskyJsii",
       "symbolId": "src/jsii/husky:HuskyJsii"
-    },
-    "projen-template-projects.NpmPackage": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.NpmPackageBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "NPM Package builder implementing all relevant configuration for the project."
-      },
-      "fqn": "projen-template-projects.NpmPackage",
-      "initializer": {
-        "docs": {
-          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.\nAdditionally it calls `removeScripts()` to ensure, that no projen standard scripts are defined\nas these scripts are not needed for this kind of project.",
-          "stability": "stable",
-          "summary": "Initializes the NPM Package builder."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/npm.ts",
-          "line": 15
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "The project to configure NPM Package for."
-            },
-            "name": "project",
-            "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/npm.ts",
-        "line": 6
-      },
-      "name": "NpmPackage",
-      "symbolId": "src/github-action/npm:NpmPackage"
     },
     "projen-template-projects.NpmPackageBase": {
       "abstract": true,
@@ -2067,58 +1810,6 @@
       "name": "NpmPackageJsii",
       "symbolId": "src/jsii/npm:NpmPackageJsii"
     },
-    "projen-template-projects.Prettier": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.PrettierBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "Prettier builder implementing all relevant configuration for the project."
-      },
-      "fqn": "projen-template-projects.Prettier",
-      "initializer": {
-        "docs": {
-          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
-          "stability": "stable",
-          "summary": "Initializes the Prettier builder."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/prettier.ts",
-          "line": 13
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "The project to configure Prettier for."
-            },
-            "name": "project",
-            "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/prettier.ts",
-        "line": 6
-      },
-      "methods": [
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Hook to be called after synthesis."
-          },
-          "locationInModule": {
-            "filename": "src/github-action/prettier.ts",
-            "line": 18
-          },
-          "name": "postSynthesize",
-          "overrides": "projen-template-projects.Builder"
-        }
-      ],
-      "name": "Prettier",
-      "symbolId": "src/github-action/prettier:Prettier"
-    },
     "projen-template-projects.PrettierBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
@@ -2279,7 +1970,21 @@
           "type": {
             "collection": {
               "elementtype": {
-                "primitive": "string"
+                "union": {
+                  "types": [
+                    {
+                      "primitive": "string"
+                    },
+                    {
+                      "collection": {
+                        "elementtype": {
+                          "primitive": "string"
+                        },
+                        "kind": "array"
+                      }
+                    }
+                  ]
+                }
               },
               "kind": "map"
             }
@@ -2392,106 +2097,6 @@
         }
       ],
       "symbolId": "src/jsii/prettier:PrettierJsii"
-    },
-    "projen-template-projects.SampleCode": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Builder",
-      "docs": {
-        "stability": "stable",
-        "summary": "SampleCode builder implementing all relevant configuration for the project."
-      },
-      "fqn": "projen-template-projects.SampleCode",
-      "initializer": {
-        "docs": {
-          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
-          "stability": "stable",
-          "summary": "Initializes the base SampleCode builder."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/samplecode.ts",
-          "line": 14
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "The project to configure SampleCode for."
-            },
-            "name": "project",
-            "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/samplecode.ts",
-        "line": 7
-      },
-      "methods": [
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Adds template files to the builder's project directory."
-          },
-          "locationInModule": {
-            "filename": "src/github-action/samplecode.ts",
-            "line": 80
-          },
-          "name": "addTemplates",
-          "overrides": "projen-template-projects.Builder",
-          "protected": true
-        }
-      ],
-      "name": "SampleCode",
-      "properties": [
-        {
-          "docs": {
-            "custom": {
-              "protected": "true"
-            },
-            "returns": "File path to sample code file.",
-            "stability": "stable",
-            "summary": "File path to the sample GitHub action."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/github-action/samplecode.ts",
-            "line": 24
-          },
-          "name": "filePath",
-          "protected": true,
-          "type": {
-            "primitive": "string"
-          }
-        },
-        {
-          "docs": {
-            "custom": {
-              "protected": "true"
-            },
-            "returns": "Content for sample code file.",
-            "stability": "stable",
-            "summary": "GitHub action template for the SampleCode configuration."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/github-action/samplecode.ts",
-            "line": 33
-          },
-          "name": "sampleAction",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "primitive": "string"
-              },
-              "kind": "array"
-            }
-          }
-        }
-      ],
-      "symbolId": "src/github-action/samplecode:SampleCode"
     },
     "projen-template-projects.TypeScriptProjectBase": {
       "abstract": true,
@@ -2659,44 +2264,6 @@
       "name": "TypeScriptProjectBaseOptions",
       "symbolId": "src/base/project:TypeScriptProjectBaseOptions"
     },
-    "projen-template-projects.VsCode": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.VsCodeBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "VsCode builder implementing all relevant configuration for the project."
-      },
-      "fqn": "projen-template-projects.VsCode",
-      "initializer": {
-        "docs": {
-          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
-          "stability": "stable",
-          "summary": "Initializes the VsCode builder."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/vscode.ts",
-          "line": 13
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "The project to configure VsCode Package for."
-            },
-            "name": "project",
-            "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/vscode.ts",
-        "line": 6
-      },
-      "name": "VsCode",
-      "symbolId": "src/github-action/vscode:VsCode"
-    },
     "projen-template-projects.VsCodeBase": {
       "abstract": true,
       "assembly": "projen-template-projects",
@@ -2840,5 +2407,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "hPp/8C387UV+vOzuNgUSXktzWpcJSKrAoSDqfuXzc5E="
+  "fingerprint": "QcwaDWVupvk+eAzBINigepDyIbN/znOtsKpd5x984b8="
 }
