@@ -82,7 +82,7 @@ describe('JsiiProject', (): void => {
         release: false,
         pullRequestTemplate: false,
         depsUpgrade: false,
-        peerDeps: ['projen'],
+        peerDeps: ['projen@^0.90.3'],
         bundledDeps: ['construct'],
         tsconfig: {
           compilerOptions: {

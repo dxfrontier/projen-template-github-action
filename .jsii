@@ -10,7 +10,7 @@
     "construct": "^1.0.0"
   },
   "dependencies": {
-    "projen": "^0.88.6"
+    "projen": "^0.90.3"
   },
   "dependencyClosure": {
     "constructs": {
@@ -2540,7 +2540,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 58
+            "line": 62
           },
           "name": "findBuilderByName",
           "parameters": [
@@ -2572,7 +2572,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 75
+            "line": 79
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -2587,7 +2587,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 65
+            "line": 69
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -2602,7 +2602,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 49
+            "line": 53
           },
           "name": "registerBuilder",
           "parameters": [
@@ -2840,5 +2840,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "hPp/8C387UV+vOzuNgUSXktzWpcJSKrAoSDqfuXzc5E="
+  "fingerprint": "q9ppUxvhYVHpXQfE1w1SldwLDV3m/Pg5G/d3kX8cJ10="
 }

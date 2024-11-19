@@ -37,7 +37,11 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
       depsUpgrade: options.depsUpgrade ?? false, // workflow upgrade-main.yml
       sampleCode: options.sampleCode ?? false,
 
-      devDeps: ['projen', 'construct'],
+      devDeps: [
+        'projen',
+        'construct',
+        'projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
+      ],
     });
   }
 

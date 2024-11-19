@@ -33,7 +33,7 @@ export const project = new cdk.JsiiProject({
   pullRequestTemplate: false, // pull_request_template.yml
   depsUpgrade: false, // workflow upgrade-main.yml
 
-  peerDeps: ['projen'],
+  peerDeps: ['projen@^0.90.3'],
   bundledDeps: ['construct'],
 
   tsconfig: {
