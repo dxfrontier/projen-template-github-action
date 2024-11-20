@@ -20,7 +20,7 @@ export class Prettier extends PrettierBase {
    */
   protected get ignoreFilePaths(): string[] {
     const base: string[] = super.ignoreFilePaths;
-    const elementsToRemove: string[] = ['*.snap', '/.eslintrc.json'];
+    const elementsToRemove: string[] = ['*.snap', '/.eslintrc.json', '/tsconfig.json'];
     return base.filter((file: string): boolean => !elementsToRemove.includes(file));
   }
 }

@@ -83,7 +83,6 @@ describe('GitHubActionProject', (): void => {
       const expectedPatterns: RegExp[] = [
         /\/\.npmignore linguist-generated( $|\s|$)/m,
         /\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m,
-        /\/tsconfig\.json linguist-generated( $|\s|$)/m,
       ];
       npm.testGitAttributes(snapshot, expectedPatterns);
     });
