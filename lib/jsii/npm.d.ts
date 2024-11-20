@@ -10,4 +10,8 @@ export declare class NpmPackageJsii extends NpmPackageBase {
      * @param project The project to configure NPM Package for.
      */
     constructor(project: TypeScriptProjectBase);
+    /**
+     * override
+     */
+    protected get gitAttributesFilePaths(): string[];
 }

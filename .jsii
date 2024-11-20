@@ -2003,6 +2003,30 @@
         "line": 6
       },
       "name": "NpmPackageJsii",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "override."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/npm.ts",
+            "line": 21
+          },
+          "name": "gitAttributesFilePaths",
+          "overrides": "@dxfrontier/projen-template-projects.NpmPackageBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
       "symbolId": "src/jsii/npm:NpmPackageJsii"
     },
     "@dxfrontier/projen-template-projects.Prettier": {
@@ -2791,5 +2815,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "bnJ2hCJpetoMyRG6n6GP7TWO3SPTbRNA+kKXrofIEGQ="
+  "fingerprint": "E2MAGrP04A0wiznHLwsLvkLfmq2taRr8Xd97/QX0HuM="
 }
