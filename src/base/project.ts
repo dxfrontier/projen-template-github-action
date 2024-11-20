@@ -23,7 +23,6 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
       ...options,
 
       packageManager: options.packageManager ?? javascript.NodePackageManager.NPM,
-      minNodeVersion: options.minNodeVersion ?? '20',
       projenrcTs: options.projenrcTs ?? true,
 
       prettier: options.prettier ?? true,
