@@ -1779,6 +1779,33 @@
         "line": 6
       },
       "name": "NpmPackage",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "NPM file paths to be packaged for the NPM Package."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/npm.ts",
+            "line": 24
+          },
+          "name": "npmFilePaths",
+          "overrides": "@dxfrontier/projen-template-projects.NpmPackageBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
       "symbolId": "src/github-action/npm:NpmPackage"
     },
     "@dxfrontier/projen-template-projects.NpmPackageBase": {
@@ -1827,7 +1854,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 89
+            "line": 88
           },
           "name": "addGitAttributes",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -1843,7 +1870,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 72
+            "line": 71
           },
           "name": "addSettings",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -1860,7 +1887,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 83
+            "line": 82
           },
           "name": "removeScripts",
           "protected": true
@@ -1894,8 +1921,10 @@
           }
         },
         {
+          "abstract": true,
           "docs": {
             "custom": {
+              "abstract": "true",
               "protected": "true"
             },
             "returns": "File paths for package.json file entry.",
@@ -1905,7 +1934,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 34
+            "line": 35
           },
           "name": "npmFilePaths",
           "protected": true,
@@ -1931,7 +1960,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 46
+            "line": 45
           },
           "name": "projenScripts",
           "protected": true,
@@ -1998,6 +2027,31 @@
             "line": 21
           },
           "name": "gitAttributesFilePaths",
+          "overrides": "@dxfrontier/projen-template-projects.NpmPackageBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "NPM file paths to be packaged for the NPM Package."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/npm.ts",
+            "line": 28
+          },
+          "name": "npmFilePaths",
           "overrides": "@dxfrontier/projen-template-projects.NpmPackageBase",
           "protected": true,
           "type": {
@@ -2806,5 +2860,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "sJYEWNTH5Hk6j+a2mzxLSmWWt7+KYeP6xJJWDox/7rU="
+  "fingerprint": "cpWjmdsqGCSAMSRU6srtqF6kzK9k3IgG9FzAveDrVhw="
 }
