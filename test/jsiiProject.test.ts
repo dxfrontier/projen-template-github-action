@@ -1,14 +1,14 @@
 import { cdk, javascript } from 'projen';
 import { JsiiProject } from 'projen/lib/cdk/index';
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
-import * as commitlint from './base/commitlint';
-import * as common from './base/common';
-import * as devcontainer from './base/devcontainer';
-import * as github from './base/github';
-import * as husky from './base/husky';
-import * as npm from './base/npm';
-import * as prettier from './base/prettier';
-import * as vscode from './base/vscode';
+import * as commitlint from './shared/commitlint';
+import * as common from './shared/common';
+import * as devcontainer from './shared/devcontainer';
+import * as github from './shared/github';
+import * as husky from './shared/husky';
+import * as npm from './shared/npm';
+import * as prettier from './shared/prettier';
+import * as vscode from './shared/vscode';
 import { TypeScriptProjectBase } from '../src/base/project.ts';
 import { LintStagedConfig } from '../src/types';
 
