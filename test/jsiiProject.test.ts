@@ -69,7 +69,7 @@ describe('JsiiProject', (): void => {
         repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
         copyrightOwner: 'ABS GmbH',
         defaultReleaseBranch: 'main',
-        name: 'projen-template-projects',
+        name: '@dxfrontier/projen-template-projects',
         packageManager: javascript.NodePackageManager.NPM,
         projenrcTs: true,
         jsiiVersion: '~5.5.0',
