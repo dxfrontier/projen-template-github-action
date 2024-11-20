@@ -11,8 +11,7 @@ export declare class PrettierJsii extends PrettierBase {
      */
     constructor(project: TypeScriptProjectBase);
     /**
-     * File paths to the Prettier ignore entries.
-     * @protected
+     * @override
      */
     protected get ignoreFilePaths(): string[];
 }

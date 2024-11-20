@@ -338,17 +338,15 @@
         {
           "docs": {
             "custom": {
-              "override": "true",
-              "protected": "true"
+              "override": "true"
             },
-            "returns": "Template for the config file.",
             "stability": "stable",
             "summary": "Settings to be added to package.json for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/commitlint.ts",
-            "line": 25
+            "line": 22
           },
           "name": "npmSettings",
           "overrides": "@dxfrontier/projen-template-projects.CommitLintBase",
@@ -650,17 +648,15 @@
         {
           "docs": {
             "custom": {
-              "override": "true",
-              "protected": "true"
+              "override": "true"
             },
-            "returns": "Configuration entries for package.json.",
             "stability": "stable",
             "summary": "Settings to be added to package.json for the CommitLint builder."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/commitlint.ts",
-            "line": 25
+            "line": 22
           },
           "name": "npmSettings",
           "overrides": "@dxfrontier/projen-template-projects.CommitLintBase",
@@ -731,17 +727,15 @@
         {
           "docs": {
             "custom": {
-              "override": "true",
-              "protected": "true"
+              "override": "true"
             },
-            "returns": "Extensions used in container.",
             "stability": "stable",
             "summary": "VsCode extensions to be installed in the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/devcontainer.ts",
-            "line": 24
+            "line": 21
           },
           "name": "extensions",
           "overrides": "@dxfrontier/projen-template-projects.DevContainerBase",
@@ -1005,17 +999,15 @@
         {
           "docs": {
             "custom": {
-              "override": "true",
-              "protected": "true"
+              "override": "true"
             },
-            "returns": "Extensions used in container.",
             "stability": "stable",
             "summary": "VsCode extensions to be installed in the DevContainer."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/devcontainer.ts",
-            "line": 24
+            "line": 21
           },
           "name": "extensions",
           "overrides": "@dxfrontier/projen-template-projects.DevContainerBase",
@@ -2381,7 +2373,7 @@
         {
           "docs": {
             "custom": {
-              "protected": "true"
+              "override": "true"
             },
             "stability": "stable",
             "summary": "File paths to the Prettier ignore entries."
@@ -2389,7 +2381,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/prettier.ts",
-            "line": 22
+            "line": 21
           },
           "name": "ignoreFilePaths",
           "overrides": "@dxfrontier/projen-template-projects.PrettierBase",
@@ -2853,5 +2845,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "UcDI/Rs8MPsbghAo0/Ph8cJZlguGZ/O/ocF1M+tjhVw="
+  "fingerprint": "t9pgwTM/tRJOR0joXET3xr7e3s0yIkuweJQ/aJS0iGw="
 }
