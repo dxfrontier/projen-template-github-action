@@ -73,6 +73,7 @@ describe('JsiiProject', (): void => {
         packageManager: javascript.NodePackageManager.NPM,
         projenrcTs: true,
         jsiiVersion: '~5.5.0',
+        npmignoreEnabled: false,
         prettier: true,
         githubOptions: {
           mergify: false,

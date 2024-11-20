@@ -17,7 +17,6 @@ export function testPackageJsonFiles(snapshot: SynthOutput): void {
  */
 export function testGitAttributes(snapshot: SynthOutput, expectedPatterns: RegExp[] = []): void {
   const standardPatterns: RegExp[] = [
-    /\/\.npmignore linguist-generated( $|\s|$)/m,
     /\/\.eslintrc\.json linguist-generated( $|\s|$)/m,
     /\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m,
     /\/tsconfig\.json linguist-generated( $|\s|$)/m,

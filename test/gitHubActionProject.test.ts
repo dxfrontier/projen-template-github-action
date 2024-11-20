@@ -80,10 +80,7 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Project related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      const expectedPatterns: RegExp[] = [
-        /\/\.npmignore linguist-generated( $|\s|$)/m,
-        /\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m,
-      ];
+      const expectedPatterns: RegExp[] = [/\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m];
       npm.testGitAttributes(snapshot, expectedPatterns);
     });
   });
