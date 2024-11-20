@@ -56,7 +56,6 @@ export abstract class PrettierBase extends Builder {
       '/.gitignore',
       '/.husky/commit-msg',
       '/.husky/pre-commit',
-      '/.npmignore',
       '/.prettierignore',
       '/.prettierrc.json',
       '/.projen/**',

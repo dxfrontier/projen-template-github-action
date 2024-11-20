@@ -16,15 +16,6 @@ export abstract class NpmPackageBase extends Builder {
   }
 
   /**
-   * File path to the NPM Package ignore configuration.
-   * @return File path to ignore file.
-   * @protected
-   */
-  protected get ignoreFilePath(): string {
-    return '.npmignore';
-  }
-
-  /**
    * File paths for the .gitattributes file entries.
    * These entries are not added automatically by projen
    * and we have not extra builder for these. So we handle them here.
@@ -96,7 +87,6 @@ export abstract class NpmPackageBase extends Builder {
   }
 
   protected addGitAttributes(): void {
-    this.project.gitattributes.addAttributes(`/${this.ignoreFilePath}`, 'linguist-generated');
     // as the following files are not added automatically (compared to calling `projen` directly, there it works)
     // we add these files manually
     for (const value of this.gitAttributesFilePaths) {

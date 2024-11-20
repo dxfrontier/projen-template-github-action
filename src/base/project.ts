@@ -25,6 +25,7 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
       packageManager: options.packageManager ?? javascript.NodePackageManager.NPM,
       projenrcTs: options.projenrcTs ?? true,
 
+      npmignoreEnabled: options.npmignoreEnabled ?? false,
       prettier: options.prettier ?? true,
       githubOptions: options.githubOptions ?? {
         mergify: false,

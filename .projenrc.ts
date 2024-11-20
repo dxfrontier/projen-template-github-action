@@ -23,6 +23,7 @@ export const project = new cdk.JsiiProject({
   projenrcTs: true,
   jsiiVersion: '~5.5.0',
 
+  npmignoreEnabled: false,
   prettier: true,
   githubOptions: {
     mergify: false,
