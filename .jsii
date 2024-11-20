@@ -723,33 +723,6 @@
         "line": 6
       },
       "name": "DevContainer",
-      "properties": [
-        {
-          "docs": {
-            "custom": {
-              "override": "true"
-            },
-            "stability": "stable",
-            "summary": "VsCode extensions to be installed in the DevContainer."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/github-action/devcontainer.ts",
-            "line": 21
-          },
-          "name": "extensions",
-          "overrides": "@dxfrontier/projen-template-projects.DevContainerBase",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "primitive": "string"
-              },
-              "kind": "array"
-            }
-          }
-        }
-      ],
       "symbolId": "src/github-action/devcontainer:DevContainer"
     },
     "@dxfrontier/projen-template-projects.DevContainerBase": {
@@ -798,7 +771,7 @@
           },
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 97
+            "line": 155
           },
           "name": "addScripts",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -811,7 +784,7 @@
           },
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 93
+            "line": 151
           },
           "name": "addTemplates",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -922,7 +895,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 87
+            "line": 145
           },
           "name": "scripts",
           "protected": true,
@@ -948,7 +921,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/devcontainer.ts",
-            "line": 65
+            "line": 123
           },
           "name": "template",
           "protected": true,
@@ -995,33 +968,6 @@
         "line": 6
       },
       "name": "DevContainerJsii",
-      "properties": [
-        {
-          "docs": {
-            "custom": {
-              "override": "true"
-            },
-            "stability": "stable",
-            "summary": "VsCode extensions to be installed in the DevContainer."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/jsii/devcontainer.ts",
-            "line": 21
-          },
-          "name": "extensions",
-          "overrides": "@dxfrontier/projen-template-projects.DevContainerBase",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "primitive": "string"
-              },
-              "kind": "array"
-            }
-          }
-        }
-      ],
       "symbolId": "src/jsii/devcontainer:DevContainerJsii"
     },
     "@dxfrontier/projen-template-projects.GitHub": {
@@ -2845,5 +2791,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "t9pgwTM/tRJOR0joXET3xr7e3s0yIkuweJQ/aJS0iGw="
+  "fingerprint": "bnJ2hCJpetoMyRG6n6GP7TWO3SPTbRNA+kKXrofIEGQ="
 }

@@ -10,8 +10,4 @@ export declare class DevContainerJsii extends DevContainerBase {
      * @param project The project to configure CommitLint for.
      */
     constructor(project: TypeScriptProjectBase);
-    /**
-     * @override
-     */
-    protected get extensions(): string[];
 }
