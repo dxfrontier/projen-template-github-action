@@ -15,7 +15,38 @@ export class Prettier extends PrettierBase {
     this.initialize();
   }
 
-  public postSynthesize(): void {
-    console.log('Prettier Post Synthesize');
+  /**
+   * @override
+   */
+  protected get ignoreFilePaths(): string[] {
+    return [
+      '/.commitlintrc.ts',
+      '/.devcontainer.json',
+      '/.gitattributes',
+      '/.github/ISSUE_TEMPLATE/bug.yml',
+      '/.github/ISSUE_TEMPLATE/feature.yml',
+      '/.github/ISSUE_TEMPLATE/housekeeping.yml',
+      '/.github/ISSUE_TEMPLATE/question.yml',
+      '/.github/pull_request_template.md',
+      '/.github/workflows/release.yml',
+      '/.github/workflows/stale.yml',
+      '/.gitignore',
+      '/.husky/commit-msg',
+      '/.husky/pre-commit',
+      '/.npmignore',
+      '/.prettierignore',
+      '/.prettierrc.json',
+      '/.projen/**',
+      '/.projen/deps.json',
+      '/.projen/files.json',
+      '/.projen/tasks.json',
+      '/.vscode/settings.json',
+      '/cliff.toml',
+      '/LICENSE',
+      '/package-lock.json',
+      '/package.json',
+      '/tsconfig.dev.json',
+      '/tsconfig.json',
+    ];
   }
 }
