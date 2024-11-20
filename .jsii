@@ -1827,7 +1827,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 98
+            "line": 89
           },
           "name": "addGitAttributes",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -1843,7 +1843,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 81
+            "line": 72
           },
           "name": "addSettings",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -1860,7 +1860,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 92
+            "line": 83
           },
           "name": "removeScripts",
           "protected": true
@@ -1880,7 +1880,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 34
+            "line": 25
           },
           "name": "gitAttributesFilePaths",
           "protected": true,
@@ -1898,26 +1898,6 @@
             "custom": {
               "protected": "true"
             },
-            "returns": "File path to ignore file.",
-            "stability": "stable",
-            "summary": "File path to the NPM Package ignore configuration."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/base/npm.ts",
-            "line": 23
-          },
-          "name": "ignoreFilePath",
-          "protected": true,
-          "type": {
-            "primitive": "string"
-          }
-        },
-        {
-          "docs": {
-            "custom": {
-              "protected": "true"
-            },
             "returns": "File paths for package.json file entry.",
             "stability": "stable",
             "summary": "NPM file paths to be packaged for the NPM Package."
@@ -1925,7 +1905,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 43
+            "line": 34
           },
           "name": "npmFilePaths",
           "protected": true,
@@ -1951,7 +1931,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 55
+            "line": 46
           },
           "name": "projenScripts",
           "protected": true,
@@ -2143,7 +2123,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 137
+            "line": 136
           },
           "name": "addPrettierIgnoreEntries",
           "protected": true
@@ -2155,7 +2135,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 109
+            "line": 108
           },
           "name": "addScripts",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -2168,7 +2148,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 105
+            "line": 104
           },
           "name": "addSettings",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -2182,7 +2162,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 129
+            "line": 128
           },
           "name": "preSynthesize",
           "overrides": "@dxfrontier/projen-template-projects.Builder"
@@ -2247,7 +2227,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 99
+            "line": 98
           },
           "name": "scripts",
           "protected": true,
@@ -2272,7 +2252,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 81
+            "line": 80
           },
           "name": "settings",
           "protected": true,
@@ -2515,7 +2495,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 61
+            "line": 62
           },
           "name": "findBuilderByName",
           "parameters": [
@@ -2547,7 +2527,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 78
+            "line": 79
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -2562,7 +2542,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 68
+            "line": 69
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -2577,7 +2557,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 52
+            "line": 53
           },
           "name": "registerBuilder",
           "parameters": [
@@ -2815,5 +2795,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "E2MAGrP04A0wiznHLwsLvkLfmq2taRr8Xd97/QX0HuM="
+  "fingerprint": "8G6x0tIzAGhQ0BSWuQ3NP7tlo6x3zLL+Pef/oB3IRLE="
 }

@@ -12,12 +12,6 @@ export declare abstract class NpmPackageBase extends Builder {
      */
     constructor(project: TypeScriptProjectBase);
     /**
-     * File path to the NPM Package ignore configuration.
-     * @return File path to ignore file.
-     * @protected
-     */
-    protected get ignoreFilePath(): string;
-    /**
      * File paths for the .gitattributes file entries.
      * These entries are not added automatically by projen
      * and we have not extra builder for these. So we handle them here.
