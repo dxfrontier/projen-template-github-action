@@ -129,7 +129,8 @@ describe('JsiiProject', (): void => {
       });
 
       test('Files property in package.json is set properly', (): void => {
-        npm.testPackageJsonFiles(snapshot);
+        const additionalPatterns: string[] = ['lib', '.jsii'];
+        npm.testPackageJsonFiles(snapshot, additionalPatterns);
       });
 
       test('NPM Package related files are added to .gitattributes and defined as linguist-generated', (): void => {

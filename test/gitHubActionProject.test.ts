@@ -76,7 +76,8 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Files property in package.json is set properly', (): void => {
-      npm.testPackageJsonFiles(snapshot);
+      const additionalPatterns: string[] = ['action.yml'];
+      npm.testPackageJsonFiles(snapshot, additionalPatterns);
     });
 
     test('Project related files are added to .gitattributes and defined as linguist-generated', (): void => {
