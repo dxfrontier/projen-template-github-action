@@ -13,14 +13,16 @@ export function testPackageJsonFiles(snapshot: SynthOutput): void {
 /**
  * Validates that project related files are added to .gitattributes and defined as linguist-generated.
  * @param snapshot Synthesized project output.
+ * @param expectedPatterns List of expected file patterns to test for.
  */
-export function testGitAttributes(snapshot: SynthOutput): void {
-  const patterns: RegExp[] = [
+export function testGitAttributes(snapshot: SynthOutput, expectedPatterns: RegExp[] = []): void {
+  const standardPatterns: RegExp[] = [
     /\/\.npmignore linguist-generated( $|\s|$)/m,
-    // /\/\.eslintrc\.json linguist-generated( $|\s|$)/m,
+    /\/\.eslintrc\.json linguist-generated( $|\s|$)/m,
     /\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m,
-    // /\/tsconfig\.json linguist-generated( $|\s|$)/m,
+    /\/tsconfig\.json linguist-generated( $|\s|$)/m,
   ];
 
+  const patterns: RegExp[] = expectedPatterns.length ? expectedPatterns : standardPatterns;
   common.testGitAttributes(snapshot, patterns);
 }
