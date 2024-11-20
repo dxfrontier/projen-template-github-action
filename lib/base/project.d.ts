@@ -27,10 +27,12 @@ export declare abstract class TypeScriptProjectBase extends TypeScriptProject {
     findBuilderByName(name: string): Builder | undefined;
     /**
      * @public
+     * @override
      */
     preSynthesize(): void;
     /**
      * @public
+     * @override
      */
     postSynthesize(): void;
 }

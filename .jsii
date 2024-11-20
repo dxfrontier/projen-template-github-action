@@ -1986,8 +1986,11 @@
       "properties": [
         {
           "docs": {
+            "custom": {
+              "override": "true"
+            },
             "stability": "stable",
-            "summary": "override."
+            "summary": "File paths for the .gitattributes file entries. These entries are not added automatically by projen and we have not extra builder for these. So we handle them here."
           },
           "immutable": true,
           "locationInModule": {
@@ -2386,12 +2389,15 @@
       "methods": [
         {
           "docs": {
+            "custom": {
+              "override": "true"
+            },
             "stability": "stable",
             "summary": "Adds template files to the builder's project directory."
           },
           "locationInModule": {
             "filename": "src/github-action/samplecode.ts",
-            "line": 80
+            "line": 83
           },
           "name": "addTemplates",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -2519,6 +2525,7 @@
         {
           "docs": {
             "custom": {
+              "override": "true",
               "public": "true"
             },
             "remarks": "Order is *not* guaranteed.",
@@ -2527,7 +2534,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 79
+            "line": 81
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -2535,6 +2542,7 @@
         {
           "docs": {
             "custom": {
+              "override": "true",
               "public": "true"
             },
             "stability": "stable",
@@ -2542,7 +2550,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 69
+            "line": 70
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -2693,12 +2701,15 @@
       "methods": [
         {
           "docs": {
+            "custom": {
+              "override": "true"
+            },
             "stability": "stable",
             "summary": "Configures settings specific to the builder within the project."
           },
           "locationInModule": {
             "filename": "src/base/vscode.ts",
-            "line": 50
+            "line": 53
           },
           "name": "addSettings",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -2795,5 +2806,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "8G6x0tIzAGhQ0BSWuQ3NP7tlo6x3zLL+Pef/oB3IRLE="
+  "fingerprint": "sJYEWNTH5Hk6j+a2mzxLSmWWt7+KYeP6xJJWDox/7rU="
 }

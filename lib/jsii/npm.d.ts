@@ -11,7 +11,7 @@ export declare class NpmPackageJsii extends NpmPackageBase {
      */
     constructor(project: TypeScriptProjectBase);
     /**
-     * override
+     * @override
      */
     protected get gitAttributesFilePaths(): string[];
 }
