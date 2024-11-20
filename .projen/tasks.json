@@ -125,24 +125,6 @@
         }
       ]
     },
-    "format:fix": {
-      "name": "format:fix",
-      "steps": [
-        {
-          "exec": "prettier . --write",
-          "receiveArgs": true
-        }
-      ]
-    },
-    "format:message": {
-      "name": "format:message",
-      "steps": [
-        {
-          "exec": "echo \"Prettier started ...\"",
-          "receiveArgs": true
-        }
-      ]
-    },
     "install": {
       "name": "install",
       "description": "Install project dependencies and update lockfile (non-frozen)",
@@ -219,6 +201,15 @@
       "steps": [
         {
           "exec": "husky || true"
+        }
+      ]
+    },
+    "prettier": {
+      "name": "prettier",
+      "steps": [
+        {
+          "exec": "prettier . --write",
+          "receiveArgs": true
         }
       ]
     },
