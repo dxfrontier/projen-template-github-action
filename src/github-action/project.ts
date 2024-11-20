@@ -15,7 +15,7 @@ export class GitHubActionProject extends TypeScriptProjectBase {
       ...options,
       disableTsconfig: true,
       eslint: false,
-      buildWorkflow: true,
+      jest: false,
     });
 
     new NpmPackage(this);
