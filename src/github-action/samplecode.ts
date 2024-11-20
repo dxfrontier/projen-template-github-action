@@ -77,6 +77,9 @@ export class SampleCode extends Builder {
     ];
   }
 
+  /**
+   * @override
+   */
   protected addTemplates(): void {
     new SampleFile(this.project, this.filePath, {
       contents: this.sampleAction.join('\n'),

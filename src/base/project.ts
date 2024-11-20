@@ -65,6 +65,7 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
 
   /**
    * @public
+   * @override
    */
   public preSynthesize(): void {
     super.preSynthesize();
@@ -75,6 +76,7 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
 
   /**
    * @public
+   * @override
    */
   public postSynthesize(): void {
     super.postSynthesize();

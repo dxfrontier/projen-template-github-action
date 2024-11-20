@@ -16,7 +16,7 @@ export class NpmPackageJsii extends NpmPackageBase {
   }
 
   /**
-   * override
+   * @override
    */
   protected get gitAttributesFilePaths(): string[] {
     return ['tsconfig.json'];
