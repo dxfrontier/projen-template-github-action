@@ -30,10 +30,9 @@ export abstract class NpmPackageBase extends Builder {
    * NPM file paths to be packaged for the NPM Package.
    * @return File paths for package.json file entry.
    * @protected
+   * @abstract
    */
-  protected get npmFilePaths(): string[] {
-    return ['lib', 'README.md', 'LICENSE', '.jsii'];
-  }
+  protected abstract get npmFilePaths(): string[];
 
   /**
    * Getter retrieving the npm scripts to be removed from NPM Package.
