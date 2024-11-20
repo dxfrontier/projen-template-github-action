@@ -242,7 +242,7 @@ describe('GitHubActionProject', (): void => {
 
     test('CommitLint configuration in package.json is set properly', (): void => {
       const expectedConfiguration: LintStagedConfig = {
-        '**/*.{yml,yaml}': ['npm run format:message', 'npm run format:fix'],
+        '**/*.{yml,yaml}': ['npm run prettier'],
       };
       expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
     });
