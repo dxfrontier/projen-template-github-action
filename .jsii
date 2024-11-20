@@ -2553,7 +2553,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 62
+            "line": 61
           },
           "name": "findBuilderByName",
           "parameters": [
@@ -2585,7 +2585,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 79
+            "line": 78
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -2600,7 +2600,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 69
+            "line": 68
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -2615,7 +2615,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 53
+            "line": 52
           },
           "name": "registerBuilder",
           "parameters": [
@@ -2853,5 +2853,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "nOvgjowjCVxMaJWIljX+feUstfQVy0g/QBt6wjc/17g="
+  "fingerprint": "UcDI/Rs8MPsbghAo0/Ph8cJZlguGZ/O/ocF1M+tjhVw="
 }
