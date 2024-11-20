@@ -1,5 +1,5 @@
 {
-  "name": "projen-template-projects",
+  "name": "@dxfrontier/projen-template-projects",
   "repository": {
     "type": "git",
     "url": "https://github.com/dxfrontier/projen-template-projects.git"
@@ -74,9 +74,6 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "0.0.0",
   "jest": {
     "coverageProvider": "v8",

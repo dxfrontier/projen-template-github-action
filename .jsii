@@ -78,7 +78,7 @@
       }
     }
   },
-  "description": "projen-template-projects",
+  "description": "@dxfrontier/projen-template-projects",
   "docs": {
     "stability": "stable"
   },
@@ -93,7 +93,7 @@
     },
     "tscRootDir": "src"
   },
-  "name": "projen-template-projects",
+  "name": "@dxfrontier/projen-template-projects",
   "readme": {
     "markdown": "# Projen Template for Github Actions\n\nA project template for (projen)[https://projen.io/] to create a Github Action project.\n\n## Features\n\n- Automates project setup and configuration\n- Pre-configured with tools like TypeScript, ESLint, Prettier, and GitHub Actions\n- Customizable settings for seamless project management\n"
   },
@@ -104,13 +104,13 @@
   "schema": "jsii/0.10.0",
   "targets": {
     "js": {
-      "npm": "projen-template-projects"
+      "npm": "@dxfrontier/projen-template-projects"
     }
   },
   "types": {
-    "projen-template-projects.Builder": {
+    "@dxfrontier/projen-template-projects.Builder": {
       "abstract": true,
-      "assembly": "projen-template-projects",
+      "assembly": "@dxfrontier/projen-template-projects",
       "docs": {
         "custom": {
           "abstract": "true"
@@ -118,7 +118,7 @@
         "stability": "stable",
         "summary": "Base class for managing project builder configurations."
       },
-      "fqn": "projen-template-projects.Builder",
+      "fqn": "@dxfrontier/projen-template-projects.Builder",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -135,7 +135,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -292,20 +292,20 @@
           "name": "project",
           "protected": true,
           "type": {
-            "fqn": "projen-template-projects.TypeScriptProjectBase"
+            "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
           }
         }
       ],
       "symbolId": "src/base/builder:Builder"
     },
-    "projen-template-projects.CommitLint": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.CommitLintBase",
+    "@dxfrontier/projen-template-projects.CommitLint": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.CommitLintBase",
       "docs": {
         "stability": "stable",
         "summary": "CommitLint builder implementing all relevant configuration for the project."
       },
-      "fqn": "projen-template-projects.CommitLint",
+      "fqn": "@dxfrontier/projen-template-projects.CommitLint",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -323,7 +323,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -351,7 +351,7 @@
             "line": 25
           },
           "name": "npmSettings",
-          "overrides": "projen-template-projects.CommitLintBase",
+          "overrides": "@dxfrontier/projen-template-projects.CommitLintBase",
           "protected": true,
           "type": {
             "collection": {
@@ -379,10 +379,10 @@
       ],
       "symbolId": "src/github-action/commitlint:CommitLint"
     },
-    "projen-template-projects.CommitLintBase": {
+    "@dxfrontier/projen-template-projects.CommitLintBase": {
       "abstract": true,
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Builder",
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Builder",
       "docs": {
         "custom": {
           "abstract": "true"
@@ -390,7 +390,7 @@
         "stability": "stable",
         "summary": "Base class for CommitLint builder implementing all relevant configuration."
       },
-      "fqn": "projen-template-projects.CommitLintBase",
+      "fqn": "@dxfrontier/projen-template-projects.CommitLintBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -407,7 +407,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -428,7 +428,7 @@
             "line": 120
           },
           "name": "addDevDependencies",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -441,7 +441,7 @@
             "line": 114
           },
           "name": "addScripts",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -454,7 +454,7 @@
             "line": 108
           },
           "name": "addSettings",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -467,7 +467,7 @@
             "line": 102
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -610,14 +610,14 @@
       ],
       "symbolId": "src/base/commitlint:CommitLintBase"
     },
-    "projen-template-projects.CommitLintJsii": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.CommitLintBase",
+    "@dxfrontier/projen-template-projects.CommitLintJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.CommitLintBase",
       "docs": {
         "stability": "stable",
         "summary": "CommitLint builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.CommitLintJsii",
+      "fqn": "@dxfrontier/projen-template-projects.CommitLintJsii",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -635,7 +635,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -663,7 +663,7 @@
             "line": 25
           },
           "name": "npmSettings",
-          "overrides": "projen-template-projects.CommitLintBase",
+          "overrides": "@dxfrontier/projen-template-projects.CommitLintBase",
           "protected": true,
           "type": {
             "collection": {
@@ -691,14 +691,14 @@
       ],
       "symbolId": "src/jsii/commitlint:CommitLintJsii"
     },
-    "projen-template-projects.DevContainer": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.DevContainerBase",
+    "@dxfrontier/projen-template-projects.DevContainer": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.DevContainerBase",
       "docs": {
         "stability": "stable",
         "summary": "DevContainer builder implementing all relevant configuration for the project."
       },
-      "fqn": "projen-template-projects.DevContainer",
+      "fqn": "@dxfrontier/projen-template-projects.DevContainer",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -716,7 +716,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -744,7 +744,7 @@
             "line": 24
           },
           "name": "extensions",
-          "overrides": "projen-template-projects.DevContainerBase",
+          "overrides": "@dxfrontier/projen-template-projects.DevContainerBase",
           "protected": true,
           "type": {
             "collection": {
@@ -758,10 +758,10 @@
       ],
       "symbolId": "src/github-action/devcontainer:DevContainer"
     },
-    "projen-template-projects.DevContainerBase": {
+    "@dxfrontier/projen-template-projects.DevContainerBase": {
       "abstract": true,
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Builder",
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Builder",
       "docs": {
         "custom": {
           "abstract": "true"
@@ -769,7 +769,7 @@
         "stability": "stable",
         "summary": "Base class for DevContainer builder implementing all relevant configuration."
       },
-      "fqn": "projen-template-projects.DevContainerBase",
+      "fqn": "@dxfrontier/projen-template-projects.DevContainerBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -786,7 +786,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -807,7 +807,7 @@
             "line": 97
           },
           "name": "addScripts",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -820,7 +820,7 @@
             "line": 93
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -965,14 +965,14 @@
       ],
       "symbolId": "src/base/devcontainer:DevContainerBase"
     },
-    "projen-template-projects.DevContainerJsii": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.DevContainerBase",
+    "@dxfrontier/projen-template-projects.DevContainerJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.DevContainerBase",
       "docs": {
         "stability": "stable",
         "summary": "DevContainer builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.DevContainerJsii",
+      "fqn": "@dxfrontier/projen-template-projects.DevContainerJsii",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -990,7 +990,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1018,7 +1018,7 @@
             "line": 24
           },
           "name": "extensions",
-          "overrides": "projen-template-projects.DevContainerBase",
+          "overrides": "@dxfrontier/projen-template-projects.DevContainerBase",
           "protected": true,
           "type": {
             "collection": {
@@ -1032,14 +1032,14 @@
       ],
       "symbolId": "src/jsii/devcontainer:DevContainerJsii"
     },
-    "projen-template-projects.GitHub": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.GitHubBase",
+    "@dxfrontier/projen-template-projects.GitHub": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.GitHubBase",
       "docs": {
         "stability": "stable",
         "summary": "GitHub builder implementing all relevant configuration for the project."
       },
-      "fqn": "projen-template-projects.GitHub",
+      "fqn": "@dxfrontier/projen-template-projects.GitHub",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -1057,7 +1057,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1070,14 +1070,14 @@
       "name": "GitHub",
       "symbolId": "src/github-action/github:GitHub"
     },
-    "projen-template-projects.GitHubActionProject": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.TypeScriptProjectBase",
+    "@dxfrontier/projen-template-projects.GitHubActionProject": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.TypeScriptProjectBase",
       "docs": {
         "stability": "stable",
         "summary": "Defines a GitHub Action project."
       },
-      "fqn": "projen-template-projects.GitHubActionProject",
+      "fqn": "@dxfrontier/projen-template-projects.GitHubActionProject",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -1094,7 +1094,7 @@
             },
             "name": "options",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBaseOptions"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions"
             }
           }
         ]
@@ -1107,10 +1107,10 @@
       "name": "GitHubActionProject",
       "symbolId": "src/github-action/project:GitHubActionProject"
     },
-    "projen-template-projects.GitHubBase": {
+    "@dxfrontier/projen-template-projects.GitHubBase": {
       "abstract": true,
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Builder",
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Builder",
       "docs": {
         "custom": {
           "abstract": "true"
@@ -1118,7 +1118,7 @@
         "stability": "stable",
         "summary": "Base class for GitHub builder implementing all relevant configuration."
       },
-      "fqn": "projen-template-projects.GitHubBase",
+      "fqn": "@dxfrontier/projen-template-projects.GitHubBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -1135,7 +1135,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1156,7 +1156,7 @@
             "line": 466
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -1467,14 +1467,14 @@
       ],
       "symbolId": "src/base/github:GitHubBase"
     },
-    "projen-template-projects.GitHubJsii": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.GitHubBase",
+    "@dxfrontier/projen-template-projects.GitHubJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.GitHubBase",
       "docs": {
         "stability": "stable",
         "summary": "GitHub builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.GitHubJsii",
+      "fqn": "@dxfrontier/projen-template-projects.GitHubJsii",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -1492,7 +1492,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1505,14 +1505,14 @@
       "name": "GitHubJsii",
       "symbolId": "src/jsii/github:GitHubJsii"
     },
-    "projen-template-projects.Husky": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.HuskyBase",
+    "@dxfrontier/projen-template-projects.Husky": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.HuskyBase",
       "docs": {
         "stability": "stable",
         "summary": "Husky builder implementing all relevant configuration for the project."
       },
-      "fqn": "projen-template-projects.Husky",
+      "fqn": "@dxfrontier/projen-template-projects.Husky",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -1530,7 +1530,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1543,10 +1543,10 @@
       "name": "Husky",
       "symbolId": "src/github-action/husky:Husky"
     },
-    "projen-template-projects.HuskyBase": {
+    "@dxfrontier/projen-template-projects.HuskyBase": {
       "abstract": true,
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Builder",
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Builder",
       "docs": {
         "custom": {
           "abstract": "true"
@@ -1554,7 +1554,7 @@
         "stability": "stable",
         "summary": "Base class for Husky builder implementing all relevant configuration."
       },
-      "fqn": "projen-template-projects.HuskyBase",
+      "fqn": "@dxfrontier/projen-template-projects.HuskyBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -1571,7 +1571,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1592,7 +1592,7 @@
             "line": 110
           },
           "name": "addDevDependencies",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -1605,7 +1605,7 @@
             "line": 104
           },
           "name": "addScripts",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -1618,7 +1618,7 @@
             "line": 99
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -1767,14 +1767,14 @@
       ],
       "symbolId": "src/base/husky:HuskyBase"
     },
-    "projen-template-projects.HuskyJsii": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.HuskyBase",
+    "@dxfrontier/projen-template-projects.HuskyJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.HuskyBase",
       "docs": {
         "stability": "stable",
         "summary": "Husky builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.HuskyJsii",
+      "fqn": "@dxfrontier/projen-template-projects.HuskyJsii",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -1792,7 +1792,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1805,14 +1805,14 @@
       "name": "HuskyJsii",
       "symbolId": "src/jsii/husky:HuskyJsii"
     },
-    "projen-template-projects.NpmPackage": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.NpmPackageBase",
+    "@dxfrontier/projen-template-projects.NpmPackage": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.NpmPackageBase",
       "docs": {
         "stability": "stable",
         "summary": "NPM Package builder implementing all relevant configuration for the project."
       },
-      "fqn": "projen-template-projects.NpmPackage",
+      "fqn": "@dxfrontier/projen-template-projects.NpmPackage",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.\nAdditionally it calls `removeScripts()` to ensure, that no projen standard scripts are defined\nas these scripts are not needed for this kind of project.",
@@ -1830,7 +1830,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1843,10 +1843,10 @@
       "name": "NpmPackage",
       "symbolId": "src/github-action/npm:NpmPackage"
     },
-    "projen-template-projects.NpmPackageBase": {
+    "@dxfrontier/projen-template-projects.NpmPackageBase": {
       "abstract": true,
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Builder",
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Builder",
       "docs": {
         "custom": {
           "abstract": "true"
@@ -1854,7 +1854,7 @@
         "stability": "stable",
         "summary": "Base class for NPM Package builder implementing all relevant configuration."
       },
-      "fqn": "projen-template-projects.NpmPackageBase",
+      "fqn": "@dxfrontier/projen-template-projects.NpmPackageBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -1871,7 +1871,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -1892,7 +1892,7 @@
             "line": 98
           },
           "name": "addGitAttributes",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -1908,7 +1908,7 @@
             "line": 81
           },
           "name": "addSettings",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -2029,14 +2029,14 @@
       ],
       "symbolId": "src/base/npm:NpmPackageBase"
     },
-    "projen-template-projects.NpmPackageJsii": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.NpmPackageBase",
+    "@dxfrontier/projen-template-projects.NpmPackageJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.NpmPackageBase",
       "docs": {
         "stability": "stable",
         "summary": "NPM Package builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.NpmPackageJsii",
+      "fqn": "@dxfrontier/projen-template-projects.NpmPackageJsii",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -2054,7 +2054,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2067,14 +2067,14 @@
       "name": "NpmPackageJsii",
       "symbolId": "src/jsii/npm:NpmPackageJsii"
     },
-    "projen-template-projects.Prettier": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.PrettierBase",
+    "@dxfrontier/projen-template-projects.Prettier": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.PrettierBase",
       "docs": {
         "stability": "stable",
         "summary": "Prettier builder implementing all relevant configuration for the project."
       },
-      "fqn": "projen-template-projects.Prettier",
+      "fqn": "@dxfrontier/projen-template-projects.Prettier",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -2092,7 +2092,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2102,27 +2102,40 @@
         "filename": "src/github-action/prettier.ts",
         "line": 6
       },
-      "methods": [
+      "name": "Prettier",
+      "properties": [
         {
           "docs": {
+            "custom": {
+              "override": "true"
+            },
             "stability": "stable",
-            "summary": "Hook to be called after synthesis."
+            "summary": "File paths to the Prettier ignore entries."
           },
+          "immutable": true,
           "locationInModule": {
             "filename": "src/github-action/prettier.ts",
-            "line": 18
+            "line": 21
           },
-          "name": "postSynthesize",
-          "overrides": "projen-template-projects.Builder"
+          "name": "ignoreFilePaths",
+          "overrides": "@dxfrontier/projen-template-projects.PrettierBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
         }
       ],
-      "name": "Prettier",
       "symbolId": "src/github-action/prettier:Prettier"
     },
-    "projen-template-projects.PrettierBase": {
+    "@dxfrontier/projen-template-projects.PrettierBase": {
       "abstract": true,
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Builder",
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Builder",
       "docs": {
         "custom": {
           "abstract": "true"
@@ -2130,7 +2143,7 @@
         "stability": "stable",
         "summary": "Base class for Prettier builder implementing all relevant configuration."
       },
-      "fqn": "projen-template-projects.PrettierBase",
+      "fqn": "@dxfrontier/projen-template-projects.PrettierBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -2147,7 +2160,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2183,7 +2196,7 @@
             "line": 110
           },
           "name": "addScripts",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -2196,7 +2209,7 @@
             "line": 106
           },
           "name": "addSettings",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         },
         {
@@ -2210,7 +2223,7 @@
             "line": 130
           },
           "name": "preSynthesize",
-          "overrides": "projen-template-projects.Builder"
+          "overrides": "@dxfrontier/projen-template-projects.Builder"
         }
       ],
       "name": "PrettierBase",
@@ -2328,14 +2341,14 @@
       ],
       "symbolId": "src/base/prettier:PrettierBase"
     },
-    "projen-template-projects.PrettierJsii": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.PrettierBase",
+    "@dxfrontier/projen-template-projects.PrettierJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.PrettierBase",
       "docs": {
         "stability": "stable",
         "summary": "Prettier builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.PrettierJsii",
+      "fqn": "@dxfrontier/projen-template-projects.PrettierJsii",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -2353,7 +2366,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2379,7 +2392,7 @@
             "line": 22
           },
           "name": "ignoreFilePaths",
-          "overrides": "projen-template-projects.PrettierBase",
+          "overrides": "@dxfrontier/projen-template-projects.PrettierBase",
           "protected": true,
           "type": {
             "collection": {
@@ -2393,14 +2406,14 @@
       ],
       "symbolId": "src/jsii/prettier:PrettierJsii"
     },
-    "projen-template-projects.SampleCode": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Builder",
+    "@dxfrontier/projen-template-projects.SampleCode": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Builder",
       "docs": {
         "stability": "stable",
         "summary": "SampleCode builder implementing all relevant configuration for the project."
       },
-      "fqn": "projen-template-projects.SampleCode",
+      "fqn": "@dxfrontier/projen-template-projects.SampleCode",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -2418,7 +2431,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2439,7 +2452,7 @@
             "line": 80
           },
           "name": "addTemplates",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -2493,9 +2506,9 @@
       ],
       "symbolId": "src/github-action/samplecode:SampleCode"
     },
-    "projen-template-projects.TypeScriptProjectBase": {
+    "@dxfrontier/projen-template-projects.TypeScriptProjectBase": {
       "abstract": true,
-      "assembly": "projen-template-projects",
+      "assembly": "@dxfrontier/projen-template-projects",
       "base": "projen.typescript.TypeScriptProject",
       "docs": {
         "custom": {
@@ -2504,7 +2517,7 @@
         "stability": "stable",
         "summary": "Base class for managing project configuration."
       },
-      "fqn": "projen-template-projects.TypeScriptProjectBase",
+      "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -2521,7 +2534,7 @@
             },
             "name": "options",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBaseOptions"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions"
             }
           }
         ]
@@ -2557,7 +2570,7 @@
           "returns": {
             "optional": true,
             "type": {
-              "fqn": "projen-template-projects.Builder"
+              "fqn": "@dxfrontier/projen-template-projects.Builder"
             }
           }
         },
@@ -2612,7 +2625,7 @@
               },
               "name": "builder",
               "type": {
-                "fqn": "projen-template-projects.Builder"
+                "fqn": "@dxfrontier/projen-template-projects.Builder"
               }
             }
           ]
@@ -2632,7 +2645,7 @@
           "type": {
             "collection": {
               "elementtype": {
-                "fqn": "projen-template-projects.Builder"
+                "fqn": "@dxfrontier/projen-template-projects.Builder"
               },
               "kind": "array"
             }
@@ -2641,13 +2654,13 @@
       ],
       "symbolId": "src/base/project:TypeScriptProjectBase"
     },
-    "projen-template-projects.TypeScriptProjectBaseOptions": {
-      "assembly": "projen-template-projects",
+    "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions": {
+      "assembly": "@dxfrontier/projen-template-projects",
       "datatype": true,
       "docs": {
         "stability": "stable"
       },
-      "fqn": "projen-template-projects.TypeScriptProjectBaseOptions",
+      "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions",
       "interfaces": [
         "projen.typescript.TypeScriptProjectOptions"
       ],
@@ -2659,14 +2672,14 @@
       "name": "TypeScriptProjectBaseOptions",
       "symbolId": "src/base/project:TypeScriptProjectBaseOptions"
     },
-    "projen-template-projects.VsCode": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.VsCodeBase",
+    "@dxfrontier/projen-template-projects.VsCode": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.VsCodeBase",
       "docs": {
         "stability": "stable",
         "summary": "VsCode builder implementing all relevant configuration for the project."
       },
-      "fqn": "projen-template-projects.VsCode",
+      "fqn": "@dxfrontier/projen-template-projects.VsCode",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -2684,7 +2697,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2697,10 +2710,10 @@
       "name": "VsCode",
       "symbolId": "src/github-action/vscode:VsCode"
     },
-    "projen-template-projects.VsCodeBase": {
+    "@dxfrontier/projen-template-projects.VsCodeBase": {
       "abstract": true,
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.Builder",
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Builder",
       "docs": {
         "custom": {
           "abstract": "true"
@@ -2708,7 +2721,7 @@
         "stability": "stable",
         "summary": "Base class for VsCode builder implementing all relevant configuration."
       },
-      "fqn": "projen-template-projects.VsCodeBase",
+      "fqn": "@dxfrontier/projen-template-projects.VsCodeBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -2725,7 +2738,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2746,7 +2759,7 @@
             "line": 50
           },
           "name": "addSettings",
-          "overrides": "projen-template-projects.Builder",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
           "protected": true
         }
       ],
@@ -2800,14 +2813,14 @@
       ],
       "symbolId": "src/base/vscode:VsCodeBase"
     },
-    "projen-template-projects.VsCodeJsii": {
-      "assembly": "projen-template-projects",
-      "base": "projen-template-projects.VsCodeBase",
+    "@dxfrontier/projen-template-projects.VsCodeJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.VsCodeBase",
       "docs": {
         "stability": "stable",
         "summary": "VsCode builder implementing all relevant configuration for the Jsii project."
       },
-      "fqn": "projen-template-projects.VsCodeJsii",
+      "fqn": "@dxfrontier/projen-template-projects.VsCodeJsii",
       "initializer": {
         "docs": {
           "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
@@ -2825,7 +2838,7 @@
             },
             "name": "project",
             "type": {
-              "fqn": "projen-template-projects.TypeScriptProjectBase"
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
             }
           }
         ]
@@ -2840,5 +2853,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "q9ppUxvhYVHpXQfE1w1SldwLDV3m/Pg5G/d3kX8cJ10="
+  "fingerprint": "76j2QPTxA3hL7kcnEdsOeJ9wjRV4GYU+Y9WNCOyqhWg="
 }
