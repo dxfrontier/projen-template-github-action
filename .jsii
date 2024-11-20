@@ -2181,7 +2181,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 138
+            "line": 137
           },
           "name": "addPrettierIgnoreEntries",
           "protected": true
@@ -2193,7 +2193,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 110
+            "line": 109
           },
           "name": "addScripts",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -2206,7 +2206,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 106
+            "line": 105
           },
           "name": "addSettings",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -2220,7 +2220,7 @@
           },
           "locationInModule": {
             "filename": "src/base/prettier.ts",
-            "line": 130
+            "line": 129
           },
           "name": "preSynthesize",
           "overrides": "@dxfrontier/projen-template-projects.Builder"
@@ -2853,5 +2853,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "76j2QPTxA3hL7kcnEdsOeJ9wjRV4GYU+Y9WNCOyqhWg="
+  "fingerprint": "nOvgjowjCVxMaJWIljX+feUstfQVy0g/QBt6wjc/17g="
 }
