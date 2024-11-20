@@ -16,9 +16,6 @@ export class DevContainer extends DevContainerBase {
   }
 
   /**
-   * VsCode extensions to be installed in the DevContainer.
-   * @return Extensions used in container.
-   * @protected
    * @override
    */
   protected get extensions(): string[] {
