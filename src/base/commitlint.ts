@@ -82,11 +82,11 @@ export abstract class CommitLintBase extends Builder {
    */
   protected get devDependencies(): string[] {
     return [
-      '@commitlint/cli',
-      '@commitlint/config-conventional',
-      '@commitlint/prompt-cli',
-      '@commitlint/types',
-      'lint-staged',
+      '@commitlint/cli@^10.9.6',
+      '@commitlint/config-conventional@^10.9.6',
+      '@commitlint/prompt-cli@^10.9.5',
+      '@commitlint/types@^10.9.5',
+      'lint-staged@^15.2.10',
     ];
   }
 
