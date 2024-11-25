@@ -1,98 +1,60 @@
+import { JsiiProject } from 'projen/lib/cdk/index';
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
-import * as commitlint from './shared/commitlint';
-import * as common from './shared/common';
-import * as devcontainer from './shared/devcontainer';
-import * as github from './shared/github';
-import * as husky from './shared/husky';
-import * as npm from './shared/npm';
-import * as prettier from './shared/prettier';
-import * as samplecode from './shared/samplecode';
-import * as vscode from './shared/vscode';
-import { TypeScriptProjectBaseOptions } from '../src/base/project';
-import { GitHubActionProject } from '../src/github-action/project';
-import { LintStagedConfig, ProjenStandardScript } from '../src/types';
+import { TypeScriptProjectBase } from '../../src/base';
+import { LintStagedConfig } from '../../src/types';
+import * as commitlint from '../shared/commitlint';
+import * as common from '../shared/common';
+import * as devcontainer from '../shared/devcontainer';
+import * as github from '../shared/github';
+import * as husky from '../shared/husky';
+import * as npm from '../shared/npm';
+import * as prettier from '../shared/prettier';
+import * as vscode from '../shared/vscode';
 
-describe('GitHubActionProject', (): void => {
-  let props: TypeScriptProjectBaseOptions;
+describe('JsiiProject Builders', (): void => {
+  let project: JsiiProject;
   let snapshot: SynthOutput;
-  let project: GitHubActionProject;
 
-  beforeAll((): void => {
-    props = {
-      name: 'my-github-action',
-      defaultReleaseBranch: 'main', // this is needed due to https://github.com/projen/projen/pull/524
-      description: 'my-description',
-      repository: 'my-repository',
-    };
+  beforeEach(async (): Promise<void> => {
+    const jsiiProject: any = jest.requireActual('projen/lib/cdk/index').JsiiProject;
 
-    project = new GitHubActionProject(props);
+    jest.spyOn(jsiiProject.prototype, 'synth').mockImplementation();
+
+    const projenrc = await import('../../.projenrc.ts');
+    project = projenrc.project;
+
+    jsiiProject.prototype.synth.mockRestore();
     snapshot = synthSnapshot(project);
   });
 
-  afterAll((): void => {
+  afterEach((): void => {
     jest.resetAllMocks();
     jest.resetModules();
   });
 
   describe('NPM', (): void => {
     test('Builder is registered in project registry', (): void => {
-      common.testBuilderInRegistry('NpmPackage', project.builderRegistry);
-    });
-
-    test('Dynamic options in package.json are set properly', (): void => {
-      expect(snapshot['package.json']!.name).toBe('my-github-action');
-      expect(snapshot['package.json']!.description).toBe('my-description');
-      expect(snapshot['package.json']!.repository).toStrictEqual({
-        type: 'git',
-        url: 'my-repository',
-      });
-    });
-
-    test('Projen standard npm scripts are removed from package.json', (): void => {
-      const keys: string[] = Object.keys(snapshot['package.json']!.scripts);
-      const scriptsToRemove: ProjenStandardScript[] = [
-        'bump',
-        'clobber',
-        'compile',
-        'default',
-        'eject',
-        'eslint',
-        'package',
-        'post-compile',
-        'post-upgrade',
-        'pre-compile',
-        'release',
-        'test',
-        'test:watch',
-        'unbump',
-        'upgrade',
-        'watch',
-        'projen',
-      ];
-      const keyFound: boolean = keys.some((key: string): boolean =>
-        scriptsToRemove.includes(key as ProjenStandardScript),
-      );
-      expect(keyFound).toBe(false);
+      common.testBuilderInRegistry('NpmPackageJsii', (project as unknown as TypeScriptProjectBase).builderRegistry);
     });
 
     test('Files property in package.json is set properly', (): void => {
-      const additionalPatterns: string[] = ['action.yml'];
+      const additionalPatterns: string[] = ['lib', '.jsii'];
       npm.testPackageJsonFiles(snapshot, additionalPatterns);
     });
 
     test('Additional/Overrides devDependencies are added properly', (): void => {
-      npm.testDevDependencies(snapshot);
+      const expectedDevDependencies: string[] = ['ts-node@*', '@types/node@*', 'projen@*'];
+      npm.testDevDependencies(snapshot, expectedDevDependencies);
     });
 
-    test('Project related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      const expectedPatterns: RegExp[] = [/\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m];
-      npm.testGitAttributes(snapshot, expectedPatterns);
+    test('NPM Package related files are added to .gitattributes and defined as linguist-generated', (): void => {
+      npm.testGitAttributes(snapshot);
     });
   });
 
   describe('DevContainer', (): void => {
     test('Builder is registered in project registry', (): void => {
-      common.testBuilderInRegistry('DevContainer', project.builderRegistry);
+      common.testBuilderInRegistry('DevContainerJsii', (project as unknown as TypeScriptProjectBase).builderRegistry);
     });
 
     test('Container image is set properly', (): void => {
@@ -118,7 +80,7 @@ describe('GitHubActionProject', (): void => {
 
   describe('Visual Studio Code', (): void => {
     test('Builder is registered in project registry', (): void => {
-      common.testBuilderInRegistry('VsCode', project.builderRegistry);
+      common.testBuilderInRegistry('VsCodeJsii', (project as unknown as TypeScriptProjectBase).builderRegistry);
     });
 
     test('VsCode settings are set properly', (): void => {
@@ -132,7 +94,7 @@ describe('GitHubActionProject', (): void => {
 
   describe('GitHub', (): void => {
     test('Builder is registered in project registry', (): void => {
-      common.testBuilderInRegistry('GitHub', project.builderRegistry);
+      common.testBuilderInRegistry('GitHubJsii', (project as unknown as TypeScriptProjectBase).builderRegistry);
     });
 
     describe('GitHub Templates', (): void => {
@@ -182,7 +144,7 @@ describe('GitHubActionProject', (): void => {
 
   describe('Prettier', (): void => {
     test('Builder is registered in project registry', (): void => {
-      common.testBuilderInRegistry('Prettier', project.builderRegistry);
+      common.testBuilderInRegistry('PrettierJsii', (project as unknown as TypeScriptProjectBase).builderRegistry);
     });
 
     test('Prettier settings are set properly', (): void => {
@@ -204,7 +166,7 @@ describe('GitHubActionProject', (): void => {
 
   describe('Husky', (): void => {
     test('Builder is registered in project registry', (): void => {
-      common.testBuilderInRegistry('Husky', project.builderRegistry);
+      common.testBuilderInRegistry('HuskyJsii', (project as unknown as TypeScriptProjectBase).builderRegistry);
     });
 
     test('Commit-msg hook matches expected template', (): void => {
@@ -230,7 +192,7 @@ describe('GitHubActionProject', (): void => {
 
   describe('CommitLint', (): void => {
     test('Builder is registered in project registry', (): void => {
-      common.testBuilderInRegistry('CommitLint', project.builderRegistry);
+      common.testBuilderInRegistry('CommitLintJsii', (project as unknown as TypeScriptProjectBase).builderRegistry);
     });
 
     test('Commitlintrc template matches expected template', (): void => {
@@ -243,7 +205,7 @@ describe('GitHubActionProject', (): void => {
 
     test('CommitLint configuration in package.json is set properly', (): void => {
       const expectedConfiguration: LintStagedConfig = {
-        '**/*.{yml,yaml}': ['npm run prettier'],
+        '**/*.ts': ['npm run eslint', 'npm run prettier'],
       };
       expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
     });
@@ -254,20 +216,6 @@ describe('GitHubActionProject', (): void => {
 
     test('CommitLint related files are added to .gitattributes and defined as linguist-generated', (): void => {
       commitlint.testGitAttributes(snapshot);
-    });
-  });
-
-  describe('SampleCode', (): void => {
-    test('Builder is registered in project registry', (): void => {
-      common.testBuilderInRegistry('SampleCode', project.builderRegistry);
-    });
-
-    test('Projen standard sample files are removed from file system', (): void => {
-      samplecode.testProjenSampleFiles(snapshot);
-    });
-
-    test('Sample action file matches expected file templates', (): void => {
-      samplecode.testSampleFilesTemplates(snapshot);
     });
   });
 });
