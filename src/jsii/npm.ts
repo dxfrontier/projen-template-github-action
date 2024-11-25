@@ -28,4 +28,9 @@ export class NpmPackageJsii extends NpmPackageBase {
   protected get npmFilePaths(): string[] {
     return ['lib', 'README.md', 'LICENSE', '.jsii'];
   }
+
+  /**
+   * @override
+   */
+  protected addDevDependencies(): void {}
 }

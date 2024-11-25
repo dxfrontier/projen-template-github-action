@@ -35,6 +35,13 @@ export abstract class NpmPackageBase extends Builder {
   protected abstract get npmFilePaths(): string[];
 
   /**
+   * @override
+   */
+  protected get devDependencies(): string[] {
+    return ['ts-node@^10.9.2', '@types/node@^20.9.3', 'projen@^0.9.3'];
+  }
+
+  /**
    * Getter retrieving the npm scripts to be removed from NPM Package.
    * These scripts are added by Projen on project initialization
    * and are not needed for our projects.
@@ -91,5 +98,12 @@ export abstract class NpmPackageBase extends Builder {
     for (const value of this.gitAttributesFilePaths) {
       this.project.gitattributes.addAttributes(`/${value}`, 'linguist-generated');
     }
+  }
+
+  /**
+   * @override
+   */
+  protected addDevDependencies(): void {
+    this.project.addDevDeps(...this.devDependencies);
   }
 }
