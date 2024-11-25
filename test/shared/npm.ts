@@ -18,7 +18,7 @@ export function testPackageJsonFiles(snapshot: SynthOutput, additionalPatterns: 
  * @param expectedDevDependencies List of expected devDependencies to test for.
  */
 export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: string[] = []): void {
-  const standardDevDependencies: string[] = ['ts-node@^10.9.2', '@types/node@^20.9.3', 'projen@^0.9.3'];
+  const standardDevDependencies: string[] = ['ts-node@^10.9.2', '@types/node@^20.9.3', 'projen'];
   const devDependencies: string[] = expectedDevDependencies.length ? expectedDevDependencies : standardDevDependencies;
   common.testDevDependencies(snapshot, devDependencies);
 }
