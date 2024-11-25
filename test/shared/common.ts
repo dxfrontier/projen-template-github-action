@@ -35,7 +35,14 @@ export function testScripts(snapshot: SynthOutput, expectedTasks: TaskSteps): vo
  */
 export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: string[]): void {
   expectedDevDependencies.forEach((dep: string): void => {
-    expect(snapshot['package.json']!.devDependencies).toHaveProperty(dep);
+    const lastAtIndex: number = dep.lastIndexOf('@');
+    const depName: string = lastAtIndex !== -1 ? dep.slice(0, lastAtIndex) : dep;
+    const depVersion: string | null = lastAtIndex !== -1 ? dep.slice(lastAtIndex + 1) : null;
+
+    expect(snapshot['package.json']!.devDependencies).toHaveProperty(depName);
+    if (depVersion) {
+      expect(snapshot['package.json']!.devDependencies[depName]).toBe(depVersion);
+    }
   });
 }
 

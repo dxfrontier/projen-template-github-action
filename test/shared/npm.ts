@@ -13,6 +13,16 @@ export function testPackageJsonFiles(snapshot: SynthOutput, additionalPatterns: 
 }
 
 /**
+ * Validates that npm dev dependencies are added properly.
+ * @param snapshot Synthesized project output.
+ */
+export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: string[] = []): void {
+  const standardDevDependencies: string[] = ['ts-node@^10.9.2', '@types/node@^20.9.3', 'projen@^0.9.3'];
+  const devDependencies: string[] = expectedDevDependencies.length ? expectedDevDependencies : standardDevDependencies;
+  common.testDevDependencies(snapshot, devDependencies);
+}
+
+/**
  * Validates that project related files are added to .gitattributes and defined as linguist-generated.
  * @param snapshot Synthesized project output.
  * @param expectedPatterns List of expected file patterns to test for.

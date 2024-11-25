@@ -80,6 +80,10 @@ describe('GitHubActionProject', (): void => {
       npm.testPackageJsonFiles(snapshot, additionalPatterns);
     });
 
+    test('Additional/Overrides devDependencies are added properly', (): void => {
+      npm.testDevDependencies(snapshot);
+    });
+
     test('Project related files are added to .gitattributes and defined as linguist-generated', (): void => {
       const expectedPatterns: RegExp[] = [/\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m];
       npm.testGitAttributes(snapshot, expectedPatterns);

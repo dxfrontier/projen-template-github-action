@@ -133,6 +133,11 @@ describe('JsiiProject', (): void => {
         npm.testPackageJsonFiles(snapshot, additionalPatterns);
       });
 
+      test('Additional/Overrides devDependencies are added properly', (): void => {
+        const expectedDevDependencies: string[] = ['ts-node@*', '@types/node@*', 'projen@*'];
+        npm.testDevDependencies(snapshot, expectedDevDependencies);
+      });
+
       test('NPM Package related files are added to .gitattributes and defined as linguist-generated', (): void => {
         npm.testGitAttributes(snapshot);
       });
