@@ -15,7 +15,12 @@ export class Prettier extends PrettierBase {
     this.initialize();
   }
 
-  public postSynthesize(): void {
-    console.log('Prettier Post Synthesize');
+  /**
+   * @override
+   */
+  protected get ignoreFilePaths(): string[] {
+    const base: string[] = super.ignoreFilePaths;
+    const elementsToRemove: string[] = ['*.snap', '/.eslintrc.json', '/tsconfig.json'];
+    return base.filter((file: string): boolean => !elementsToRemove.includes(file));
   }
 }

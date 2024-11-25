@@ -17,14 +17,11 @@ export class CommitLint extends CommitLintBase {
   }
 
   /**
-   * Settings to be added to package.json for the CommitLint builder.
-   * @return Template for the config file.
-   * @protected
    * @override
    */
   protected get npmSettings(): LintStagedConfig {
     return {
-      '**/*.{yml,yaml}': ['npm run format:message', 'npm run format:fix'],
+      '**/*.{yml,yaml}': ['npm run prettier'],
     };
   }
 }

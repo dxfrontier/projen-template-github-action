@@ -22,5 +22,8 @@ export declare class SampleCode extends Builder {
      * @protected
      */
     protected get sampleAction(): string[];
+    /**
+     * @override
+     */
     protected addTemplates(): void;
 }

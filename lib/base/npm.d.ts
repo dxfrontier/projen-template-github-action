@@ -12,12 +12,6 @@ export declare abstract class NpmPackageBase extends Builder {
      */
     constructor(project: TypeScriptProjectBase);
     /**
-     * File path to the NPM Package ignore configuration.
-     * @return File path to ignore file.
-     * @protected
-     */
-    protected get ignoreFilePath(): string;
-    /**
      * File paths for the .gitattributes file entries.
      * These entries are not added automatically by projen
      * and we have not extra builder for these. So we handle them here.
@@ -29,8 +23,13 @@ export declare abstract class NpmPackageBase extends Builder {
      * NPM file paths to be packaged for the NPM Package.
      * @return File paths for package.json file entry.
      * @protected
+     * @abstract
      */
-    protected get npmFilePaths(): string[];
+    protected abstract get npmFilePaths(): string[];
+    /**
+     * @override
+     */
+    protected get devDependencies(): string[];
     /**
      * Getter retrieving the npm scripts to be removed from NPM Package.
      * These scripts are added by Projen on project initialization
@@ -52,4 +51,8 @@ export declare abstract class NpmPackageBase extends Builder {
      */
     protected removeScripts(): void;
     protected addGitAttributes(): void;
+    /**
+     * @override
+     */
+    protected addDevDependencies(): void;
 }

@@ -16,15 +16,6 @@ export abstract class NpmPackageBase extends Builder {
   }
 
   /**
-   * File path to the NPM Package ignore configuration.
-   * @return File path to ignore file.
-   * @protected
-   */
-  protected get ignoreFilePath(): string {
-    return '.npmignore';
-  }
-
-  /**
    * File paths for the .gitattributes file entries.
    * These entries are not added automatically by projen
    * and we have not extra builder for these. So we handle them here.
@@ -32,16 +23,22 @@ export abstract class NpmPackageBase extends Builder {
    * @protected
    */
   protected get gitAttributesFilePaths(): string[] {
-    return ['tsconfig.json'];
+    return [];
   }
 
   /**
    * NPM file paths to be packaged for the NPM Package.
    * @return File paths for package.json file entry.
    * @protected
+   * @abstract
    */
-  protected get npmFilePaths(): string[] {
-    return ['lib', 'README.md', 'LICENSE', '.jsii'];
+  protected abstract get npmFilePaths(): string[];
+
+  /**
+   * @override
+   */
+  protected get devDependencies(): string[] {
+    return ['ts-node@^10.9.2', '@types/node@^20.9.3', 'projen@^0.9.3'];
   }
 
   /**
@@ -96,11 +93,17 @@ export abstract class NpmPackageBase extends Builder {
   }
 
   protected addGitAttributes(): void {
-    this.project.gitattributes.addAttributes(`/${this.ignoreFilePath}`, 'linguist-generated');
     // as the following files are not added automatically (compared to calling `projen` directly, there it works)
     // we add these files manually
     for (const value of this.gitAttributesFilePaths) {
       this.project.gitattributes.addAttributes(`/${value}`, 'linguist-generated');
     }
+  }
+
+  /**
+   * @override
+   */
+  protected addDevDependencies(): void {
+    this.project.addDevDeps(...this.devDependencies);
   }
 }

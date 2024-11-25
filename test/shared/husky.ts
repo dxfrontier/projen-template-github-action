@@ -42,10 +42,12 @@ export function testScripts(snapshot: SynthOutput): void {
 /**
  * Validates that npm dev dependencies are added properly.
  * @param snapshot Synthesized project output.
+ * @param expectedDevDependencies List of expected devDependencies to test for.
  */
-export function testDevDependencies(snapshot: SynthOutput): void {
-  const expectedDevDependencies: string[] = ['husky'];
-  common.testDevDependencies(snapshot, expectedDevDependencies);
+export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: string[] = []): void {
+  const standardDevDependencies: string[] = ['husky@^9.1.7'];
+  const devDependencies: string[] = expectedDevDependencies.length ? expectedDevDependencies : standardDevDependencies;
+  common.testDevDependencies(snapshot, devDependencies);
 }
 
 /**

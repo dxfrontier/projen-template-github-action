@@ -56,7 +56,6 @@ export abstract class PrettierBase extends Builder {
       '/.gitignore',
       '/.husky/commit-msg',
       '/.husky/pre-commit',
-      '/.npmignore',
       '/.prettierignore',
       '/.prettierrc.json',
       '/.projen/**',
@@ -98,8 +97,7 @@ export abstract class PrettierBase extends Builder {
    */
   protected get scripts(): Scripts {
     return {
-      'format:fix': 'prettier . --write',
-      'format:message': 'echo "Prettier started ..."',
+      prettier: 'prettier . --write',
     };
   }
 

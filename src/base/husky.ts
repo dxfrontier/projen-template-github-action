@@ -73,7 +73,7 @@ export abstract class HuskyBase extends Builder {
    * @protected
    */
   protected get devDependencies(): string[] {
-    return ['husky'];
+    return ['husky@^9.1.7'];
   }
 
   /**

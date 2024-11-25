@@ -13,21 +13,23 @@ import {
 
 // export project for testing
 export const project = new cdk.JsiiProject({
+  name: '@dxfrontier/projen-template-projects',
+  repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
   author: 'Mathias von Kaiz',
   authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
-  repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
   copyrightOwner: 'ABS GmbH',
+
   defaultReleaseBranch: 'main',
-  name: 'projen-template-projects',
-  packageManager: javascript.NodePackageManager.NPM,
+
   projenrcTs: true,
   jsiiVersion: '~5.5.0',
 
+  packageManager: javascript.NodePackageManager.NPM,
+  npmignoreEnabled: false,
+
   prettier: true,
-  githubOptions: {
-    mergify: false,
-    pullRequestLint: false, // workflow pull-request-lint.yml
-  },
+
+  githubOptions: { mergify: false, pullRequestLint: false }, // mergify and workflow pull-request-lint.yml
   buildWorkflow: false, // workflow build.yml
   release: false, // workflow release.yml
   pullRequestTemplate: false, // pull_request_template.yml

@@ -10,5 +10,8 @@ export declare class Prettier extends PrettierBase {
      * @param project The project to configure Prettier for.
      */
     constructor(project: TypeScriptProjectBase);
-    postSynthesize(): void;
+    /**
+     * @override
+     */
+    protected get ignoreFilePaths(): string[];
 }

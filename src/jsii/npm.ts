@@ -14,4 +14,23 @@ export class NpmPackageJsii extends NpmPackageBase {
     super(project);
     this.initialize();
   }
+
+  /**
+   * @override
+   */
+  protected get gitAttributesFilePaths(): string[] {
+    return ['tsconfig.json'];
+  }
+
+  /**
+   * @override
+   */
+  protected get npmFilePaths(): string[] {
+    return ['lib', 'README.md', 'LICENSE', '.jsii'];
+  }
+
+  /**
+   * @override
+   */
+  protected addDevDependencies(): void {}
 }

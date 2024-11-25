@@ -12,9 +12,6 @@ export declare class CommitLintJsii extends CommitLintBase {
      */
     constructor(project: TypeScriptProjectBase);
     /**
-     * Settings to be added to package.json for the CommitLint builder.
-     * @return Configuration entries for package.json.
-     * @protected
      * @override
      */
     protected get npmSettings(): LintStagedConfig;

@@ -30,8 +30,7 @@ export function testSettings(snapshot: SynthOutput): void {
  */
 export function testScripts(snapshot: SynthOutput): void {
   const expectedTasks: TaskSteps = {
-    'format:message': ['echo "Prettier started ..."'],
-    'format:fix': ['prettier . --write'],
+    prettier: ['prettier . --write'],
   };
   common.testScripts(snapshot, expectedTasks);
 }

@@ -1,13 +1,13 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
-import * as commitlint from './base/commitlint';
-import * as common from './base/common';
-import * as devcontainer from './base/devcontainer';
-import * as github from './base/github';
-import * as husky from './base/husky';
-import * as npm from './base/npm';
-import * as prettier from './base/prettier';
-import * as samplecode from './base/samplecode';
-import * as vscode from './base/vscode';
+import * as commitlint from './shared/commitlint';
+import * as common from './shared/common';
+import * as devcontainer from './shared/devcontainer';
+import * as github from './shared/github';
+import * as husky from './shared/husky';
+import * as npm from './shared/npm';
+import * as prettier from './shared/prettier';
+import * as samplecode from './shared/samplecode';
+import * as vscode from './shared/vscode';
 import { TypeScriptProjectBaseOptions } from '../src/base/project';
 import { GitHubActionProject } from '../src/github-action/project';
 import { LintStagedConfig, ProjenStandardScript } from '../src/types';
@@ -76,11 +76,17 @@ describe('GitHubActionProject', (): void => {
     });
 
     test('Files property in package.json is set properly', (): void => {
-      npm.testPackageJsonFiles(snapshot);
+      const additionalPatterns: string[] = ['action.yml'];
+      npm.testPackageJsonFiles(snapshot, additionalPatterns);
+    });
+
+    test('Additional/Overrides devDependencies are added properly', (): void => {
+      npm.testDevDependencies(snapshot);
     });
 
     test('Project related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      npm.testGitAttributes(snapshot);
+      const expectedPatterns: RegExp[] = [/\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m];
+      npm.testGitAttributes(snapshot, expectedPatterns);
     });
   });
 
@@ -237,7 +243,7 @@ describe('GitHubActionProject', (): void => {
 
     test('CommitLint configuration in package.json is set properly', (): void => {
       const expectedConfiguration: LintStagedConfig = {
-        '**/*.{yml,yaml}': ['npm run format:message', 'npm run format:fix'],
+        '**/*.{yml,yaml}': ['npm run prettier'],
       };
       expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
     });

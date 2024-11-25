@@ -12,4 +12,8 @@ export declare class NpmPackage extends NpmPackageBase {
      * @param project The project to configure NPM Package for.
      */
     constructor(project: TypeScriptProjectBase);
+    /**
+     * @override
+     */
+    protected get npmFilePaths(): string[];
 }

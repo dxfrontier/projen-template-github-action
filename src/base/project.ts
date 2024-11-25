@@ -23,21 +23,26 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
       ...options,
 
       packageManager: options.packageManager ?? javascript.NodePackageManager.NPM,
-      minNodeVersion: options.minNodeVersion ?? '20',
+      npmignoreEnabled: options.npmignoreEnabled ?? false,
+
       projenrcTs: options.projenrcTs ?? true,
+      typescriptVersion: '~5.6.3',
 
       prettier: options.prettier ?? true,
-      githubOptions: options.githubOptions ?? {
-        mergify: false,
-        pullRequestLint: false, // workflow pull-request-lint.yml
-      },
+
+      githubOptions: options.githubOptions ?? { mergify: false, pullRequestLint: false }, // mergify and workflow pull-request-lint.yml
       buildWorkflow: options.buildWorkflow ?? false, // workflow build.yml
       release: options.release ?? false, // workflow release.yml
       pullRequestTemplate: options.pullRequestTemplate ?? false, // pull_request_template.yml
       depsUpgrade: options.depsUpgrade ?? false, // workflow upgrade-main.yml
+
       sampleCode: options.sampleCode ?? false,
 
-      devDeps: ['projen', 'construct'],
+      devDeps: [
+        'projen@^0.90.3',
+        'construct@^1.0.0',
+        '@dxfrontier/projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
+      ],
     });
   }
 
@@ -61,6 +66,7 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
 
   /**
    * @public
+   * @override
    */
   public preSynthesize(): void {
     super.preSynthesize();
@@ -71,6 +77,7 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
 
   /**
    * @public
+   * @override
    */
   public postSynthesize(): void {
     super.postSynthesize();

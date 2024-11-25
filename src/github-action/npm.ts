@@ -17,4 +17,11 @@ export class NpmPackage extends NpmPackageBase {
     this.initialize();
     this.removeScripts();
   }
+
+  /**
+   * @override
+   */
+  protected get npmFilePaths(): string[] {
+    return ['action.yml', 'README.md', 'LICENSE'];
+  }
 }

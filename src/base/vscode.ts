@@ -47,6 +47,9 @@ export abstract class VsCodeBase extends Builder {
     };
   }
 
+  /**
+   * @override
+   */
   protected addSettings(): void {
     this.project.vscode?.settings.addSettings(this.settings);
   }

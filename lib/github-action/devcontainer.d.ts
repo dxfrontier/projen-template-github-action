@@ -10,11 +10,4 @@ export declare class DevContainer extends DevContainerBase {
      * @param project The project to configure CommitLint for.
      */
     constructor(project: TypeScriptProjectBase);
-    /**
-     * VsCode extensions to be installed in the DevContainer.
-     * @return Extensions used in container.
-     * @protected
-     * @override
-     */
-    protected get extensions(): string[];
 }

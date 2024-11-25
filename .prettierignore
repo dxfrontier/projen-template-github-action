@@ -14,7 +14,6 @@
 /.gitignore
 /.husky/commit-msg
 /.husky/pre-commit
-/.npmignore
 /.prettierignore
 /.prettierrc.json
 /.projen/**

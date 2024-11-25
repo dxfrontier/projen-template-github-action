@@ -46,16 +46,18 @@ export function testScripts(snapshot: SynthOutput): void {
 /**
  * Validates that npm dev dependencies are added properly.
  * @param snapshot Synthesized project output.
+ * @param expectedDevDependencies List of expected devDependencies to test for.
  */
-export function testDevDependencies(snapshot: SynthOutput): void {
-  const expectedDevDependencies: string[] = [
-    '@commitlint/cli',
-    '@commitlint/config-conventional',
-    '@commitlint/prompt-cli',
-    '@commitlint/types',
-    'lint-staged',
+export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: string[] = []): void {
+  const standardDevDependencies: string[] = [
+    '@commitlint/cli@^19.6.0',
+    '@commitlint/config-conventional@^19.6.0',
+    '@commitlint/prompt-cli@^19.6.0',
+    '@commitlint/types@^19.5.0',
+    'lint-staged@^15.2.10',
   ];
-  common.testDevDependencies(snapshot, expectedDevDependencies);
+  const devDependencies: string[] = expectedDevDependencies.length ? expectedDevDependencies : standardDevDependencies;
+  common.testDevDependencies(snapshot, devDependencies);
 }
 
 /**

@@ -16,8 +16,7 @@ export class PrettierJsii extends PrettierBase {
   }
 
   /**
-   * File paths to the Prettier ignore entries.
-   * @protected
+   * @override
    */
   protected get ignoreFilePaths(): string[] {
     const baseEntries: string[] = super.ignoreFilePaths;

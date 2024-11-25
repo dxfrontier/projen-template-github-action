@@ -1,14 +1,14 @@
 import { cdk, javascript } from 'projen';
 import { JsiiProject } from 'projen/lib/cdk/index';
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
-import * as commitlint from './base/commitlint';
-import * as common from './base/common';
-import * as devcontainer from './base/devcontainer';
-import * as github from './base/github';
-import * as husky from './base/husky';
-import * as npm from './base/npm';
-import * as prettier from './base/prettier';
-import * as vscode from './base/vscode';
+import * as commitlint from './shared/commitlint';
+import * as common from './shared/common';
+import * as devcontainer from './shared/devcontainer';
+import * as github from './shared/github';
+import * as husky from './shared/husky';
+import * as npm from './shared/npm';
+import * as prettier from './shared/prettier';
+import * as vscode from './shared/vscode';
 import { TypeScriptProjectBase } from '../src/base/project.ts';
 import { LintStagedConfig } from '../src/types';
 
@@ -69,10 +69,11 @@ describe('JsiiProject', (): void => {
         repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
         copyrightOwner: 'ABS GmbH',
         defaultReleaseBranch: 'main',
-        name: 'projen-template-projects',
+        name: '@dxfrontier/projen-template-projects',
         packageManager: javascript.NodePackageManager.NPM,
         projenrcTs: true,
         jsiiVersion: '~5.5.0',
+        npmignoreEnabled: false,
         prettier: true,
         githubOptions: {
           mergify: false,
@@ -128,7 +129,13 @@ describe('JsiiProject', (): void => {
       });
 
       test('Files property in package.json is set properly', (): void => {
-        npm.testPackageJsonFiles(snapshot);
+        const additionalPatterns: string[] = ['lib', '.jsii'];
+        npm.testPackageJsonFiles(snapshot, additionalPatterns);
+      });
+
+      test('Additional/Overrides devDependencies are added properly', (): void => {
+        const expectedDevDependencies: string[] = ['ts-node@*', '@types/node@*', 'projen@*'];
+        npm.testDevDependencies(snapshot, expectedDevDependencies);
       });
 
       test('NPM Package related files are added to .gitattributes and defined as linguist-generated', (): void => {
@@ -289,7 +296,7 @@ describe('JsiiProject', (): void => {
 
       test('CommitLint configuration in package.json is set properly', (): void => {
         const expectedConfiguration: LintStagedConfig = {
-          '**/*.ts': ['npm run eslint', 'npm run format:fix'],
+          '**/*.ts': ['npm run eslint', 'npm run prettier'],
         };
         expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
       });

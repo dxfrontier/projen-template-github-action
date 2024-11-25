@@ -17,14 +17,11 @@ export class CommitLintJsii extends CommitLintBase {
   }
 
   /**
-   * Settings to be added to package.json for the CommitLint builder.
-   * @return Configuration entries for package.json.
-   * @protected
    * @override
    */
   protected get npmSettings(): LintStagedConfig {
     return {
-      '**/*.ts': ['npm run eslint', 'npm run format:fix'],
+      '**/*.ts': ['npm run eslint', 'npm run prettier'],
     };
   }
 }
