@@ -15,6 +15,7 @@ export function testPackageJsonFiles(snapshot: SynthOutput, additionalPatterns: 
 /**
  * Validates that npm dev dependencies are added properly.
  * @param snapshot Synthesized project output.
+ * @param expectedDevDependencies List of expected devDependencies to test for.
  */
 export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: string[] = []): void {
   const standardDevDependencies: string[] = ['ts-node@^10.9.2', '@types/node@^20.9.3', 'projen@^0.9.3'];
