@@ -27,6 +27,10 @@ export declare abstract class NpmPackageBase extends Builder {
      */
     protected abstract get npmFilePaths(): string[];
     /**
+     * @override
+     */
+    protected get devDependencies(): string[];
+    /**
      * Getter retrieving the npm scripts to be removed from NPM Package.
      * These scripts are added by Projen on project initialization
      * and are not needed for our projects.
@@ -47,4 +51,8 @@ export declare abstract class NpmPackageBase extends Builder {
      */
     protected removeScripts(): void;
     protected addGitAttributes(): void;
+    /**
+     * @override
+     */
+    protected addDevDependencies(): void;
 }

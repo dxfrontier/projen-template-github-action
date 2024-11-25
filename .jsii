@@ -1849,12 +1849,28 @@
       "methods": [
         {
           "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "Installs development dependencies for the builder in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 106
+          },
+          "name": "addDevDependencies",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
+          "protected": true
+        },
+        {
+          "docs": {
             "stability": "stable",
             "summary": "Adds custom entries to the `.gitattributes` file for the builder in the project. Overwrite this in case that manual entries need to be done."
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 88
+            "line": 95
           },
           "name": "addGitAttributes",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -1870,7 +1886,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 71
+            "line": 78
           },
           "name": "addSettings",
           "overrides": "@dxfrontier/projen-template-projects.Builder",
@@ -1887,7 +1903,7 @@
           },
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 82
+            "line": 89
           },
           "name": "removeScripts",
           "protected": true
@@ -1895,6 +1911,29 @@
       ],
       "name": "NpmPackageBase",
       "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 40
+          },
+          "name": "devDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
         {
           "docs": {
             "custom": {
@@ -1960,7 +1999,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/npm.ts",
-            "line": 45
+            "line": 52
           },
           "name": "projenScripts",
           "protected": true,
@@ -2011,6 +2050,24 @@
         "filename": "src/jsii/npm.ts",
         "line": 6
       },
+      "methods": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "Installs development dependencies for the builder in the project."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/npm.ts",
+            "line": 35
+          },
+          "name": "addDevDependencies",
+          "overrides": "@dxfrontier/projen-template-projects.NpmPackageBase",
+          "protected": true
+        }
+      ],
       "name": "NpmPackageJsii",
       "properties": [
         {
@@ -2555,7 +2612,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 62
+            "line": 63
           },
           "name": "findBuilderByName",
           "parameters": [
@@ -2588,7 +2645,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 81
+            "line": 82
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -2604,7 +2661,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 70
+            "line": 71
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -2619,7 +2676,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 53
+            "line": 54
           },
           "name": "registerBuilder",
           "parameters": [
@@ -2860,5 +2917,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "cpWjmdsqGCSAMSRU6srtqF6kzK9k3IgG9FzAveDrVhw="
+  "fingerprint": "nEmHWTRDfdbleUbKESYLwaMxGyb7uR7iO94vVmvnMfQ="
 }
