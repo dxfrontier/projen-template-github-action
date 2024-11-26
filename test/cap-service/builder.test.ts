@@ -6,6 +6,7 @@ import * as commitlint from '../shared/commitlint';
 import * as common from '../shared/common';
 import * as devcontainer from '../shared/devcontainer';
 import * as eslint from '../shared/eslint';
+import * as git from '../shared/git';
 import * as github from '../shared/github';
 import * as husky from '../shared/husky';
 import * as npm from '../shared/npm';
@@ -167,6 +168,26 @@ describe('CapServiceProject Builders', (): void => {
         /\/\.vscode\/tasks\.json linguist-generated( $|\s|$)/m,
       ];
       vscode.testGitAttributes(snapshot, additionalPatterns);
+    });
+  });
+
+  describe('Git', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('Git', project.builderRegistry);
+    });
+
+    test('Git settings are set properly', (): void => {
+      const additionalPatterns: string[] = [
+        'gen',
+        'mta_archives',
+        '*.mtar',
+        '*.mta',
+        'resources',
+        '@cds-models',
+        '*.bak',
+        'default-*.json',
+      ];
+      git.testIgnore(snapshot, additionalPatterns);
     });
   });
 
