@@ -1,8 +1,8 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { TypeScriptProjectBaseOptions } from '../../src/base';
 import { CapServiceProject } from '../../src/cap-service/project';
-import { ProjenStandardScript } from '../../src/types';
-// import * as commitlint from '../shared/commitlint';
+import { LintStagedConfig, ProjenStandardScript } from '../../src/types';
+import * as commitlint from '../shared/commitlint';
 import * as common from '../shared/common';
 import * as devcontainer from '../shared/devcontainer';
 import * as github from '../shared/github';
@@ -317,6 +317,35 @@ describe('CapServiceProject Builders', (): void => {
     test('Husky related files are added to .gitattributes and defined as linguist-generated', (): void => {
       const additionalPatterns: RegExp[] = [/\/\.husky\/pre-push linguist-generated( $|\s|$)/m];
       husky.testGitAttributes(snapshot, additionalPatterns);
+    });
+  });
+
+  describe('CommitLint', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('CommitLint', project.builderRegistry);
+    });
+
+    test('Commitlintrc template matches expected template', (): void => {
+      commitlint.testRcTemplate(snapshot);
+    });
+
+    test('CommitLint npm scrips are added properly', (): void => {
+      commitlint.testScripts(snapshot);
+    });
+
+    test('CommitLint configuration in package.json is set properly', (): void => {
+      const expectedConfiguration: LintStagedConfig = {
+        '**/*.{ts,tsx}': ['npm run eslint', 'npm run prettier'],
+      };
+      expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
+    });
+
+    test('CommitLint npm devDependencies are added properly', (): void => {
+      commitlint.testDevDependencies(snapshot);
+    });
+
+    test('CommitLint related files are added to .gitattributes and defined as linguist-generated', (): void => {
+      commitlint.testGitAttributes(snapshot);
     });
   });
 });
