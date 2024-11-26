@@ -5,6 +5,7 @@ import { LintStagedConfig, ProjenStandardScript, TaskSteps } from '../../src/typ
 import * as commitlint from '../shared/commitlint';
 import * as common from '../shared/common';
 import * as devcontainer from '../shared/devcontainer';
+import * as eslint from '../shared/eslint';
 import * as github from '../shared/github';
 import * as husky from '../shared/husky';
 import * as npm from '../shared/npm';
@@ -268,6 +269,17 @@ describe('CapServiceProject Builders', (): void => {
     test('GitHub related files are added to .gitattributes and defined as linguist-generated', (): void => {
       const additionalPatterns: RegExp[] = [/\/\.github\/ISSUE_TEMPLATE\/story\.yml linguist-generated( $|\s|$)/m];
       github.testGitAttributes(snapshot, additionalPatterns);
+    });
+  });
+
+  describe('EsLint', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('EsLint', project.builderRegistry);
+    });
+
+    test('EsLint settings are set properly', (): void => {
+      const additionalPatterns: string[] = ['dist/', 'test/', 'gen/', '@cds-models', 'default-env.js', '@dispatcher'];
+      eslint.testIgnore(snapshot, additionalPatterns);
     });
   });
 
