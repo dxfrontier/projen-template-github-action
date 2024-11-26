@@ -32,47 +32,33 @@ export class SampleCode extends Builder {
    */
   protected get sampleAction(): string[] {
     return [
-      // eslint-disable-next-line prettier/prettier
       "name: 'My Custom Composite Action'",
-      // eslint-disable-next-line prettier/prettier
       "description: 'A sample GitHub composite action created with Projen.'",
-      // eslint-disable-next-line prettier/prettier
       "author: 'Your Name or Org'",
       'branding:',
-      // eslint-disable-next-line prettier/prettier
       "  icon: 'zap'",
-      // eslint-disable-next-line prettier/prettier
       "  color: 'blue'",
       '',
       'inputs:',
       '  example-input:',
-      // eslint-disable-next-line prettier/prettier
       "    description: 'An example input parameter for the action.'",
       '    required: false',
-      // eslint-disable-next-line prettier/prettier
       "    default: 'default value'",
       '',
       'outputs:',
       '  example-output:',
-      // eslint-disable-next-line prettier/prettier
       "    description: 'An example output from the action.'",
       '',
       'runs:',
-      // eslint-disable-next-line prettier/prettier
       "  using: 'composite'",
       '  steps:',
-      // eslint-disable-next-line prettier/prettier
       "    - name: 'Step 1'",
-      // eslint-disable-next-line prettier/prettier
       "      run: echo 'Running Step 1 with input: ${{ inputs.example-input }}'",
       '',
-      // eslint-disable-next-line prettier/prettier
       "    - name: 'Step 2'",
-      // eslint-disable-next-line prettier/prettier
       "      run: echo 'Running Step 2'",
       '',
       'env:',
-      // eslint-disable-next-line prettier/prettier
       "  EXAMPLE_ENV_VAR: 'example-value'",
     ];
   }
