@@ -24,4 +24,11 @@ export class NpmPackage extends NpmPackageBase {
   protected get npmFilePaths(): string[] {
     return ['gen', 'README.md', 'LICENSE'];
   }
+
+  /**
+   * @override
+   */
+  protected get gitAttributesFilePaths(): string[] {
+    return ['@cds-models', 'dist', 'gen', 'CHANGELOG.md'];
+  }
 }

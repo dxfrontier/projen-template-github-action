@@ -88,6 +88,10 @@ describe('CapServiceProject Builders', (): void => {
       const expectedPatterns: RegExp[] = [
         /\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m,
         /\/tsconfig\.json linguist-generated( $|\s|$)/m,
+        /\/@cds-models linguist-generated( $|\s|$)/m,
+        /\/dist linguist-generated( $|\s|$)/m,
+        /\/gen linguist-generated( $|\s|$)/m,
+        /\/CHANGELOG\.md linguist-generated( $|\s|$)/m,
       ];
       npm.testGitAttributes(snapshot, expectedPatterns);
     });

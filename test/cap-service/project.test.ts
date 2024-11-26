@@ -37,6 +37,9 @@ jest.mock('projen/lib/typescript', (): any => {
       removeScript: jest.fn(),
       addScripts: jest.fn(),
       addTask: jest.fn(),
+      gitattributes: {
+        addAttributes: jest.fn(),
+      },
     }),
   };
 });

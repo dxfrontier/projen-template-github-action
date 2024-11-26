@@ -92,6 +92,9 @@ export abstract class NpmPackageBase extends Builder {
     }
   }
 
+  /**
+   * @override
+   */
   protected addGitAttributes(): void {
     // as the following files are not added automatically (compared to calling `projen` directly, there it works)
     // we add these files manually

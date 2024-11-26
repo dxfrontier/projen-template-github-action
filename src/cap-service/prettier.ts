@@ -22,6 +22,7 @@ export class Prettier extends PrettierBase {
     const base: string[] = super.ignoreFilePaths;
     const elementsToAdd: string[] = [
       '/.github/ISSUE_TEMPLATE/story.yml',
+      '/.husky/pre-push',
       '/.vscode/launch.json',
       '/.vscode/tasks.json',
       '/@cds-models',
