@@ -40,6 +40,9 @@ jest.mock('projen/lib/typescript', (): any => {
       gitattributes: {
         addAttributes: jest.fn(),
       },
+      gitignore: {
+        addPatterns: jest.fn(),
+      },
     }),
   };
 });
