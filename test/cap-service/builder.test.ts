@@ -6,7 +6,7 @@ import { ProjenStandardScript } from '../../src/types';
 import * as common from '../shared/common';
 import * as devcontainer from '../shared/devcontainer';
 import * as github from '../shared/github';
-// import * as husky from '../shared/husky';
+import * as husky from '../shared/husky';
 import * as npm from '../shared/npm';
 import * as prettier from '../shared/prettier';
 // import * as samplecode from '../shared/samplecode';
@@ -286,6 +286,37 @@ describe('CapServiceProject Builders', (): void => {
 
     test('Prettier related files are added to .gitattributes and defined as linguist-generated', (): void => {
       prettier.testGitAttributes(snapshot);
+    });
+  });
+
+  describe('Husky', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('Husky', project.builderRegistry);
+    });
+
+    test('Commit-msg hook matches expected template', (): void => {
+      husky.testCommitMsgHook(snapshot);
+    });
+
+    test('Pre-commit hook matches expected template', (): void => {
+      husky.testPreCommitHook(snapshot);
+    });
+
+    test('Pre-push hook matches expected template', (): void => {
+      husky.testPrePushHook(snapshot);
+    });
+
+    test('Husky npm scripts are added properly', (): void => {
+      husky.testScripts(snapshot);
+    });
+
+    test('Husky npm devDependencies are added properly', (): void => {
+      husky.testDevDependencies(snapshot);
+    });
+
+    test('Husky related files are added to .gitattributes and defined as linguist-generated', (): void => {
+      const additionalPatterns: RegExp[] = [/\/\.husky\/pre-push linguist-generated( $|\s|$)/m];
+      husky.testGitAttributes(snapshot, additionalPatterns);
     });
   });
 });
