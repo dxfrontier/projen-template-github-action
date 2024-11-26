@@ -1,5 +1,5 @@
 import { TypeScriptProjectBase, TypeScriptProjectBaseOptions } from '../base';
-import { DevContainer, GitHub, NpmPackage, Prettier, VsCode } from './';
+import { DevContainer, GitHub, Husky, NpmPackage, Prettier, VsCode } from './';
 
 /**
  * Defines a CAP Service project.
@@ -20,7 +20,7 @@ export class CapServiceProject extends TypeScriptProjectBase {
     new VsCode(this);
     new GitHub(this);
     new Prettier(this);
-    // new Husky(this);
+    new Husky(this);
     // new CommitLint(this);
     // new SampleCode(this);
   }
