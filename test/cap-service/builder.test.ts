@@ -8,7 +8,7 @@ import * as devcontainer from '../shared/devcontainer';
 import * as github from '../shared/github';
 // import * as husky from '../shared/husky';
 import * as npm from '../shared/npm';
-// import * as prettier from '../shared/prettier';
+import * as prettier from '../shared/prettier';
 // import * as samplecode from '../shared/samplecode';
 import * as vscode from '../shared/vscode';
 
@@ -264,6 +264,28 @@ describe('CapServiceProject Builders', (): void => {
     test('GitHub related files are added to .gitattributes and defined as linguist-generated', (): void => {
       const additionalPatterns: RegExp[] = [/\/\.github\/ISSUE_TEMPLATE\/story\.yml linguist-generated( $|\s|$)/m];
       github.testGitAttributes(snapshot, additionalPatterns);
+    });
+  });
+
+  describe('Prettier', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('Prettier', project.builderRegistry);
+    });
+
+    test('Prettier settings are set properly', (): void => {
+      prettier.testSettings(snapshot);
+    });
+
+    test('Prettier npm scripts are added properly', (): void => {
+      prettier.testScripts(snapshot);
+    });
+
+    test('Ignore patterns matches expected content', (): void => {
+      prettier.testIgnore(snapshot);
+    });
+
+    test('Prettier related files are added to .gitattributes and defined as linguist-generated', (): void => {
+      prettier.testGitAttributes(snapshot);
     });
   });
 });
