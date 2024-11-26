@@ -70,17 +70,17 @@ describe('GitHubActionsProject Constructor Options', (): void => {
       eslint: false,
       jest: false,
 
-      packageManager: 'npm', // default
-      npmignoreEnabled: false, // default
-      projenrcTs: true, // default
-      typescriptVersion: '~5.6.3', // fixed
-      prettier: true, // default
-      githubOptions: { mergify: false, pullRequestLint: false }, // default
-      buildWorkflow: false, // default
-      release: false, // default
-      pullRequestTemplate: false, // default
-      depsUpgrade: false, // default
-      sampleCode: false, // default
+      packageManager: 'npm',
+      npmignoreEnabled: false,
+      projenrcTs: true,
+      typescriptVersion: '~5.6.3',
+      prettier: true,
+      githubOptions: { mergify: false, pullRequestLint: false },
+      buildWorkflow: false,
+      release: false,
+      pullRequestTemplate: false,
+      depsUpgrade: false,
+      sampleCode: false,
       devDeps: [
         'projen',
         'construct',
