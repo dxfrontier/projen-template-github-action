@@ -101,13 +101,19 @@ export abstract class PrettierBase extends Builder {
     };
   }
 
+  /**
+   * @override
+   */
   protected addSettings(): void {
     this.project.prettier?.addOverride(this.settings);
   }
 
+  /**
+   * @override
+   */
   protected addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
-      this.project.addTask(name, { exec: command, receiveArgs: true });
+      this.project.addTask(name, { exec: command as string, receiveArgs: true });
     }
   }
 
@@ -125,13 +131,16 @@ export abstract class PrettierBase extends Builder {
    *
    * We will update it manually and cover it by tests cases checking if changes on the files are reflected here.
    */
+  /**
+   * @override
+   */
   public preSynthesize(): void {
     this.addPrettierIgnoreEntries();
   }
 
   /**
    * Adds entries to the `.prettierignore` file.
-   * @private
+   * @protected
    */
   protected addPrettierIgnoreEntries(): void {
     for (const entry of this.ignoreFilePaths) {

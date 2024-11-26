@@ -99,24 +99,36 @@ export abstract class CommitLintBase extends Builder {
     return {};
   }
 
+  /**
+   * @override
+   */
   protected addTemplates(): void {
     new TextFile(this.project, this.filePath, {
       lines: this.template,
     });
   }
 
+  /**
+   * @override
+   */
   protected addSettings(): void {
     this.project.addFields({
       'lint-staged': this.npmSettings,
     });
   }
 
+  /**
+   * @override
+   */
   protected addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
-      this.project.addTask(name, { exec: command });
+      this.project.addTask(name, { exec: command as string });
     }
   }
 
+  /**
+   * @override
+   */
   protected addDevDependencies(): void {
     this.project.addDevDeps(...this.devDependencies);
   }

@@ -32,7 +32,7 @@ export type ProjenStandardScript =
  * Collection of npm scripts, indexed by their names
  */
 export type Scripts = {
-  [key: string]: string;
+  [key: string]: string | string[];
 };
 
 /**

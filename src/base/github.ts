@@ -463,6 +463,9 @@ export abstract class GitHubBase extends Builder {
     });
   }
 
+  /**
+   * @override
+   */
   protected addTemplates(): void {
     this.createPullRequest();
     this.createBugIssue();

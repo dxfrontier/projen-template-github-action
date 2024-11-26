@@ -96,17 +96,26 @@ export abstract class HuskyBase extends Builder {
     });
   }
 
+  /**
+   * @override
+   */
   protected addTemplates(): void {
     this.createCommitMsgHook();
     this.createPreCommitHook();
   }
 
+  /**
+   * @override
+   */
   protected addScripts(): void {
     for (const [name, command] of Object.entries(this.scripts)) {
-      this.project.addTask(name, { exec: command });
+      this.project.addTask(name, { exec: command as string });
     }
   }
 
+  /**
+   * @override
+   */
   protected addDevDependencies(): void {
     this.project.addDevDeps(...this.devDependencies);
   }
