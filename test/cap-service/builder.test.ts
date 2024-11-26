@@ -10,7 +10,7 @@ import * as devcontainer from '../shared/devcontainer';
 import * as npm from '../shared/npm';
 // import * as prettier from '../shared/prettier';
 // import * as samplecode from '../shared/samplecode';
-// import * as vscode from '../shared/vscode';
+import * as vscode from '../shared/vscode';
 
 describe('CapServiceProject Builders', (): void => {
   let props: TypeScriptProjectBaseOptions;
@@ -137,6 +137,31 @@ describe('CapServiceProject Builders', (): void => {
 
     test('DevContainer related files are added to .gitattributes and defined as linguist-generated', (): void => {
       devcontainer.testGitAttributes(snapshot);
+    });
+  });
+
+  describe('Visual Studio Code', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('VsCode', project.builderRegistry);
+    });
+    test('VsCode settings are set properly', (): void => {
+      vscode.testSettings(snapshot);
+    });
+
+    test('VsCode launch is set properly', (): void => {
+      vscode.testLaunch(snapshot);
+    });
+
+    test('VsCode tasks are set properly', (): void => {
+      vscode.testTasks(snapshot);
+    });
+
+    test('VsCode related files are added to .gitattributes and defined as linguist-generated', (): void => {
+      const additionalPatterns: RegExp[] = [
+        /\/\.vscode\/launch\.json linguist-generated( $|\s|$)/m,
+        /\/\.vscode\/tasks\.json linguist-generated( $|\s|$)/m,
+      ];
+      vscode.testGitAttributes(snapshot, additionalPatterns);
     });
   });
 });
