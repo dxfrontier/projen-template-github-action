@@ -1,7 +1,7 @@
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 import { TypeScriptProjectBaseOptions } from '../../src/base';
 import { CapServiceProject } from '../../src/cap-service/project';
-import { LintStagedConfig, ProjenStandardScript } from '../../src/types';
+import { LintStagedConfig, ProjenStandardScript, TaskSteps } from '../../src/types';
 import * as commitlint from '../shared/commitlint';
 import * as common from '../shared/common';
 import * as devcontainer from '../shared/devcontainer';
@@ -281,7 +281,11 @@ describe('CapServiceProject Builders', (): void => {
     });
 
     test('Prettier npm scripts are added properly', (): void => {
-      prettier.testScripts(snapshot);
+      const expectedTasks: TaskSteps = {
+        prettier: ['prettier . --write'],
+        'prettier:cds': ['format-cds'],
+      };
+      prettier.testScripts(snapshot, expectedTasks);
     });
 
     test('Ignore patterns matches expected content', (): void => {
@@ -339,7 +343,7 @@ describe('CapServiceProject Builders', (): void => {
 
     test('CommitLint configuration in package.json is set properly', (): void => {
       const expectedConfiguration: LintStagedConfig = {
-        '**/*.{ts,tsx}': ['npm run eslint', 'npm run prettier'],
+        '**/*.{ts,tsx}': ['npm run eslint', 'npm run prettier', 'npm run prettier:cds'],
       };
       expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
     });

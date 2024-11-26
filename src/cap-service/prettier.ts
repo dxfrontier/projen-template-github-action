@@ -1,4 +1,5 @@
 import { PrettierBase, TypeScriptProjectBase } from '../base';
+import { Scripts } from '../types';
 
 /**
  * Prettier builder implementing all relevant configuration for the project.
@@ -31,5 +32,15 @@ export class Prettier extends PrettierBase {
       '/CHANGELOG.md',
     ];
     return [...base, ...elementsToAdd];
+  }
+
+  /**
+   * @override
+   */
+  protected get scripts(): Scripts {
+    return {
+      prettier: 'prettier . --write',
+      'prettier:cds': 'format-cds',
+    };
   }
 }

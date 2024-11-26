@@ -27,12 +27,14 @@ export function testSettings(snapshot: SynthOutput): void {
 /**
  * Validates that npm scripts are added correctly.
  * @param snapshot Synthesized project output.
+ * @param expectedScripts List of scripts that are expected instead of the standard steps.
  */
-export function testScripts(snapshot: SynthOutput): void {
-  const expectedTasks: TaskSteps = {
+export function testScripts(snapshot: SynthOutput, expectedScripts: TaskSteps = {}): void {
+  const standardTasks: TaskSteps = {
     prettier: ['prettier . --write'],
   };
-  common.testScripts(snapshot, expectedTasks);
+  const scripts: TaskSteps = standardTasks.length ? standardTasks : expectedScripts;
+  common.testScripts(snapshot, scripts);
 }
 
 /**

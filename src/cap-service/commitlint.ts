@@ -21,7 +21,7 @@ export class CommitLint extends CommitLintBase {
    */
   protected get npmSettings(): LintStagedConfig {
     return {
-      '**/*.{ts,tsx}': ['npm run eslint', 'npm run prettier'],
+      '**/*.{ts,tsx}': ['npm run eslint', 'npm run prettier', 'npm run prettier:cds'],
     };
   }
 }
