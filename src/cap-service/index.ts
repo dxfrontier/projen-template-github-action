@@ -1,4 +1,4 @@
-// export * from './commitlint';
+export * from './commitlint';
 export * from './devcontainer';
 export * from './github';
 export * from './husky';
