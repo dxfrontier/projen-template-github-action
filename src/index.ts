@@ -1,11 +1,10 @@
 export * from './base';
-// export * from './jsii';
+export * from './jsii';
+// export * from './cap-service';
+// export * from './github-action';
 export * from './types';
 
-// import * as CapServiceProject from './cap-service';
-// import * as GithubActionProject from './github-action';
+import * as CapService from './cap-service';
+import * as GithubAction from './github-action';
 
-// export { GithubActionProject, CapServiceProject };
-
-export { GitHubActionProject } from './github-action';
-export { CapServiceProject } from './cap-service';
+export { GithubAction, CapService };

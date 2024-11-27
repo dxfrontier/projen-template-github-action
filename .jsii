@@ -298,43 +298,6 @@
       ],
       "symbolId": "src/base/builder:Builder"
     },
-    "@dxfrontier/projen-template-projects.CapServiceProject": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.TypeScriptProjectBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "Defines a CAP Service project."
-      },
-      "fqn": "@dxfrontier/projen-template-projects.CapServiceProject",
-      "initializer": {
-        "docs": {
-          "stability": "stable",
-          "summary": "Initializes the Cap Service project."
-        },
-        "locationInModule": {
-          "filename": "src/cap-service/project.ts",
-          "line": 12
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "Additional project options."
-            },
-            "name": "options",
-            "type": {
-              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/cap-service/project.ts",
-        "line": 7
-      },
-      "name": "CapServiceProject",
-      "symbolId": "src/cap-service/project:CapServiceProject"
-    },
     "@dxfrontier/projen-template-projects.CommitLintBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -592,6 +555,85 @@
       ],
       "symbolId": "src/base/commitlint:CommitLintBase"
     },
+    "@dxfrontier/projen-template-projects.CommitLintJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.CommitLintBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "CommitLint builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.CommitLintJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the CommitLint builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/commitlint.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure CommitLint for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/commitlint.ts",
+        "line": 7
+      },
+      "name": "CommitLintJsii",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "Settings to be added to package.json for the CommitLint builder."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/commitlint.ts",
+            "line": 22
+          },
+          "name": "npmSettings",
+          "overrides": "@dxfrontier/projen-template-projects.CommitLintBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "union": {
+                  "types": [
+                    {
+                      "primitive": "string"
+                    },
+                    {
+                      "collection": {
+                        "elementtype": {
+                          "primitive": "string"
+                        },
+                        "kind": "array"
+                      }
+                    }
+                  ]
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/jsii/commitlint:CommitLintJsii"
+    },
     "@dxfrontier/projen-template-projects.DevContainerBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -819,6 +861,44 @@
       ],
       "symbolId": "src/base/devcontainer:DevContainerBase"
     },
+    "@dxfrontier/projen-template-projects.DevContainerJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.DevContainerBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "DevContainer builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.DevContainerJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the DevContainer builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/devcontainer.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure CommitLint for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/devcontainer.ts",
+        "line": 6
+      },
+      "name": "DevContainerJsii",
+      "symbolId": "src/jsii/devcontainer:DevContainerJsii"
+    },
     "@dxfrontier/projen-template-projects.EsLintBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -990,43 +1070,6 @@
         }
       ],
       "symbolId": "src/base/git:GitBase"
-    },
-    "@dxfrontier/projen-template-projects.GitHubActionProject": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.TypeScriptProjectBase",
-      "docs": {
-        "stability": "stable",
-        "summary": "Defines a GitHub Action project."
-      },
-      "fqn": "@dxfrontier/projen-template-projects.GitHubActionProject",
-      "initializer": {
-        "docs": {
-          "stability": "stable",
-          "summary": "Initializes the GitHub Action project."
-        },
-        "locationInModule": {
-          "filename": "src/github-action/project.ts",
-          "line": 13
-        },
-        "parameters": [
-          {
-            "docs": {
-              "summary": "Additional project options."
-            },
-            "name": "options",
-            "type": {
-              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions"
-            }
-          }
-        ]
-      },
-      "kind": "class",
-      "locationInModule": {
-        "filename": "src/github-action/project.ts",
-        "line": 8
-      },
-      "name": "GitHubActionProject",
-      "symbolId": "src/github-action/project:GitHubActionProject"
     },
     "@dxfrontier/projen-template-projects.GitHubBase": {
       "abstract": true,
@@ -1511,6 +1554,44 @@
       ],
       "symbolId": "src/base/github:GitHubBase"
     },
+    "@dxfrontier/projen-template-projects.GitHubJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.GitHubBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "GitHub builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.GitHubJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the GitHub builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/github.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure GitHub for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/github.ts",
+        "line": 6
+      },
+      "name": "GitHubJsii",
+      "symbolId": "src/jsii/github:GitHubJsii"
+    },
     "@dxfrontier/projen-template-projects.HuskyBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -1788,6 +1869,44 @@
       ],
       "symbolId": "src/base/husky:HuskyBase"
     },
+    "@dxfrontier/projen-template-projects.HuskyJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.HuskyBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Husky builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.HuskyJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the Husky builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/husky.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure Husky for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/husky.ts",
+        "line": 6
+      },
+      "name": "HuskyJsii",
+      "symbolId": "src/jsii/husky:HuskyJsii"
+    },
     "@dxfrontier/projen-template-projects.NpmPackageBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -1997,6 +2116,114 @@
         }
       ],
       "symbolId": "src/base/npm:NpmPackageBase"
+    },
+    "@dxfrontier/projen-template-projects.NpmPackageJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.NpmPackageBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "NPM Package builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.NpmPackageJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the NPM Package builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/npm.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure NPM Package for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/npm.ts",
+        "line": 6
+      },
+      "methods": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "Installs development dependencies for the builder in the project."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/npm.ts",
+            "line": 35
+          },
+          "name": "addDevDependencies",
+          "overrides": "@dxfrontier/projen-template-projects.NpmPackageBase",
+          "protected": true
+        }
+      ],
+      "name": "NpmPackageJsii",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "File paths for the .gitattributes file entries. These entries are not added automatically by projen and we have not extra builder for these. So we handle them here."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/npm.ts",
+            "line": 21
+          },
+          "name": "gitAttributesFilePaths",
+          "overrides": "@dxfrontier/projen-template-projects.NpmPackageBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "NPM file paths to be packaged for the NPM Package."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/npm.ts",
+            "line": 28
+          },
+          "name": "npmFilePaths",
+          "overrides": "@dxfrontier/projen-template-projects.NpmPackageBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/jsii/npm:NpmPackageJsii"
     },
     "@dxfrontier/projen-template-projects.PrettierBase": {
       "abstract": true,
@@ -2228,6 +2455,71 @@
         }
       ],
       "symbolId": "src/base/prettier:PrettierBase"
+    },
+    "@dxfrontier/projen-template-projects.PrettierJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.PrettierBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Prettier builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.PrettierJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the Prettier builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/prettier.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure Prettier for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/prettier.ts",
+        "line": 6
+      },
+      "name": "PrettierJsii",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "File paths to the Prettier ignore entries."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/prettier.ts",
+            "line": 21
+          },
+          "name": "ignoreFilePaths",
+          "overrides": "@dxfrontier/projen-template-projects.PrettierBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/jsii/prettier:PrettierJsii"
     },
     "@dxfrontier/projen-template-projects.TypeScriptProjectBase": {
       "abstract": true,
@@ -2502,8 +2794,46 @@
         }
       ],
       "symbolId": "src/base/vscode:VsCodeBase"
+    },
+    "@dxfrontier/projen-template-projects.VsCodeJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.VsCodeBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "VsCode builder implementing all relevant configuration for the Jsii project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.VsCodeJsii",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the VsCode builder."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/vscode.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure VsCode Package for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/vscode.ts",
+        "line": 6
+      },
+      "name": "VsCodeJsii",
+      "symbolId": "src/jsii/vscode:VsCodeJsii"
     }
   },
   "version": "0.0.0",
-  "fingerprint": "vbGxyxNLJz07Gg5+P3g1sWA3/1InwUHLCjQ9k4xaOVM="
+  "fingerprint": "+K0Eh+XITWjb5eWI6BW0Gbhou5cI8F8qvEIW82vT6VQ="
 }
