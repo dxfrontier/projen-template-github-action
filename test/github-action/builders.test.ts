@@ -267,7 +267,37 @@ describe('GitHubActionsProject Builders', (): void => {
     });
 
     test('Sample action file matches expected file templates', (): void => {
-      samplecode.testSampleFilesTemplates(snapshot);
+      const expectedTemplateLines: string[] = [
+        "name: 'My Custom Composite Action'",
+        "description: 'A sample GitHub composite action created with Projen.'",
+        "author: 'Your Name or Org'",
+        'branding:',
+        "  icon: 'zap'",
+        "  color: 'blue'",
+        '',
+        'inputs:',
+        '  example-input:',
+        "    description: 'An example input parameter for the action.'",
+        '    required: false',
+        "    default: 'default value'",
+        '',
+        'outputs:',
+        '  example-output:',
+        "    description: 'An example output from the action.'",
+        '',
+        'runs:',
+        "  using: 'composite'",
+        '  steps:',
+        "    - name: 'Step 1'",
+        "      run: echo 'Running Step 1 with input: ${{ inputs.example-input }}'",
+        '',
+        "    - name: 'Step 2'",
+        "      run: echo 'Running Step 2'",
+        '',
+        'env:',
+        "  EXAMPLE_ENV_VAR: 'example-value'",
+      ];
+      samplecode.testSampleFilesTemplates(snapshot, 'action.yml', expectedTemplateLines);
     });
   });
 });
