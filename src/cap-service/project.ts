@@ -1,5 +1,13 @@
 import { TypeScriptProjectBase, TypeScriptProjectBaseOptions } from '../base';
-import { CommitLint, DevContainer, EsLint, Git, GitHub, Husky, NpmPackage, Prettier, VsCode } from './';
+import { CommitLint } from './commitlint';
+import { DevContainer } from './devcontainer';
+import { EsLint } from './eslint';
+import { Git } from './git';
+import { GitHub } from './github';
+import { Husky } from './husky';
+import { NpmPackage } from './npm';
+import { Prettier } from './prettier';
+import { VsCode } from './vscode';
 
 /**
  * Defines a CAP Service project.

@@ -1,5 +1,11 @@
-import { DevContainer, GitHub, Husky, NpmPackage, SampleCode, VsCode, Prettier } from './';
 import { CommitLint } from './commitlint';
+import { DevContainer } from './devcontainer';
+import { GitHub } from './github';
+import { Husky } from './husky';
+import { NpmPackage } from './npm';
+import { Prettier } from './prettier';
+import { SampleCode } from './samplecode';
+import { VsCode } from './vscode';
 import { TypeScriptProjectBase, TypeScriptProjectBaseOptions } from '../base/project';
 
 /**
