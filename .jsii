@@ -313,7 +313,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/project.ts",
-          "line": 20
+          "line": 25
         },
         "parameters": [
           {
@@ -322,7 +322,7 @@
             },
             "name": "options",
             "type": {
-              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions"
+              "fqn": "@dxfrontier/projen-template-projects.CapServiceProjectOptions"
             }
           }
         ]
@@ -330,10 +330,46 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 15
+        "line": 20
       },
       "name": "CapServiceProject",
       "symbolId": "src/cap-service/project:CapServiceProject"
+    },
+    "@dxfrontier/projen-template-projects.CapServiceProjectOptions": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "datatype": true,
+      "docs": {
+        "stability": "stable"
+      },
+      "fqn": "@dxfrontier/projen-template-projects.CapServiceProjectOptions",
+      "interfaces": [
+        "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/cap-service/project.ts",
+        "line": 13
+      },
+      "name": "CapServiceProjectOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "stable"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/project.ts",
+            "line": 14
+          },
+          "name": "entityName",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/project:CapServiceProjectOptions"
     },
     "@dxfrontier/projen-template-projects.CommitLint": {
       "assembly": "@dxfrontier/projen-template-projects",
@@ -3170,7 +3206,7 @@
         },
         "locationInModule": {
           "filename": "src/base/project.ts",
-          "line": 21
+          "line": 18
         },
         "parameters": [
           {
@@ -3187,7 +3223,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/project.ts",
-        "line": 14
+        "line": 11
       },
       "methods": [
         {
@@ -3198,7 +3234,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 63
+            "line": 60
           },
           "name": "findBuilderByName",
           "parameters": [
@@ -3231,7 +3267,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 82
+            "line": 79
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -3247,7 +3283,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 71
+            "line": 68
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -3262,7 +3298,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 54
+            "line": 51
           },
           "name": "registerBuilder",
           "parameters": [
@@ -3286,7 +3322,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 15
+            "line": 12
           },
           "name": "builderRegistry",
           "type": {
@@ -3314,7 +3350,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/base/project.ts",
-        "line": 8
+        "line": 5
       },
       "name": "TypeScriptProjectBaseOptions",
       "symbolId": "src/base/project:TypeScriptProjectBaseOptions"
@@ -3503,5 +3539,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "CAXa4eOUSyBtqc6qUQL9nOE+uq8AxhtciU2L043/nio="
+  "fingerprint": "PrQj9GzV9LR8mHGQPwkhByQtVgMx7ADRbIhVeAb7OQU="
 }

@@ -1,6 +1,6 @@
 import { JsonFileOptions } from 'projen';
-import { VsCodeLaunchConfigurationEntry } from 'projen/lib/vscode';
 import { VsCodeBase, TypeScriptProjectBase } from '../base';
+import { LaunchSetting } from '../types';
 /**
  * VsCode builder implementing all relevant configuration for the project.
  */
@@ -25,11 +25,11 @@ export declare class VsCode extends VsCodeBase {
      */
     protected get tasksFilePath(): string;
     /**
-     * Settings to be installed in VsCode.
-     * @return Entries for the launch file.
+     * Template file for VsCode launch config.
+     * @return Template for the config file.
      * @protected
      */
-    protected get launch(): VsCodeLaunchConfigurationEntry;
+    protected get launchTemplate(): LaunchSetting;
     /**
      * Template file for VsCode tasks config.
      * @return Template for the config file.
@@ -42,6 +42,7 @@ export declare class VsCode extends VsCodeBase {
     protected addTemplates(): void;
     /**
      * @override
+     *
      */
     protected addSettings(): void;
 }

@@ -26,3 +26,7 @@ export type TaskSteps = {
  * Options for github workflows
  */
 export type WorkflowOptions = Record<string, any>;
+/**
+ * Settings for VsCode launch file
+ */
+export type LaunchSetting = Record<string, unknown>;
