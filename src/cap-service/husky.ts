@@ -36,9 +36,9 @@ export class Husky extends HuskyBase {
 
   /**
    * Creates the template file for the Husky pre-push hook.
-   * @private
+   * @protected
    */
-  private createPrePushHook(): void {
+  protected createPrePushHook(): void {
     new TextFile(this.project, this.prePushFilePath, {
       lines: this.prePushTemplate,
     });

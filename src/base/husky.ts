@@ -78,9 +78,9 @@ export abstract class HuskyBase extends Builder {
 
   /**
    * Creates the template file for the Husky commit-msg hook.
-   * @private
+   * @protected
    */
-  private createCommitMsgHook(): void {
+  protected createCommitMsgHook(): void {
     new TextFile(this.project, this.commitMsgFilePath, {
       lines: this.commitMsgTemplate,
     });
@@ -88,9 +88,9 @@ export abstract class HuskyBase extends Builder {
 
   /**
    * Creates the template file for the Husky pre-commit hook.
-   * @private
+   * @protected
    */
-  private createPreCommitHook(): void {
+  protected createPreCommitHook(): void {
     new TextFile(this.project, this.preCommitFilePath, {
       lines: this.preCommitTemplate,
     });

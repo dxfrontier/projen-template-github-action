@@ -385,9 +385,9 @@ export abstract class GitHubBase extends Builder {
 
   /**
    * Creates the template file for a GitHub pull request.
-   * @private
+   * @protected
    */
-  private createPullRequest(): void {
+  protected createPullRequest(): void {
     new PullRequestTemplate(this.project.github!, {
       lines: this.pullRequestTemplate,
     });
@@ -395,9 +395,9 @@ export abstract class GitHubBase extends Builder {
 
   /**
    * Creates the template file for a GitHub bug issue.
-   * @private
+   * @protected
    */
-  private createBugIssue(): void {
+  protected createBugIssue(): void {
     new TextFile(this.project, this.bugIssueFilePath, {
       lines: this.bugIssueTemplate,
     });
@@ -405,9 +405,9 @@ export abstract class GitHubBase extends Builder {
 
   /**
    * Creates the template file for a GitHub feature issue.
-   * @private
+   * @protected
    */
-  private createFeatureIssue(): void {
+  protected createFeatureIssue(): void {
     new TextFile(this.project, this.featureIssueFilePath, {
       lines: this.featureIssueTemplate,
     });
@@ -415,9 +415,9 @@ export abstract class GitHubBase extends Builder {
 
   /**
    * Creates the template file for a GitHub housekeeping issue.
-   * @private
+   * @protected
    */
-  private createHousekeepingIssue(): void {
+  protected createHousekeepingIssue(): void {
     new TextFile(this.project, this.housekeepingIssueFilePath, {
       lines: this.housekeepingIssueTemplate,
     });
@@ -425,9 +425,9 @@ export abstract class GitHubBase extends Builder {
 
   /**
    * Creates the template file for a GitHub question issue.
-   * @private
+   * @protected
    */
-  private createQuestionIssue(): void {
+  protected createQuestionIssue(): void {
     new TextFile(this.project, this.questionIssueFilePath, {
       lines: this.questionIssueTemplate,
     });
@@ -435,9 +435,9 @@ export abstract class GitHubBase extends Builder {
 
   /**
    * Creates the template file for a GitHub release workflow.
-   * @private
+   * @protected
    */
-  private createReleaseWorkflow(): void {
+  protected createReleaseWorkflow(): void {
     const workflow: GithubWorkflow | undefined = this.project.github?.addWorkflow('Release');
     workflow?.on(this.releaseWorkflowOptions.on);
     workflow?.addJob('release', this.releaseWorkflowOptions.job);
@@ -445,9 +445,9 @@ export abstract class GitHubBase extends Builder {
 
   /**
    * Creates the template file for a GitHub stale workflow.
-   * @private
+   * @protected
    */
-  private createStaleWorkflow(): void {
+  protected createStaleWorkflow(): void {
     const workflow: GithubWorkflow | undefined = this.project.github?.addWorkflow('Stale');
     workflow?.on(this.staleWorkflowOptions.on);
     workflow?.addJob('stale', this.staleWorkflowOptions.job);
@@ -455,9 +455,9 @@ export abstract class GitHubBase extends Builder {
 
   /**
    * Creates the configuration file for the cliff toml CHANGELOG creation in release workflow.
-   * @private
+   * @protected
    */
-  private createCliffTomlConfiguration(): void {
+  protected createCliffTomlConfiguration(): void {
     new TextFile(this.project, this.cliffTomlFilePath, {
       lines: this.cliffTomlConfiguration,
     });

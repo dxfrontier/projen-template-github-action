@@ -120,9 +120,9 @@ export class GitHub extends GitHubBase {
 
   /**
    * Creates the template file for a GitHub story issue.
-   * @private
+   * @protected
    */
-  private createStoryIssue(): void {
+  protected createStoryIssue(): void {
     new TextFile(this.project, this.storyIssueFilePath, {
       lines: this.storyIssueTemplate,
     });
