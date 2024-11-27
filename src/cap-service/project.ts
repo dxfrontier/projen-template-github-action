@@ -12,7 +12,18 @@ export class CapServiceProject extends TypeScriptProjectBase {
   constructor(options: TypeScriptProjectBaseOptions) {
     super({
       ...options,
-      // additional settings here
+      disableTsconfigDev: true,
+      // these settings cannot be set by a TypeScript builder later
+      tsconfig: {
+        include: ['./srv', './@dispatcher'],
+        compilerOptions: {
+          rootDir: '.',
+          outDir: './gen/srv',
+          paths: {
+            '#cds-models/*': ['./@cds-models/*/index.ts'],
+          },
+        },
+      },
     });
 
     new NpmPackage(this);

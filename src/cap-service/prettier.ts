@@ -31,7 +31,10 @@ export class Prettier extends PrettierBase {
       '/dist',
       '/CHANGELOG.md',
     ];
-    return [...base, ...elementsToAdd];
+
+    const elements: string[] = [...base, ...elementsToAdd];
+    const elementsToRemove: string[] = ['/tsconfig.dev.json'];
+    return elements.filter((file: string): boolean => !elementsToRemove.includes(file));
   }
 
   /**
