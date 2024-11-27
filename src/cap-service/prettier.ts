@@ -23,6 +23,7 @@ export class Prettier extends PrettierBase {
     const base: string[] = super.ignoreFilePaths;
     const elementsToAdd: string[] = [
       '/.github/ISSUE_TEMPLATE/story.yml',
+      '/.github/workflows/deployment.yml',
       '/.husky/pre-push',
       '/.vscode/launch.json',
       '/.vscode/tasks.json',
@@ -33,7 +34,7 @@ export class Prettier extends PrettierBase {
     ];
 
     const elements: string[] = [...base, ...elementsToAdd];
-    const elementsToRemove: string[] = ['/tsconfig.dev.json'];
+    const elementsToRemove: string[] = ['/tsconfig.dev.json', '/.github/workflows/stale.yml'];
     return elements.filter((file: string): boolean => !elementsToRemove.includes(file));
   }
 

@@ -1,5 +1,8 @@
 import { TextFile } from 'projen';
+import { GithubWorkflow } from 'projen/lib/github';
+import { JobPermission } from 'projen/lib/github/workflows-model';
 import { GitHubBase, TypeScriptProjectBase } from '../base';
+import { WorkflowOptions } from '../types';
 
 /**
  * GitHub builder implementing all relevant configuration for the project.
@@ -119,6 +122,79 @@ export class GitHub extends GitHubBase {
   }
 
   /**
+   * @override
+   */
+  protected get releaseWorkflowOptions(): WorkflowOptions {
+    return {
+      on: {
+        pullRequest: {
+          branches: ['dev'],
+          types: ['closed'],
+        },
+      },
+      job: {
+        runsOn: ['ubuntu-latest'],
+        permissions: {
+          contents: JobPermission.WRITE,
+          pullRequests: JobPermission.WRITE,
+        },
+        steps: [
+          {
+            name: 'Bump version and create release',
+            uses: 'dxfrontier/gh-action-release@main',
+            with: {
+              GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
+              BRANCH: 'dev',
+            },
+          },
+        ],
+      },
+    };
+  }
+
+  /**
+   * Workflow deployment template options for the GitHub configuration.
+   * @return Options for deployment workflow
+   * @protected
+   */
+  protected get deploymentWorkflowOptions(): WorkflowOptions {
+    return {
+      on: {
+        pullRequest: {
+          branches: ['dev'],
+          types: ['closed'],
+        },
+      },
+      job: {
+        runsOn: ['ubuntu-latest'],
+        permissions: {
+          contents: JobPermission.WRITE,
+          pullRequests: JobPermission.WRITE,
+        },
+        steps: [
+          {
+            name: 'Deploy to Cloud Foundry',
+            uses: 'dxfrontier/gh-action-deploy-cf@main',
+            with: {
+              CF_IAS_ORIGIN: '${{ secrets.IAS_ORIGIN }}',
+              CF_API_DEV: '${{ secrets.CF_API_DEV }}',
+              CF_ORG_DEV: '${{ secrets.CF_ORG_DEV }}',
+              CF_SPACE_DEV: '${{ secrets.CF_SPACE_DEV }}',
+              CF_USERNAME_DEV: '${{ secrets.CF_USERNAME_DEV }}',
+              CF_PASSWORD_DEV: '${{ secrets.CF_PASSWORD_DEV }}',
+              CF_API_PROD: '${{ secrets.CF_API_PROD }}',
+              CF_ORG_PROD: '${{ secrets.CF_ORG_PROD }}',
+              CF_SPACE_PROD: '${{ secrets.CF_SPACE_PROD }}',
+              CF_USERNAME_PROD: '${{ secrets.CF_USERNAME_PROD }}',
+              CF_PASSWORD_PROD: '${{ secrets.CF_PASSWORD_PROD }}',
+            },
+          },
+        ],
+      },
+    };
+  }
+
+  /**
    * Creates the template file for a GitHub story issue.
    * @protected
    */
@@ -131,8 +207,24 @@ export class GitHub extends GitHubBase {
   /**
    * @override
    */
+  protected createStaleWorkflow(): void {}
+
+  /**
+   * Creates the template file for a GitHub deployment workflow.
+   * @protected
+   */
+  protected createDeploymentWorkflow(): void {
+    const workflow: GithubWorkflow | undefined = this.project.github?.addWorkflow('Deployment');
+    workflow?.on(this.deploymentWorkflowOptions.on);
+    workflow?.addJob('deploy', this.deploymentWorkflowOptions.job);
+  }
+
+  /**
+   * @override
+   */
   protected addTemplates(): void {
     super.addTemplates();
     this.createStoryIssue();
+    this.createDeploymentWorkflow();
   }
 }
