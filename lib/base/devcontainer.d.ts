@@ -49,6 +49,12 @@ export declare abstract class DevContainerBase extends Builder {
      * @protected
      */
     protected get scripts(): Scripts;
+    /**
+     * @override
+     */
     protected addTemplates(): void;
+    /**
+     * @override
+     */
     protected addScripts(): void;
 }

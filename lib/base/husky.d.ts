@@ -49,15 +49,24 @@ export declare abstract class HuskyBase extends Builder {
     protected get devDependencies(): string[];
     /**
      * Creates the template file for the Husky commit-msg hook.
-     * @private
+     * @protected
      */
-    private createCommitMsgHook;
+    protected createCommitMsgHook(): void;
     /**
      * Creates the template file for the Husky pre-commit hook.
-     * @private
+     * @protected
      */
-    private createPreCommitHook;
+    protected createPreCommitHook(): void;
+    /**
+     * @override
+     */
     protected addTemplates(): void;
+    /**
+     * @override
+     */
     protected addScripts(): void;
+    /**
+     * @override
+     */
     protected addDevDependencies(): void;
 }

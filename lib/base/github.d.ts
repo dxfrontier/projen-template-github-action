@@ -93,43 +93,46 @@ export declare abstract class GitHubBase extends Builder {
     protected get staleWorkflowOptions(): WorkflowOptions;
     /**
      * Creates the template file for a GitHub pull request.
-     * @private
+     * @protected
      */
-    private createPullRequest;
+    protected createPullRequest(): void;
     /**
      * Creates the template file for a GitHub bug issue.
-     * @private
+     * @protected
      */
-    private createBugIssue;
+    protected createBugIssue(): void;
     /**
      * Creates the template file for a GitHub feature issue.
-     * @private
+     * @protected
      */
-    private createFeatureIssue;
+    protected createFeatureIssue(): void;
     /**
      * Creates the template file for a GitHub housekeeping issue.
-     * @private
+     * @protected
      */
-    private createHousekeepingIssue;
+    protected createHousekeepingIssue(): void;
     /**
      * Creates the template file for a GitHub question issue.
-     * @private
+     * @protected
      */
-    private createQuestionIssue;
+    protected createQuestionIssue(): void;
     /**
      * Creates the template file for a GitHub release workflow.
-     * @private
+     * @protected
      */
-    private createReleaseWorkflow;
+    protected createReleaseWorkflow(): void;
     /**
      * Creates the template file for a GitHub stale workflow.
-     * @private
+     * @protected
      */
-    private createStaleWorkflow;
+    protected createStaleWorkflow(): void;
     /**
      * Creates the configuration file for the cliff toml CHANGELOG creation in release workflow.
-     * @private
+     * @protected
      */
-    private createCliffTomlConfiguration;
+    protected createCliffTomlConfiguration(): void;
+    /**
+     * @override
+     */
     protected addTemplates(): void;
 }

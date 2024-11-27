@@ -1,4 +1,4 @@
 export * from './base';
-export * from './jsii';
-export * from './github-action';
 export * from './types';
+export { GitHubActionProject } from './github-action';
+export { CapServiceProject } from './cap-service';

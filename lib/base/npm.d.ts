@@ -50,6 +50,9 @@ export declare abstract class NpmPackageBase extends Builder {
      * @protected
      */
     protected removeScripts(): void;
+    /**
+     * @override
+     */
     protected addGitAttributes(): void;
     /**
      * @override

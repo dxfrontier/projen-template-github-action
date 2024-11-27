@@ -41,8 +41,20 @@ export declare abstract class CommitLintBase extends Builder {
      * @protected
      */
     protected get npmSettings(): LintStagedConfig;
+    /**
+     * @override
+     */
     protected addTemplates(): void;
+    /**
+     * @override
+     */
     protected addSettings(): void;
+    /**
+     * @override
+     */
     protected addScripts(): void;
+    /**
+     * @override
+     */
     protected addDevDependencies(): void;
 }

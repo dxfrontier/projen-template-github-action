@@ -42,7 +42,13 @@ export declare abstract class PrettierBase extends Builder {
      * @protected
      */
     protected get scripts(): Scripts;
+    /**
+     * @override
+     */
     protected addSettings(): void;
+    /**
+     * @override
+     */
     protected addScripts(): void;
     /**
      * Executes post-synthesis tasks, focusing on updating the `.prettierignore` file with paths from `.gitattributes`.
@@ -58,10 +64,13 @@ export declare abstract class PrettierBase extends Builder {
      *
      * We will update it manually and cover it by tests cases checking if changes on the files are reflected here.
      */
+    /**
+     * @override
+     */
     preSynthesize(): void;
     /**
      * Adds entries to the `.prettierignore` file.
-     * @private
+     * @protected
      */
     protected addPrettierIgnoreEntries(): void;
 }
