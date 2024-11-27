@@ -1,0 +1,10 @@
+export { CommitLint as CommitLintCS } from './commitlint';
+export { DevContainer as DevContainerCS } from './devcontainer';
+export { EsLint as EsLintCS } from './eslint';
+export { Git as GitCS } from './git';
+export { GitHub as GitHubCS } from './github';
+export { Husky as HuskyCS } from './husky';
+export { NpmPackage as NpmPackageCS } from './npm';
+export { Prettier as PrettierCS } from './prettier';
+export { CapServiceProject } from './project';
+export { VsCode as VsCodeCS } from './vscode';

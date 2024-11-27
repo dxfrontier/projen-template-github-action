@@ -2,6 +2,3114 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### CapServiceProject <a name="CapServiceProject" id="@dxfrontier/projen-template-projects.CapServiceProject"></a>
+
+Defines a CAP Service project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.CapServiceProject.Initializer"></a>
+
+```typescript
+import { CapServiceProject } from '@dxfrontier/projen-template-projects'
+
+new CapServiceProject(options: TypeScriptProjectBaseOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.Initializer.parameter.options">options</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions">TypeScriptProjectBaseOptions</a></code> | Additional project options. |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="@dxfrontier/projen-template-projects.CapServiceProject.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions">TypeScriptProjectBaseOptions</a>
+
+Additional project options.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.findBuilderByName">findBuilderByName</a></code> | Finds a builder in the registry by its constructor name. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.registerBuilder">registerBuilder</a></code> | Register a builder to be managed by this project. |
+
+---
+
+##### `toString` <a name="toString" id="@dxfrontier/projen-template-projects.CapServiceProject.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@dxfrontier/projen-template-projects.CapServiceProject.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: ...string[]): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="@dxfrontier/projen-template-projects.CapServiceProject.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* ...string[]
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="@dxfrontier/projen-template-projects.CapServiceProject.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@dxfrontier/projen-template-projects.CapServiceProject.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="@dxfrontier/projen-template-projects.CapServiceProject.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Adds patterns to be ignored by npm.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@dxfrontier/projen-template-projects.CapServiceProject.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The pattern to ignore.
+
+---
+
+##### `addTask` <a name="addTask" id="@dxfrontier/projen-template-projects.CapServiceProject.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.CapServiceProject.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@dxfrontier/projen-template-projects.CapServiceProject.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="@dxfrontier/projen-template-projects.CapServiceProject.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="@dxfrontier/projen-template-projects.CapServiceProject.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="@dxfrontier/projen-template-projects.CapServiceProject.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="@dxfrontier/projen-template-projects.CapServiceProject.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.CapServiceProject.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.CapServiceProject.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="@dxfrontier/projen-template-projects.CapServiceProject.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.CapServiceProject.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="@dxfrontier/projen-template-projects.CapServiceProject.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="@dxfrontier/projen-template-projects.CapServiceProject.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="@dxfrontier/projen-template-projects.CapServiceProject.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="@dxfrontier/projen-template-projects.CapServiceProject.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@dxfrontier/projen-template-projects.CapServiceProject.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="@dxfrontier/projen-template-projects.CapServiceProject.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@dxfrontier/projen-template-projects.CapServiceProject.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="@dxfrontier/projen-template-projects.CapServiceProject.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@dxfrontier/projen-template-projects.CapServiceProject.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="@dxfrontier/projen-template-projects.CapServiceProject.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@dxfrontier/projen-template-projects.CapServiceProject.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="@dxfrontier/projen-template-projects.CapServiceProject.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="@dxfrontier/projen-template-projects.CapServiceProject.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="@dxfrontier/projen-template-projects.CapServiceProject.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: ...string[]): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.CapServiceProject.addBundledDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="@dxfrontier/projen-template-projects.CapServiceProject.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: ...string[]): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="@dxfrontier/projen-template-projects.CapServiceProject.addCompileCommand.parameter.commands"></a>
+
+- *Type:* ...string[]
+
+---
+
+##### `addDeps` <a name="addDeps" id="@dxfrontier/projen-template-projects.CapServiceProject.addDeps"></a>
+
+```typescript
+public addDeps(deps: ...string[]): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.CapServiceProject.addDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="@dxfrontier/projen-template-projects.CapServiceProject.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: ...string[]): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.CapServiceProject.addDevDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="@dxfrontier/projen-template-projects.CapServiceProject.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="@dxfrontier/projen-template-projects.CapServiceProject.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="@dxfrontier/projen-template-projects.CapServiceProject.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: ...string[]): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="@dxfrontier/projen-template-projects.CapServiceProject.addKeywords.parameter.keywords"></a>
+
+- *Type:* ...string[]
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="@dxfrontier/projen-template-projects.CapServiceProject.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: ...string[]): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.CapServiceProject.addPeerDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="@dxfrontier/projen-template-projects.CapServiceProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="@dxfrontier/projen-template-projects.CapServiceProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="@dxfrontier/projen-template-projects.CapServiceProject.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: ...string[]): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="@dxfrontier/projen-template-projects.CapServiceProject.addTestCommand.parameter.commands"></a>
+
+- *Type:* ...string[]
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="@dxfrontier/projen-template-projects.CapServiceProject.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.CapServiceProject.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="@dxfrontier/projen-template-projects.CapServiceProject.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.CapServiceProject.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="@dxfrontier/projen-template-projects.CapServiceProject.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="@dxfrontier/projen-template-projects.CapServiceProject.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="@dxfrontier/projen-template-projects.CapServiceProject.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.CapServiceProject.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="@dxfrontier/projen-template-projects.CapServiceProject.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+##### `findBuilderByName` <a name="findBuilderByName" id="@dxfrontier/projen-template-projects.CapServiceProject.findBuilderByName"></a>
+
+```typescript
+public findBuilderByName(name: string): Builder
+```
+
+Finds a builder in the registry by its constructor name.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.CapServiceProject.findBuilderByName.parameter.name"></a>
+
+- *Type:* string
+
+The name of the builder to search for.
+
+---
+
+##### `registerBuilder` <a name="registerBuilder" id="@dxfrontier/projen-template-projects.CapServiceProject.registerBuilder"></a>
+
+```typescript
+public registerBuilder(builder: Builder): void
+```
+
+Register a builder to be managed by this project.
+
+###### `builder`<sup>Required</sup> <a name="builder" id="@dxfrontier/projen-template-projects.CapServiceProject.registerBuilder.parameter.builder"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.Builder">Builder</a>
+
+The builder to register (must extend BaseBuilder).
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@dxfrontier/projen-template-projects.CapServiceProject.isConstruct"></a>
+
+```typescript
+import { CapServiceProject } from '@dxfrontier/projen-template-projects'
+
+CapServiceProject.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.CapServiceProject.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="@dxfrontier/projen-template-projects.CapServiceProject.isProject"></a>
+
+```typescript
+import { CapServiceProject } from '@dxfrontier/projen-template-projects'
+
+CapServiceProject.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.CapServiceProject.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="@dxfrontier/projen-template-projects.CapServiceProject.of"></a>
+
+```typescript
+import { CapServiceProject } from '@dxfrontier/projen-template-projects'
+
+CapServiceProject.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@dxfrontier/projen-template-projects.CapServiceProject.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version supported by this package. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | The minimum node version required by this package to function. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.builderRegistry">builderRegistry</a></code> | <code><a href="#@dxfrontier/projen-template-projects.Builder">Builder</a>[]</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@dxfrontier/projen-template-projects.CapServiceProject.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="@dxfrontier/projen-template-projects.CapServiceProject.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="@dxfrontier/projen-template-projects.CapServiceProject.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="@dxfrontier/projen-template-projects.CapServiceProject.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="@dxfrontier/projen-template-projects.CapServiceProject.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.CapServiceProject.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="@dxfrontier/projen-template-projects.CapServiceProject.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="@dxfrontier/projen-template-projects.CapServiceProject.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="@dxfrontier/projen-template-projects.CapServiceProject.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="@dxfrontier/projen-template-projects.CapServiceProject.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="@dxfrontier/projen-template-projects.CapServiceProject.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.CapServiceProject.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="@dxfrontier/projen-template-projects.CapServiceProject.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="@dxfrontier/projen-template-projects.CapServiceProject.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="@dxfrontier/projen-template-projects.CapServiceProject.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="@dxfrontier/projen-template-projects.CapServiceProject.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="@dxfrontier/projen-template-projects.CapServiceProject.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="@dxfrontier/projen-template-projects.CapServiceProject.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="@dxfrontier/projen-template-projects.CapServiceProject.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="@dxfrontier/projen-template-projects.CapServiceProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="@dxfrontier/projen-template-projects.CapServiceProject.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="@dxfrontier/projen-template-projects.CapServiceProject.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="@dxfrontier/projen-template-projects.CapServiceProject.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="@dxfrontier/projen-template-projects.CapServiceProject.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="@dxfrontier/projen-template-projects.CapServiceProject.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="@dxfrontier/projen-template-projects.CapServiceProject.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="@dxfrontier/projen-template-projects.CapServiceProject.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="@dxfrontier/projen-template-projects.CapServiceProject.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="@dxfrontier/projen-template-projects.CapServiceProject.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="@dxfrontier/projen-template-projects.CapServiceProject.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="@dxfrontier/projen-template-projects.CapServiceProject.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="@dxfrontier/projen-template-projects.CapServiceProject.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="@dxfrontier/projen-template-projects.CapServiceProject.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="@dxfrontier/projen-template-projects.CapServiceProject.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="@dxfrontier/projen-template-projects.CapServiceProject.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="@dxfrontier/projen-template-projects.CapServiceProject.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="@dxfrontier/projen-template-projects.CapServiceProject.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="@dxfrontier/projen-template-projects.CapServiceProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="@dxfrontier/projen-template-projects.CapServiceProject.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="@dxfrontier/projen-template-projects.CapServiceProject.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="@dxfrontier/projen-template-projects.CapServiceProject.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="@dxfrontier/projen-template-projects.CapServiceProject.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="@dxfrontier/projen-template-projects.CapServiceProject.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="@dxfrontier/projen-template-projects.CapServiceProject.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="@dxfrontier/projen-template-projects.CapServiceProject.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="@dxfrontier/projen-template-projects.CapServiceProject.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version supported by this package.
+
+The value indicates the package is incompatible with newer versions.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="@dxfrontier/projen-template-projects.CapServiceProject.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+The minimum node version required by this package to function.
+
+This value indicates the package is incompatible with older versions.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="@dxfrontier/projen-template-projects.CapServiceProject.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="@dxfrontier/projen-template-projects.CapServiceProject.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="@dxfrontier/projen-template-projects.CapServiceProject.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="@dxfrontier/projen-template-projects.CapServiceProject.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="@dxfrontier/projen-template-projects.CapServiceProject.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="@dxfrontier/projen-template-projects.CapServiceProject.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="@dxfrontier/projen-template-projects.CapServiceProject.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="@dxfrontier/projen-template-projects.CapServiceProject.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="@dxfrontier/projen-template-projects.CapServiceProject.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="@dxfrontier/projen-template-projects.CapServiceProject.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="@dxfrontier/projen-template-projects.CapServiceProject.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="@dxfrontier/projen-template-projects.CapServiceProject.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="@dxfrontier/projen-template-projects.CapServiceProject.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="@dxfrontier/projen-template-projects.CapServiceProject.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="@dxfrontier/projen-template-projects.CapServiceProject.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `builderRegistry`<sup>Required</sup> <a name="builderRegistry" id="@dxfrontier/projen-template-projects.CapServiceProject.property.builderRegistry"></a>
+
+```typescript
+public readonly builderRegistry: Builder[];
+```
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.Builder">Builder</a>[]
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.DEFAULT_TS_JEST_TRANFORM_PATTERN">DEFAULT_TS_JEST_TRANFORM_PATTERN</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="@dxfrontier/projen-template-projects.CapServiceProject.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+##### `DEFAULT_TS_JEST_TRANFORM_PATTERN`<sup>Required</sup> <a name="DEFAULT_TS_JEST_TRANFORM_PATTERN" id="@dxfrontier/projen-template-projects.CapServiceProject.property.DEFAULT_TS_JEST_TRANFORM_PATTERN"></a>
+
+```typescript
+public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
+```
+
+- *Type:* string
+
+---
+
+### GitHubActionProject <a name="GitHubActionProject" id="@dxfrontier/projen-template-projects.GitHubActionProject"></a>
+
+Defines a GitHub Action project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.GitHubActionProject.Initializer"></a>
+
+```typescript
+import { GitHubActionProject } from '@dxfrontier/projen-template-projects'
+
+new GitHubActionProject(options: TypeScriptProjectBaseOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.Initializer.parameter.options">options</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions">TypeScriptProjectBaseOptions</a></code> | Additional project options. |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="@dxfrontier/projen-template-projects.GitHubActionProject.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions">TypeScriptProjectBaseOptions</a>
+
+Additional project options.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.findBuilderByName">findBuilderByName</a></code> | Finds a builder in the registry by its constructor name. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.registerBuilder">registerBuilder</a></code> | Register a builder to be managed by this project. |
+
+---
+
+##### `toString` <a name="toString" id="@dxfrontier/projen-template-projects.GitHubActionProject.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@dxfrontier/projen-template-projects.GitHubActionProject.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: ...string[]): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="@dxfrontier/projen-template-projects.GitHubActionProject.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* ...string[]
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="@dxfrontier/projen-template-projects.GitHubActionProject.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@dxfrontier/projen-template-projects.GitHubActionProject.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="@dxfrontier/projen-template-projects.GitHubActionProject.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Adds patterns to be ignored by npm.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@dxfrontier/projen-template-projects.GitHubActionProject.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The pattern to ignore.
+
+---
+
+##### `addTask` <a name="addTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.GitHubActionProject.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@dxfrontier/projen-template-projects.GitHubActionProject.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="@dxfrontier/projen-template-projects.GitHubActionProject.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="@dxfrontier/projen-template-projects.GitHubActionProject.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="@dxfrontier/projen-template-projects.GitHubActionProject.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="@dxfrontier/projen-template-projects.GitHubActionProject.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.GitHubActionProject.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.GitHubActionProject.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.GitHubActionProject.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="@dxfrontier/projen-template-projects.GitHubActionProject.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="@dxfrontier/projen-template-projects.GitHubActionProject.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="@dxfrontier/projen-template-projects.GitHubActionProject.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="@dxfrontier/projen-template-projects.GitHubActionProject.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@dxfrontier/projen-template-projects.GitHubActionProject.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="@dxfrontier/projen-template-projects.GitHubActionProject.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@dxfrontier/projen-template-projects.GitHubActionProject.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="@dxfrontier/projen-template-projects.GitHubActionProject.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@dxfrontier/projen-template-projects.GitHubActionProject.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="@dxfrontier/projen-template-projects.GitHubActionProject.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@dxfrontier/projen-template-projects.GitHubActionProject.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="@dxfrontier/projen-template-projects.GitHubActionProject.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="@dxfrontier/projen-template-projects.GitHubActionProject.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="@dxfrontier/projen-template-projects.GitHubActionProject.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: ...string[]): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.GitHubActionProject.addBundledDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="@dxfrontier/projen-template-projects.GitHubActionProject.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: ...string[]): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="@dxfrontier/projen-template-projects.GitHubActionProject.addCompileCommand.parameter.commands"></a>
+
+- *Type:* ...string[]
+
+---
+
+##### `addDeps` <a name="addDeps" id="@dxfrontier/projen-template-projects.GitHubActionProject.addDeps"></a>
+
+```typescript
+public addDeps(deps: ...string[]): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.GitHubActionProject.addDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="@dxfrontier/projen-template-projects.GitHubActionProject.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: ...string[]): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.GitHubActionProject.addDevDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="@dxfrontier/projen-template-projects.GitHubActionProject.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="@dxfrontier/projen-template-projects.GitHubActionProject.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="@dxfrontier/projen-template-projects.GitHubActionProject.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: ...string[]): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="@dxfrontier/projen-template-projects.GitHubActionProject.addKeywords.parameter.keywords"></a>
+
+- *Type:* ...string[]
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="@dxfrontier/projen-template-projects.GitHubActionProject.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: ...string[]): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.GitHubActionProject.addPeerDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="@dxfrontier/projen-template-projects.GitHubActionProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="@dxfrontier/projen-template-projects.GitHubActionProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="@dxfrontier/projen-template-projects.GitHubActionProject.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: ...string[]): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="@dxfrontier/projen-template-projects.GitHubActionProject.addTestCommand.parameter.commands"></a>
+
+- *Type:* ...string[]
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="@dxfrontier/projen-template-projects.GitHubActionProject.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.GitHubActionProject.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="@dxfrontier/projen-template-projects.GitHubActionProject.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.GitHubActionProject.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="@dxfrontier/projen-template-projects.GitHubActionProject.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="@dxfrontier/projen-template-projects.GitHubActionProject.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="@dxfrontier/projen-template-projects.GitHubActionProject.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.GitHubActionProject.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="@dxfrontier/projen-template-projects.GitHubActionProject.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+##### `findBuilderByName` <a name="findBuilderByName" id="@dxfrontier/projen-template-projects.GitHubActionProject.findBuilderByName"></a>
+
+```typescript
+public findBuilderByName(name: string): Builder
+```
+
+Finds a builder in the registry by its constructor name.
+
+###### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.GitHubActionProject.findBuilderByName.parameter.name"></a>
+
+- *Type:* string
+
+The name of the builder to search for.
+
+---
+
+##### `registerBuilder` <a name="registerBuilder" id="@dxfrontier/projen-template-projects.GitHubActionProject.registerBuilder"></a>
+
+```typescript
+public registerBuilder(builder: Builder): void
+```
+
+Register a builder to be managed by this project.
+
+###### `builder`<sup>Required</sup> <a name="builder" id="@dxfrontier/projen-template-projects.GitHubActionProject.registerBuilder.parameter.builder"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.Builder">Builder</a>
+
+The builder to register (must extend BaseBuilder).
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@dxfrontier/projen-template-projects.GitHubActionProject.isConstruct"></a>
+
+```typescript
+import { GitHubActionProject } from '@dxfrontier/projen-template-projects'
+
+GitHubActionProject.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.GitHubActionProject.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="@dxfrontier/projen-template-projects.GitHubActionProject.isProject"></a>
+
+```typescript
+import { GitHubActionProject } from '@dxfrontier/projen-template-projects'
+
+GitHubActionProject.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.GitHubActionProject.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="@dxfrontier/projen-template-projects.GitHubActionProject.of"></a>
+
+```typescript
+import { GitHubActionProject } from '@dxfrontier/projen-template-projects'
+
+GitHubActionProject.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@dxfrontier/projen-template-projects.GitHubActionProject.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version supported by this package. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | The minimum node version required by this package to function. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.builderRegistry">builderRegistry</a></code> | <code><a href="#@dxfrontier/projen-template-projects.Builder">Builder</a>[]</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version supported by this package.
+
+The value indicates the package is incompatible with newer versions.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+The minimum node version required by this package to function.
+
+This value indicates the package is incompatible with older versions.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `builderRegistry`<sup>Required</sup> <a name="builderRegistry" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.builderRegistry"></a>
+
+```typescript
+public readonly builderRegistry: Builder[];
+```
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.Builder">Builder</a>[]
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.DEFAULT_TS_JEST_TRANFORM_PATTERN">DEFAULT_TS_JEST_TRANFORM_PATTERN</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+##### `DEFAULT_TS_JEST_TRANFORM_PATTERN`<sup>Required</sup> <a name="DEFAULT_TS_JEST_TRANFORM_PATTERN" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.DEFAULT_TS_JEST_TRANFORM_PATTERN"></a>
+
+```typescript
+public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
+```
+
+- *Type:* string
+
+---
+
 ### TypeScriptProjectBase <a name="TypeScriptProjectBase" id="@dxfrontier/projen-template-projects.TypeScriptProjectBase"></a>
 
 Base class for managing project configuration.
@@ -3908,6 +7016,69 @@ Hook to be called before synthesis.
 
 
 
+### CommitLint <a name="CommitLint" id="@dxfrontier/projen-template-projects.CommitLint"></a>
+
+CommitLint builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.CommitLint.Initializer"></a>
+
+```typescript
+import { CommitLint } from '@dxfrontier/projen-template-projects'
+
+new CommitLint(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.CommitLint.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure CommitLint for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.CommitLint.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure CommitLint for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.CommitLint.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CommitLint.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.CommitLint.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.CommitLint.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.CommitLint.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.CommitLint.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
 ### CommitLintBase <a name="CommitLintBase" id="@dxfrontier/projen-template-projects.CommitLintBase"></a>
 
 Base class for CommitLint builder implementing all relevant configuration.
@@ -4024,6 +7195,69 @@ public postSynthesize(): void
 Hook to be called after synthesis.
 
 ##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.CommitLintJsii.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
+### DevContainer <a name="DevContainer" id="@dxfrontier/projen-template-projects.DevContainer"></a>
+
+DevContainer builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.DevContainer.Initializer"></a>
+
+```typescript
+import { DevContainer } from '@dxfrontier/projen-template-projects'
+
+new DevContainer(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.DevContainer.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure CommitLint for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.DevContainer.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure CommitLint for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.DevContainer.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.DevContainer.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.DevContainer.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.DevContainer.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.DevContainer.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.DevContainer.preSynthesize"></a>
 
 ```typescript
 public preSynthesize(): void
@@ -4160,6 +7394,69 @@ Hook to be called before synthesis.
 
 
 
+### EsLint <a name="EsLint" id="@dxfrontier/projen-template-projects.EsLint"></a>
+
+EsLint builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.EsLint.Initializer"></a>
+
+```typescript
+import { EsLint } from '@dxfrontier/projen-template-projects'
+
+new EsLint(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.EsLint.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure CommitLint for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.EsLint.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure CommitLint for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.EsLint.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.EsLint.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.EsLint.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.EsLint.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.EsLint.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.EsLint.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
 ### EsLintBase <a name="EsLintBase" id="@dxfrontier/projen-template-projects.EsLintBase"></a>
 
 Base class for ESLint builder implementing all relevant configuration.
@@ -4223,6 +7520,69 @@ Hook to be called before synthesis.
 
 
 
+### Git <a name="Git" id="@dxfrontier/projen-template-projects.Git"></a>
+
+Git builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.Git.Initializer"></a>
+
+```typescript
+import { Git } from '@dxfrontier/projen-template-projects'
+
+new Git(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.Git.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure CommitLint for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.Git.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure CommitLint for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.Git.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.Git.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.Git.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.Git.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.Git.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.Git.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
 ### GitBase <a name="GitBase" id="@dxfrontier/projen-template-projects.GitBase"></a>
 
 Base class for Git builder implementing all relevant configuration.
@@ -4276,6 +7636,69 @@ public postSynthesize(): void
 Hook to be called after synthesis.
 
 ##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.GitBase.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
+### GitHub <a name="GitHub" id="@dxfrontier/projen-template-projects.GitHub"></a>
+
+GitHub builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.GitHub.Initializer"></a>
+
+```typescript
+import { GitHub } from '@dxfrontier/projen-template-projects'
+
+new GitHub(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHub.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure GitHub for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.GitHub.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure GitHub for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHub.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHub.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHub.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.GitHub.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.GitHub.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.GitHub.preSynthesize"></a>
 
 ```typescript
 public preSynthesize(): void
@@ -4412,6 +7835,69 @@ Hook to be called before synthesis.
 
 
 
+### Husky <a name="Husky" id="@dxfrontier/projen-template-projects.Husky"></a>
+
+Husky builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.Husky.Initializer"></a>
+
+```typescript
+import { Husky } from '@dxfrontier/projen-template-projects'
+
+new Husky(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.Husky.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure Husky for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.Husky.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure Husky for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.Husky.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.Husky.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.Husky.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.Husky.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.Husky.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.Husky.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
 ### HuskyBase <a name="HuskyBase" id="@dxfrontier/projen-template-projects.HuskyBase"></a>
 
 Base class for Husky builder implementing all relevant configuration.
@@ -4528,6 +8014,69 @@ public postSynthesize(): void
 Hook to be called after synthesis.
 
 ##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.HuskyJsii.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
+### NpmPackage <a name="NpmPackage" id="@dxfrontier/projen-template-projects.NpmPackage"></a>
+
+NPM Package builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.NpmPackage.Initializer"></a>
+
+```typescript
+import { NpmPackage } from '@dxfrontier/projen-template-projects'
+
+new NpmPackage(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.NpmPackage.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure NPM Package for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.NpmPackage.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure NPM Package for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.NpmPackage.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.NpmPackage.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.NpmPackage.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.NpmPackage.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.NpmPackage.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.NpmPackage.preSynthesize"></a>
 
 ```typescript
 public preSynthesize(): void
@@ -4664,6 +8213,69 @@ Hook to be called before synthesis.
 
 
 
+### Prettier <a name="Prettier" id="@dxfrontier/projen-template-projects.Prettier"></a>
+
+Prettier builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.Prettier.Initializer"></a>
+
+```typescript
+import { Prettier } from '@dxfrontier/projen-template-projects'
+
+new Prettier(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.Prettier.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure Prettier for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.Prettier.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure Prettier for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.Prettier.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.Prettier.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.Prettier.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.Prettier.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.Prettier.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.Prettier.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
 ### PrettierBase <a name="PrettierBase" id="@dxfrontier/projen-template-projects.PrettierBase"></a>
 
 Base class for Prettier builder implementing all relevant configuration.
@@ -4780,6 +8392,132 @@ public postSynthesize(): void
 Hook to be called after synthesis.
 
 ##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.PrettierJsii.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
+### SampleCode <a name="SampleCode" id="@dxfrontier/projen-template-projects.SampleCode"></a>
+
+SampleCode builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.SampleCode.Initializer"></a>
+
+```typescript
+import { SampleCode } from '@dxfrontier/projen-template-projects'
+
+new SampleCode(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.SampleCode.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure SampleCode for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.SampleCode.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure SampleCode for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.SampleCode.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.SampleCode.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.SampleCode.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.SampleCode.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.SampleCode.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.SampleCode.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Hook to be called before synthesis.
+
+
+
+
+### VsCode <a name="VsCode" id="@dxfrontier/projen-template-projects.VsCode"></a>
+
+VsCode builder implementing all relevant configuration for the project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.VsCode.Initializer"></a>
+
+```typescript
+import { VsCode } from '@dxfrontier/projen-template-projects'
+
+new VsCode(project: TypeScriptProjectBase)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.VsCode.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a></code> | The project to configure VsCode Package for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.VsCode.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptProjectBase">TypeScriptProjectBase</a>
+
+The project to configure VsCode Package for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.VsCode.initialize">initialize</a></code> | Initialize builder configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.VsCode.postSynthesize">postSynthesize</a></code> | Hook to be called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.VsCode.preSynthesize">preSynthesize</a></code> | Hook to be called before synthesis. |
+
+---
+
+##### `initialize` <a name="initialize" id="@dxfrontier/projen-template-projects.VsCode.initialize"></a>
+
+```typescript
+public initialize(): void
+```
+
+Initialize builder configuration for the project.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.VsCode.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hook to be called after synthesis.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.VsCode.preSynthesize"></a>
 
 ```typescript
 public preSynthesize(): void

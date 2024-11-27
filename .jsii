@@ -298,6 +298,122 @@
       ],
       "symbolId": "src/base/builder:Builder"
     },
+    "@dxfrontier/projen-template-projects.CapServiceProject": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.TypeScriptProjectBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Defines a CAP Service project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.CapServiceProject",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the Cap Service project."
+        },
+        "locationInModule": {
+          "filename": "src/cap-service/project.ts",
+          "line": 20
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "Additional project options."
+            },
+            "name": "options",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/project.ts",
+        "line": 15
+      },
+      "name": "CapServiceProject",
+      "symbolId": "src/cap-service/project:CapServiceProject"
+    },
+    "@dxfrontier/projen-template-projects.CommitLint": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.CommitLintBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "CommitLint builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.CommitLint",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the CommitLint builder."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/commitlint.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure CommitLint for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/commitlint.ts",
+        "line": 7
+      },
+      "name": "CommitLint",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "Settings to be added to package.json for the CommitLint builder."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/commitlint.ts",
+            "line": 22
+          },
+          "name": "npmSettings",
+          "overrides": "@dxfrontier/projen-template-projects.CommitLintBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "union": {
+                  "types": [
+                    {
+                      "primitive": "string"
+                    },
+                    {
+                      "collection": {
+                        "elementtype": {
+                          "primitive": "string"
+                        },
+                        "kind": "array"
+                      }
+                    }
+                  ]
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/github-action/commitlint:CommitLint"
+    },
     "@dxfrontier/projen-template-projects.CommitLintBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -634,6 +750,44 @@
       ],
       "symbolId": "src/jsii/commitlint:CommitLintJsii"
     },
+    "@dxfrontier/projen-template-projects.DevContainer": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.DevContainerBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "DevContainer builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.DevContainer",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the DevContainer builder."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/devcontainer.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure CommitLint for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/devcontainer.ts",
+        "line": 6
+      },
+      "name": "DevContainer",
+      "symbolId": "src/github-action/devcontainer:DevContainer"
+    },
     "@dxfrontier/projen-template-projects.DevContainerBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -899,6 +1053,71 @@
       "name": "DevContainerJsii",
       "symbolId": "src/jsii/devcontainer:DevContainerJsii"
     },
+    "@dxfrontier/projen-template-projects.EsLint": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.EsLintBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "EsLint builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.EsLint",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the EsLint builder."
+        },
+        "locationInModule": {
+          "filename": "src/cap-service/eslint.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure CommitLint for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/eslint.ts",
+        "line": 6
+      },
+      "name": "EsLint",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "Ignore settings to be used in EsLint."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/eslint.ts",
+            "line": 21
+          },
+          "name": "ignoreSettings",
+          "overrides": "@dxfrontier/projen-template-projects.EsLintBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/eslint:EsLint"
+    },
     "@dxfrontier/projen-template-projects.EsLintBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -985,6 +1204,71 @@
       ],
       "symbolId": "src/base/eslint:EsLintBase"
     },
+    "@dxfrontier/projen-template-projects.Git": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.GitBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Git builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.Git",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the Git builder."
+        },
+        "locationInModule": {
+          "filename": "src/cap-service/git.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure CommitLint for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/git.ts",
+        "line": 6
+      },
+      "name": "Git",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "Ignore settings to be used in Git."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/git.ts",
+            "line": 21
+          },
+          "name": "ignoreSettings",
+          "overrides": "@dxfrontier/projen-template-projects.GitBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/git:Git"
+    },
     "@dxfrontier/projen-template-projects.GitBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -1070,6 +1354,81 @@
         }
       ],
       "symbolId": "src/base/git:GitBase"
+    },
+    "@dxfrontier/projen-template-projects.GitHub": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.GitHubBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "GitHub builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.GitHub",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the GitHub builder."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/github.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure GitHub for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/github.ts",
+        "line": 6
+      },
+      "name": "GitHub",
+      "symbolId": "src/github-action/github:GitHub"
+    },
+    "@dxfrontier/projen-template-projects.GitHubActionProject": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.TypeScriptProjectBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Defines a GitHub Action project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.GitHubActionProject",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the GitHub Action project."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/project.ts",
+          "line": 19
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "Additional project options."
+            },
+            "name": "options",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBaseOptions"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/project.ts",
+        "line": 14
+      },
+      "name": "GitHubActionProject",
+      "symbolId": "src/github-action/project:GitHubActionProject"
     },
     "@dxfrontier/projen-template-projects.GitHubBase": {
       "abstract": true,
@@ -1592,6 +1951,44 @@
       "name": "GitHubJsii",
       "symbolId": "src/jsii/github:GitHubJsii"
     },
+    "@dxfrontier/projen-template-projects.Husky": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.HuskyBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Husky builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.Husky",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the Husky builder."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/husky.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure Husky for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/husky.ts",
+        "line": 6
+      },
+      "name": "Husky",
+      "symbolId": "src/github-action/husky:Husky"
+    },
     "@dxfrontier/projen-template-projects.HuskyBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -1906,6 +2303,71 @@
       },
       "name": "HuskyJsii",
       "symbolId": "src/jsii/husky:HuskyJsii"
+    },
+    "@dxfrontier/projen-template-projects.NpmPackage": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.NpmPackageBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "NPM Package builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.NpmPackage",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.\nAdditionally it calls `removeScripts()` to ensure, that no projen standard scripts are defined\nas these scripts are not needed for this kind of project.",
+          "stability": "stable",
+          "summary": "Initializes the NPM Package builder."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/npm.ts",
+          "line": 15
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure NPM Package for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/npm.ts",
+        "line": 6
+      },
+      "name": "NpmPackage",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "NPM file paths to be packaged for the NPM Package."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/npm.ts",
+            "line": 24
+          },
+          "name": "npmFilePaths",
+          "overrides": "@dxfrontier/projen-template-projects.NpmPackageBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/github-action/npm:NpmPackage"
     },
     "@dxfrontier/projen-template-projects.NpmPackageBase": {
       "abstract": true,
@@ -2225,6 +2687,71 @@
       ],
       "symbolId": "src/jsii/npm:NpmPackageJsii"
     },
+    "@dxfrontier/projen-template-projects.Prettier": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.PrettierBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Prettier builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.Prettier",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the Prettier builder."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/prettier.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure Prettier for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/prettier.ts",
+        "line": 6
+      },
+      "name": "Prettier",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "File paths to the Prettier ignore entries."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/prettier.ts",
+            "line": 21
+          },
+          "name": "ignoreFilePaths",
+          "overrides": "@dxfrontier/projen-template-projects.PrettierBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/github-action/prettier:Prettier"
+    },
     "@dxfrontier/projen-template-projects.PrettierBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -2521,6 +3048,109 @@
       ],
       "symbolId": "src/jsii/prettier:PrettierJsii"
     },
+    "@dxfrontier/projen-template-projects.SampleCode": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Builder",
+      "docs": {
+        "stability": "stable",
+        "summary": "SampleCode builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.SampleCode",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the base SampleCode builder."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/samplecode.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure SampleCode for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/samplecode.ts",
+        "line": 7
+      },
+      "methods": [
+        {
+          "docs": {
+            "custom": {
+              "override": "true"
+            },
+            "stability": "stable",
+            "summary": "Adds template files to the builder's project directory."
+          },
+          "locationInModule": {
+            "filename": "src/github-action/samplecode.ts",
+            "line": 69
+          },
+          "name": "addTemplates",
+          "overrides": "@dxfrontier/projen-template-projects.Builder",
+          "protected": true
+        }
+      ],
+      "name": "SampleCode",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "returns": "File path to sample code file.",
+            "stability": "stable",
+            "summary": "File path to the sample GitHub action."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/samplecode.ts",
+            "line": 24
+          },
+          "name": "filePath",
+          "protected": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "returns": "Content for sample code file.",
+            "stability": "stable",
+            "summary": "GitHub action template for the SampleCode configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/samplecode.ts",
+            "line": 33
+          },
+          "name": "sampleAction",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/github-action/samplecode:SampleCode"
+    },
     "@dxfrontier/projen-template-projects.TypeScriptProjectBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -2689,6 +3319,44 @@
       "name": "TypeScriptProjectBaseOptions",
       "symbolId": "src/base/project:TypeScriptProjectBaseOptions"
     },
+    "@dxfrontier/projen-template-projects.VsCode": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.VsCodeBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "VsCode builder implementing all relevant configuration for the project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.VsCode",
+      "initializer": {
+        "docs": {
+          "remarks": "It calls the `initialize()` method immediately after invoking `super(project)`\nto ensure that all necessary configuration steps are applied.",
+          "stability": "stable",
+          "summary": "Initializes the VsCode builder."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/vscode.ts",
+          "line": 13
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure VsCode Package for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.TypeScriptProjectBase"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/vscode.ts",
+        "line": 6
+      },
+      "name": "VsCode",
+      "symbolId": "src/github-action/vscode:VsCode"
+    },
     "@dxfrontier/projen-template-projects.VsCodeBase": {
       "abstract": true,
       "assembly": "@dxfrontier/projen-template-projects",
@@ -2835,5 +3503,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "+K0Eh+XITWjb5eWI6BW0Gbhou5cI8F8qvEIW82vT6VQ="
+  "fingerprint": "CAXa4eOUSyBtqc6qUQL9nOE+uq8AxhtciU2L043/nio="
 }
