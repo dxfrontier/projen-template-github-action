@@ -88,7 +88,6 @@ describe('CapServiceProject Builders', (): void => {
 
     test('Project related files are added to .gitattributes and defined as linguist-generated', (): void => {
       const expectedPatterns: RegExp[] = [
-        /\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m,
         /\/tsconfig\.json linguist-generated( $|\s|$)/m,
         /\/@cds-models linguist-generated( $|\s|$)/m,
         /\/dist linguist-generated( $|\s|$)/m,

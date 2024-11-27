@@ -72,6 +72,17 @@ describe('CapServiceProject Constructor Options', (): void => {
 
     expect(TypeScriptProject).toHaveBeenCalledWith({
       ...options,
+      disableTsconfigDev: true,
+      tsconfig: {
+        include: ['./srv', './@dispatcher'],
+        compilerOptions: {
+          rootDir: '.',
+          outDir: './gen/srv',
+          paths: {
+            '#cds-models/*': ['./@cds-models/*/index.ts'],
+          },
+        },
+      },
       packageManager: 'npm',
       npmignoreEnabled: false,
       projenrcTs: true,
