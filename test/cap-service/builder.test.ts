@@ -11,7 +11,7 @@ import * as github from '../shared/github';
 import * as husky from '../shared/husky';
 import * as npm from '../shared/npm';
 import * as prettier from '../shared/prettier';
-// import * as samplecode from '../shared/samplecode';
+import * as samplecode from '../shared/samplecode';
 import * as vscode from '../shared/vscode';
 
 describe('CapServiceProject Builders', (): void => {
@@ -422,6 +422,34 @@ describe('CapServiceProject Builders', (): void => {
 
     test('CommitLint related files are added to .gitattributes and defined as linguist-generated', (): void => {
       commitlint.testGitAttributes(snapshot);
+    });
+  });
+
+  describe('SampleCode', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('SampleCode', project.builderRegistry);
+    });
+
+    test('Projen standard sample files are removed from file system', (): void => {
+      samplecode.testProjenSampleFiles(snapshot);
+    });
+
+    test('Sample files matches expected files templates', (): void => {
+      const expectedTemplateLines: string[] = ['Entity1'];
+      samplecode.testSampleFilesTemplates(snapshot, 'db/schema.cds', expectedTemplateLines);
+    });
+
+    test('Sample files matches expected files templates with given options', (): void => {
+      const customProps = {
+        ...props,
+        entityName: 'CustomEntity',
+      };
+
+      project = new CapServiceProject(customProps);
+      snapshot = synthSnapshot(project);
+
+      const expectedTemplateLines: string[] = ['CustomEntity'];
+      samplecode.testSampleFilesTemplates(snapshot, 'db/schema.cds', expectedTemplateLines);
     });
   });
 });

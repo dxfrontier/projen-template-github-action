@@ -7,7 +7,12 @@ import { GitHub } from './github';
 import { Husky } from './husky';
 import { NpmPackage } from './npm';
 import { Prettier } from './prettier';
+import { SampleCode } from './samplecode';
 import { VsCode } from './vscode';
+
+export interface CapServiceProjectOptions extends TypeScriptProjectBaseOptions {
+  readonly entityName?: string;
+}
 
 /**
  * Defines a CAP Service project.
@@ -17,7 +22,7 @@ export class CapServiceProject extends TypeScriptProjectBase {
    * Initializes the Cap Service project.
    * @param options Additional project options.
    */
-  constructor(options: TypeScriptProjectBaseOptions) {
+  constructor(options: CapServiceProjectOptions) {
     super({
       ...options,
       disableTsconfigDev: true,
@@ -43,6 +48,6 @@ export class CapServiceProject extends TypeScriptProjectBase {
     new Prettier(this);
     new Husky(this);
     new CommitLint(this);
-    // new SampleCode(this);
+    new SampleCode(this, options);
   }
 }

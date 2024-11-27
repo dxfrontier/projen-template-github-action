@@ -6,6 +6,6 @@ export { GitHub as GitHubCS } from './github';
 export { Husky as HuskyCS } from './husky';
 export { NpmPackage as NpmPackageCS } from './npm';
 export { Prettier as PrettierCS } from './prettier';
-export { CapServiceProject } from './project';
-// export * from './samplecode';
+export * from './project';
+export { SampleCode as SampleCodeCS } from './samplecode';
 export { VsCode as VsCodeCS } from './vscode';
