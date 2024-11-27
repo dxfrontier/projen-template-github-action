@@ -4,7 +4,7 @@ import * as common from './common';
 /**
  * Validates that pull request template matches expected template.
  * @param snapshot Synthesized project output.
- * @param expectedSteps Template content lines that are expected instead of the standard template lines.
+ * @param expectedTemplateLines Template content lines that are expected instead of the standard template lines.
  */
 export function testPrTemplate(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
   const standardTemplateLines: string = [
@@ -40,7 +40,7 @@ export function testPrTemplate(snapshot: SynthOutput, expectedTemplateLines: str
 /**
  * Validates that bug issue template matches expected template.
  * @param snapshot Synthesized project output.
- * @param expectedSteps Template content lines that are expected instead of the standard template lines.
+ * @param expectedTemplateLines Template content lines that are expected instead of the standard template lines.
  */
 export function testBugTemplate(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
   const standardTemplateLines: string = [
@@ -71,7 +71,7 @@ export function testBugTemplate(snapshot: SynthOutput, expectedTemplateLines: st
 /**
  * Validates that story issue template matches expected template.
  * @param snapshot Synthesized project output.
- * @param expectedSteps Template content lines that are expected instead of the standard template lines.
+ * @param expectedTemplateLines Template content lines that are expected instead of the standard template lines.
  */
 export function testStoryTemplate(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
   const standardTemplateLines: string = [
@@ -95,7 +95,7 @@ export function testStoryTemplate(snapshot: SynthOutput, expectedTemplateLines: 
 /**
  * Validates that feature issue template matches expected template.
  * @param snapshot Synthesized project output.
- * @param expectedSteps Template content lines that are expected instead of the standard template lines.
+ * @param expectedTemplateLines Template content lines that are expected instead of the standard template lines.
  */
 export function testFeatureTemplate(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
   const standardTemplateLines: string = [
@@ -128,7 +128,7 @@ export function testFeatureTemplate(snapshot: SynthOutput, expectedTemplateLines
 /**
  * Validates that housekeeping issue template matches expected template.
  * @param snapshot Synthesized project output.
- * @param expectedSteps Template content lines that are expected instead of the standard template lines.
+ * @param expectedTemplateLines Template content lines that are expected instead of the standard template lines.
  */
 export function testHousekeepingTemplate(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
   const standardTemplateLines: string = [
@@ -161,7 +161,7 @@ export function testHousekeepingTemplate(snapshot: SynthOutput, expectedTemplate
 /**
  * Validates that question issue template matches expected template.
  * @param snapshot Synthesized project output.
- * @param expectedSteps Template content lines that are expected instead of the standard template lines.
+ * @param expectedTemplateLines Template content lines that are expected instead of the standard template lines.
  */
 export function testQuestionTemplate(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
   const standardTemplateLines: string = [
