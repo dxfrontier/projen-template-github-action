@@ -1,6 +1,6 @@
 import { JsonFile, JsonFileOptions } from 'projen';
-import { VsCodeLaunchConfigurationEntry } from 'projen/lib/vscode';
 import { VsCodeBase, TypeScriptProjectBase } from '../base';
+import { LaunchSetting } from '../types';
 
 /**
  * VsCode builder implementing all relevant configuration for the project.
@@ -25,6 +25,7 @@ export class VsCode extends VsCodeBase {
   protected get launchFilePath(): string {
     return '.vscode/launch.json';
   }
+
   /**
    * File path to the VsCode tasks configuration.
    * @return File path to tasks file.
@@ -35,20 +36,29 @@ export class VsCode extends VsCodeBase {
   }
 
   /**
-   * Settings to be installed in VsCode.
-   * @return Entries for the launch file.
+   * Template file for VsCode launch config.
+   * @return Template for the config file.
    * @protected
    */
-  protected get launch(): VsCodeLaunchConfigurationEntry {
+  protected get launchTemplate(): LaunchSetting {
     return {
-      // address: '127.0.0.1', // typing says, not allowed - do not know what to do with them
-      // localRoot: '${workspaceFolder}',
-      // remoteRoot: '/home/vcap/app',
-      name: 'Attach to Remote',
-      port: 9229,
-      request: 'attach',
-      skipFiles: ['<node_internals>/**'],
-      type: 'node',
+      omitEmpty: true,
+      allowComments: true,
+      obj: {
+        version: '0.2.0',
+        configurations: [
+          {
+            address: '127.0.0.1',
+            localRoot: '${workspaceFolder}',
+            remoteRoot: '/home/vcap/app',
+            name: 'Attach to Remote',
+            port: 9229,
+            request: 'attach',
+            skipFiles: ['<node_internals>/**'],
+            type: 'node',
+          },
+        ],
+      },
     };
   }
 
@@ -94,9 +104,13 @@ export class VsCode extends VsCodeBase {
 
   /**
    * @override
+   *
    */
   protected addSettings(): void {
     super.addSettings();
-    this.project.vscode?.launchConfiguration.addConfiguration(this.launch);
+    // A new JsonFile is created instead of using the projects vscode launch settings as
+    // it is not allowed to use localRoot and remoteRoot with launch settings. This is crucial
+    // for remote capire debugging.
+    new JsonFile(this.project, this.launchFilePath, this.launchTemplate);
   }
 }
