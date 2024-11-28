@@ -11,6 +11,7 @@ import { SampleCode } from './samplecode';
 import { VsCode } from './vscode';
 
 export interface CapServiceProjectOptions extends TypeScriptProjectBaseOptions {
+  readonly namespace?: string;
   readonly entityName?: string;
 }
 
@@ -18,6 +19,8 @@ export interface CapServiceProjectOptions extends TypeScriptProjectBaseOptions {
  * Defines a CAP Service project.
  */
 export class CapServiceProject extends TypeScriptProjectBase {
+  private defaults: Record<string, string>;
+
   /**
    * Initializes the Cap Service project.
    * @param options Additional project options.
@@ -39,6 +42,14 @@ export class CapServiceProject extends TypeScriptProjectBase {
       },
     });
 
+    // defaults
+    this.defaults = {
+      namespace: options.namespace ?? 'de.customer.org.project',
+      description: options.description ?? 'SAP CAP Project',
+      name: options.name,
+      entityName: options.entityName ?? 'Entity1',
+    };
+
     new NpmPackage(this);
     new DevContainer(this);
     new VsCode(this);
@@ -48,6 +59,6 @@ export class CapServiceProject extends TypeScriptProjectBase {
     new Prettier(this);
     new Husky(this);
     new CommitLint(this);
-    new SampleCode(this, options);
+    new SampleCode(this, this.defaults);
   }
 }
