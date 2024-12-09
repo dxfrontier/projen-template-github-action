@@ -817,9 +817,71 @@ describe('CapServiceProject Builders', (): void => {
         ];
         samplecode.testSampleFilesTemplates(snapshot, 'db/schema.cds', expectedTemplateLines);
       });
+    });
 
-      test('Sample file test data matches expected file template', (): void => {
-        expect(true).toBe(false);
+    describe('SampleCode data directory', (): void => {
+      test('Sample file de.customer.org.project-Entity1.csv matches expected file template', (): void => {
+        const expectedTemplateLines: string[] = [
+          'ID,createdAt,createdBy,modifiedAt,modifiedBy,descr',
+          '1,,,,,Description 1',
+          '2,,,,,Description 2',
+          '3,,,,,Description 3',
+        ];
+        samplecode.testSampleFilesTemplates(
+          snapshot,
+          'test/data/de.customer.org.project-Entity1.csv',
+          expectedTemplateLines,
+        );
+      });
+
+      test('Sample file de.mycustomer.myorg.myproject-MyEntity.csv matches expected file template with given options', (): void => {
+        const customProps = {
+          ...props,
+          namespace: 'de.mycustomer.myorg.myproject',
+          entityName: 'MyEntity',
+        };
+
+        project = new CapServiceProject(customProps);
+        snapshot = synthSnapshot(project);
+
+        const expectedTemplateLines: string[] = [
+          'ID,createdAt,createdBy,modifiedAt,modifiedBy,descr',
+          '1,,,,,Description 1',
+          '2,,,,,Description 2',
+          '3,,,,,Description 3',
+        ];
+        samplecode.testSampleFilesTemplates(
+          snapshot,
+          'test/data/de.mycustomer.myorg.myproject-MyEntity.csv',
+          expectedTemplateLines,
+        );
+      });
+
+      test('Sample file de.customer.org.project-Entity1.texts.csv matches expected file template', (): void => {
+        const expectedTemplateLines: string[] = ['locale,ID,descr'];
+        samplecode.testSampleFilesTemplates(
+          snapshot,
+          'test/data/de.customer.org.project-Entity1.texts.csv',
+          expectedTemplateLines,
+        );
+      });
+
+      test('Sample file de.mycustomer.myorg.myproject-MyEntity.texts.csv matches expected file template with given options', (): void => {
+        const customProps = {
+          ...props,
+          namespace: 'de.mycustomer.myorg.myproject',
+          entityName: 'MyEntity',
+        };
+
+        project = new CapServiceProject(customProps);
+        snapshot = synthSnapshot(project);
+
+        const expectedTemplateLines: string[] = ['locale,ID,descr'];
+        samplecode.testSampleFilesTemplates(
+          snapshot,
+          'test/data/de.mycustomer.myorg.myproject-MyEntity.texts.csv',
+          expectedTemplateLines,
+        );
       });
     });
   });
