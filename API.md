@@ -4828,6 +4828,7 @@ const capServiceProjectOptions: CapServiceProjectOptions = { ... }
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.entityName">entityName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -6956,6 +6957,16 @@ same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
 
 ```typescript
 public readonly entityName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
 ```
 
 - *Type:* string

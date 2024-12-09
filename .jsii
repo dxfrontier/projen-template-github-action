@@ -313,7 +313,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/project.ts",
-          "line": 25
+          "line": 28
         },
         "parameters": [
           {
@@ -330,7 +330,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 20
+        "line": 21
       },
       "name": "CapServiceProject",
       "symbolId": "src/cap-service/project:CapServiceProject"
@@ -360,9 +360,25 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 14
+            "line": 15
           },
           "name": "entityName",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "stable"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/project.ts",
+            "line": 14
+          },
+          "name": "namespace",
           "optional": true,
           "type": {
             "primitive": "string"
@@ -3539,5 +3555,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "PrQj9GzV9LR8mHGQPwkhByQtVgMx7ADRbIhVeAb7OQU="
+  "fingerprint": "lllUjc87cbIUXmdT7SgU/OmO7j9bv/v4FS7Q3mDmimg="
 }
