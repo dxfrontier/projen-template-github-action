@@ -313,6 +313,26 @@ export class SampleCode extends Builder {
   }
 
   /**
+   * Capire data directory templates for the SampleCode configuration.
+   * @return Contents for sample data directory files.
+   * @protected
+   */
+  protected get dataTemplatesLines(): Record<string, string[]> {
+    const filePath: string = `test/data/${this.options.namespace}-${this.options.entityName}.csv`;
+    const filePathTexts: string = `test/data/${this.options.namespace}-${this.options.entityName}.texts.csv`;
+
+    return {
+      [filePath]: [
+        'ID,createdAt,createdBy,modifiedAt,modifiedBy,descr',
+        '1,,,,,Description 1',
+        '2,,,,,Description 2',
+        '3,,,,,Description 3',
+      ],
+      [filePathTexts]: ['locale,ID,descr'],
+    };
+  }
+
+  /**
    * Creates the template files for the root directory.
    * @protected
    */
@@ -341,10 +361,25 @@ export class SampleCode extends Builder {
   }
 
   /**
+   * Creates the template files for the data directory.
+   * @protected
+   */
+  protected createDataTemplates(): void {
+    for (const path in this.dataTemplatesLines) {
+      if (this.dataTemplatesLines[path]) {
+        new SampleFile(this.project, path, {
+          contents: this.dataTemplatesLines[path].join('\n'),
+        });
+      }
+    }
+  }
+
+  /**
    * @override
    */
   protected addTemplates(): void {
     this.createRootTemplates();
     this.createDbTemplates();
+    this.createDataTemplates();
   }
 }
