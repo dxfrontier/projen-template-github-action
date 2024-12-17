@@ -6,11 +6,8 @@
       "author"
     ]
   },
-  "bundled": {
-    "construct": "^1.0.0"
-  },
   "dependencies": {
-    "projen": "^0.90.3"
+    "projen": "^0.91.1"
   },
   "dependencyClosure": {
     "constructs": {
@@ -313,7 +310,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/project.ts",
-          "line": 28
+          "line": 29
         },
         "parameters": [
           {
@@ -330,7 +327,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 21
+        "line": 22
       },
       "name": "CapServiceProject",
       "symbolId": "src/cap-service/project:CapServiceProject"
@@ -348,7 +345,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 13
+        "line": 14
       },
       "name": "CapServiceProjectOptions",
       "properties": [
@@ -360,7 +357,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 15
+            "line": 16
           },
           "name": "entityName",
           "optional": true,
@@ -376,7 +373,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 14
+            "line": 15
           },
           "name": "namespace",
           "optional": true,
@@ -3555,5 +3552,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "lllUjc87cbIUXmdT7SgU/OmO7j9bv/v4FS7Q3mDmimg="
+  "fingerprint": "m5lrc9wPW9Yt+ZQ68+PecnoDRY3UPU7y1jFyjWy+mas="
 }
