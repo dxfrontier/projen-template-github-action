@@ -1,3 +1,4 @@
+import { JsonPatch } from 'projen';
 import { TypeScriptProjectBase, TypeScriptProjectBaseOptions } from '../base';
 import { CommitLint } from './commitlint';
 import { DevContainer } from './devcontainer';
@@ -13,6 +14,7 @@ import { VsCode } from './vscode';
 export interface CapServiceProjectOptions extends TypeScriptProjectBaseOptions {
   readonly namespace?: string;
   readonly entityName?: string;
+  readonly serviceName?: string;
 }
 
 /**
@@ -28,8 +30,13 @@ export class CapServiceProject extends TypeScriptProjectBase {
   constructor(options: CapServiceProjectOptions) {
     super({
       ...options,
+      projenrcTs: false,
+      projenrcJs: false,
+      projenrcJson: false,
       disableTsconfigDev: true,
+      jest: false,
       // these settings cannot be set by a TypeScript builder later
+      licensed: false,
       tsconfig: {
         include: ['./srv', './@dispatcher'],
         compilerOptions: {
@@ -42,12 +49,16 @@ export class CapServiceProject extends TypeScriptProjectBase {
       },
     });
 
+    const packageJson = this.tryFindObjectFile('package.json');
+    packageJson?.patch(JsonPatch.remove('/publishConfig'));
+
     // defaults
     this.defaults = {
       namespace: options.namespace ?? 'de.customer.org.project',
       description: options.description ?? 'SAP CAP Project',
       name: options.name,
       entityName: options.entityName ?? 'Entity1',
+      serviceName: options.serviceName ?? 'service1',
     };
 
     new NpmPackage(this);

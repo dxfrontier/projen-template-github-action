@@ -127,10 +127,6 @@
       "type": "build"
     },
     {
-      "name": "construct",
-      "type": "bundled"
-    },
-    {
       "name": "projen",
       "type": "peer"
     }

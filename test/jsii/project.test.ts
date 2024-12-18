@@ -77,7 +77,7 @@ describe('JsiiProject Constructor Options', (): void => {
       pullRequestTemplate: false,
       depsUpgrade: false,
       peerDeps: ['projen'],
-      bundledDeps: ['construct'],
+      // bundledDeps: ['construct'],
       tsconfig: {
         compilerOptions: {
           allowImportingTsExtensions: true,

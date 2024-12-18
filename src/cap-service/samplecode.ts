@@ -1,5 +1,6 @@
 import { SampleFile } from 'projen';
 import { Builder, TypeScriptProjectBase } from '../base';
+import { lowerCaseFirstLetter } from '../util/utils';
 
 /**
  * SampleCode builder implementing all relevant configuration for the project.
@@ -333,6 +334,83 @@ export class SampleCode extends Builder {
   }
 
   /**
+   * Capire srv directory templates for the SampleCode configuration.
+   * @return Contents for sample srv directory files.
+   * @protected
+   */
+  protected get srvTemplatesLines(): Record<string, string[]> {
+    const filePathService: string = `srv/service/${this.options.entityName}Service.ts`;
+    const filePathRepository: string = `srv/repository/${this.options.entityName}Repository.ts`;
+    const filePathMiddleware: string = `srv/middleware/${this.options.entityName}Middleware.ts`;
+
+    return {
+      'srv/index.cds': [
+        `using from './controller/${this.options.serviceName}/${this.options.serviceName}';`,
+      ],
+      'srv/util/types/types.ts': [
+        '// Example',
+        'export type AType = string;'
+      ],
+      'srv/util/helpers/util.ts': [
+        'const util = {',
+        '  // Example',
+        '  aHelperFunction() {',
+        '    return 1;',
+        '  },',
+        '};',
+        '',
+        'export default util;',
+      ],
+      'srv/util/constants/constants.ts': [
+        'const constants = {',
+        '  // Example',
+        '  CONSTANT_1: {',
+        "    PROP_CONSTANT_1: 'SOMETHING',",
+        '  },',
+        '};',
+        '',
+        'export default constants;',
+      ],
+      [filePathService]: [
+        "import { Inject, Service, ServiceLogic, CDS_DISPATCHER } from '@dxfrontier/cds-ts-dispatcher';",
+        '',
+        `import { ${this.options.entityName}Repository } from '../repository/${this.options.entityName}Repository';`,
+        '',
+        '@ServiceLogic()',
+        `export class ${this.options.entityName}Service {`,
+        '  @Inject(CDS_DISPATCHER.SRV) private readonly srv: Service;',
+        `  @Inject(${this.options.entityName}Repository) private readonly ${lowerCaseFirstLetter(this.options.entityName)}Service: ${this.options.entityName}Repository;`,
+        '}',
+      ],
+      [filePathRepository]: [
+        "import { Repository } from '@dxfrontier/cds-ts-dispatcher';",
+        "import { BaseRepository } from '@dxfrontier/cds-ts-repository';",
+        '',
+        `import { ${this.options.entityName} } from '#cds-models/ServiceA';`,
+        '',
+        '@Repository()',
+        `export class ${this.options.entityName}Repository extends BaseRepository<${this.options.entityName}> {`,
+        '  constructor() {',
+        `    super(${this.options.entityName});`,
+        '  }',
+        '  // ... define custom CDS-QL actions if BaseRepository ones are not satisfying your needs!',
+        '}',
+      ],
+      [filePathMiddleware]: [
+        "import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';",
+        `import type { ${this.options.entityName} } from '#cds-models/ServiceA';`,
+        '',
+        `export class ${this.options.entityName}Middleware implements MiddlewareImpl {`,
+        `  public async use(req: TypedRequest<${this.options.entityName}>, next: NextMiddleware): Promise<void> {`,
+        "    console.log('Middleware entity 1 : EXECUTED');",
+        '    await next();',
+        '  }',
+        '}',
+      ],
+    };
+  }
+
+  /**
    * Creates the template files for the root directory.
    * @protected
    */
@@ -375,11 +453,26 @@ export class SampleCode extends Builder {
   }
 
   /**
+   * Creates the template files for the srv directory.
+   * @protected
+   */
+  protected createSrvTemplates(): void {
+    for (const path in this.srvTemplatesLines) {
+      if (this.srvTemplatesLines[path]) {
+        new SampleFile(this.project, path, {
+          contents: this.srvTemplatesLines[path].join('\n'),
+        });
+      }
+    }
+  }
+
+  /**
    * @override
    */
   protected addTemplates(): void {
     this.createRootTemplates();
     this.createDbTemplates();
     this.createDataTemplates();
+    this.createSrvTemplates();
   }
 }

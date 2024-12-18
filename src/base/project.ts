@@ -35,11 +35,11 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
 
       sampleCode: options.sampleCode ?? false,
 
-      devDeps: [
-        'projen',
-        'construct',
-        '@dxfrontier/projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
-      ],
+      // devDeps: [
+      //   'projen',
+      //   'construct',
+      //   '@dxfrontier/projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
+      // ],
     });
   }
 

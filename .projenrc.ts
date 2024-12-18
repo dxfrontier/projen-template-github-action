@@ -36,7 +36,7 @@ export const project = new cdk.JsiiProject({
   depsUpgrade: false, // workflow upgrade-main.yml
 
   peerDeps: ['projen'],
-  bundledDeps: ['construct'],
+  // bundledDeps: ['construct'],
 
   tsconfig: {
     compilerOptions: {
