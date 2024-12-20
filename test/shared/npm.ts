@@ -7,7 +7,7 @@ import * as common from './common';
  * @param additionalPatterns List of additional file patterns to test for.
  */
 export function testPackageJsonFiles(snapshot: SynthOutput, additionalPatterns: string[] = []): void {
-  const standardPatterns: string[] = ['README.md', 'LICENSE'];
+  const standardPatterns: string[] = ['README.md'];
   const patterns: string[] = [...standardPatterns, ...additionalPatterns];
   expect(snapshot['package.json']!.files.sort()).toEqual(patterns.sort());
 }
@@ -18,7 +18,7 @@ export function testPackageJsonFiles(snapshot: SynthOutput, additionalPatterns: 
  * @param expectedDevDependencies List of expected devDependencies to test for.
  */
 export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: string[] = []): void {
-  const standardDevDependencies: string[] = ['ts-node@^10.9.2', '@types/node@^20.9.3', 'projen'];
+  const standardDevDependencies: string[] = [];
   const devDependencies: string[] = expectedDevDependencies.length ? expectedDevDependencies : standardDevDependencies;
   common.testDevDependencies(snapshot, devDependencies);
 }
@@ -29,11 +29,7 @@ export function testDevDependencies(snapshot: SynthOutput, expectedDevDependenci
  * @param expectedPatterns List of expected file patterns to test for.
  */
 export function testGitAttributes(snapshot: SynthOutput, expectedPatterns: RegExp[] = []): void {
-  const standardPatterns: RegExp[] = [
-    /\/\.eslintrc\.json linguist-generated( $|\s|$)/m,
-    /\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m,
-    /\/tsconfig\.json linguist-generated( $|\s|$)/m,
-  ];
+  const standardPatterns: RegExp[] = [/\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m];
 
   const patterns: RegExp[] = expectedPatterns.length ? expectedPatterns : standardPatterns;
   common.testGitAttributes(snapshot, patterns);

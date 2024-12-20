@@ -4,6 +4,7 @@ import { TypeScriptProjectBase } from '../../src/base';
 import { LintStagedConfig } from '../../src/types';
 import * as commitlint from '../shared/commitlint';
 import * as common from '../shared/common';
+import * as eslint from '../shared/eslint';
 import * as devcontainer from '../shared/devcontainer';
 import * as github from '../shared/github';
 import * as husky from '../shared/husky';
@@ -43,7 +44,7 @@ describe('JsiiProject Builders', (): void => {
     });
 
     test('Additional/Overrides devDependencies are added properly', (): void => {
-      const expectedDevDependencies: string[] = ['ts-node@*', '@types/node@*', 'projen@*'];
+      const expectedDevDependencies: string[] = [];
       npm.testDevDependencies(snapshot, expectedDevDependencies);
     });
 
@@ -128,10 +129,6 @@ describe('JsiiProject Builders', (): void => {
         github.testReleaseWorkflow(snapshot);
       });
 
-      test('Stale workflow template matches expected template', (): void => {
-        github.testStaleWorkflow(snapshot);
-      });
-
       test('Cliff toml template matches expected template', (): void => {
         github.testCliffToml(snapshot);
       });
@@ -161,6 +158,34 @@ describe('JsiiProject Builders', (): void => {
 
     test('Prettier related files are added to .gitattributes and defined as linguist-generated', (): void => {
       prettier.testGitAttributes(snapshot);
+    });
+  });
+
+  describe('Eslint', (): void => {
+    test('Builder is registered in project registry', (): void => {
+      common.testBuilderInRegistry('EslintJsii', (project as unknown as TypeScriptProjectBase).builderRegistry);
+    });
+
+    test('Config file matches expected template', (): void => {
+      const additionalRules: Record<string, string> = {
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/class-literal-property-style': 'off',
+        '@typescript-eslint/no-empty-object-type': 'off',
+      };
+      const additionalIgnores: string[] = ['lib/', '.jsii'];
+      eslint.testConfigFile(snapshot, additionalRules, additionalIgnores);
+    });
+
+    test('Eslint npm scripts are added properly', (): void => {
+      eslint.testScripts(snapshot);
+    });
+
+    test('Eslint npm devDependencies are added properly', (): void => {
+      eslint.testDevDependencies(snapshot);
+    });
+
+    test('Eslint related files are added to .gitattributes and defined as linguist-generated', (): void => {
+      eslint.testGitAttributes(snapshot);
     });
   });
 

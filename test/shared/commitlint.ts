@@ -50,11 +50,11 @@ export function testScripts(snapshot: SynthOutput): void {
  */
 export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: string[] = []): void {
   const standardDevDependencies: string[] = [
-    '@commitlint/cli@^19.6.0',
+    '@commitlint/cli@^19.6.1',
     '@commitlint/config-conventional@^19.6.0',
-    '@commitlint/prompt-cli@^19.6.0',
+    '@commitlint/prompt-cli@^19.6.1',
     '@commitlint/types@^19.5.0',
-    'lint-staged@^15.2.10',
+    'lint-staged@^15.2.11',
   ];
   const devDependencies: string[] = expectedDevDependencies.length ? expectedDevDependencies : standardDevDependencies;
   common.testDevDependencies(snapshot, devDependencies);

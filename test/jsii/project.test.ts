@@ -57,27 +57,41 @@ describe('JsiiProject Constructor Options', (): void => {
 
   test('Configuration is set properly', async (): Promise<void> => {
     expect(cdk.JsiiProject).toHaveBeenCalledWith({
+      name: '@dxfrontier/projen-template-projects',
+      repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
       author: 'Mathias von Kaiz',
       authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
-      repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
       copyrightOwner: 'ABS GmbH',
-      defaultReleaseBranch: 'main',
-      name: '@dxfrontier/projen-template-projects',
+      licensed: false,
+
       packageManager: javascript.NodePackageManager.NPM,
-      projenrcTs: true,
-      jsiiVersion: '~5.5.0',
       npmignoreEnabled: false,
+
+      projenrcTs: true,
+      typescriptVersion: '^5.7.2',
+
       prettier: true,
-      githubOptions: {
-        mergify: false,
-        pullRequestLint: false,
-      },
+      eslint: false,
+
+      githubOptions: { mergify: false, pullRequestLint: false },
       buildWorkflow: false,
       release: false,
       pullRequestTemplate: false,
       depsUpgrade: false,
-      peerDeps: ['projen'],
-      bundledDeps: ['construct'],
+
+      defaultReleaseBranch: 'main',
+      jsiiVersion: '^5.7.1',
+      devDeps: [
+        '@types/node@^22.10.2',
+        'constructs@^10.4.2',
+        'jsii-diff@^1.106.0',
+        'jsii-docgen@^10.6.1',
+        'jsii-pacmak@^1.106.0',
+        'ts-node@^10.9.2',
+      ],
+      peerDeps: ['projen', 'constructs'],
+      // bundledDeps: ['construct'],
+
       tsconfig: {
         compilerOptions: {
           allowImportingTsExtensions: true,
