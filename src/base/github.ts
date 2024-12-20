@@ -265,7 +265,7 @@ export abstract class GitHubBase extends Builder {
       '# regex for preprocessing the commit messages',
       'commit_preprocessors = [',
       '  # Replace issue numbers',
-      '  #{ pattern = "\\((\\w+\\s)?#([0-9]+)\\)", replace = "([#${2}](<REPO>/issues/${2}))"},',
+      '  #{ pattern = "((w+s)?#([0-9]+))", replace = "([#${2}](<REPO>/issues/${2}))"},',
       '  # Check spelling of the commit with https://github.com/crate-ci/typos',
       '  # If the spelling is incorrect, it will be automatically fixed.',
       '  #{ pattern = ".*", replace_command = "typos --write-changes -" },',
@@ -279,10 +279,10 @@ export abstract class GitHubBase extends Builder {
       '  { message = "^refactor", group = "<!-- 2 -->🚜 Refactor" },',
       '  { message = "^style", group = "<!-- 5 -->🎨 Styling" },',
       '  { message = "^test", group = "<!-- 6 -->🧪 Testing" },',
-      '  { message = "^chore\\(release\\): prepare for", skip = true },',
-      '  { message = "^chore\\(deps.*\\)", skip = true },',
-      '  { message = "^chore\\(pr\\)", skip = true },',
-      '  { message = "^chore\\(pull\\)", skip = true },',
+      '  { message = "^chore(release): prepare for", skip = true },',
+      '  { message = "^chore(deps.*)", skip = true },',
+      '  { message = "^chore(pr)", skip = true },',
+      '  { message = "^chore(pull)", skip = true },',
       '  { message = "^chore|^ci", group = "<!-- 7 -->⚙️ Miscellaneous Tasks" },',
       '  { body = ".*security", group = "<!-- 8 -->🛡️ Security" },',
       '  { message = "^revert", group = "<!-- 9 -->◀️ Revert" },',
@@ -332,50 +332,6 @@ export abstract class GitHubBase extends Builder {
             with: {
               GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
               BRANCH: 'main',
-            },
-          },
-        ],
-      },
-    };
-  }
-
-  /**
-   * Workflow stale template options for the GitHub configuration.
-   * @return Options for stale workflow
-   * @protected
-   */
-  protected get staleWorkflowOptions(): WorkflowOptions {
-    return {
-      on: {
-        schedule: [
-          {
-            cron: '36 18 * * *',
-          },
-        ],
-      },
-      job: {
-        runsOn: ['ubuntu-latest'],
-        permissions: {
-          issues: JobPermission.WRITE,
-          pullRequests: JobPermission.WRITE,
-        },
-        steps: [
-          {
-            uses: 'actions/stale@v5',
-            with: {
-              'repo-token': '${{ secrets.GITHUB_TOKEN }}',
-              'days-before-issue-stale': 30,
-              'stale-issue-message':
-                'This issue has not been updated in a while. If it is still relevant, please comment on it to keep it open. The issue will be closed soon if it remains inactive.',
-              'close-issue-message': 'This issue has been closed automatically due to inactivity.',
-              'stale-pr-message':
-                'This PR has not been updated in a while. If it is still relevant, please comment on it to keep it open. The PR will be closed soon if it remains inactive.',
-              'close-pr-message': 'This PR has been closed automatically due to inactivity.',
-              'stale-issue-label': 'status: stale',
-              'stale-pr-label': 'status: stale',
-              'exempt-issue-labels': 'type: feature request',
-              'exempt-pr-labels': 'type: feature request',
-              'exempt-all-milestones': true,
             },
           },
         ],
@@ -444,16 +400,6 @@ export abstract class GitHubBase extends Builder {
   }
 
   /**
-   * Creates the template file for a GitHub stale workflow.
-   * @private
-   */
-  private createStaleWorkflow(): void {
-    const workflow: GithubWorkflow | undefined = this.project.github?.addWorkflow('Stale');
-    workflow?.on(this.staleWorkflowOptions.on);
-    workflow?.addJob('stale', this.staleWorkflowOptions.job);
-  }
-
-  /**
    * Creates the configuration file for the cliff toml CHANGELOG creation in release workflow.
    * @private
    */
@@ -471,7 +417,6 @@ export abstract class GitHubBase extends Builder {
     this.createQuestionIssue();
 
     this.createReleaseWorkflow();
-    this.createStaleWorkflow();
     this.createCliffTomlConfiguration();
   }
 }

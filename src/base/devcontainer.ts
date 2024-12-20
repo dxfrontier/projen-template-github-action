@@ -43,7 +43,6 @@ export abstract class DevContainerBase extends Builder {
     return {
       'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
       'ghcr.io/devcontainers/features/github-cli': 'latest',
-      'ghcr.io/devcontainers-contrib/features/projen': 'latest',
     };
   }
 
@@ -111,6 +110,7 @@ export abstract class DevContainerBase extends Builder {
       'christian-kohler.path-intellisense',
       'AykutSarac.jsoncrack-vscode',
       'tamasfe.even-better-toml',
+      'github.copilot',
     ];
   }
 

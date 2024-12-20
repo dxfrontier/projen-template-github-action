@@ -44,7 +44,6 @@ export abstract class PrettierBase extends Builder {
       '*.snap',
       '/.commitlintrc.ts',
       '/.devcontainer.json',
-      '/.eslintrc.json',
       '/.gitattributes',
       '/.github/ISSUE_TEMPLATE/bug.yml',
       '/.github/ISSUE_TEMPLATE/feature.yml',
@@ -52,7 +51,6 @@ export abstract class PrettierBase extends Builder {
       '/.github/ISSUE_TEMPLATE/question.yml',
       '/.github/pull_request_template.md',
       '/.github/workflows/release.yml',
-      '/.github/workflows/stale.yml',
       '/.gitignore',
       '/.husky/commit-msg',
       '/.husky/pre-commit',
@@ -63,12 +61,11 @@ export abstract class PrettierBase extends Builder {
       '/.projen/files.json',
       '/.projen/tasks.json',
       '/.vscode/settings.json',
+      '/eslint.config.mjs',
       '/cliff.toml',
-      '/LICENSE',
       '/package-lock.json',
       '/package.json',
       '/tsconfig.dev.json',
-      '/tsconfig.json',
     ];
   }
 
