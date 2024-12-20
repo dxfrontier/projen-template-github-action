@@ -13,10 +13,6 @@ export declare class NpmPackageJsii extends NpmPackageBase {
     /**
      * @override
      */
-    protected get gitAttributesFilePaths(): string[];
-    /**
-     * @override
-     */
     protected get npmFilePaths(): string[];
     /**
      * @override

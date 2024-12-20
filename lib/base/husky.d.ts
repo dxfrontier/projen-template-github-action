@@ -36,13 +36,13 @@ export declare abstract class HuskyBase extends Builder {
      */
     protected get preCommitTemplate(): string[];
     /**
-     * NPM scripts for the CommitLint builder.
+     * NPM scripts for the Husky builder.
      * @return Npm script entries.
      * @protected
      */
     protected get scripts(): Scripts;
     /**
-     * NPM packages to be installed as devDependencies for the CommitLint builder.
+     * NPM packages to be installed as devDependencies for the Husky builder.
      * @return Npm dev dependencies.
      * @protected
      */

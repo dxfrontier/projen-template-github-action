@@ -4,7 +4,6 @@
 !/.projen/deps.json
 !/.projen/files.json
 !/package.json
-!/LICENSE
 logs
 *.log
 npm-debug.log*
@@ -38,7 +37,6 @@ junit.xml
 !/src/
 /lib
 /dist/
-!/.eslintrc.json
 .jsii
 tsconfig.json
 !/API.md
@@ -50,8 +48,8 @@ tsconfig.json
 !/.github/ISSUE_TEMPLATE/housekeeping.yml
 !/.github/ISSUE_TEMPLATE/question.yml
 !/.github/workflows/release.yml
-!/.github/workflows/stale.yml
 !/cliff.toml
+!/eslint.config.mjs
 !/.husky/commit-msg
 !/.husky/pre-commit
 !/.commitlintrc.ts

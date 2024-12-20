@@ -1,9 +1,7 @@
 /**
  * Configuration for linting staged files, allowing string or array of strings.
  */
-export type LintStagedConfig = {
-    [key: string]: string | string[];
-};
+export type LintStagedConfig = Record<string, string | string[]>;
 /**
  * Standard npm scripts that Projen automatically adds
  * to package.json during project initialization.
@@ -12,16 +10,12 @@ export type ProjenStandardScript = 'bump' | 'clobber' | 'compile' | 'default' | 
 /**
  * Collection of npm scripts, indexed by their names
  */
-export type Scripts = {
-    [key: string]: string;
-};
+export type Scripts = Record<string, string>;
 /**
  * Structure of a projen task containing multiple steps.
  * This is derived from them Scripts type but contains an array keeping the task steps.
  */
-export type TaskSteps = {
-    [key: string]: string[];
-};
+export type TaskSteps = Record<string, string[]>;
 /**
  * Options for github workflows
  */
