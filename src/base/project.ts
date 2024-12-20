@@ -4,7 +4,6 @@ import { Builder } from './builder';
 
 // Have to disable the prettier rule here for the { }
 // otherwise we have a conflict between prettier and linter.
-// eslint-disable-next-line prettier/prettier
 export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions {}
 
 /**
@@ -21,15 +20,19 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
   constructor(options: TypeScriptProjectBaseOptions) {
     super({
       ...options,
+      licensed: options.licensed ?? false,
 
       packageManager: options.packageManager ?? javascript.NodePackageManager.NPM,
       npmignoreEnabled: options.npmignoreEnabled ?? false,
 
       projenrcTs: options.projenrcTs ?? true,
-      typescriptVersion: '~5.6.3',
+      typescriptVersion: options.typescriptVersion ?? '^5.7.2',
+      // disableTsconfigDev: options.disableTsconfigDev ?? true,
 
-      prettier: options.prettier ?? true,
+      prettier: options.prettier ?? false,
+      eslint: options.eslint ?? false,
 
+      defaultReleaseBranch: options.defaultReleaseBranch ?? 'dev',
       githubOptions: options.githubOptions ?? { mergify: false, pullRequestLint: false }, // mergify and workflow pull-request-lint.yml
       buildWorkflow: options.buildWorkflow ?? false, // workflow build.yml
       release: options.release ?? false, // workflow release.yml
@@ -38,10 +41,12 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
 
       sampleCode: options.sampleCode ?? false,
 
-      devDeps: [
-        'projen',
-        'construct',
-        '@dxfrontier/projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
+      devDeps: options.devDeps ?? [
+        '@types/node@^22.10.2',
+        'ts-node@^10.9.2', // !!! move in typescript builder
+        // 'projen',
+        // 'construct',
+        // '@dxfrontier/projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
       ],
     });
   }

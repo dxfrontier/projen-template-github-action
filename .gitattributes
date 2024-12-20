@@ -4,7 +4,6 @@
 *.snap linguist-generated
 /.commitlintrc.ts linguist-generated
 /.devcontainer.json linguist-generated
-/.eslintrc.json linguist-generated
 /.gitattributes linguist-generated
 /.github/ISSUE_TEMPLATE/bug.yml linguist-generated
 /.github/ISSUE_TEMPLATE/feature.yml linguist-generated
@@ -12,7 +11,6 @@
 /.github/ISSUE_TEMPLATE/question.yml linguist-generated
 /.github/pull_request_template.md linguist-generated
 /.github/workflows/release.yml linguist-generated
-/.github/workflows/stale.yml linguist-generated
 /.gitignore linguist-generated
 /.husky/commit-msg linguist-generated
 /.husky/pre-commit linguist-generated
@@ -25,8 +23,7 @@
 /.vscode/settings.json linguist-generated
 /API.md linguist-generated
 /cliff.toml linguist-generated
-/LICENSE linguist-generated
+/eslint.config.mjs linguist-generated
 /package-lock.json linguist-generated
 /package.json linguist-generated
 /tsconfig.dev.json linguist-generated
-/tsconfig.json linguist-generated

@@ -18,15 +18,8 @@ export class NpmPackageJsii extends NpmPackageBase {
   /**
    * @override
    */
-  protected get gitAttributesFilePaths(): string[] {
-    return ['tsconfig.json'];
-  }
-
-  /**
-   * @override
-   */
   protected get npmFilePaths(): string[] {
-    return ['lib', 'README.md', 'LICENSE', '.jsii'];
+    return ['lib', 'README.md', '.jsii'];
   }
 
   /**

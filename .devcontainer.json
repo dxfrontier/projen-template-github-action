@@ -4,8 +4,7 @@
   "postCreateCommand": "npx projen install-dependencies",
   "features": {
     "ghcr.io/devcontainers-contrib/features/curl-apt-get": "latest",
-    "ghcr.io/devcontainers/features/github-cli": "latest",
-    "ghcr.io/devcontainers-contrib/features/projen": "latest"
+    "ghcr.io/devcontainers/features/github-cli": "latest"
   },
   "customizations": {
     "vscode": {
@@ -43,7 +42,8 @@
         "VisualStudioExptTeam.vscodeintellicode",
         "christian-kohler.path-intellisense",
         "AykutSarac.jsoncrack-vscode",
-        "tamasfe.even-better-toml"
+        "tamasfe.even-better-toml",
+        "github.copilot"
       ]
     }
   }

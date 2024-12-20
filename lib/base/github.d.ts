@@ -86,12 +86,6 @@ export declare abstract class GitHubBase extends Builder {
      */
     protected get releaseWorkflowOptions(): WorkflowOptions;
     /**
-     * Workflow stale template options for the GitHub configuration.
-     * @return Options for stale workflow
-     * @protected
-     */
-    protected get staleWorkflowOptions(): WorkflowOptions;
-    /**
      * Creates the template file for a GitHub pull request.
      * @private
      */
@@ -121,11 +115,6 @@ export declare abstract class GitHubBase extends Builder {
      * @private
      */
     private createReleaseWorkflow;
-    /**
-     * Creates the template file for a GitHub stale workflow.
-     * @private
-     */
-    private createStaleWorkflow;
     /**
      * Creates the configuration file for the cliff toml CHANGELOG creation in release workflow.
      * @private

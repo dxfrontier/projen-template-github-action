@@ -38,7 +38,7 @@ export abstract class NpmPackageBase extends Builder {
    * @override
    */
   protected get devDependencies(): string[] {
-    return ['ts-node@^10.9.2', '@types/node@^20.9.3', 'projen'];
+    return [];
   }
 
   /**

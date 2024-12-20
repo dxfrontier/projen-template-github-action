@@ -57,7 +57,7 @@ export abstract class HuskyBase extends Builder {
   }
 
   /**
-   * NPM scripts for the CommitLint builder.
+   * NPM scripts for the Husky builder.
    * @return Npm script entries.
    * @protected
    */
@@ -68,7 +68,7 @@ export abstract class HuskyBase extends Builder {
   }
 
   /**
-   * NPM packages to be installed as devDependencies for the CommitLint builder.
+   * NPM packages to be installed as devDependencies for the Husky builder.
    * @return Npm dev dependencies.
    * @protected
    */

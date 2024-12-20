@@ -27,28 +27,24 @@ export abstract class Builder {
    * Adds template files to the builder's project directory.
    * @protected
    */
-  // eslint-disable-next-line prettier/prettier
   protected addTemplates(): void {}
 
   /**
    * Configures settings specific to the builder within the project.
    * @protected
    */
-  // eslint-disable-next-line prettier/prettier
   protected addSettings(): void {}
 
   /**
    * Adds npm scripts specific to the builder within the project.
    * @protected
    */
-  // eslint-disable-next-line prettier/prettier
   protected addScripts(): void {}
 
   /**
    * Installs development dependencies for the builder in the project.
    * @protected
    */
-  // eslint-disable-next-line prettier/prettier
   protected addDevDependencies(): void {}
 
   /**
@@ -56,21 +52,18 @@ export abstract class Builder {
    * Overwrite this in case that manual entries need to be done.
    * @protected
    */
-  // eslint-disable-next-line prettier/prettier
   protected addGitAttributes(): void {}
 
   /**
    * Hook to be called before synthesis.
    * @public
    */
-  // eslint-disable-next-line prettier/prettier
   public preSynthesize(): void {}
 
   /**
    * Hook to be called after synthesis.
    * @public
    */
-  // eslint-disable-next-line prettier/prettier
   public postSynthesize(): void {}
 
   /**

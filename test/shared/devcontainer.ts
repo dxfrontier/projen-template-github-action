@@ -18,7 +18,6 @@ export function testFeatures(snapshot: SynthOutput): void {
   const expectedFeatures = {
     'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
     'ghcr.io/devcontainers/features/github-cli': 'latest',
-    'ghcr.io/devcontainers-contrib/features/projen': 'latest',
   };
   expect(snapshot['.devcontainer.json'].features).toStrictEqual(expectedFeatures);
 }
@@ -63,6 +62,7 @@ export function testExtensions(snapshot: SynthOutput): void {
     'christian-kohler.path-intellisense',
     'AykutSarac.jsoncrack-vscode',
     'tamasfe.even-better-toml',
+    'github.copilot',
   ];
   expect(snapshot['.devcontainer.json'].customizations.vscode.extensions).toStrictEqual(expectedExtensions);
 }
